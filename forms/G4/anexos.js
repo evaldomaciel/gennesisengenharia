@@ -11,27 +11,27 @@
  * @return {void} 
  * @author Sérgio Machado
  */
-function anexo(event){
-	try{
+function anexo(event) {
+	try {
 		console.log("TESTE");
 		const acao = event.currentTarget.getAttribute("data-acao");
 		const inputFile = $(event.currentTarget).parent().parent().find(".inputAnexo")[0]
 		const fileDescription = $(event.currentTarget).parent().parent().find(".descAnexo").val()
-		if(acao == "upload"){
+		if (acao == "upload") {
 			console.log("TESTE 2");
-			console.log("------> " +inputFile+ " -----> " +  fileDescription);
+			console.log("------> " + inputFile + " -----> " + fileDescription);
 			uploadFile(fileDescription, inputFile.id)
 		}
-		if(acao == "viewer"){
+		if (acao == "viewer") {
 			viewerFile(fileDescription)
 		}
-		if(acao == "download"){
+		if (acao == "download") {
 			downloadFile(fileDescription, inputFile.id)
 		}
-		if(acao == "delete"){
+		if (acao == "delete") {
 			removeFileConfirm(fileDescription, inputFile.id)
 		}
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função anexo")
 		console.error(e)
 	}
@@ -46,7 +46,7 @@ function anexo(event){
  * @return {void} 
  */
 function uploadFile(fileDescription, idInput) {
-	try{
+	try {
 		var tabAttachments = parent.document.getElementById("tab-attachments");
 		if (tabAttachments) {
 			//Verifica se o navegador é o Ie9 para realizar o devido tratamento
@@ -69,7 +69,7 @@ function uploadFile(fileDescription, idInput) {
 				}
 			}
 		}
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função uploadFile")
 		console.error(e)
 	}
@@ -82,34 +82,34 @@ function uploadFile(fileDescription, idInput) {
  * Verifica se o anexo já existe, seta o valor do arquivo fisico no campo e altera o estado dos botões
  * @return {void} 
  */
-$(function(){
-	try{
-		window.parent.$("#ecm-navigation-inputFile-clone").on('change', function(e) {
-		const inputNameFile = this.getAttribute("data-inputNameFile");
-		const fileDescription = this.getAttribute("data-file-name-camera");
-		const filePhisical = this.files[0].name;
-		if(fileDescription && fileDescription){
-			/**
-			 * O trecho de código abaixo percorre os anexos do Fluig e caso já exista um anexo com a mesma descrição, ele será removido. 
-			 * Em seguida limpa o campo onde é armazenado o nome fisico do arquivo
-			 */
-			$.each(parent.ECM.attachmentTable.getData(), function(i, attachment) {
-				var descricao = attachment.description;
-				if (fileDescription == descricao) {
-					parent.WKFViewAttachment.removeAttach([i]);
-					setFilePhisicalName(inputNameFile, "");
+$(function () {
+	try {
+		window.parent.$("#ecm-navigation-inputFile-clone").on('change', function (e) {
+			const inputNameFile = this.getAttribute("data-inputNameFile");
+			const fileDescription = this.getAttribute("data-file-name-camera");
+			const filePhisical = this.files[0].name;
+			if (fileDescription && fileDescription) {
+				/**
+				 * O trecho de código abaixo percorre os anexos do Fluig e caso já exista um anexo com a mesma descrição, ele será removido. 
+				 * Em seguida limpa o campo onde é armazenado o nome fisico do arquivo
+				 */
+				$.each(parent.ECM.attachmentTable.getData(), function (i, attachment) {
+					var descricao = attachment.description;
+					if (fileDescription == descricao) {
+						parent.WKFViewAttachment.removeAttach([i]);
+						setFilePhisicalName(inputNameFile, "");
+					}
+				});
+				setFilePhisicalName(inputNameFile, filePhisical)
+				if (getMode() == "ADD") {
+					btnState(inputNameFile, 'delete', 'download');
 				}
-			});
-			setFilePhisicalName(inputNameFile, filePhisical)
-			if(getMode() == "ADD"){
-				btnState(inputNameFile, 'delete', 'download');
+				if (getMode() == "MOD") {
+					btnState(inputNameFile, 'delete', 'viewer');
+				}
 			}
-			if(getMode() == "MOD"){
-				btnState(inputNameFile, 'delete', 'viewer');
-			}
-		}
-	});
-	}catch(e){
+		});
+	} catch (e) {
 		console.error("Houve um erro inesperado ao selecionar o arquivo")
 		console.error(e)
 	}
@@ -122,24 +122,24 @@ $(function(){
  * @return {void} 
  */
 function viewerFile(fileDescription) {
-	try{
-		if(hasFileFluig(fileDescription)){
+	try {
+		if (hasFileFluig(fileDescription)) {
 			const anexos = parent.ECM.attachmentTable.getData();
-			for(let i = 0; i < anexos.length; i++){
+			for (let i = 0; i < anexos.length; i++) {
 				var descricao = anexos[i].description;
 				if (fileDescription == descricao) {
 					parent.WKFViewAttachment.openAttachmentView('adm', anexos[i].documentId);
-					return 
+					return
 				}
 			}
-		}else{
+		} else {
 			FLUIGC.toast({
 				title: "Atenção",
 				message: "Anexo não encontrado",
 				type: "warning"
 			});
 		}
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função viewerFile")
 		console.error(e)
 	}
@@ -153,16 +153,16 @@ function viewerFile(fileDescription) {
  * @return {void} 
  */
 function downloadFile(fileDescription, idInput) {
-	try{
+	try {
 		const filename = getMode() == "VIEW" ? $(`#${idInput}`).text() : $(`#${idInput}`).val()
 		FLUIGC.message.confirm({
 			message: `Deseja baixar o anexo <b>${filename}</b>?`,
 			title: 'Confirmação',
 			labelYes: 'Sim, quero baixar',
 			labelNo: 'Não, quero cancelar',
-		}, function(result) {
+		}, function (result) {
 			if (result) {
-				$.each(parent.ECM.attachmentTable.getData(), function(i, attachment) {
+				$.each(parent.ECM.attachmentTable.getData(), function (i, attachment) {
 					var descricao = attachment.description;
 					if (fileDescription == descricao) {
 						parent.WKFViewAttachment.downloadAttach([i]);
@@ -170,7 +170,7 @@ function downloadFile(fileDescription, idInput) {
 				});
 			}
 		});
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função downloadFile")
 		console.error(e)
 	}
@@ -184,21 +184,21 @@ function downloadFile(fileDescription, idInput) {
  * @author Sérgio Machado
  */
 function removeFileConfirm(fileDescription, idInput) {
-	try{
+	try {
 		const filename = $(`#${idInput}`).val()
 		FLUIGC.message.confirm({
 			message: `Deseja remover o anexo <b>${filename}</b>?`,
 			title: 'Confirmação',
 			labelYes: 'Sim, quero remover',
 			labelNo: 'Não, quero cancelar',
-		}, function(result) {
+		}, function (result) {
 			if (result) {
 				removeFile(fileDescription)
 				setFilePhisicalName(idInput, "")
 				btnState(idInput, "upload", "download")
 			}
 		});
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função removeFileConfirm")
 		console.error(e)
 	}
@@ -211,13 +211,13 @@ function removeFileConfirm(fileDescription, idInput) {
  * @author Sérgio Machado
  */
 function removeFile(fileDescription) {
-	try{
-		$.each(parent.ECM.attachmentTable.getData(), function(i, attachment) {
+	try {
+		$.each(parent.ECM.attachmentTable.getData(), function (i, attachment) {
 			if (attachment.description == fileDescription) {
 				parent.WKFViewAttachment.removeAttach([i]);
 			}
 		});
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função removeFile")
 		console.error(e)
 	}
@@ -231,13 +231,13 @@ function removeFile(fileDescription) {
  * @return {void} 
  * @author Sérgio Machado
  */
-function setFilePhisicalName(idInput, filePhisical){
-	try{
-		if(idInput.indexOf("_") == 0){
+function setFilePhisicalName(idInput, filePhisical) {
+	try {
+		if (idInput.indexOf("_") == 0) {
 			$("#" + idInput.substring(1)).val(filePhisical);
-		} 
+		}
 		$("#" + idInput).val(filePhisical);
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função setFilePhisicalName")
 		console.error(e)
 	}
@@ -252,29 +252,29 @@ function setFilePhisicalName(idInput, filePhisical){
  * @return {void} 
  * @author Sérgio Machado
  */
-function btnState(idInput, acao, btn){
-	try{
+function btnState(idInput, acao, btn) {
+	try {
 		let btnUpFile = $(`#${idInput}`).parent().parent().find(".btnUpFile");
 		let btnDownloadFile = $(`#${idInput}`).parent().parent().find(".btnDownloadFile");
 		let btnViewerFile = $(`#${idInput}`).parent().parent().find(".btnViewerFile");
-		if(acao == "delete"){
+		if (acao == "delete") {
 			btnUpFile.removeClass("btn-success").addClass("btn-danger");
-		    btnUpFile.attr( 'data-acao', acao);
+			btnUpFile.attr('data-acao', acao);
 			//btnUpFile.find("i").removeClass("flaticon-upload").addClass("flaticon-trash");
 			btnUpFile.find("i").removeClass("flaticon-paperclip").addClass("flaticon-trash");
 			btnUpFile.find("span").text("").text(" Remover");
-			if(btn == "download"){
+			if (btn == "download") {
 				btnDownloadFile.prop("disabled", false);
 				btnDownloadFile.show()
 			}
-			if(btn == "viewer"){
+			if (btn == "viewer") {
 				btnViewerFile.prop("disabled", false);
 				btnViewerFile.show()
 			}
 		}
-		if(acao == "upload"){
+		if (acao == "upload") {
 			btnUpFile.removeClass("btn-danger").addClass("btn-success");
-			btnUpFile.attr( 'data-acao', acao);
+			btnUpFile.attr('data-acao', acao);
 			//btnUpFile.find("i").removeClass("flaticon-trash").addClass("flaticon-upload");
 			btnUpFile.find("i").removeClass("flaticon-trash").addClass("flaticon-paperclip");
 			btnUpFile.find("span").text("").text(" Anexar");
@@ -283,7 +283,7 @@ function btnState(idInput, acao, btn){
 			btnViewerFile.prop("disabled", true);
 			btnViewerFile.hide()
 		}
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função btnState")
 		console.error(e)
 	}
@@ -297,24 +297,24 @@ function btnState(idInput, acao, btn){
  * @return {void} 
  * @author Sérgio Machado
  */
-function displayBtnFiles(){
-	try{
-		$('.componentAnexo').each(function(i, element) {
+function displayBtnFiles() {
+	try {
+		$('.componentAnexo').each(function (i, element) {
 			let inputFile = $(element).find(".inputAnexo")
 			let btnUpFile = $(element).find(".btnUpFile");
 			let btnViewerFile = $(element).find(".btnViewerFile");
-			if(getMode() == "VIEW"){
-				btnUpFile.remove();	
-				if(inputFile.val() != ""){
+			if (getMode() == "VIEW") {
+				btnUpFile.remove();
+				if (inputFile.val() != "") {
 					btnViewerFile.prop("disabled", false);
 					btnViewerFile.show()
 				}
 			}
-			if(getMode() == "MOD" && inputFile.val() != ""){
+			if (getMode() == "MOD" && inputFile.val() != "") {
 				btnState(inputFile[0].id, "delete", "viewer")
 			}
 		});
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função displayBtnFiles")
 		console.error(e)
 	}
@@ -327,27 +327,27 @@ function displayBtnFiles(){
  * @return {void} 
  * @author Sérgio Machado
  */
-function invisibleBtnUpload(inputFile){
-	try{
-		if(getMode() == "MOD" || getMode() == "ADD"){
-			if($(`#_${inputFile}`).length){
+function invisibleBtnUpload(inputFile) {
+	try {
+		if (getMode() == "MOD" || getMode() == "ADD") {
+			if ($(`#_${inputFile}`).length) {
 				let btnUpFile = $(`#_${inputFile}`).parent().parent().find(".btnUpFile");
-				btnUpFile.remove();	
-			} else{
+				btnUpFile.remove();
+			} else {
 				let btnUpFile = $(`#${inputFile}`).parent().parent().find(".btnUpFile");
 				btnUpFile.remove();
 			}
 		}
-		if($(`#_${inputFile}`).length){
-			if($(`#_${inputFile}`).val() == ""){
-				$(`#_${inputFile}`).attr({placeholder:"Nenhuma anexo encontrado"});
+		if ($(`#_${inputFile}`).length) {
+			if ($(`#_${inputFile}`).val() == "") {
+				$(`#_${inputFile}`).attr({ placeholder: "Nenhuma anexo encontrado" });
 			}
-		} else{
-			if($(`#${inputFile}`).val() == ""){
-				$(`#${inputFile}`).attr({placeholder:"Nenhuma anexo encontrado"});
+		} else {
+			if ($(`#${inputFile}`).val() == "") {
+				$(`#${inputFile}`).attr({ placeholder: "Nenhuma anexo encontrado" });
 			}
 		}
-	}catch(e){
+	} catch (e) {
 		console.error("Houve um erro inesperado na função invisibleBtnUpload")
 		console.error(e)
 	}
@@ -361,18 +361,18 @@ function invisibleBtnUpload(inputFile){
  * @param {String} idInput Parâmetro obrigatório, Id do campo em que o nome do arquivo fisico é gravado
  * @return {Boolean}
  */
-function invalidFile(idInput){
+function invalidFile(idInput) {
 	try {
 		const inputNameFile = $(`#${idInput}`).val()
-		if(inputNameFile){
-			if($(`#_${idInput}`).length){
+		if (inputNameFile) {
+			if ($(`#_${idInput}`).length) {
 				let fileDescription = $(`#_${idInput}`).parent().find(".descAnexo").val()
 				return !hasFileFluig(fileDescription)
-			} else{
+			} else {
 				let fileDescription = $(`#${idInput}`).parent().find(".descAnexo").val()
 				return !hasFileFluig(fileDescription)
 			}
-		}else{
+		} else {
 			return false
 		}
 	} catch (e) {
@@ -386,10 +386,10 @@ function invalidFile(idInput){
  * @param {String} fileDescription Parâmetro obrigatório, Descrição do arquivo
  * @return {Boolean} - Retorna verdadeiro caso o arquivo exista
  */
-function hasFileFluig(fileDescription){
+function hasFileFluig(fileDescription) {
 	try {
 		const anexos = parent.ECM.attachmentTable.getData();
-		for(let i = 0; i < anexos.length; i++){
+		for (let i = 0; i < anexos.length; i++) {
 			var descricao = anexos[i].description;
 			if (fileDescription == descricao) {
 				return true
