@@ -1,7 +1,6 @@
 function beforeStateEntry(sequenceId) {
 	try {
 		var task = getValue("WKNumState");
-
 		if (task == 14) {
 			hAPI.setCardValue("processHistory", 14);
 			validateAnexoProcess();
@@ -23,7 +22,6 @@ function beforeStateEntry(sequenceId) {
 			}
 			createFolderClifor();
 		}
-
 		if ([39, 53, 60, 74, 67].indexOf(sequenceId) != -1) {
 			//var usuarioNotific = String( hAPI.getCardValue("cTask039Group") );
 			//hAPI.setCardValue("encerraLoopNotifi", "false");
@@ -32,19 +30,16 @@ function beforeStateEntry(sequenceId) {
 			//	}
 			/*
 			var usuarioNotific = getAtribuicao();
-
 			if(usuarioNotific == ""){
 				hAPI.setCardValue("encerraLoopNotifi", "true");
 			}else{
 				hAPI.setCardValue("encerraLoopNotifi", "false");
 			}
-
-			if (usuarioNotific.indexOf("Pool:Group:") != -1) {
+				if (usuarioNotific.indexOf("Pool:Group:") != -1) {
 				hAPI.setCardValue("cTask039Group", usuarioNotific)
 			}else{
 				hAPI.setCardValue("cTask039", usuarioNotific)
 			}*/
-
 
 			//usersNotification( usuarioNotific );
 			var posicao = hAPI.getCardValue("txt_posicaoNotificacao")
@@ -54,100 +49,77 @@ function beforeStateEntry(sequenceId) {
 				posicao = parseInt(posicao)
 			}
 
-
 			var indexes = hAPI.getChildrenIndexes("tabela_usrNotif");
-		
 
 			if (indexes.length > posicao) {
 				hAPI.setCardValue("txt_posicaoNotificacao", posicao + 1)
-			}else{
+			} else {
 				hAPI.setCardValue("txt_posicaoNotificacao", "")
 				hAPI.setCardValue("encerraLoopNotifi", "true");
 			}
 
-
 		}
-
 	} catch (e) {
 		throw "beforeStateEntry>" + e.toString();
 	}
-
 	//	throw "Teste de Erro!"
 }
-
 function validateAnexoProcess() {
 	log.info("-----> validateAnexoProcess1");
 	var total = hAPI.getChildrenIndexes("tabela_boleto").length <= 1 ? 1 : hAPI.getChildrenIndexes("tabela_boleto").length;
 	log.info("------> total1 " + total);
-
 	var attachments = hAPI.listAttachments();
 	var qtdAnexados = attachments.size();
-
 	if (qtdAnexados < total) {
 		log.info("-----> validateAnexoProcess1");
-
 		throw "Obrigatório anexar os arquivos correspondente aos itens marcado no checklist: Qtd exigida no checklist: " + total + " Qtd. Anexada: " + qtdAnexados;
 	}
 }
-
 function validateAnexoProcess2() {
 	log.info("-----> validateAnexoProcess2");
 	var total = hAPI.getChildrenIndexes("tabela_comprovante").length <= 2 ? 2 : hAPI.getChildrenIndexes("tabela_comprovante").length;
 	log.info("------> total2 " + total);
 	var attachments = hAPI.listAttachments();
 	var qtdAnexados = attachments.size();
-
 	if (qtdAnexados < total) {
 		log.info("-----> validateAnexoProcess2");
 		throw "Obrigatório anexar os arquivos correspondente aos itens marcado no checklist: Qtd exigida no checklist: " + total + " Qtd. Anexada: " + qtdAnexados;
 	}
 }
-
 function validateAnexoProcess3() {
 	log.info("-----> validateAnexoProcess3");
 	var total = hAPI.getChildrenIndexes("tabela_nota_fiscal").length <= 3 ? 3 : hAPI.getChildrenIndexes("tabela_nota_fiscal").length;
 	log.info("------> total3 " + total);
-
 	var attachments = hAPI.listAttachments();
 	var qtdAnexados = attachments.size();
-
 	if (qtdAnexados < total) {
 		throw "Obrigatório anexar os arquivos correspondente aos itens marcado no checklist: Qtd exigida no checklist: " + total + " Qtd. Anexada: " + qtdAnexados;
 	}
 }
 
-
 function createFolderClifor() {
 	try {
-
 		var codcoligada, idmov, numProces, descCodColigada;
-
 		codcoligada = hAPI.getCardValue("codColigada");
 		idmov = hAPI.getCardValue("IdMov");
 		numProces = getValue("WKNumProces");
-
 		if (codcoligada == '1') {
 			descCodColigada = 'Gennesis'
 		} else if (codcoligada == '2') {
 			descCodColigada = 'EngPac'
 		}
 
-
 		if (numProces == "") {
 			throw "Não é permitido criar pasta sem um número de documento";
 		}
-
 		folder = createFolderIfDoesNotExist(129, descCodColigada + '_OC_ID_' + idmov);
-
 		//	  hAPI.setCardValue("pastaDoc", folder);
 		publishDocuments(folder, numProces, idmov, codcoligada);
-
 
 	} catch (e) {
 		throw "createFolderClifor>" + e.toString();
 	}
 }
-
 function createFolderIfDoesNotExist(parentId, folderDescription) {
 	log.info("INICIO>createFolderIfDoesNotExist###############################################################")
 	log.info("parentId >>> " + parentId);
@@ -170,7 +142,6 @@ function createFolderIfDoesNotExist(parentId, folderDescription) {
 	}
 	log.info("FIM>createFolderIfDoesNotExist###############################################################")
 }
-
 function getfolder(searchFolderId, requestFolderName) {
 	log.info("INICIO getfolder######################################################################################")
 	log.info("getfolder>searchFolderId" + searchFolderId)
@@ -187,7 +158,6 @@ function getfolder(searchFolderId, requestFolderName) {
 	}
 	return null;
 }
-
 function getFolderChilds(folderId) {
 	log.info("INICIO getFolderChilds#########################################################################################")
 	log.info("getFolderChilds>folderId" + folderId)
@@ -223,7 +193,6 @@ function getFolderChilds(folderId) {
 	return childs;
 }
 
-
 function existFolder(parentId, folderDescription) {
 	try {
 		var fields = new Array(parentId);
@@ -239,13 +208,11 @@ function existFolder(parentId, folderDescription) {
 	}
 }
 
-
 function publishDocuments(folder, numProces, idmov, codcoligada) {
 	log.info("INICIO publishDocuments#########################################################################################")
 	log.info("parentId: " + folder);
 	log.info("fluigid:  " + numProces);
 	try {
-
 		var workflowAttachments = hAPI.listAttachments();
 		var dtsolicitacao = java.util.Calendar.getInstance().getTime();
 		for (var i = 0; i < workflowAttachments.size(); i++) {
@@ -262,14 +229,12 @@ function publishDocuments(folder, numProces, idmov, codcoligada) {
 			docDto.setDocumentDescription(info + "_" + idmov);
 			docDto.setVersionDescription("Solicita\u00E7\u00E3o: " + getValue("WKNumProces"));
 			docAPI.createDocument(docDto, attachments, null, null, null);
-
 		}
 		log.info("FIM> publishDocuments#########################################################################################")
 	} catch (e) {
 		throw "publishDocuments>" + e;
 	}
 }
-
 function getAttachments(docDto) {
 	try {
 		var attachmentArray = new java.util.ArrayList();
@@ -283,20 +248,15 @@ function getAttachments(docDto) {
 		throw "getAttachments>" + e;
 	}
 }
-
 function getAtribuicao() {
 	var codcoligada = hAPI.getCardValue("CodColigada");
 	var filial = hAPI.getCardValue("filial").split(' - ')[0];
-
 	var desc = "G4_NOTIFICA-" + codcoligada + "-" + filial
 	var userNotify = "";
-
 	var cst = [DatasetFactory.createConstraint("txt_iden_atividade", desc, desc, ConstraintType.MUST)]
 	var dtsAtribuicao = DatasetFactory.getDataset("ds_consultaCadastroAtribuicoes", null, cst, null)
-
 	if (dtsAtribuicao.rowsCount > 0) {
 		var userNotify = String(dtsAtribuicao.getValue(0, "hd_cod_user_atv"));
 	}
-
 	return userNotify
 }

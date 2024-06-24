@@ -2,6 +2,14 @@
 <java version="1.8.0_361" class="java.beans.XMLDecoder">
  <object class="java.util.HashMap">
   <void method="put">
+   <string>volume</string>
+   <array class="java.lang.String" length="1">
+    <void index="0">
+     <string>Default</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
    <string>mecanismoGrupo</string>
    <object class="java.util.ArrayList">
     <void method="add">
@@ -705,6 +713,491 @@
      </object>
     </void>
    </object>
+  </void>
+  <void method="put">
+   <string>expediente</string>
+   <array class="java.lang.String" length="1">
+    <void index="0">
+     <string>Default</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>camposFormulario, documentoId = 11400</string>
+   <array class="java.lang.String" length="89">
+    <void index="0">
+     <string>aprovacaoComprovantes</string>
+    </void>
+    <void index="1">
+     <string>CC</string>
+    </void>
+    <void index="2">
+     <string>CC_mobile</string>
+    </void>
+    <void index="3">
+     <string>centroCusto</string>
+    </void>
+    <void index="4">
+     <string>centroCustoCampoOculto</string>
+    </void>
+    <void index="5">
+     <string>CodColigada</string>
+    </void>
+    <void index="6">
+     <string>codPagamento</string>
+    </void>
+    <void index="7">
+     <string>cTask039</string>
+    </void>
+    <void index="8">
+     <string>cTask039Group</string>
+    </void>
+    <void index="9">
+     <string>cTask039UsersGroup</string>
+    </void>
+    <void index="10">
+     <string>dadosBancarios</string>
+    </void>
+    <void index="11">
+     <string>dataEmissao</string>
+    </void>
+    <void index="12">
+     <string>dataEntrega</string>
+    </void>
+    <void index="13">
+     <string>dataPagamento</string>
+    </void>
+    <void index="14">
+     <string>dataRecebimento</string>
+    </void>
+    <void index="15">
+     <string>dataVencimento</string>
+    </void>
+    <void index="16">
+     <string>dataVencimentoArr</string>
+    </void>
+    <void index="17">
+     <string>desconto</string>
+    </void>
+    <void index="18">
+     <string>descontoCampoOculto</string>
+    </void>
+    <void index="19">
+     <string>descontoItem</string>
+    </void>
+    <void index="20">
+     <string>div_atribuicoes</string>
+    </void>
+    <void index="21">
+     <string>encerraLoopNotifi</string>
+    </void>
+    <void index="22">
+     <string>fdMapaComparativo</string>
+    </void>
+    <void index="23">
+     <string>fdMapaTipoDemanda</string>
+    </void>
+    <void index="24">
+     <string>fdParecerTecnico</string>
+    </void>
+    <void index="25">
+     <string>fdPropostaDeFornecedores</string>
+    </void>
+    <void index="26">
+     <string>fdRelatorioFotografico</string>
+    </void>
+    <void index="27">
+     <string>filial</string>
+    </void>
+    <void index="28">
+     <string>fnMapaComparativo</string>
+    </void>
+    <void index="29">
+     <string>fnMapaTipoDemanda</string>
+    </void>
+    <void index="30">
+     <string>fnParecerTecnico</string>
+    </void>
+    <void index="31">
+     <string>fnPropostaDeFornecedores</string>
+    </void>
+    <void index="32">
+     <string>fnRelatorioFotografico</string>
+    </void>
+    <void index="33">
+     <string>fornecedor</string>
+    </void>
+    <void index="34">
+     <string>historico</string>
+    </void>
+    <void index="35">
+     <string>IdentificadorFluig</string>
+    </void>
+    <void index="36">
+     <string>IdMov</string>
+    </void>
+    <void index="37">
+     <string>juros</string>
+    </void>
+    <void index="38">
+     <string>localEstoque</string>
+    </void>
+    <void index="39">
+     <string>material</string>
+    </void>
+    <void index="40">
+     <string>nomeComprador</string>
+    </void>
+    <void index="41">
+     <string>notacoesMaterialParcial</string>
+    </void>
+    <void index="42">
+     <string>NSeqItmMov</string>
+    </void>
+    <void index="43">
+     <string>nTask039</string>
+    </void>
+    <void index="44">
+     <string>numeroMov</string>
+    </void>
+    <void index="45">
+     <string>observacao</string>
+    </void>
+    <void index="46">
+     <string>obs_Credito</string>
+    </void>
+    <void index="47">
+     <string>obs_Estorno</string>
+    </void>
+    <void index="48">
+     <string>pagamentosParciaisObs</string>
+    </void>
+    <void index="49">
+     <string>parecerCompras</string>
+    </void>
+    <void index="50">
+     <string>parecerCredito</string>
+    </void>
+    <void index="51">
+     <string>parecerEstoque</string>
+    </void>
+    <void index="52">
+     <string>parecerFinanceiro</string>
+    </void>
+    <void index="53">
+     <string>pedidoExtra</string>
+    </void>
+    <void index="54">
+     <string>precoUnidade</string>
+    </void>
+    <void index="55">
+     <string>precoUnitarioCampoOculto</string>
+    </void>
+    <void index="56">
+     <string>processHistory</string>
+    </void>
+    <void index="57">
+     <string>produto</string>
+    </void>
+    <void index="58">
+     <string>produtoCampoOculto</string>
+    </void>
+    <void index="59">
+     <string>produtosMobile</string>
+    </void>
+    <void index="60">
+     <string>quantidade</string>
+    </void>
+    <void index="61">
+     <string>quantidadeCampoOculto</string>
+    </void>
+    <void index="62">
+     <string>responsavelPeloRecebimento</string>
+    </void>
+    <void index="63">
+     <string>sequencia</string>
+    </void>
+    <void index="64">
+     <string>statusAprovacao</string>
+    </void>
+    <void index="65">
+     <string>StatusFluig</string>
+    </void>
+    <void index="66">
+     <string>TipoAprovacao</string>
+    </void>
+    <void index="67">
+     <string>tipoDemanda</string>
+    </void>
+    <void index="68">
+     <string>tipoEntrega</string>
+    </void>
+    <void index="69">
+     <string>tipoMovimento</string>
+    </void>
+    <void index="70">
+     <string>tipoRecebimento</string>
+    </void>
+    <void index="71">
+     <string>tipoRecebimentoValue</string>
+    </void>
+    <void index="72">
+     <string>totalCampoOculto</string>
+    </void>
+    <void index="73">
+     <string>totalProduto</string>
+    </void>
+    <void index="74">
+     <string>txt_posicaoNotificacao</string>
+    </void>
+    <void index="75">
+     <string>unidade</string>
+    </void>
+    <void index="76">
+     <string>unidadeCampoOculto</string>
+    </void>
+    <void index="77">
+     <string>urgencia</string>
+    </void>
+    <void index="78">
+     <string>usuarioNotificacao</string>
+    </void>
+    <void index="79">
+     <string>valor</string>
+    </void>
+    <void index="80">
+     <string>valorCampoOculto</string>
+    </void>
+    <void index="81">
+     <string>valorJuros</string>
+    </void>
+    <void index="82">
+     <string>valorLiquido</string>
+    </void>
+    <void index="83">
+     <string>valorOriginal</string>
+    </void>
+    <void index="84">
+     <string>valorPago</string>
+    </void>
+    <void index="85">
+     <string>valueFrete</string>
+    </void>
+    <void index="86">
+     <string>valueRadioParcial</string>
+    </void>
+    <void index="87">
+     <string>valueTipoDemandaCompras</string>
+    </void>
+    <void index="88">
+     <string>zTask039</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>mecanismo</string>
+   <array class="[Ljava.lang.Object;" length="20">
+    <void index="0">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovação Solicitação de Compras</string>
+      </void>
+      <void index="1">
+       <string>aprovacaoSC</string>
+      </void>
+     </array>
+    </void>
+    <void index="1">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovação Requisição de Materiais</string>
+      </void>
+      <void index="1">
+       <string>aprovacao_rm</string>
+      </void>
+     </array>
+    </void>
+    <void index="2">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovação Gestor de Compras Ordem de Compras</string>
+      </void>
+      <void index="1">
+       <string>APROVADORES_COMPRAS</string>
+      </void>
+     </array>
+    </void>
+    <void index="3">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovação Diretoria Ordem de Compra</string>
+      </void>
+      <void index="1">
+       <string>APROVADORES_DIRETORIA</string>
+      </void>
+     </array>
+    </void>
+    <void index="4">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovação Engenharia Ordem de Compra</string>
+      </void>
+      <void index="1">
+       <string>APROVADORES_ENGENHARIA</string>
+      </void>
+     </array>
+    </void>
+    <void index="5">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovação Estoque Ordem de Compra</string>
+      </void>
+      <void index="1">
+       <string>APROVADORES_ESTOQUE</string>
+      </void>
+     </array>
+    </void>
+    <void index="6">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Associação</string>
+      </void>
+      <void index="1">
+       <string>Associado</string>
+      </void>
+     </array>
+    </void>
+    <void index="7">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Campo de Formulário</string>
+      </void>
+      <void index="1">
+       <string>Campo Formulário</string>
+      </void>
+     </array>
+    </void>
+    <void index="8">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Executor de Atividade</string>
+      </void>
+      <void index="1">
+       <string>Executor Atividade</string>
+      </void>
+     </array>
+    </void>
+    <void index="9">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Grupo</string>
+      </void>
+      <void index="1">
+       <string>Grupo</string>
+      </void>
+     </array>
+    </void>
+    <void index="10">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Grupos do Colaborador</string>
+      </void>
+      <void index="1">
+       <string>Grupos Colaborador</string>
+      </void>
+     </array>
+    </void>
+    <void index="11">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G4 - Grupo Compras</string>
+      </void>
+      <void index="1">
+       <string>grupo_compras</string>
+      </void>
+     </array>
+    </void>
+    <void index="12">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G4 - Grupo Estoque</string>
+      </void>
+      <void index="1">
+       <string>grupo_estoque</string>
+      </void>
+     </array>
+    </void>
+    <void index="13">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G4 - Grupo Financeiro</string>
+      </void>
+      <void index="1">
+       <string>grupo_financeiro</string>
+      </void>
+     </array>
+    </void>
+    <void index="14">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>mecanismoPersonalizado</string>
+      </void>
+      <void index="1">
+       <string>mecanismoPersonalizado</string>
+      </void>
+     </array>
+    </void>
+    <void index="15">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>mec_notificacao</string>
+      </void>
+      <void index="1">
+       <string>mec_notificacao</string>
+      </void>
+     </array>
+    </void>
+    <void index="16">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Papel</string>
+      </void>
+      <void index="1">
+       <string>Papel</string>
+      </void>
+     </array>
+    </void>
+    <void index="17">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição para um Grupo</string>
+      </void>
+      <void index="1">
+       <string>Pool Grupo</string>
+      </void>
+     </array>
+    </void>
+    <void index="18">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição para um Papel</string>
+      </void>
+      <void index="1">
+       <string>Pool Papel</string>
+      </void>
+     </array>
+    </void>
+    <void index="19">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Usuário</string>
+      </void>
+      <void index="1">
+       <string>Usuário</string>
+      </void>
+     </array>
+    </void>
+   </array>
   </void>
  </object>
 </java>
