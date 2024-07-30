@@ -9,14 +9,14 @@ $(document).ready(function () {
   });
 
   /* PREENCHE COLIGADA COM 0 QUANDO FOR GLOBAL */
-  $('#cliente_global').change(function() {
+  $('#cliente_global').change(function () {
     if ($(this).is(':checked')) {
       $('#hidden_coligada_cli_for').val('0');
     }
   });
 
   /* PREENCHE COLIGADA COM 0 QUANDO FOR GLOBAL */
-  $('#cliente_global_fin').change(function() {
+  $('#cliente_global_fin').change(function () {
     if ($(this).is(':checked')) {
       $('#hidden_coligada_cli_for').val('0');
     }
@@ -161,7 +161,7 @@ $(document).ready(function () {
   $("#CpfCnpj_favorecido").keydown(function () {
     try {
       $("#CpfCnpj_favorecido").unmask();
-    } catch (e) {}
+    } catch (e) { }
 
     var tamanho = $("#CpfCnpj_favorecido").val().length;
 
@@ -187,7 +187,7 @@ $(document).ready(function () {
   $("#CpfCnpj_analise").keydown(function () {
     try {
       $("#CpfCnpj_analise").unmask();
-    } catch (e) {}
+    } catch (e) { }
 
     var tamanho = $("#CpfCnpj_analise").val().length;
 
@@ -213,7 +213,7 @@ $(document).ready(function () {
   $("#CpfCnpj_participante").keydown(function () {
     try {
       $("#CpfCnpj_participante").unmask();
-    } catch (e) {}
+    } catch (e) { }
 
     var tamanho = $("#CpfCnpj_participante").val().length;
 
@@ -235,7 +235,7 @@ $(document).ready(function () {
     $(this).val(currentValue);
   });
 
-  
+
   $("#sigla_estado_fin").on("change", function () {
     // Obtém o valor digitado no campo
     var valor = $(this).val();
@@ -246,8 +246,37 @@ $(document).ready(function () {
 
   reloadZoomFilterValues("dados_pagamento_analise", `CGC,${$("#hidden_cnpj_fornecedor").val()},COLIGADA,${$("#coligada").val()}`);
 
-});
+  ;
 
+  reloadZoomAfterLoad(true);
+
+});
+/**
+ * Recarrega o campos do tipo zoom, após verificar que o load da pagina foi completado com sucesso.
+ * @param {boolean} loaded 
+ * @param {Number} count 
+ */
+function reloadZoomAfterLoad(loaded, count) {
+  count = count == undefined ? 0 : count + 1;
+  console.log(`loaded: ${loaded} - count: ${count} `);
+  if (loaded == true) {
+    if (count >= 100) {
+      console.log("Nenhum zoom foi carregado");
+    }
+    else if (empresa.close != undefined || coligada.close != undefined || vincular_fornecedor.close != undefined || forma_pagamento.close != undefined || coluna_natureza___2.close != undefined || coluna_natureza_fin___1.close != undefined || coluna_natureza_da___1.close != undefined || zTask007.close != undefined) {
+      reloadZoomAfterLoad(false);
+      filtraNaturezaPorSetor();
+      filtraNaturezaPorSetorFin();
+    }
+    else {
+      setTimeout(() => {
+      reloadZoomAfterLoad(true, count);
+      }, 3);
+    }
+  }
+}
+
+/** Aqui acaba o ready */
 function setSelectedZoomItem(selectedItem) {
   var FIELD = selectedItem.inputId;
 
@@ -468,7 +497,7 @@ function removedZoomItem(removedItem) {
   }
 }
 
-function setFilterZoom() {}
+function setFilterZoom() { }
 
 function formataCpfCnpj(valor) {
   var value = valor.replace(/[^\d]/g, ""); // Remove caracteres não numéricos

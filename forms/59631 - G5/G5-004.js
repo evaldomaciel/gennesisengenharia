@@ -123,7 +123,8 @@ function limpaFiltroColigada() {
 function filtraNaturezaPorSetor() {
   let valorDoCampo = String($("#setor_solicitante").val());
   $(`[name^="coluna_natureza___"]`).each((i, e) => {
-    console.log(e.name)
+    if (e.type == 'hidden') return;
+    $("#coluna_natureza___1").attr("type")
     reloadZoomFilterValues(e.name, `SETOR,${valorDoCampo}`);
   });
   return true;
@@ -235,45 +236,39 @@ function parseFormattedNumber(value) {
 
 /* PREENCHE O CAMPO PORCENTAGEM DA TABELA RATEIO POR CENTRO DE CUSTO BASEADO NO VALOR TOTAL A SER PAGO */
 function updatePercentual(input) {
-  const valorTotalInput = document.getElementById("Valor");
-  const valorTotal = parseFormattedNumber(valorTotalInput.value);
-
+  console.log(input);
+  let valorTotal = parseFormattedNumber($('[name="Valor"]').val());
+  let field = String(input.name).split("___");
+  let fieldId = String(field[1]);
+  let fieldFin = String(field[0]).indexOf("_fin") > 0 ? "_fin" : "";
   getValorTotal();
-
   if (isNaN(valorTotal) || valorTotal === 0) return;
-
-  const valor = parseFormattedNumber(input.value);
-  const percentual = (valor / valorTotal) * 100;
-
-  const row = input.closest("tr");
-  const percentualInput = row.querySelector('input[name^="coluna_percentual"]');
-
-  if (percentualInput) {
-    percentualInput.value = percentual.toFixed(2) + "%";
-  }
+  let valor = parseFormattedNumber(input.value);
+  let percentual = (valor / valorTotal) * 100;
+  $(`[name="coluna_percentual${fieldFin}___${fieldId}"]`).val(percentual.toFixed(2) + "%");
 }
 
 /* CALCULA VALOR TOTAL DO RATEIO */
 function getValorTotal() {
-  const tableRows = document.querySelectorAll(
+  let tableRows = document.querySelectorAll(
     'table[tablename="table_rateio_ccusto"] tbody tr',
   );
   let total = 0;
 
   tableRows.forEach((row) => {
-    const valorInput = row.querySelector('input[name^="coluna_valor"]');
+    let valorInput = row.querySelector('input[name^="coluna_valor"]');
     if (valorInput && valorInput.value !== "") {
-      const valor = parseValue(valorInput.value);
+      let valor = parseValue(valorInput.value);
       if (!isNaN(valor)) {
         total += valor;
       }
     }
   });
 
-  const formattedValue = formatValue(total);
+  let formattedValue = formatValue(total);
   document.getElementById("valor_total_rateio").value = formattedValue;
 
-  const valorTotal = parseValue(document.getElementById("Valor").value);
+  let valorTotal = parseValue(document.getElementById("Valor").value);
 
   if (!isNaN(valorTotal) && total > valorTotal) {
     $("#div_mensagem_valor_excedido").show(400);

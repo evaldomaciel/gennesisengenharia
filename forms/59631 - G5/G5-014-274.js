@@ -13,13 +13,13 @@ function filtraPorColigadaDa(coligada) {
 
   if (coligada == "" || coligada == null) {
     for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector( `[name="coluna_ccusto_da___${i}"]`);
+      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_da___${i}"]`);
       reloadZoomFilterValues(colunaCcustoInput.id);
     }
   } else {
-    reloadZoomFilterValues( "vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
+    reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
     for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector( `[name="coluna_ccusto_da___${i}"]`);
+      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_da___${i}"]`);
       reloadZoomFilterValues(colunaCcustoInput.id, `CODCOLIGADA,${coligada}`);
     }
   }
@@ -58,7 +58,7 @@ function formatPercentualDa(input) {
 
 /* CALCULA VALOR TOTAL DO RATEIO */
 function getValorTotalDa() {
-  const tableRows = document.querySelectorAll( 'table[tablename="table_dados_adicionais"] tbody tr');
+  const tableRows = document.querySelectorAll('table[tablename="table_dados_adicionais"] tbody tr');
   let total = 0;
 
   tableRows.forEach((row) => {
@@ -98,11 +98,11 @@ function filtraNaturezaPorSetorDa() {
     rows = tableBody.getElementsByTagName("tr");
   }
   for (let i = 1; i < rows.length; i++) {
-    var colunaNaturezaInput = rows[i].querySelector( `[name="coluna_natureza_da___${i}"]`);
+    var colunaNaturezaInput = rows[i].querySelector(`[name="coluna_natureza_da___${i}"]`);
 
     if (colunaNaturezaInput) {
       $(colunaNaturezaInput).val(null).trigger("change");
-      reloadZoomFilterValues( `${colunaNaturezaInput.id}`, "SETOR," + valorDoCampo);
+      reloadZoomFilterValues(`${colunaNaturezaInput.id}`, "SETOR," + valorDoCampo);
     }
   }
   return true;
@@ -116,7 +116,7 @@ function limpaFiltroNaturezaPorSetorDa() {
   var rows = tableBody.getElementsByTagName("tr");
 
   for (let i = 1; i < rows.length; i++) {
-    var colunaNaturezaInput = rows[i].querySelector( `[name="coluna_natureza_da___${i}"]`);
+    var colunaNaturezaInput = rows[i].querySelector(`[name="coluna_natureza_da___${i}"]`);
 
     if (colunaNaturezaInput) {
       $(colunaNaturezaInput).val(null).trigger("change");
@@ -410,13 +410,13 @@ function filtraPorColigadaFin(coligada) {
 
   if (coligada == "" || coligada == null) {
     for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector( `[name="coluna_ccusto_fin___${i}"]`);
+      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_fin___${i}"]`);
       reloadZoomFilterValues(colunaCcustoInput.id);
     }
   } else {
-    reloadZoomFilterValues( "vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
+    reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
     for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector( `[name="coluna_ccusto_fin___${i}"]`);
+      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_fin___${i}"]`);
       reloadZoomFilterValues(colunaCcustoInput.id, `CODCOLIGADA,${coligada}`);
     }
   }
@@ -444,7 +444,7 @@ function updatePercentualFin(input) {
 
 /* CALCULA VALOR TOTAL DO RATEIO */
 function getValorTotalFin() {
-  const tableRows = document.querySelectorAll( 'table[tablename="table_rateio_ccusto_fin"] tbody tr');
+  const tableRows = document.querySelectorAll('table[tablename="table_rateio_ccusto_fin"] tbody tr');
   let total = 0;
 
   tableRows.forEach((row) => {
@@ -470,26 +470,11 @@ function getValorTotalFin() {
 }
 
 function filtraNaturezaPorSetorFin() {
-  let campo = String($("#setor_solicitante").val());
-  let valorDoCampo = campo[0];
-
-  var tableBody = document
-    .getElementById("table_rateio_ccusto_fin")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-  if (rows.length == 1) {
-    acrescentarLinhaFin();
-    rows = tableBody.getElementsByTagName("tr");
-  }
-  for (let i = 1; i < rows.length; i++) {
-    var colunaNaturezaInput = rows[i].querySelector(`[name="coluna_natureza_fin___${i}"]`);
-
-    if (colunaNaturezaInput) {
-      $(colunaNaturezaInput).val(null).trigger("change");
-      reloadZoomFilterValues( `${colunaNaturezaInput.id}`, "SETOR," + valorDoCampo);
-    }
-  }
+  let valorDoCampo = String($("#setor_solicitante").val());
+  $(`[name^="coluna_natureza_fin___"]`).each((i, e) => {
+    if (e.type == 'hidden') return;
+    reloadZoomFilterValues(e.name, `SETOR,${valorDoCampo}`);
+  });
   return true;
 }
 
