@@ -1,0 +1,310 @@
+/* ETAPA 000 | 004 - INICIO */
+
+#nome_cnpj_forn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+#chave_tipo_forn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+
+/* SECTION CADASTRO DE FORNECEDOR */
+#div_cliente_global_analise {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 2vw;
+}
+
+#div_status_tipo_cliente {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+#div_fax_dedicado {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* SECTION CADASTRO DOS DADOS BANCARIOS*/
+#div_dados_bancarios_ativo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* SECTION RATEIO */
+#row_valor_rateio {
+  display: flex;
+  justify-content: end;
+}
+#div_valor_total_rateio {
+  display: flex;
+}
+
+#label_valor_total_rateio {
+  min-width: fit-content;
+  margin-top: 2vh;
+  margin-right: 3vh;
+}
+
+#div_mensagem_valor_excedido {
+  display: flex;
+  color: #ff3322;
+  justify-content: center;
+}
+
+
+/* ETAPA 007 - APROVAÇÃO GESTOR */
+#div_radio_aprovacao_gestor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* ETAPA 012 - APROVAÇÃO DIRETORIA */
+#div_radio_aprovacao_diretoria {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* ETAPA 014 - PROVISIONAMENTO */
+
+/* SECTION RATEIO */
+#row_valor_rateio_da {
+  display: flex;
+  justify-content: end;
+}
+
+#div_valor_total_rateio_da {
+  display: flex;
+}
+
+#label_valor_total_rateio_da {
+  min-width: fit-content;
+  margin-top: 2vh;
+  margin-right: 3vh;
+}
+
+#nome_cnpj_forn_ana {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+#chave_tipo_forn_ana {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+#heading_cabecalho_inicio {
+  display: flex;
+}
+
+#cabecalho_title_inicio {
+  flex: 4;
+}
+
+#heading_cabecalho_fin {
+  display: flex;
+}
+
+#cabecalho_title_fin {
+  flex: 4;
+}
+
+#heading_cabecalho_bfin {
+  display: flex;
+}
+
+#cabecalho_title_bfin {
+  flex: 4;
+}
+
+#heading_cabecalho_rfin {
+  display: flex;
+}
+
+#cabecalho_title_rfin {
+  flex: 4;
+}
+
+.container_hide_solicitacao {
+  display: flex;
+  flex: 1;
+  justify-content: end;
+}
+
+.btn_hide_solicitacao {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: silver;
+  color: black;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+#div_radio_dados_conformidade {
+  display: flex;
+  margin-top: 3vh;
+}
+
+/* SECTION CADASTRO DE FORNECEDOR */
+
+#div_status_tipo_cliente {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+#div_fax_dedicado {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* SECTION CADASTRO DOS DADOS BANCARIOS*/
+#div_dados_bancarios_ativo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* SECTION DADOS DO FORNECEDOR - FINANCEIRO */
+
+#div_status_tipo_cliente_fin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+#div_fax_dedicado_fin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* SECTION DADOS BANCARIOS*/
+#div_dados_bancarios_ativo_fin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 9vh;
+}
+
+/* SECTION RATEIO */
+#row_valor_rateio_fin {
+  display: flex;
+  justify-content: end;
+}
+#div_valor_total_rateio_fin {
+  display: flex;
+}
+
+#label_valor_total_rateio_fin {
+  min-width: fit-content;
+  margin-top: 2vh;
+  margin-right: 3vh;
+}
+
+#div_mensagem_valor_excedido {
+  display: flex;
+  color: #ff3322;
+  justify-content: center;
+}
+
+/* COMPONENTE ANEXO */
+
+.componentAnexo {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.componentAnexo .input-group {
+  flex-grow: 1;
+  position: relative;
+}
+
+.componentAnexo .inputAnexo {
+  color: blue !important;
+  border-radius: 0 !important;
+}
+
+.componentAnexo .icones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.componentAnexo .icones .btn {
+  outline: none !important;
+  outline-offset: unset !important;
+  border-radius: 0;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-left: 3px;
+}
+
+.componentAnexo .icones .btn-default,
+.componentAnexo .icones .btn-default:focus,
+.componentAnexo .icones .btn-default:active,
+.componentAnexo .icones .btn-default:hover {
+  border: solid 1px #58595b !important;
+}
+
+.componentAnexo .icones .btn-primary,
+.componentAnexo .icones .btn-primary:focus,
+.componentAnexo .icones .btn-primary:active,
+.componentAnexo .icones .btn-primary:hover {
+  border: solid 1px #58595b !important;
+}
+
+.componentAnexo .icones .btn-success,
+.componentAnexo .icones .btn-success:focus,
+.componentAnexo .icones .btn-success:active,
+.componentAnexo .icones .btn-success:hover {
+  border: solid 1px #1ab83f !important;
+}
+
+.componentAnexo .icones .btn-info,
+.componentAnexo .icones .btn-info:focus,
+.componentAnexo .icones .btn-info:active,
+.componentAnexo .icones .btn-info:hover {
+  border: solid 1px #1eaad9 !important;
+}
+
+.componentAnexo .icones .btn-warning,
+.componentAnexo .icones .btn-warning:focus,
+.componentAnexo .icones .btn-warning:active,
+.componentAnexo .icones .btn-warning:hover {
+  border: solid 1px #e3b420 !important;
+}
+
+.componentAnexo .icones .btn-danger,
+.componentAnexo .icones .btn-danger:focus,
+.componentAnexo .icones .btn-danger:active,
+.componentAnexo .icones .btn-danger:hover {
+  border: solid 1px #cc3d3d !important;
+}
