@@ -29,7 +29,7 @@ function createDataset(fields, constraints, sortFields) {
     
     */
     minhaQuery = "SELECT * FROM FDN_USERTENANT WHERE LOGIN LIKE '%FLUIG%' "
-    // minhaQuery1 = "UPDATE FDN_USERTENANT SET PASSWORD = 'c4ca4238a0b923820dcc509a6f75849b' WHERE LOGIN = 'fluig2' ; "
+    // minhaQuery1 = "UPDATE FDN_USERTENANT SET PASSWORD = 'c4ca4238a0b923820dcc509a6f75849b' WHERE LOGIN = 'bi-20240401' ; "
   
     // minhaQuery1 = "UPDATE PROCES_WORKFLOW SET NUM_VERS = 17 WHERE  STATUS = 0 AND COD_DEF_PROCES = 'contrato_apr_ordem_compras' and NUM_VERS > 1 ;"
 
