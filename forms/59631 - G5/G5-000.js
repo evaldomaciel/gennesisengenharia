@@ -263,14 +263,14 @@ function reloadZoomAfterLoad(loaded, count) {
     if (count >= 100) {
       console.log("Nenhum zoom foi carregado");
     }
-    else if (empresa.close != undefined || coligada.close != undefined || vincular_fornecedor.close != undefined || forma_pagamento.close != undefined || coluna_natureza___2.close != undefined || coluna_natureza_fin___1.close != undefined || coluna_natureza_da___1.close != undefined || zTask007.close != undefined) {
+    else if (empresa.close != undefined || coligada.close != undefined || vincular_fornecedor.close != undefined || forma_pagamento.close != undefined || zTask007.close != undefined) {
       reloadZoomAfterLoad(false);
       filtraNaturezaPorSetor();
       filtraNaturezaPorSetorFin();
     }
     else {
       setTimeout(() => {
-      reloadZoomAfterLoad(true, count);
+        reloadZoomAfterLoad(true, count);
       }, 3);
     }
   }
