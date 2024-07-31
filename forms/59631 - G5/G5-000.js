@@ -249,6 +249,8 @@ $(document).ready(function () {
   ;
 
   reloadZoomAfterLoad(true);
+  $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
+
 
 });
 /**
@@ -432,6 +434,7 @@ function setSelectedZoomItem(selectedItem) {
     $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
     $("#nome_forn_analise").text(selectedItem["NOME"]);
     $("#cnpj_forn_analise").text(selectedItem["CGCCFO"]);
+    $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
   }
 }
 

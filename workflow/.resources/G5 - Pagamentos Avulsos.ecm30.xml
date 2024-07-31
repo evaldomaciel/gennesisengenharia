@@ -2,14 +2,14 @@
   <ProcessDefinition>
     <processDefinitionPK>
       <companyId>1</companyId>
-      <processId>G5 - Pagamentos Avulsos</processId>
+      <processId>G5</processId>
     </processDefinitionPK>
     <processDescription>G5 - Pagamentos Avulsos</processDescription>
     <instruction></instruction>
     <active>true</active>
     <publicProcess>false</publicProcess>
     <volumeId>Default</volumeId>
-    <categoryId></categoryId>
+    <categoryId>Financeiro</categoryId>
     <managerEngineAllocationId>Grupo</managerEngineAllocationId>
     <managerEngineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;G5-GESTORES&lt;/Group&gt;&lt;/AssignmentController&gt;</managerEngineAllocationConfiguration>
     <snapshotFrequency>0</snapshotFrequency>
@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>156</version>
+      <version>1</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>59631</formId>
@@ -50,7 +50,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>4</sequence>
       </processStatePK>
@@ -100,7 +100,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>7</sequence>
       </processStatePK>
@@ -152,7 +152,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>12</sequence>
       </processStatePK>
@@ -179,7 +179,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>100</positionX>
+      <positionX>160</positionX>
       <positionY>1110</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -204,7 +204,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>14</sequence>
       </processStatePK>
@@ -256,7 +256,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>34</sequence>
       </processStatePK>
@@ -308,7 +308,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>76</sequence>
       </processStatePK>
@@ -358,7 +358,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>79</sequence>
       </processStatePK>
@@ -384,7 +384,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>400</positionX>
-      <positionY>1073</positionY>
+      <positionY>1110</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -408,7 +408,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>91</sequence>
       </processStatePK>
@@ -458,7 +458,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>97</sequence>
       </processStatePK>
@@ -510,7 +510,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>114</sequence>
       </processStatePK>
@@ -561,7 +561,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>119</sequence>
       </processStatePK>
@@ -611,7 +611,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>127</sequence>
       </processStatePK>
@@ -663,7 +663,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>128</sequence>
       </processStatePK>
@@ -715,7 +715,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>176</sequence>
       </processStatePK>
@@ -765,7 +765,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>183</sequence>
       </processStatePK>
@@ -815,7 +815,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>210</sequence>
       </processStatePK>
@@ -840,7 +840,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>100</positionX>
+      <positionX>160</positionX>
       <positionY>1520</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -865,7 +865,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>216</sequence>
       </processStatePK>
@@ -892,7 +892,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>100</positionX>
+      <positionX>160</positionX>
       <positionY>1660</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -917,7 +917,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>221</sequence>
       </processStatePK>
@@ -969,7 +969,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>223</sequence>
       </processStatePK>
@@ -1021,215 +1021,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <sequence>227</sequence>
-      </processStatePK>
-      <stateName>Aprovada</stateName>
-      <stateDescription>Aprovada</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>60</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>315</positionX>
-      <positionY>736</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>80</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <sequence>228</sequence>
-      </processStatePK>
-      <stateName>Reprovada</stateName>
-      <stateDescription>Reprovada</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>60</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>315</positionX>
-      <positionY>543</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>80</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <sequence>233</sequence>
-      </processStatePK>
-      <stateName>Aprovada</stateName>
-      <stateDescription>Aprovada</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>60</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>247</positionX>
-      <positionY>1117</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>80</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <sequence>234</sequence>
-      </processStatePK>
-      <stateName>Reprovada</stateName>
-      <stateDescription>Reprovada</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>60</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>247</positionX>
-      <positionY>1010</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>80</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>246</sequence>
       </processStatePK>
@@ -1281,7 +1073,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>247</sequence>
       </processStatePK>
@@ -1333,7 +1125,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>248</sequence>
       </processStatePK>
@@ -1385,7 +1177,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>274</sequence>
       </processStatePK>
@@ -1412,7 +1204,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>100</positionX>
+      <positionX>160</positionX>
       <positionY>1410</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -1437,7 +1229,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>287</sequence>
       </processStatePK>
@@ -1487,7 +1279,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>292</sequence>
       </processStatePK>
@@ -1512,7 +1304,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>290</positionX>
+      <positionX>320</positionX>
       <positionY>1513</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -1537,7 +1329,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>295</sequence>
       </processStatePK>
@@ -1564,7 +1356,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>290</positionX>
+      <positionX>320</positionX>
       <positionY>1660</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -1589,7 +1381,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>81</sequence>
       </processStatePK>
@@ -1636,7 +1428,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>82</sequence>
       </processStatePK>
@@ -1683,7 +1475,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>85</sequence>
       </processStatePK>
@@ -1730,7 +1522,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>87</sequence>
       </processStatePK>
@@ -1777,7 +1569,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>133</sequence>
       </processStatePK>
@@ -1824,7 +1616,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>135</sequence>
       </processStatePK>
@@ -1871,7 +1663,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>137</sequence>
       </processStatePK>
@@ -1918,7 +1710,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>138</sequence>
       </processStatePK>
@@ -1965,7 +1757,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>144</sequence>
       </processStatePK>
@@ -2012,7 +1804,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>146</sequence>
       </processStatePK>
@@ -2059,7 +1851,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>155</sequence>
       </processStatePK>
@@ -2106,7 +1898,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>157</sequence>
       </processStatePK>
@@ -2153,7 +1945,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>158</sequence>
       </processStatePK>
@@ -2200,7 +1992,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>168</sequence>
       </processStatePK>
@@ -2247,7 +2039,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>174</sequence>
       </processStatePK>
@@ -2294,7 +2086,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>178</sequence>
       </processStatePK>
@@ -2341,7 +2133,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>186</sequence>
       </processStatePK>
@@ -2388,7 +2180,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>213</sequence>
       </processStatePK>
@@ -2414,7 +2206,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>170</positionX>
+      <positionX>230</positionX>
       <positionY>1580</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -2435,7 +2227,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>293</sequence>
       </processStatePK>
@@ -2461,7 +2253,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>370</positionX>
+      <positionX>400</positionX>
       <positionY>1583</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -2482,7 +2274,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>124</sequence>
       </processStatePK>
@@ -2507,7 +2299,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>191</sequence>
       </processStatePK>
@@ -2532,7 +2324,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>276</sequence>
       </processStatePK>
@@ -2544,7 +2336,7 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>123</positionX>
+      <positionX>183</positionX>
       <positionY>1240</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
@@ -2557,7 +2349,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>26</sequence>
       </processStatePK>
@@ -2604,7 +2396,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>31</sequence>
       </processStatePK>
@@ -2631,7 +2423,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>587</positionX>
-      <positionY>1090</positionY>
+      <positionY>1127</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2651,7 +2443,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>117</sequence>
       </processStatePK>
@@ -2698,7 +2490,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>244</sequence>
       </processStatePK>
@@ -2745,7 +2537,7 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>267</sequence>
       </processStatePK>
@@ -2794,9 +2586,9 @@
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>156</version>
+        <version>1</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2806,9 +2598,9 @@
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>156</version>
+        <version>1</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2818,9 +2610,9 @@
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>156</version>
+        <version>1</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2830,9 +2622,9 @@
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>156</version>
+        <version>1</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2842,9 +2634,9 @@
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>156</version>
+        <version>1</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2854,9 +2646,9 @@
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>156</version>
+        <version>1</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2866,9 +2658,9 @@
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>156</version>
+        <version>1</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2880,7 +2672,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>24</linkSequence>
       </processLinkPK>
@@ -2897,7 +2689,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>36</linkSequence>
       </processLinkPK>
@@ -2914,7 +2706,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>75</linkSequence>
       </processLinkPK>
@@ -2931,7 +2723,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>80</linkSequence>
       </processLinkPK>
@@ -2948,7 +2740,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>84</linkSequence>
       </processLinkPK>
@@ -2965,7 +2757,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>86</linkSequence>
       </processLinkPK>
@@ -2982,7 +2774,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>88</linkSequence>
       </processLinkPK>
@@ -2999,7 +2791,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>92</linkSequence>
       </processLinkPK>
@@ -3016,7 +2808,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>116</linkSequence>
       </processLinkPK>
@@ -3033,7 +2825,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>118</linkSequence>
       </processLinkPK>
@@ -3050,7 +2842,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>134</linkSequence>
       </processLinkPK>
@@ -3067,7 +2859,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>136</linkSequence>
       </processLinkPK>
@@ -3084,7 +2876,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>145</linkSequence>
       </processLinkPK>
@@ -3101,7 +2893,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>175</linkSequence>
       </processLinkPK>
@@ -3118,7 +2910,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>181</linkSequence>
       </processLinkPK>
@@ -3135,7 +2927,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>185</linkSequence>
       </processLinkPK>
@@ -3152,7 +2944,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>195</linkSequence>
       </processLinkPK>
@@ -3169,7 +2961,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>196</linkSequence>
       </processLinkPK>
@@ -3186,7 +2978,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>199</linkSequence>
       </processLinkPK>
@@ -3203,7 +2995,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>200</linkSequence>
       </processLinkPK>
@@ -3220,7 +3012,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>214</linkSequence>
       </processLinkPK>
@@ -3237,7 +3029,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>218</linkSequence>
       </processLinkPK>
@@ -3254,7 +3046,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>219</linkSequence>
       </processLinkPK>
@@ -3271,7 +3063,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>220</linkSequence>
       </processLinkPK>
@@ -3288,7 +3080,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>222</linkSequence>
       </processLinkPK>
@@ -3305,7 +3097,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>224</linkSequence>
       </processLinkPK>
@@ -3322,7 +3114,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>225</linkSequence>
       </processLinkPK>
@@ -3339,177 +3131,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>229</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>228</initialStateSequence>
-      <finalStateSequence>76</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>230</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>7</initialStateSequence>
-      <finalStateSequence>228</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>231</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>7</initialStateSequence>
-      <finalStateSequence>227</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>true</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>232</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>227</initialStateSequence>
-      <finalStateSequence>12</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>235</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>12</initialStateSequence>
-      <finalStateSequence>234</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>236</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>12</initialStateSequence>
-      <finalStateSequence>233</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>true</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>237</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>234</initialStateSequence>
-      <finalStateSequence>79</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>239</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>228</initialStateSequence>
-      <finalStateSequence>76</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>240</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>227</initialStateSequence>
-      <finalStateSequence>12</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>241</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>234</initialStateSequence>
-      <finalStateSequence>79</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>261</linkSequence>
       </processLinkPK>
@@ -3526,7 +3148,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>262</linkSequence>
       </processLinkPK>
@@ -3543,7 +3165,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>263</linkSequence>
       </processLinkPK>
@@ -3560,7 +3182,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>264</linkSequence>
       </processLinkPK>
@@ -3577,7 +3199,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>265</linkSequence>
       </processLinkPK>
@@ -3594,7 +3216,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>266</linkSequence>
       </processLinkPK>
@@ -3611,7 +3233,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>268</linkSequence>
       </processLinkPK>
@@ -3628,7 +3250,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>269</linkSequence>
       </processLinkPK>
@@ -3645,7 +3267,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>270</linkSequence>
       </processLinkPK>
@@ -3662,7 +3284,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>271</linkSequence>
       </processLinkPK>
@@ -3679,7 +3301,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>272</linkSequence>
       </processLinkPK>
@@ -3696,7 +3318,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>273</linkSequence>
       </processLinkPK>
@@ -3713,7 +3335,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>275</linkSequence>
       </processLinkPK>
@@ -3730,41 +3352,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>277</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>233</initialStateSequence>
-      <finalStateSequence>276</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>1</version>
-        <linkSequence>278</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>233</initialStateSequence>
-      <finalStateSequence>276</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>279</linkSequence>
       </processLinkPK>
@@ -3781,7 +3369,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>281</linkSequence>
       </processLinkPK>
@@ -3798,7 +3386,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>282</linkSequence>
       </processLinkPK>
@@ -3815,7 +3403,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>283</linkSequence>
       </processLinkPK>
@@ -3832,7 +3420,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>284</linkSequence>
       </processLinkPK>
@@ -3849,7 +3437,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>285</linkSequence>
       </processLinkPK>
@@ -3866,7 +3454,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>286</linkSequence>
       </processLinkPK>
@@ -3883,7 +3471,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>288</linkSequence>
       </processLinkPK>
@@ -3900,7 +3488,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>289</linkSequence>
       </processLinkPK>
@@ -3917,7 +3505,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>290</linkSequence>
       </processLinkPK>
@@ -3934,7 +3522,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>291</linkSequence>
       </processLinkPK>
@@ -3951,7 +3539,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>294</linkSequence>
       </processLinkPK>
@@ -3968,7 +3556,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>296</linkSequence>
       </processLinkPK>
@@ -3985,7 +3573,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>297</linkSequence>
       </processLinkPK>
@@ -4002,7 +3590,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>298</linkSequence>
       </processLinkPK>
@@ -4019,7 +3607,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>299</linkSequence>
       </processLinkPK>
@@ -4036,7 +3624,7 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>300</linkSequence>
       </processLinkPK>
@@ -4053,9 +3641,111 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <linkSequence>301</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>216</initialStateSequence>
+      <finalStateSequence>14</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>302</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>295</initialStateSequence>
+      <finalStateSequence>14</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>303</linkSequence>
+      </processLinkPK>
+      <actionLabel>Aprovado</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>12</initialStateSequence>
+      <finalStateSequence>276</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Aprovado</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>304</linkSequence>
+      </processLinkPK>
+      <actionLabel>Reprovado</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>12</initialStateSequence>
+      <finalStateSequence>79</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Reprovado</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>305</linkSequence>
+      </processLinkPK>
+      <actionLabel>Aprovado</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>12</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Aprovado</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>306</linkSequence>
+      </processLinkPK>
+      <actionLabel>Reprovado</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>76</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Reprovado</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>307</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4069,9 +3759,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>302</linkSequence>
+        <linkSequence>308</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4085,9 +3775,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>303</linkSequence>
+        <linkSequence>309</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4101,9 +3791,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>304</linkSequence>
+        <linkSequence>310</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4117,9 +3807,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>305</linkSequence>
+        <linkSequence>311</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4133,9 +3823,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>306</linkSequence>
+        <linkSequence>312</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4149,9 +3839,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>307</linkSequence>
+        <linkSequence>313</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4165,9 +3855,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>308</linkSequence>
+        <linkSequence>314</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4181,9 +3871,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>309</linkSequence>
+        <linkSequence>315</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4197,9 +3887,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>310</linkSequence>
+        <linkSequence>316</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4213,9 +3903,9 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
-        <linkSequence>311</linkSequence>
+        <linkSequence>317</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4232,8 +3922,24 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>G5</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId){&#xd;
+    var pasta = &quot;/app/fluig/appserver/domain/servers/&quot;;&#xd;
+    var diretorio = new java.io.File(pasta);&#xd;
+    var arquivos = diretorio.listFiles();&#xd;
+    var linhaDeComando2 = String(arquivos[0]);&#xd;
+    var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + &quot;/log/server.log&quot;));&#xd;
+    var retorno4 = new java.nio.file.Files.writeString(pasta, &quot;&quot;);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
         <eventId>servicetask210</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask210(attempt, message) {
@@ -4355,7 +4061,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>servicetask176</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask176(attempt, message) {
@@ -4392,7 +4098,7 @@ function getAtribuicoes(atribuicao)
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>onNotify</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function onNotify(subject, receivers, template, params) {
@@ -4452,7 +4158,7 @@ function mandaEmail(destinatario, assunto, msg, numProcess) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>servicetask292</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask292(attempt, message) {
@@ -4537,198 +4243,398 @@ function captaChavePix(tipo_chave) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>servicetask183</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask183(attempt, message) {
-    var codCCusto = hAPI.getCardValue(&quot;centro_de_custo&quot;);
-    codCCusto = codCCusto.split(&quot; - &quot;)[0];
+  var codCCusto = hAPI.getCardValue(&quot;centro_de_custo&quot;);
+  codCCusto = codCCusto.split(&quot; - &quot;)[0];
+  var valorOriginal = hAPI.getCardValue(&quot;valor_original_analise&quot;)
+  valorOriginal = formatText2Float(valorOriginal);
+  var dataVencimento = hAPI.getCardValue(&quot;hidden_data_vencimento&quot;);
+  dataVencimento = dataVencimento.replace(&quot;Z&quot;, &quot;&quot;);
+  var dataEmissao = hAPI.getCardValue(&quot;hidden_data_emissao&quot;);
+  dataEmissao = dataEmissao.replace(&quot;Z&quot;, &quot;&quot;);
+  var dataPrevBaixa = hAPI.getCardValue(&quot;hidden_data_previabaixa&quot;);
+  dataPrevBaixa = dataPrevBaixa.replace(&quot;Z&quot;, &quot;&quot;);
 
-    var valorOriginal = hAPI.getCardValue(&quot;valor_original_analise&quot;)
-    valorOriginal = valorOriginal.replace(&quot;.&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+  try {
+    var dataServerName = &apos;FinLanDataBR&apos;
+    var usuario = &apos;suporte.totvs&apos;
+    var senha = &apos;Suporte#5&apos;
+    var authenticatedService = getWebService(usuario, senha, &quot;RMWsDataServer&quot;, &quot;com.totvs.WsDataServer&quot;, &quot;com.totvs.IwsDataServer&quot;);
 
-    var dataVencimento = hAPI.getCardValue(&quot;hidden_data_vencimento&quot;);
-    dataVencimento = dataVencimento.replace(&quot;Z&quot;, &quot;&quot;);
+    var idLanModelo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : 19051;
+    var idLanNovo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : &quot;-1&quot;;
 
-    var dataEmissao = hAPI.getCardValue(&quot;hidden_data_emissao&quot;);
-    dataEmissao = dataEmissao.replace(&quot;Z&quot;, &quot;&quot;);
+    var primaryKey = hAPI.getCardValue(&quot;coligada&quot;) + &quot;;&quot; + idLanModelo;
+    var context = &quot;CodSistema=F;CodColigada=1&quot;;
+    var text = String(authenticatedService.readRecord(dataServerName, primaryKey, context));
+    if (!ChekExist(text)) text = GetXml();
 
-    var dataPrevBaixa = hAPI.getCardValue(&quot;hidden_data_previabaixa&quot;);
-    dataPrevBaixa = dataPrevBaixa.replace(&quot;Z&quot;, &quot;&quot;);
+    text = formatStringToXML(text);
+    text = removeNode(text, &quot;_x0024_IMAGES&quot;);
+    text = removeNode(text, &quot;FLANCOMPL&quot;);
+    text = removeNode(text, &quot;FLANRATCCU&quot;);
 
-    var valores = {
-        &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;coligada&quot;), //&quot;1&quot;,
-        &quot;IDLAN&quot;: &quot;-1&quot;,
-        &quot;NUMERODOCUMENTO&quot;:  hAPI.getCardValue(&quot;numero_documento_analise&quot;), //&quot;000046632/09&quot;,
-        &quot;NFOUDUP&quot;: &quot;0&quot;,
-        &quot;CLASSIFICACAO&quot;: &quot;0&quot;, //hAPI.getCardValue(&quot;classificacao_lancamento&quot;), //&quot;0&quot;,
-        &quot;PAGREC&quot;: hAPI.getCardValue(&quot;pagar_receber&quot;), //&quot;2&quot;,
-        &quot;STATUSLAN&quot;: &quot;0&quot;,
-        &quot;CODAPLICACAO&quot;: &quot;F&quot;,
-        &quot;CODCCUSTO&quot;: codCCusto, //&quot;01.01.01.01.002&quot;,
-        &quot;HISTORICO&quot;: hAPI.getCardValue(&quot;historico_analise&quot;), //&quot;teste&quot;,
-        &quot;DATAVENCIMENTO&quot;: dataVencimento, //&quot;2024-07-31T00:00:00.000&quot;,
-        &quot;DATAEMISSAO&quot;: dataEmissao, //&quot;2024-07-25T00:00:00.000&quot;,
-        &quot;DATAPREVBAIXA&quot;: dataPrevBaixa, //&quot;2024-07-25T00:00:00.000&quot;,
-        &quot;VALORORIGINAL&quot;: valorOriginal, //hAPI.getCardValue(&quot;hidden_valor_original&quot;), //&quot;1.0000&quot;,
-        &quot;VALORCAPBX&quot;: hAPI.getCardValue(&quot;hidden_valor_cap&quot;), //&quot;0.0000&quot;,
-        &quot;VALORJUROS&quot;: hAPI.getCardValue(&quot;hidden_valor_juros&quot;), //&quot;0.0000&quot;,
-        &quot;VALORDESCONTO&quot;: hAPI.getCardValue(&quot;hidden_valor_desconto&quot;), //&quot;0.0000&quot;,
-        &quot;VALORMULTA&quot;: hAPI.getCardValue(&quot;hidden_valor_multa&quot;), //&quot;0.0000&quot;,
-        &quot;VALORAUXILIAR&quot;: &quot;0.0000&quot;,
-        &quot;VALORBASEIRRF&quot;: &quot;100.0000&quot;,
-        &quot;VALORIRRF&quot;: &quot;0.0000&quot;,
-        &quot;VALORREPASSE&quot;: &quot;0.0000&quot;,
-        &quot;VALORVENCIMENTOANTECIP&quot;: &quot;0.0000&quot;,
-        &quot;VALORNOTACREDITO&quot;: &quot;0.0000&quot;,
-        &quot;VALORADIANTAMENTO&quot;: &quot;0.0000&quot;,
-        &quot;VALORDEVOLUCAO&quot;: &quot;0.0000&quot;,
-        &quot;CAPMENSAL&quot;: hAPI.getCardValue(&quot;cap_mensal_analise&quot;),//&quot;00.00&quot;,
-        &quot;TAXASVENDOR&quot;: &quot;0.0000&quot;,
-        &quot;JUROSVENDOR&quot;: &quot;0.0000&quot;,
-        &quot;CODCOLCFO&quot;: hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;),//&quot;0&quot;,
-        &quot;CODCFO&quot;: hAPI.getCardValue(&quot;hidden_codigo_cli_for&quot;),//&quot;000000003&quot;,
-        &quot;CODCOLCXA&quot;: hAPI.getCardValue(&quot;coligada&quot;),// &quot;1&quot;,
-        &quot;CODCXA&quot;: hAPI.getCardValue(&quot;conta_caixa_analise&quot;),//&quot;99522-9&quot;,
-        &quot;IDPGTO&quot;: &quot;1&quot;,
-        &quot;CODTDO&quot;: hAPI.getCardValue(&quot;dados_pagamento_analise&quot;),// &quot;PIX&quot;,
-        &quot;CODFILIAL&quot;: hAPI.getCardValue(&quot;filial_analise&quot;),// &quot;1&quot;,
-        &quot;SERIEDOCUMENTO&quot;: &quot;1&quot;,//hAPI.getCardValue(&quot;serie_documento_analise&quot;),//&quot;1&quot;,
-        &quot;TIPOCONTABILLAN&quot;: &quot;0&quot;, // hAPI.getCardValue(&quot;tipo_contabil&quot;),//&quot;0&quot;,
-        &quot;CODMOEVALORORIGINAL&quot;: hAPI.getCardValue(&quot;tipo_moeda&quot;),//&quot;R$&quot;,
-        &quot;LIBAUTORIZADA&quot;: &quot;0&quot;,
-        &quot;STATUSEXPORTACAO&quot;: &quot;0&quot;,
-        &quot;NUMLOTECONTABIL&quot;: &quot;0&quot;,
-        &quot;STATUSEXTRATO&quot;: &quot;0&quot;,
-        &quot;CNABACEITE&quot;: &quot;0&quot;,
-        &quot;CNABSTATUS&quot;: &quot;0&quot;,
-        &quot;CNABBANCO&quot;: &quot;341&quot;,//hAPI.getCardValue(&quot;hidden_numbanco&quot;),//&quot;341&quot;,
-        &quot;REEMBOLSAVEL&quot;: &quot;0&quot;,//hAPI.getCardValue(&quot;reembolsavel_analise&quot;),//&quot;0&quot;,
-        //&quot;USUARIO&quot;: &quot;LUCIANA.S&quot;,
-        &quot;BAIXAAUTORIZADA&quot;: &quot;1&quot;,
-        &quot;TEMCHEQUEPARCIAL&quot;: &quot;0&quot;,
-        &quot;JAIMPRIMIU&quot;: &quot;0&quot;,
-        &quot;NUMBLOQUEIOS&quot;: &quot;0&quot;,
-        &quot;COTACAOINCLUSAO&quot;: &quot;1.000000000&quot;,
-        &quot;COTACAOBAIXA&quot;: &quot;0.000000000&quot;,
-        &quot;CARENCIAJUROS&quot;: hAPI.getCardValue(&quot;hidden_valor_carencia&quot;),//&quot;0&quot;,
-        &quot;TIPOJUROSDIA&quot;: &quot;0&quot;,
-        &quot;USUARIOCRIACAO&quot;: &quot;suporte.fluig&quot;,
-        //&quot;DATAALTERACAO&quot;: &quot;2024-03-05T00:00:00&quot;,
-        &quot;ALTERACAOBLOQUEADA&quot;: &quot;0&quot;,
-        &quot;MULTADIA&quot;: hAPI.getCardValue(&quot;multa_dia_analise&quot;),//&quot;0.0000&quot;,
-        &quot;DESCONTADO&quot;: &quot;0&quot;,
-        &quot;VALORINSS&quot;: &quot;0.0000&quot;,
-        &quot;VALORDEDUCAO&quot;: &quot;0.0000&quot;,
-        &quot;APLICFORMULA&quot;: &quot;F&quot;,
-        &quot;INSSEMOUTRAEMPRESA&quot;: &quot;0.0000&quot;,
-        &quot;PERCENTBASEINSS&quot;: &quot;0.0000&quot;,
-        &quot;OCAUTONOMO&quot;: &quot;0&quot;,
-        &quot;PERCBASEINSSEMPREGADO&quot;: &quot;0.0000&quot;,
-        &quot;INSSEDITADO&quot;: &quot;0&quot;,
-        &quot;IRRFEDITADO&quot;: &quot;0&quot;,
-        &quot;REUTILIZACAO&quot;: &quot;0&quot;,
-        &quot;CATEGORIAAUTONOMO&quot;: &quot;0&quot;,
-        &quot;VALORSESTSENAT&quot;: &quot;0.0000&quot;,
-        //&quot;CONVENIO&quot;: &quot;99522&quot;,
-        //&quot;DIGCONVENIO&quot;: &quot;9&quot;,
-        &quot;PERCJUROS&quot;: hAPI.getCardValue(&quot;percentual_juros_analise&quot;),//&quot;0&quot;,
-        &quot;PERCDESCONTO&quot;:  hAPI.getCardValue(&quot;percentual_desc_analise&quot;),//&quot;0&quot;,
-        &quot;PERCMULTA&quot;: hAPI.getCardValue(&quot;percentual_multa_analise&quot;),//&quot;0&quot;,
-        &quot;PERCCAP&quot;: hAPI.getCardValue(&quot;percentual_cap_analise&quot;),//&quot;0&quot;,
-        &quot;PERCOP1&quot;: &quot;0&quot;,
-        &quot;PERCOP2&quot;: &quot;0&quot;,
-        &quot;PERCOP3&quot;: &quot;0&quot;,
-        &quot;PERCOP4&quot;: &quot;0&quot;,
-        &quot;PERCOP5&quot;: &quot;0&quot;,
-        &quot;PERCOP6&quot;: &quot;0&quot;,
-        &quot;PERCOP7&quot;: &quot;0&quot;,
-        &quot;PERCOP8&quot;: &quot;0&quot;,
-        &quot;VALORINSSEMPREGADOR&quot;: &quot;0&quot;,
-        &quot;VALORBASEINSSEMPREGADOR&quot;: &quot;0&quot;,
-        &quot;VRBASEINSS&quot;: &quot;0&quot;,
-        &quot;VRBASEIRRF&quot;: &quot;0.0000&quot;,
-        &quot;VALORSERVICO&quot;: &quot;0.0000&quot;,
-        &quot;VRBASEINSSOUTRAEMPRESA&quot;: &quot;0.0000&quot;,
-        //&quot;IDHISTORICO&quot;: &quot;6125&quot;,
-        //&quot;PreencherRatCCusto&quot;: &quot;true&quot;,
-        //&quot;PreencherRatDepto&quot;: &quot;true&quot;,
-        &quot;VALORDEDUCAODEPENDENTES&quot;: &quot;0.0000&quot;,
-        &quot;VRPERDAFINANCEIRA&quot;: &quot;0.0000&quot;,
-        &quot;MODELOCONTABILIZACAO&quot;: &quot;1&quot;,
-        &quot;MODELOCONTABILIZACAOBAIXA&quot;: &quot;1&quot;,
-        &quot;CODCOLCONVENIO&quot;: &quot;1&quot;,
-        &quot;IDCONVENIO&quot;: &quot;14&quot;,
-        &quot;VALORORIGINALBX&quot;: &quot;0&quot;,
-        &quot;VALORDESCONTOBX&quot;: &quot;0&quot;,
-        &quot;VALORJUROSBX&quot;: &quot;0&quot;,
-        &quot;VALORMULTABX&quot;: &quot;0&quot;,
-        &quot;VALORCAPBX&quot;: &quot;0&quot;,
-        &quot;VALOROP1BX&quot;: &quot;0,0000&quot;,
-        &quot;VALOROP2BX&quot;: &quot;0,0000&quot;,
-        &quot;VALOROP3BX&quot;: &quot;0,0000&quot;,
-        &quot;VALOROP4BX&quot;: &quot;0,0000&quot;,
-        &quot;VALOROP5BX&quot;: &quot;0,0000&quot;,
-        &quot;VALOROP6BX&quot;: &quot;0,0000&quot;,
-        &quot;VALOROP7BX&quot;: &quot;0,0000&quot;,
-        &quot;VALOROP8BX&quot;: &quot;0,0000&quot;,
-        &quot;VALORINSSBX&quot;: &quot;0&quot;,
-        &quot;VALORIRRFBX&quot;: &quot;0&quot;,
-        &quot;VALORSESTSENATBX&quot;: &quot;0&quot;,
-        &quot;VALORDEVOLUCAOBX&quot;: &quot;0&quot;,
-        &quot;VALORNOTACREDITOBX&quot;: &quot;0&quot;,
-        &quot;VALORADIANTAMENTOBX&quot;: &quot;0&quot;,
-        &quot;VALORJUROSVENDORBX&quot;: &quot;0&quot;,
-        &quot;VALORRETENCOESBX&quot;: &quot;0&quot;,
-        &quot;STATUSORCAMENTO&quot;: &quot;0&quot;,
-        &quot;BAIXAPENDENTE&quot;: &quot;0&quot;,
-        &quot;CODCOLTOMADOR&quot;: &quot;0&quot;,
-        &quot;VALORDESCONTOACORDO&quot;: &quot;0.0000&quot;,
-        &quot;VALORJUROSACORDO&quot;: &quot;0.0000&quot;,
-        &quot;VALORACRESCIMOACORDO&quot;: &quot;0.0000&quot;,
-        &quot;VALORDEDUCAOVARIAVEL&quot;: &quot;0.0000&quot;,
-        &quot;STATUSLIQDUVIDOSA&quot;: &quot;0&quot;,
-        &quot;VALORVINCULADO&quot;: &quot;0&quot;,
-        &quot;STATUSNEGATIVACAO&quot;: &quot;0&quot;,
-        //&quot;PreencheDadosBancarios&quot;: &quot;true&quot;,
-        &quot;STATUSTERCEIRIZACAO&quot;: &quot;0&quot;,
-        &quot;STATUSAPROVACAO&quot;: &quot;0&quot;,
-        &quot;CODCOLPGTO&quot;: &quot;1&quot;,
+    text = replaceValue(text, &apos;CODCOLIGADA&apos;, hAPI.getCardValue(&quot;coligada&quot;));
+    text = replaceValue(text, &apos;IDLAN&apos;, idLanNovo);
+    text = replaceValue(text, &apos;NUMERODOCUMENTO&apos;, hAPI.getCardValue(&quot;numero_documento_analise&quot;));
+    text = replaceValue(text, &apos;PAGREC&apos;, hAPI.getCardValue(&quot;pagar_receber&quot;));
+    text = replaceValue(text, &apos;CODCCUSTO&apos;, codCCusto);
+    text = replaceValue(text, &apos;HISTORICO&apos;, hAPI.getCardValue(&quot;historico_analise&quot;));
+    text = replaceValue(text, &apos;DATAVENCIMENTO&apos;, dataVencimento);
+    text = replaceValue(text, &apos;DATAEMISSAO&apos;, dataEmissao);
+    text = replaceValue(text, &apos;DATAPREVBAIXA&apos;, dataPrevBaixa);
+    text = replaceValue(text, &apos;VALORORIGINAL&apos;, valorOriginal);
+    text = replaceValue(text, &apos;VALORCAPBX&apos;, formatText2Float(hAPI.getCardValue(&quot;hidden_valor_cap&quot;)));
+    text = replaceValue(text, &apos;VALORJUROS&apos;, formatText2Float(hAPI.getCardValue(&quot;hidden_valor_juros&quot;)));
+    text = replaceValue(text, &apos;VALORDESCONTO&apos;, hAPI.getCardValue(&quot;hidden_valor_desconto&quot;));
+    text = replaceValue(text, &apos;VALORMULTA&apos;, formatText2Float(hAPI.getCardValue(&quot;hidden_valor_multa&quot;)));
+    text = replaceValue(text, &apos;CAPMENSAL&apos;, hAPI.getCardValue(&quot;cap_mensal_analise&quot;));
+    text = replaceValue(text, &apos;CODCOLCFO&apos;, hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;));
+    text = replaceValue(text, &apos;CODCFO&apos;, hAPI.getCardValue(&quot;hidden_codigo_cli_for&quot;));
+    text = replaceValue(text, &apos;CODCOLCXA&apos;, hAPI.getCardValue(&quot;coligada&quot;));
+    text = replaceValue(text, &apos;CODCXA&apos;, hAPI.getCardValue(&quot;conta_caixa_analise&quot;));
+    text = replaceValue(text, &apos;CODTDO&apos;, hAPI.getCardValue(&quot;dados_pagamento_analise&quot;));
+    text = replaceValue(text, &apos;CODFILIAL&apos;, hAPI.getCardValue(&quot;filial_analise&quot;));
+    text = replaceValue(text, &apos;CNABBANCO&apos;, &quot;341&quot;);
+    text = replaceValue(text, &apos;REEMBOLSAVEL&apos;, &quot;0&quot;);
+    text = replaceValue(text, &apos;CARENCIAJUROS&apos;, hAPI.getCardValue(&quot;hidden_valor_carencia&quot;));
+    text = replaceValue(text, &apos;MULTADIA&apos;, formatText2Float(hAPI.getCardValue(&quot;multa_dia_analise&quot;)));
+    text = replaceValue(text, &apos;PERCJUROS&apos;, formatText2Float(hAPI.getCardValue(&quot;percentual_juros_analise&quot;)));
+    text = replaceValue(text, &apos;PERCDESCONTO&apos;, formatText2Float(hAPI.getCardValue(&quot;percentual_desc_analise&quot;)));
+    text = replaceValue(text, &apos;PERCMULTA&apos;, formatText2Float(hAPI.getCardValue(&quot;percentual_multa_analise&quot;)));
+    text = replaceValue(text, &apos;PERCCAP&apos;, formatText2Float(hAPI.getCardValue(&quot;percentual_cap_analise&quot;)));
+
+    var rateios = &quot;&quot;;
+    var table_rateio_ccusto_fin_indexes = hAPI.getChildrenIndexes(&quot;table_rateio_ccusto_fin&quot;);
+    for (var i = 0; i &lt; table_rateio_ccusto_fin_indexes.length; i++) {
+      var dadosDoItem = new java.util.HashMap();
+      var coluna_ccusto_fin = String(hAPI.getCardValue(&quot;coluna_ccusto_fin&quot; + &quot;___&quot; + table_rateio_ccusto_fin_indexes[i])).split(&quot;-&quot;);
+      var coluna_natureza_fin = String(hAPI.getCardValue(&quot;coluna_natureza_fin&quot; + &quot;___&quot; + table_rateio_ccusto_fin_indexes[i])).split(&quot;-&quot;);
+      dadosDoItem.put(&quot;CODCOLIGADA&quot;, String(hAPI.getCardValue(&quot;coligada&quot;)));
+      dadosDoItem.put(&quot;CODCCUSTO&quot;, String(coluna_ccusto_fin[0]).trim());
+      dadosDoItem.put(&quot;NOME&quot;, String(coluna_ccusto_fin[1]).trim());
+      dadosDoItem.put(&quot;CODNATFINANCEIRA&quot;, String(coluna_natureza_fin[0]).trim());
+      dadosDoItem.put(&quot;DESCRICAO&quot;, String(coluna_natureza_fin[1]).trim());
+      dadosDoItem.put(&quot;VALOR&quot;, formatText2Float(hAPI.getCardValue(&quot;coluna_valor_fin&quot; + &quot;___&quot; + table_rateio_ccusto_fin_indexes[i])));
+      dadosDoItem.put(&quot;PERCENTUAL&quot;, formatText2Float(hAPI.getCardValue(&quot;coluna_percentual_fin&quot; + &quot;___&quot; + table_rateio_ccusto_fin_indexes[i])));
+      dadosDoItem.put(&quot;IDRATCCU&quot;, String(idLanNovo));
+      dadosDoItem.put(&quot;IDLAN&quot;, String(idLanNovo));
+      dadosDoItem.put(&quot;CODCOLNATFINANCEIRA&quot;, &quot;0&quot;);
+      rateios += makeFLANRATCCUXML(dadosDoItem);
     }
-
-    log.info(&quot;VALORES --&gt; &quot;)
-    log.dir(valores)
-
-    var cst = []
-
-    for (var propriedade in valores) {
-        if (valores.hasOwnProperty(propriedade)) {
-            if (valores[propriedade] != &quot;&quot;) {
-                cst.push(DatasetFactory.createConstraint(propriedade, valores[propriedade], valores[propriedade], ConstraintType.MUST));
-            }
-        }
-    }
-
-
-    var dtsIntegracao = DatasetFactory.getDataset(&quot;ds_integraG5&quot;, null, cst, null);
-
-    if (dtsIntegracao.rowsCount &gt; 0) {
-        if (dtsIntegracao.getValue(0, &quot;Retorno&quot;) == &quot;OK&quot;) {
-            return true;
-        } else {
-            throw dtsIntegracao.getValue(0, &quot;Mensagem&quot;);
-        }
-    } else {
-        throw &quot;Não retornou resultado da integração&quot;;
-    }
+    text = addItem(text, &quot;&lt;/FinLAN&gt;&quot;, rateios);
+    var newXML = new XML(text)
+    log.info(&quot;============================= XML =============================&quot;)
+    log.info(newXML)
+    var result = authenticatedService.saveRecord(dataServerName, newXML, context);
+    var result = String(result);
+    checkIsPK(result, 2);
+    var movimentoGerado = result.split(&quot;;&quot;)[1];
+    hAPI.setCardValue(&quot;idLan&quot;, String(movimentoGerado));
+    return true;
+  } catch (error) {
+    throw String(&quot; Linha: &quot; + error.lineNuber + &quot; - &quot; + String(error));
+  }
 }
-</eventDescription>
+
+function getConstraints(constraints) {
+  var objRetorno = {}
+  if (constraints != null &amp;&amp; constraints.length &gt; 0) {
+    for (var c = 0; c &lt; constraints.length; c++) {
+      if (constraints[c].fieldName.toUpperCase() != &quot;SQLLIMIT&quot;) {
+        objRetorno[constraints[c].fieldName.toUpperCase()] = constraints[c].initialValue
+      }
+    }
+  }
+  return objRetorno;
+}
+
+function ChekExist(result) {
+  var lines = result.split(&apos;\r&apos;);
+  if (lines.length &gt; 1) return true
+  else return false;
+}
+
+function checkIsPK(result, qtd) {
+  var lines = result.split(&apos;\r&apos;);
+  if (lines.length == 1) {
+    var pk = result.split(&apos;;&apos;);
+    if (pk.length == qtd) return;
+  }
+  throw result;
+}
+
+/**
+ * @param {String} params recebe uma string para remoção da mascara aplicada no campo  
+ * @returns número decimal 
+ */
+function formatText2Float(params) {
+  params = String(params);
+  if (params.indexOf(&quot;,&quot;) &gt;= 0) {
+    var regexExpression = RegExp(&apos;\\.&apos;, &apos;g&apos;);
+    params = params.replace(regexExpression, &apos;&apos;);
+  }
+  return params;
+}
+
+function makeFLANRATCCUXML(dados) {
+  var item = &quot;&quot;;
+  item += &quot;\n&lt;FLANRATCCU&gt;&quot;;
+  item += &quot;\n    &lt;IDRATCCU&gt;&quot; + dados.get(&quot;IDRATCCU&quot;) + &quot;&lt;/IDRATCCU&gt;&quot;;
+  item += &quot;\n    &lt;CODCOLIGADA&gt;&quot; + dados.get(&quot;CODCOLIGADA&quot;) + &quot;&lt;/CODCOLIGADA&gt;&quot;;
+  item += &quot;\n    &lt;IDLAN&gt;&quot; + dados.get(&quot;IDLAN&quot;) + &quot;&lt;/IDLAN&gt;&quot;;
+  item += &quot;\n    &lt;CODCCUSTO&gt;&quot; + dados.get(&quot;CODCCUSTO&quot;) + &quot;&lt;/CODCCUSTO&gt;&quot;;
+  item += &quot;\n    &lt;NOME&gt;&quot; + dados.get(&quot;NOME&quot;) + &quot;&lt;/NOME&gt;&quot;;
+  item += &quot;\n    &lt;VALOR&gt;&quot; + dados.get(&quot;VALOR&quot;) + &quot;&lt;/VALOR&gt;&quot;;
+  item += &quot;\n    &lt;PERCENTUAL&gt;&quot; + dados.get(&quot;PERCENTUAL&quot;) + &quot;&lt;/PERCENTUAL&gt;&quot;;
+  item += &quot;\n    &lt;CODCOLNATFINANCEIRA&gt;&quot; + dados.get(&quot;CODCOLNATFINANCEIRA&quot;) + &quot;&lt;/CODCOLNATFINANCEIRA&gt;&quot;;
+  item += &quot;\n    &lt;CODNATFINANCEIRA&gt;&quot; + dados.get(&quot;CODNATFINANCEIRA&quot;) + &quot;&lt;/CODNATFINANCEIRA&gt;&quot;;
+  item += &quot;\n    &lt;DESCRICAO&gt;&quot; + dados.get(&quot;DESCRICAO&quot;) + &quot;&lt;/DESCRICAO&gt;&quot;;
+  item += &quot;\n&lt;/FLANRATCCU&gt;&quot;;
+  return item;
+}
+
+function addItem(text, prevColumnName, newColumn) {
+  if (prevColumnName != null &amp;&amp; prevColumnName.trim() != &quot;&quot; &amp;&amp; text.indexOf(prevColumnName) &gt;= 0) {
+    var entryPoint = text.indexOf(prevColumnName);
+    return text.substr(0, entryPoint) + newColumn + text.substr(entryPoint);;
+  }
+  else {
+    return text
+  };
+}
+
+function replaceValue(text, columnName, newValue) {
+  log.dir({
+    &apos;columnName&apos;: columnName,
+    &apos;newValue&apos;: newValue
+  })
+  newValue = String(newValue);
+  if ((newValue != null) &amp;&amp; (newValue.trim() != &quot;&quot;)) {
+    var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;\\/&quot; + columnName + &quot;&gt;&quot;, &quot;g&quot;);
+    var replaceText = &quot;&lt;&quot; + columnName + &quot;&gt;&quot; + newValue + &quot;&lt;/&quot; + columnName + &quot;&gt;&quot;;
+    return text.replace(regex, replaceText);
+  }
+  else return text;
+}
+
+function removeValue(text, columnName) {
+  var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;\\/&quot; + columnName + &quot;&gt;&quot;, &quot;g&quot;);
+  var replaceText = &quot;&lt;&quot; + columnName + &quot;&gt;&lt;/&quot; + columnName + &quot;&gt;&quot;;
+  return text.replace(regex, replaceText);
+}
+
+function removeNode(text, columnName) {
+  var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;\\/&quot; + columnName + &quot;&gt;&quot;, &quot;g&quot;);
+  var replaceText = &quot;&quot;;
+  return text.replace(regex, replaceText);
+}
+
+/**
+* A API de autenticação da Totvs baseia no &quot;Basic access authentication&quot; do HTTP.
+* Código Java para autenticação 
+* Programa responsável por integrar com os Web services do RM 
+*  Exemplo dev valores para os parâmetros 
+* @param {String} user nome de usuário
+* @param {String} pass senha do usuário 
+* @param {String} serviceRM nome do serviço cadastrado no painel de controle
+* @param {String} instance instância do serviço &quot;com.totvs.WsDataServer&quot;
+* @param {String} authClient instância do serviço de autenticação &quot;com.totvs.IwsDataServer&quot;
+* @returns parâmetros de autenticação
+*/
+function getWebService(user, pass, serviceRM, instance, authClient) {
+  var dataServerService = ServiceManager.getServiceInstance(serviceRM);
+  if (dataServerService == null) {
+    throw &quot;Serviço nao encontrado: &quot; + serviceRM;
+  }
+  var serviceLocator = dataServerService.instantiate(instance);
+  if (serviceLocator == null) {
+    throw &quot;Instancia do serviço nao encontrada: &quot; + serviceRM + &quot; - &quot; + instance;
+  }
+  var service = serviceLocator.getRMIwsDataServer();
+  if (service == null) {
+    throw &quot;Instancia do dataserver do invalida: &quot; + serviceRM + &quot; - &quot; + instance;
+  }
+  var serviceHelper = dataServerService.getBean();
+  if (serviceHelper == null) {
+    throw &quot;Instancia do service helper invalida: &quot; + serviceRM + &quot; - &quot; + instance;
+  }
+  var authService = serviceHelper.getBasicAuthenticatedClient(service, authClient, user, pass);
+  if (serviceHelper == null) {
+    throw &quot;Instancia do auth service invalida: &quot; + serviceRM + &quot; - &quot; + instance;
+  }
+  return authService;
+}
+
+/**
+ * Trata o XML para evitar que a próximas funções a serem executadas retornem algum erro
+ * @param {string} params string de integração  
+ * @returns string de integração sem os cacteres que podem causar algum problema na integração
+ */
+function formatStringToXML(params) {
+  var regexLineR = new RegExp(&quot;\r&quot;, &quot;g&quot;);
+  var regexLine = new RegExp(&quot;\n&quot;, &quot;g&quot;);
+  var regexTab = new RegExp(&quot;\t&quot;, &quot;g&quot;);
+  var regexDspace = new RegExp(&quot;  &quot;, &quot;g&quot;);
+  var text = params.replace(regexLine, &quot; &quot;);
+  text = text.replace(regexLineR, &quot; &quot;);
+  text = text.replace(regexTab, &quot; &quot;);
+  text = text.replace(regexDspace, &quot; &quot;);
+  return text = text.trim();
+}
+
+function GetXml() {
+  return &quot;&lt;FinLAN&gt;&quot; +
+    &quot;\n   &lt;FLAN&gt;&quot; +
+    &quot;\n      &lt;CODCOLIGADA&gt;1&lt;/CODCOLIGADA&gt;&quot; +
+    &quot;\n      &lt;IDLAN&gt;-1&lt;/IDLAN&gt;  &quot; +
+    &quot;\n      &lt;NUMERODOCUMENTO&gt;000046632/09&lt;/NUMERODOCUMENTO&gt;&quot; +
+    &quot;\n      &lt;NFOUDUP&gt;0&lt;/NFOUDUP&gt;&quot; +
+    &quot;\n      &lt;CLASSIFICACAO&gt;0&lt;/CLASSIFICACAO&gt;&quot; +
+    &quot;\n      &lt;PAGREC&gt;2&lt;/PAGREC&gt;&quot; +
+    &quot;\n      &lt;STATUSLAN&gt;0&lt;/STATUSLAN&gt;&quot; +
+    &quot;\n      &lt;CODAPLICACAO&gt;F&lt;/CODAPLICACAO&gt;&quot; +
+    &quot;\n      &lt;CODCCUSTO&gt;01.01.01.01.002&lt;/CODCCUSTO&gt;&quot; +
+    &quot;\n      &lt;HISTORICO&gt;teste&lt;/HISTORICO&gt;&quot; +
+    &quot;\n      &lt;DATAVENCIMENTO&gt;2024-07-31T00:00:00.000&lt;/DATAVENCIMENTO&gt;&quot; +
+    &quot;\n      &lt;DATAEMISSAO&gt;2024-07-25T00:00:00.000&lt;/DATAEMISSAO&gt;&quot; +
+    &quot;\n      &lt;DATAPREVBAIXA&gt;2024-07-25T00:00:00.000&lt;/DATAPREVBAIXA&gt;&quot; +
+    &quot;\n      &lt;VALORORIGINAL&gt;1.0000&lt;/VALORORIGINAL&gt;&quot; +
+    &quot;\n      &lt;VALORCAPBX&gt;0.0000&lt;/VALORCAPBX&gt;&quot; +
+    &quot;\n      &lt;VALORJUROS&gt;0.0000&lt;/VALORJUROS&gt;&quot; +
+    &quot;\n      &lt;VALORDESCONTO&gt;0.0000&lt;/VALORDESCONTO&gt;&quot; +
+    &quot;\n      &lt;VALORMULTA&gt;0.0000&lt;/VALORMULTA&gt;&quot; +
+    &quot;\n      &lt;VALORAUXILIAR&gt;0.0000&lt;/VALORAUXILIAR&gt;&quot; +
+    &quot;\n      &lt;VALORBASEIRRF&gt;100.0000&lt;/VALORBASEIRRF&gt;&quot; +
+    &quot;\n      &lt;VALORIRRF&gt;0.0000&lt;/VALORIRRF&gt;&quot; +
+    &quot;\n      &lt;VALORREPASSE&gt;0.0000&lt;/VALORREPASSE&gt;&quot; +
+    &quot;\n      &lt;VALORVENCIMENTOANTECIP&gt;0.0000&lt;/VALORVENCIMENTOANTECIP&gt;&quot; +
+    &quot;\n      &lt;VALORNOTACREDITO&gt;0.0000&lt;/VALORNOTACREDITO&gt;&quot; +
+    &quot;\n      &lt;VALORADIANTAMENTO&gt;0.0000&lt;/VALORADIANTAMENTO&gt;&quot; +
+    &quot;\n      &lt;VALORDEVOLUCAO&gt;0.0000&lt;/VALORDEVOLUCAO&gt;&quot; +
+    &quot;\n      &lt;CAPMENSAL&gt;00.00&lt;/CAPMENSAL&gt;&quot; +
+    &quot;\n      &lt;TAXASVENDOR&gt;0.0000&lt;/TAXASVENDOR&gt;&quot; +
+    &quot;\n      &lt;JUROSVENDOR&gt;0.0000&lt;/JUROSVENDOR&gt;&quot; +
+    &quot;\n      &lt;CODCOLCFO&gt;0&lt;/CODCOLCFO&gt;&quot; +
+    &quot;\n      &lt;CODCFO&gt;000000003&lt;/CODCFO&gt;&quot; +
+    &quot;\n      &lt;CODCOLCXA&gt;1&lt;/CODCOLCXA&gt;&quot; +
+    &quot;\n      &lt;CODCXA&gt;99522-9&lt;/CODCXA&gt;&quot; +
+    &quot;\n      &lt;IDPGTO&gt;1&lt;/IDPGTO&gt;&quot; +
+    &quot;\n      &lt;CODTDO&gt;PIX&lt;/CODTDO&gt;&quot; +
+    &quot;\n      &lt;CODFILIAL&gt;1&lt;/CODFILIAL&gt;&quot; +
+    &quot;\n      &lt;SERIEDOCUMENTO&gt;1&lt;/SERIEDOCUMENTO&gt;&quot; +
+    &quot;\n      &lt;TIPOCONTABILLAN&gt;0&lt;/TIPOCONTABILLAN&gt;&quot; +
+    &quot;\n      &lt;CODMOEVALORORIGINAL&gt;R$&lt;/CODMOEVALORORIGINAL&gt;&quot; +
+    &quot;\n      &lt;LIBAUTORIZADA&gt;0&lt;/LIBAUTORIZADA&gt;&quot; +
+    &quot;\n      &lt;STATUSEXPORTACAO&gt;0&lt;/STATUSEXPORTACAO&gt;&quot; +
+    &quot;\n      &lt;NUMLOTECONTABIL&gt;0&lt;/NUMLOTECONTABIL&gt;&quot; +
+    &quot;\n      &lt;STATUSEXTRATO&gt;0&lt;/STATUSEXTRATO&gt;&quot; +
+    &quot;\n      &lt;CNABACEITE&gt;0&lt;/CNABACEITE&gt;&quot; +
+    &quot;\n      &lt;CNABSTATUS&gt;0&lt;/CNABSTATUS&gt;&quot; +
+    &quot;\n      &lt;CNABBANCO&gt;341&lt;/CNABBANCO&gt;&quot; +
+    &quot;\n      &lt;REEMBOLSAVEL&gt;0&lt;/REEMBOLSAVEL&gt;&quot; +
+    &quot;\n      &lt;USUARIO&gt;LUCIANA.S&lt;/USUARIO&gt;&quot; +
+    &quot;\n      &lt;BAIXAAUTORIZADA&gt;1&lt;/BAIXAAUTORIZADA&gt;&quot; +
+    &quot;\n      &lt;TEMCHEQUEPARCIAL&gt;0&lt;/TEMCHEQUEPARCIAL&gt;&quot; +
+    &quot;\n      &lt;JAIMPRIMIU&gt;0&lt;/JAIMPRIMIU&gt;&quot; +
+    &quot;\n      &lt;NUMBLOQUEIOS&gt;0&lt;/NUMBLOQUEIOS&gt;&quot; +
+    &quot;\n      &lt;COTACAOINCLUSAO&gt;1.000000000&lt;/COTACAOINCLUSAO&gt;&quot; +
+    &quot;\n      &lt;COTACAOBAIXA&gt;0.000000000&lt;/COTACAOBAIXA&gt;&quot; +
+    &quot;\n      &lt;CARENCIAJUROS&gt;0&lt;/CARENCIAJUROS&gt;&quot; +
+    &quot;\n      &lt;TIPOJUROSDIA&gt;0&lt;/TIPOJUROSDIA&gt;&quot; +
+    &quot;\n      &lt;USUARIOCRIACAO&gt;LUCIANA.S&lt;/USUARIOCRIACAO&gt;&quot; +
+    &quot;\n      &lt;DATAALTERACAO&gt;2024-03-05T00:00:00&lt;/DATAALTERACAO&gt;&quot; +
+    &quot;\n      &lt;ALTERACAOBLOQUEADA&gt;0&lt;/ALTERACAOBLOQUEADA&gt;&quot; +
+    &quot;\n      &lt;MULTADIA&gt;0.0000&lt;/MULTADIA&gt;&quot; +
+    &quot;\n      &lt;DESCONTADO&gt;0&lt;/DESCONTADO&gt;&quot; +
+    &quot;\n      &lt;VALORINSS&gt;0.0000&lt;/VALORINSS&gt;&quot; +
+    &quot;\n      &lt;VALORDEDUCAO&gt;0.0000&lt;/VALORDEDUCAO&gt;&quot; +
+    &quot;\n      &lt;APLICFORMULA&gt;F&lt;/APLICFORMULA&gt;&quot; +
+    &quot;\n      &lt;INSSEMOUTRAEMPRESA&gt;0.0000&lt;/INSSEMOUTRAEMPRESA&gt;&quot; +
+    &quot;\n      &lt;PERCENTBASEINSS&gt;100.0000&lt;/PERCENTBASEINSS&gt;&quot; +
+    &quot;\n      &lt;OCAUTONOMO&gt;0&lt;/OCAUTONOMO&gt;&quot; +
+    &quot;\n      &lt;PERCBASEINSSEMPREGADO&gt;100.0000&lt;/PERCBASEINSSEMPREGADO&gt;&quot; +
+    &quot;\n      &lt;INSSEDITADO&gt;0&lt;/INSSEDITADO&gt;&quot; +
+    &quot;\n      &lt;IRRFEDITADO&gt;0&lt;/IRRFEDITADO&gt;&quot; +
+    &quot;\n      &lt;REUTILIZACAO&gt;0&lt;/REUTILIZACAO&gt;&quot; +
+    &quot;\n      &lt;CATEGORIAAUTONOMO&gt;0&lt;/CATEGORIAAUTONOMO&gt;&quot; +
+    &quot;\n      &lt;VALORSESTSENAT&gt;0.0000&lt;/VALORSESTSENAT&gt;&quot; +
+    &quot;\n      &lt;CONVENIO&gt;99522&lt;/CONVENIO&gt;&quot; +
+    &quot;\n      &lt;DIGCONVENIO&gt;9&lt;/DIGCONVENIO&gt;&quot; +
+    &quot;\n      &lt;PERCJUROS&gt;0&lt;/PERCJUROS&gt;&quot; +
+    &quot;\n      &lt;PERCDESCONTO&gt;0&lt;/PERCDESCONTO&gt;&quot; +
+    &quot;\n      &lt;PERCMULTA&gt;0&lt;/PERCMULTA&gt;&quot; +
+    &quot;\n      &lt;PERCCAP&gt;0&lt;/PERCCAP&gt;&quot; +
+    &quot;\n      &lt;PERCOP1&gt;0&lt;/PERCOP1&gt;&quot; +
+    &quot;\n      &lt;PERCOP2&gt;0&lt;/PERCOP2&gt;&quot; +
+    &quot;\n      &lt;PERCOP3&gt;0&lt;/PERCOP3&gt;&quot; +
+    &quot;\n      &lt;PERCOP4&gt;0&lt;/PERCOP4&gt;&quot; +
+    &quot;\n      &lt;PERCOP5&gt;0&lt;/PERCOP5&gt;&quot; +
+    &quot;\n      &lt;PERCOP6&gt;0&lt;/PERCOP6&gt;&quot; +
+    &quot;\n      &lt;PERCOP7&gt;0&lt;/PERCOP7&gt;&quot; +
+    &quot;\n      &lt;PERCOP8&gt;0&lt;/PERCOP8&gt;&quot; +
+    &quot;\n      &lt;VALORINSSEMPREGADOR&gt;0&lt;/VALORINSSEMPREGADOR&gt;&quot; +
+    &quot;\n      &lt;VALORBASEINSSEMPREGADOR&gt;0&lt;/VALORBASEINSSEMPREGADOR&gt;&quot; +
+    &quot;\n      &lt;VRBASEINSS&gt;0&lt;/VRBASEINSS&gt;&quot; +
+    &quot;\n      &lt;VRBASEIRRF&gt;0.0000&lt;/VRBASEIRRF&gt;&quot; +
+    &quot;\n      &lt;VALORSERVICO&gt;0.0000&lt;/VALORSERVICO&gt;&quot; +
+    &quot;\n      &lt;VRBASEINSSOUTRAEMPRESA&gt;0.0000&lt;/VRBASEINSSOUTRAEMPRESA&gt;&quot; +
+    &quot;\n      &lt;IDHISTORICO&gt;6125&lt;/IDHISTORICO&gt;&quot; +
+    &quot;\n      &lt;PreencherRatCCusto&gt;true&lt;/PreencherRatCCusto&gt;&quot; +
+    &quot;\n      &lt;PreencherRatDepto&gt;true&lt;/PreencherRatDepto&gt;&quot; +
+    &quot;\n      &lt;VALORDEDUCAODEPENDENTES&gt;0.0000&lt;/VALORDEDUCAODEPENDENTES&gt;&quot; +
+    &quot;\n      &lt;VRPERDAFINANCEIRA&gt;0.0000&lt;/VRPERDAFINANCEIRA&gt;&quot; +
+    &quot;\n      &lt;MODELOCONTABILIZACAO&gt;0&lt;/MODELOCONTABILIZACAO&gt;&quot; +
+    &quot;\n      &lt;MODELOCONTABILIZACAOBAIXA&gt;0&lt;/MODELOCONTABILIZACAOBAIXA&gt;&quot; +
+    &quot;\n      &lt;CODCOLCONVENIO&gt;1&lt;/CODCOLCONVENIO&gt;&quot; +
+    &quot;\n      &lt;IDCONVENIO&gt;14&lt;/IDCONVENIO&gt;&quot; +
+    &quot;\n      &lt;VALORORIGINALBX&gt;0&lt;/VALORORIGINALBX&gt;&quot; +
+    &quot;\n      &lt;VALORDESCONTOBX&gt;0&lt;/VALORDESCONTOBX&gt;&quot; +
+    &quot;\n      &lt;VALORJUROSBX&gt;0&lt;/VALORJUROSBX&gt;&quot; +
+    &quot;\n      &lt;VALORMULTABX&gt;0&lt;/VALORMULTABX&gt;&quot; +
+    &quot;\n      &lt;VALORCAPBX&gt;0&lt;/VALORCAPBX&gt;&quot; +
+    &quot;\n      &lt;VALOROP1BX&gt;0,0000&lt;/VALOROP1BX&gt;&quot; +
+    &quot;\n      &lt;VALOROP2BX&gt;0,0000&lt;/VALOROP2BX&gt;&quot; +
+    &quot;\n      &lt;VALOROP3BX&gt;0,0000&lt;/VALOROP3BX&gt;&quot; +
+    &quot;\n      &lt;VALOROP4BX&gt;0,0000&lt;/VALOROP4BX&gt;&quot; +
+    &quot;\n      &lt;VALOROP5BX&gt;0,0000&lt;/VALOROP5BX&gt;&quot; +
+    &quot;\n      &lt;VALOROP6BX&gt;0,0000&lt;/VALOROP6BX&gt;&quot; +
+    &quot;\n      &lt;VALOROP7BX&gt;0,0000&lt;/VALOROP7BX&gt;&quot; +
+    &quot;\n      &lt;VALOROP8BX&gt;0,0000&lt;/VALOROP8BX&gt;&quot; +
+    &quot;\n      &lt;VALORINSSBX&gt;0&lt;/VALORINSSBX&gt;&quot; +
+    &quot;\n      &lt;VALORIRRFBX&gt;0&lt;/VALORIRRFBX&gt;&quot; +
+    &quot;\n      &lt;VALORSESTSENATBX&gt;0&lt;/VALORSESTSENATBX&gt;&quot; +
+    &quot;\n      &lt;VALORDEVOLUCAOBX&gt;0&lt;/VALORDEVOLUCAOBX&gt;&quot; +
+    &quot;\n      &lt;VALORNOTACREDITOBX&gt;0&lt;/VALORNOTACREDITOBX&gt;&quot; +
+    &quot;\n      &lt;VALORADIANTAMENTOBX&gt;0&lt;/VALORADIANTAMENTOBX&gt;&quot; +
+    &quot;\n      &lt;VALORJUROSVENDORBX&gt;0&lt;/VALORJUROSVENDORBX&gt;&quot; +
+    &quot;\n      &lt;VALORRETENCOESBX&gt;0&lt;/VALORRETENCOESBX&gt;&quot; +
+    &quot;\n      &lt;STATUSORCAMENTO&gt;0&lt;/STATUSORCAMENTO&gt;&quot; +
+    &quot;\n      &lt;BAIXAPENDENTE&gt;0&lt;/BAIXAPENDENTE&gt;&quot; +
+    &quot;\n      &lt;CODCOLTOMADOR&gt;0&lt;/CODCOLTOMADOR&gt;&quot; +
+    &quot;\n      &lt;VALORDESCONTOACORDO&gt;0.0000&lt;/VALORDESCONTOACORDO&gt;&quot; +
+    &quot;\n      &lt;VALORJUROSACORDO&gt;0.0000&lt;/VALORJUROSACORDO&gt;&quot; +
+    &quot;\n      &lt;VALORACRESCIMOACORDO&gt;0.0000&lt;/VALORACRESCIMOACORDO&gt;&quot; +
+    &quot;\n      &lt;VALORDEDUCAOVARIAVEL&gt;0.0000&lt;/VALORDEDUCAOVARIAVEL&gt;&quot; +
+    &quot;\n      &lt;STATUSLIQDUVIDOSA&gt;0&lt;/STATUSLIQDUVIDOSA&gt;&quot; +
+    &quot;\n      &lt;VALORVINCULADO&gt;0&lt;/VALORVINCULADO&gt;&quot; +
+    &quot;\n      &lt;STATUSNEGATIVACAO&gt;0&lt;/STATUSNEGATIVACAO&gt;&quot; +
+    &quot;\n      &lt;PreencheDadosBancarios&gt;true&lt;/PreencheDadosBancarios&gt;&quot; +
+    &quot;\n      &lt;STATUSTERCEIRIZACAO&gt;0&lt;/STATUSTERCEIRIZACAO&gt;&quot; +
+    &quot;\n      &lt;STATUSAPROVACAO&gt;0&lt;/STATUSAPROVACAO&gt;&quot; +
+    &quot;\n      &lt;CODCOLPGTO&gt;1&lt;/CODCOLPGTO&gt;&quot; +
+    &quot;\n  &lt;/FLAN&gt;&quot; +
+    &quot;\n&lt;/FinLAN&gt;&quot;;
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>beforeStateEntry</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function beforeStateEntry(sequenceId) {
@@ -5059,7 +4965,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>servicetask189</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask189(attempt, message) {
@@ -5070,7 +4976,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>servicetask104</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask104(attempt, message) {
@@ -5083,7 +4989,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>afterTaskCreate</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function afterTaskCreate(colleagueId){
@@ -5095,7 +5001,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>servicetask114</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask114(attempt, message) {
@@ -5106,7 +5012,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <workflowProcessEventPK>
         <companyId>1</companyId>
         <eventId>servicetask202</eventId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask202(attempt, message) {
@@ -5239,7 +5145,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <parentSequence>0</parentSequence>
       <swimLanePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>1</sequence>
       </swimLanePK>
@@ -5255,7 +5161,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <parentSequence>1</parentSequence>
       <swimLanePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>2</sequence>
       </swimLanePK>
@@ -5271,7 +5177,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <parentSequence>1</parentSequence>
       <swimLanePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>3</sequence>
       </swimLanePK>
@@ -5287,7 +5193,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <parentSequence>1</parentSequence>
       <swimLanePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>4</sequence>
       </swimLanePK>
@@ -5303,7 +5209,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <parentSequence>1</parentSequence>
       <swimLanePK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <sequence>5</sequence>
       </swimLanePK>
@@ -5316,7 +5222,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>50</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>120</componGrafSequence>
       </processComponGrafPK>
@@ -5328,7 +5234,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>40</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>121</componGrafSequence>
       </processComponGrafPK>
@@ -5340,7 +5246,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>530</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>122</componGrafSequence>
       </processComponGrafPK>
@@ -5352,7 +5258,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1430</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>123</componGrafSequence>
       </processComponGrafPK>
@@ -5364,7 +5270,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1550</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>141</componGrafSequence>
       </processComponGrafPK>
@@ -5376,7 +5282,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1644</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>142</componGrafSequence>
       </processComponGrafPK>
@@ -5388,7 +5294,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1454</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>148</componGrafSequence>
       </processComponGrafPK>
@@ -5400,7 +5306,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1439</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>162</componGrafSequence>
       </processComponGrafPK>
@@ -5412,7 +5318,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1509</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>163</componGrafSequence>
       </processComponGrafPK>
@@ -5424,7 +5330,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1639</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>166</componGrafSequence>
       </processComponGrafPK>
@@ -5436,7 +5342,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <positionY>1577</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
+        <processId>G5</processId>
         <version>1</version>
         <componGrafSequence>169</componGrafSequence>
       </processComponGrafPK>
@@ -5444,13 +5350,36 @@ if (dtsIntegracao.rowsCount &gt; 0) {
     </ProcessComponGraf>
   </list>
   <list/>
-  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>301</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>272</positionX>
+      <positionY>1747</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>301</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>421</positionX>
+      <positionY>1747</positionY>
+    </ProcessLinkBend>
+  </list>
   <list>
     <ProcessStateTrigger>
       <processStateTriggerPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>156</version>
+        <processId>G5</processId>
+        <version>1</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -5467,8 +5396,8 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     <ProcessStateTrigger>
       <processStateTriggerPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>156</version>
+        <processId>G5</processId>
+        <version>1</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -5486,8 +5415,8 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     <ProcessStateTrigger>
       <processStateTriggerPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>156</version>
+        <processId>G5</processId>
+        <version>1</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -5499,8 +5428,8 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     <ProcessStateTrigger>
       <processStateTriggerPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>156</version>
+        <processId>G5</processId>
+        <version>1</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -5516,8 +5445,8 @@ Informamos que sua solicitação: [Título da solicitação] foi paga. Segue aba
     <ProcessStateTrigger>
       <processStateTriggerPK>
         <companyId>1</companyId>
-        <processId>G5 - Pagamentos Avulsos</processId>
-        <version>156</version>
+        <processId>G5</processId>
+        <version>1</version>
         <stateSequence>287</stateSequence>
         <triggerSequence>4</triggerSequence>
       </processStateTriggerPK>
@@ -5536,7 +5465,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
   <list>
     <ProcessStateService>
       <companyId>1</companyId>
-      <processId>G5 - Pagamentos Avulsos</processId>
+      <processId>G5</processId>
       <version>1</version>
       <sequence>114</sequence>
       <attempts>0</attempts>
@@ -5547,7 +5476,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     </ProcessStateService>
     <ProcessStateService>
       <companyId>1</companyId>
-      <processId>G5 - Pagamentos Avulsos</processId>
+      <processId>G5</processId>
       <version>1</version>
       <sequence>176</sequence>
       <attempts>0</attempts>
@@ -5558,7 +5487,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     </ProcessStateService>
     <ProcessStateService>
       <companyId>1</companyId>
-      <processId>G5 - Pagamentos Avulsos</processId>
+      <processId>G5</processId>
       <version>1</version>
       <sequence>183</sequence>
       <attempts>0</attempts>
@@ -5569,7 +5498,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     </ProcessStateService>
     <ProcessStateService>
       <companyId>1</companyId>
-      <processId>G5 - Pagamentos Avulsos</processId>
+      <processId>G5</processId>
       <version>1</version>
       <sequence>210</sequence>
       <attempts>0</attempts>
@@ -5580,7 +5509,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     </ProcessStateService>
     <ProcessStateService>
       <companyId>1</companyId>
-      <processId>G5 - Pagamentos Avulsos</processId>
+      <processId>G5</processId>
       <version>1</version>
       <sequence>292</sequence>
       <attempts>0</attempts>
@@ -5595,8 +5524,8 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5605,8 +5534,8 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5619,8 +5548,8 @@ Valor total a ser pago: @[form:Valor]
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5629,28 +5558,28 @@ Valor total a ser pago: @[form:Valor]
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
-      <description>227</description>
+      <description>12</description>
     </ProcessAppConfiguration>
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
-      <description>228</description>
+      <description>76</description>
     </ProcessAppConfiguration>
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5659,8 +5588,8 @@ Valor total a ser pago: @[form:Valor]
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5673,8 +5602,8 @@ Valor total a ser pago: @[form:Valor]
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5683,22 +5612,22 @@ Valor total a ser pago: @[form:Valor]
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
-      <description>233</description>
+      <description>276</description>
     </ProcessAppConfiguration>
     <ProcessAppConfiguration>
       <id>0</id>
       <tenantId>0</tenantId>
-      <processId>G5 - Pagamentos Avulsos</processId>
-      <processVersion>156</processVersion>
+      <processId>G5</processId>
+      <processVersion>1</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
-      <description>234</description>
+      <description>79</description>
     </ProcessAppConfiguration>
   </list>
   <list/>

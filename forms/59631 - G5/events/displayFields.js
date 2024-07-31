@@ -2,6 +2,23 @@ function displayFields(form, customHTML) {
 
   var user = getValue("WKUser");
 
+  /** Vamos acelerar o preenchimento do formulario na atividade inicial para testes */
+  if ((user == "fluig" || user == "4ef20412-7687-40a4-b1c8-095c0a92503e") && form.getFormMode() == "ADD") {
+    var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(
+      DatasetFactory.createConstraint('documentid', '60831', '60831', ConstraintType.MUST)
+    ), null);
+
+    var colunas = datasetDs_G5.getColumnsName();
+    for (let index = 0; index < colunas.length; index++) {
+      let campo = colunas[index];
+      let valor = datasetDs_G5.getValue(0, campo);
+      form.setValue(campo, valor);
+    }
+  }
+
+  if (form.getFormMode() == "ADD") form.setValue("idLan", "-1");
+
+
   var adminUser = false;
   var c1 = DatasetFactory.createConstraint("colleaguePK.colleagueId", user, user, ConstraintType.MUST);
   var constraints = [c1];
@@ -19,16 +36,16 @@ function displayFields(form, customHTML) {
   var periodoFinal = new Array();
   var diaSemana = new Array();
 
-  for(var i = 0; i < ps1.rowsCount; i++) {
+  for (var i = 0; i < ps1.rowsCount; i++) {
     expediente.push(ps1.getValue(i, "COD_PERIOD_EXPED"));
-    periodoInicial.push(ps1.getValue(i, "NUM_HORA_INIC_PERIOD")/3600);
-    periodoFinal.push(ps1.getValue(i, "NUM_HORA_FIM_PERIOD")/3600);
+    periodoInicial.push(ps1.getValue(i, "NUM_HORA_INIC_PERIOD") / 3600);
+    periodoFinal.push(ps1.getValue(i, "NUM_HORA_FIM_PERIOD") / 3600);
     diaSemana.push(ps1.getValue(i, "NUM_DIA_PERIOD"));
   }
 
   var feriado = new Array();
 
-  for(var i = 0; i < ps2.rowsCount; i++) {
+  for (var i = 0; i < ps2.rowsCount; i++) {
     feriado.push(ps2.getValue(i, "dayFormatted"));
   }
 
@@ -42,7 +59,7 @@ function displayFields(form, customHTML) {
   customHTML.append("function getMode(){ return '" + form.getFormMode() + "'};");
   customHTML.append("</script>");
   customHTML.append("<script>");
-  customHTML.append("recebeDadosParaCalcularHoraUteis('"+expediente+"','"+periodoInicial+"','"+periodoFinal+"','"+diaSemana+"','"+feriado+"')");
+  customHTML.append("recebeDadosParaCalcularHoraUteis('" + expediente + "','" + periodoInicial + "','" + periodoFinal + "','" + diaSemana + "','" + feriado + "')");
   customHTML.append("</script>");
 
   var corDeFundoAtiva = getConstante("Cor_Fundo_Ativa");
@@ -58,7 +75,7 @@ function displayFields(form, customHTML) {
 
     if (form.getFormMode() == "VIEW") {
       /* EXIBIÇÃO DAS DIVS DE ETAPAS */
-      
+
 
       /* CADASTRO DE FORNECEDOR */
       if (form.getValue("fornecedor_cadastrado") == "Não") {
@@ -101,7 +118,7 @@ function displayFields(form, customHTML) {
         form.setVisibleById("div_provisionamento_revisao", true);
       }
 
-      var rateioCentroDeCustos =  form.getChildrenIndexes("table_rateio_ccusto_fin");
+      var rateioCentroDeCustos = form.getChildrenIndexes("table_rateio_ccusto_fin");
       if (rateioCentroDeCustos.length <= 1) {
         form.setVisibleById("section_rateio_financeiro", false);
       } else {
@@ -122,7 +139,7 @@ function displayFields(form, customHTML) {
       } else {
         form.setVisibleById("div_aguardando_vencimento", true);
       }
-      
+
       /* 127 - PAGAMENTO ÚNICO */
       if (form.getValue("pagamento_realizado_pu") == "" || form.getValue("pagamento_realizado_pu") == null) {
         form.setVisibleById("div_pagamento_unico", false);
@@ -160,179 +177,179 @@ function displayFields(form, customHTML) {
 
       /* CADASTRO DE FORNECEDOR */
       if (form.getValue("cad_cliente_fornecedor") == "" || form.getValue("cad_cliente_fornecedor") == null) {
-          form.setVisibleById("div_cad_cliente_fornecedor", false);
+        form.setVisibleById("div_cad_cliente_fornecedor", false);
       }
 
       if (form.getValue("cliente_global") == "" || form.getValue("cliente_global") == null) {
-          form.setVisibleById("div_cliente_global", false);
+        form.setVisibleById("div_cliente_global", false);
       }
 
       if (form.getValue("data_nascimento") == "" || form.getValue("data_nascimento") == null) {
-          form.setVisibleById("div_data_nascimento", false);
+        form.setVisibleById("div_data_nascimento", false);
       }
 
       if (form.getValue("estado_civil") == "" || form.getValue("estado_civil") == null) {
-          form.setVisibleById("div_estado_civil", false);
+        form.setVisibleById("div_estado_civil", false);
       }
 
       if (form.getValue("nome_social") == "" || form.getValue("nome_social") == null) {
-          form.setVisibleById("div_nome_social", false);
+        form.setVisibleById("div_nome_social", false);
       }
 
       if (form.getValue("nome") == "" || form.getValue("nome") == null) {
-          form.setVisibleById("div_nome", false);
+        form.setVisibleById("div_nome", false);
       }
 
       if (form.getValue("inscricao_estadual") == "" || form.getValue("inscricao_estadual") == null) {
-          form.setVisibleById("div_inscricao_estadual", false);
+        form.setVisibleById("div_inscricao_estadual", false);
       }
 
       if (form.getValue("inscricao_municipal") == "" || form.getValue("inscricao_municipal") == null) {
-          form.setVisibleById("div_inscricao_municipal", false);
+        form.setVisibleById("div_inscricao_municipal", false);
       }
 
       if (form.getValue("email") == "" || form.getValue("email") == null) {
-          form.setVisibleById("div_email", false);
+        form.setVisibleById("div_email", false);
       }
 
       if (form.getValue("tipo_cliente_forn") == "" || form.getValue("tipo_cliente_forn") == null) {
-          form.setVisibleById("div_tipo_cliente_forn", false);
+        form.setVisibleById("div_tipo_cliente_forn", false);
       }
 
       if (form.getValue("identidade") == "" || form.getValue("identidade") == null) {
-          form.setVisibleById("div_identidade", false);
+        form.setVisibleById("div_identidade", false);
       }
 
       if (form.getValue("orgao_emissor") == "" || form.getValue("orgao_emissor") == null) {
-          form.setVisibleById("div_orgao_emissor", false);
+        form.setVisibleById("div_orgao_emissor", false);
       }
 
       if (form.getValue("estado_emissor") == "" || form.getValue("estado_emissor") == null) {
-          form.setVisibleById("div_estado_emissor", false);
+        form.setVisibleById("div_estado_emissor", false);
       }
 
       if (form.getValue("complemento") == "" || form.getValue("complemento") == null) {
-          form.setVisibleById("div_complemento", false);
+        form.setVisibleById("div_complemento", false);
       }
 
       if (form.getValue("nome_municipio") == "" || form.getValue("nome_municipio") == null) {
-          form.setVisibleById("div_nome_municipio", false);
+        form.setVisibleById("div_nome_municipio", false);
       }
 
       if (form.getValue("cep_caixa_postal") == "" || form.getValue("cep_caixa_postal") == null) {
-          form.setVisibleById("div_cep_caixa_postal", false);
+        form.setVisibleById("div_cep_caixa_postal", false);
       }
 
       if (form.getValue("celular") == "" || form.getValue("celular") == null) {
-          form.setVisibleById("div_celular", false);
+        form.setVisibleById("div_celular", false);
       }
 
       if (form.getValue("telefone_comercial") == "" || form.getValue("telefone_comercial") == null) {
-          form.setVisibleById("div_telefone_comercial", false);
+        form.setVisibleById("div_telefone_comercial", false);
       }
 
       if (form.getValue("fax") == "" || form.getValue("fax") == null) {
-          form.setVisibleById("div_fax", false);
+        form.setVisibleById("div_fax", false);
       }
 
       if (form.getValue("fax_dedicado") == "" || form.getValue("fax_dedicado") == null) {
-          form.setVisibleById("div_fax_dedicado", false);
+        form.setVisibleById("div_fax_dedicado", false);
       }
 
       if (form.getValue("dados_bancarios_ativo") == "" || form.getValue("dados_bancarios_ativo") == null) {
-          form.setVisibleById("div_dados_bancarios_ativo", false);
+        form.setVisibleById("div_dados_bancarios_ativo", false);
       }
 
       if (form.getValue("cad_referencia") == "" || form.getValue("cad_referencia") == null) {
-          form.setVisibleById("div_cad_referencia", false);
+        form.setVisibleById("div_cad_referencia", false);
       }
 
       if (form.getValue("descricao") == "" || form.getValue("descricao") == null) {
-          form.setVisibleById("div_descricao", false);
+        form.setVisibleById("div_descricao", false);
       }
 
       if (form.getValue("filial_d_bancarios") == "" || form.getValue("filial_d_bancarios") == null) {
-          form.setVisibleById("div_filial_d_bancarios", false);
+        form.setVisibleById("div_filial_d_bancarios", false);
       }
 
       if (form.getValue("nome_filial_d_banc") == "" || form.getValue("nome_filial_d_banc") == null) {
-          form.setVisibleById("div_nome_filial_d_banc", false);
+        form.setVisibleById("div_nome_filial_d_banc", false);
       }
 
       if (form.getValue("forma_pagamento") == "" || form.getValue("forma_pagamento") == null) {
-          form.setVisibleById("div_forma_pagamento", false);
+        form.setVisibleById("div_forma_pagamento", false);
       }
 
       if (form.getValue("banco") == "" || form.getValue("banco") == null) {
-          form.setVisibleById("div_banco", false);
+        form.setVisibleById("div_banco", false);
       }
 
       if (form.getValue("agencia") == "" || form.getValue("agencia") == null) {
-          form.setVisibleById("div_agencia", false);
+        form.setVisibleById("div_agencia", false);
       }
 
       if (form.getValue("digito") == "" || form.getValue("digito") == null) {
-          form.setVisibleById("div_digito", false);
+        form.setVisibleById("div_digito", false);
       }
 
       if (form.getValue("nome_agencia") == "" || form.getValue("nome_agencia") == null) {
-          form.setVisibleById("div_nome_agencia", false);
+        form.setVisibleById("div_nome_agencia", false);
       }
 
       if (form.getValue("conta_corrente") == "" || form.getValue("conta_corrente") == null) {
-          form.setVisibleById("div_conta_corrente", false);
+        form.setVisibleById("div_conta_corrente", false);
       }
 
       if (form.getValue("digito_conta_corrente") == "" || form.getValue("digito_conta_corrente") == null) {
-          form.setVisibleById("div_digito_conta_corrente", false);
+        form.setVisibleById("div_digito_conta_corrente", false);
       }
 
       if (form.getValue("tipo_conta") == "" || form.getValue("tipo_conta") == null) {
-          form.setVisibleById("div_tipo_conta", false);
+        form.setVisibleById("div_tipo_conta", false);
       }
 
       if (form.getValue("camara_comp") == "" || form.getValue("camara_comp") == null) {
-          form.setVisibleById("div_camara_comp", false);
+        form.setVisibleById("div_camara_comp", false);
       }
 
       if (form.getValue("favorecido") == "" || form.getValue("favorecido") == null) {
-          form.setVisibleById("div_favorecido", false);
+        form.setVisibleById("div_favorecido", false);
       }
 
       if (form.getValue("CpfCnpj_favorecido") == "" || form.getValue("CpfCnpj_favorecido") == null) {
-          form.setVisibleById("div_CpfCnpj_favorecido", false);
+        form.setVisibleById("div_CpfCnpj_favorecido", false);
       }
 
       if (form.getValue("tipo_chave_pix") == "" || form.getValue("tipo_chave_pix") == null) {
-          form.setVisibleById("div_tipo_chave_pix", false);
+        form.setVisibleById("div_tipo_chave_pix", false);
       }
 
       if (form.getValue("chave_CPF") == "" || form.getValue("chave_CPF") == null) {
-          form.setVisibleById("div_chave_CPF", false);
+        form.setVisibleById("div_chave_CPF", false);
       }
 
       if (form.getValue("chave_CNPJ") == "" || form.getValue("chave_CNPJ") == null) {
-          form.setVisibleById("div_chave_CNPJ", false);
+        form.setVisibleById("div_chave_CNPJ", false);
       }
 
       if (form.getValue("chave_email") == "" || form.getValue("chave_email") == null) {
-          form.setVisibleById("div_chave_email", false);
+        form.setVisibleById("div_chave_email", false);
       }
 
       if (form.getValue("chave_celular") == "" || form.getValue("chave_celular") == null) {
-          form.setVisibleById("div_chave_celular", false);
+        form.setVisibleById("div_chave_celular", false);
       }
 
       if (form.getValue("chave_aleatoria") == "" || form.getValue("chave_aleatoria") == null) {
-          form.setVisibleById("div_chave_aleatoria", false);
+        form.setVisibleById("div_chave_aleatoria", false);
       }
 
       if (form.getValue("tipo_doc") == "" || form.getValue("tipo_doc") == null) {
-          form.setVisibleById("div_tipo_doc", false);
+        form.setVisibleById("div_tipo_doc", false);
       }
 
       if (form.getValue("cod_finalidade") == "" || form.getValue("cod_finalidade") == null) {
-          form.setVisibleById("div_cod_finalidade", false);
+        form.setVisibleById("div_cod_finalidade", false);
       }
 
       if (form.getValue("fornecedor_cadastrado") == "Não") {
@@ -390,13 +407,13 @@ function displayFields(form, customHTML) {
 
       /* 097 - AGUARDANDO VENCIMENTO */
 
-      if (form.getValue("seleciona_fase_envio_av") == "" || form.getValue("seleciona_fase_envio_av") == null ) {
+      if (form.getValue("seleciona_fase_envio_av") == "" || form.getValue("seleciona_fase_envio_av") == null) {
         form.setVisibleById("div_aguardando_vencimento", false);
       }
 
       /* 127 - PAGAMENTO ÚNICO */
-      
-      if (form.getValue("pagamento_realizado_pu") == "" || form.getValue("pagamento_realizado_pu") == null ) {
+
+      if (form.getValue("pagamento_realizado_pu") == "" || form.getValue("pagamento_realizado_pu") == null) {
         form.setVisibleById("div_pagamento_unico", false);
       }
 
@@ -425,7 +442,7 @@ function displayFields(form, customHTML) {
       }
 
       /* 128 - PAGAMENTO PARCIAL */
-      if (form.getValue("pagamento_realizado_pp") == "" || form.getValue("pagamento_realizado_pp") == null ) {
+      if (form.getValue("pagamento_realizado_pp") == "" || form.getValue("pagamento_realizado_pp") == null) {
         form.setVisibleById("div_pagamento_parcial", false);
       }
 
@@ -476,7 +493,7 @@ function displayFields(form, customHTML) {
     } else if (form.getFormMode != "VIEW") {
       form.setVisibleById("div_atribuicoes", false);
       form.setVisibleById("div_dados_ocultos", false);
-      if (user == "suporte.fluig" || user == "Fluig" ) {
+      if (user == "suporte.fluig" || user == "Fluig") {
         form.setVisibleById("div_atribuicoes", true);
         form.setVisibleById("div_dados_ocultos", true);
       }
@@ -505,7 +522,7 @@ function displayFields(form, customHTML) {
       customAppend += '\n\t $("#section_aguardando_vencimento").css("backgroundColor","' + corDeFundoInativa + '");';
       customAppend += '\n\t $("#section_pagamento_unico").css("backgroundColor","' + corDeFundoInativa + '");';
       customAppend += '\n\t $("#section_pagamento_parcial").css("backgroundColor","' + corDeFundoInativa + '");';
-    } 
+    }
     /* ETAPA 000 | 004 - INICIO */
     if (activity == 0 || activity == 4) {
 
@@ -529,7 +546,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_provisionamento", false);
       form.setVisibleById("div_provisionamento_revisao", false);
       form.setVisibleById("div_analise_vinculo_fornecedor", false);
-      form.setVisibleById("div_aguardando_vencimento", false); 
+      form.setVisibleById("div_aguardando_vencimento", false);
       form.setVisibleById("div_pagamento_unico", false);
       form.setVisibleById("div_pagamento_parcial", false);
       form.setVisibleById("div_confirma_integracao", false);
@@ -682,7 +699,7 @@ function displayFields(form, customHTML) {
       if (form.getValue("urgencia_solicitacao") == "Urgente") {
         customAppend += '\n\t $("#urgencia_solicitacao").css("backgroundColor","' + "#FFDD00" + '");';
       }
-      
+
 
       /* CORES */
       if (form.getFormMode() == "VIEW") {
@@ -863,7 +880,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("section_dados_fornecedor", false);
       form.setVisibleById("section_rateio", false);
       form.setVisibleById("section_rateio_financeiro", true);
-      
+
       /* DIVS CONDICIONAIS */
       form.setVisibleById("btn_add_linha", false);
       form.setVisibleById("div_cod_boleto_analise", false);
@@ -873,7 +890,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_mensagem_valor_excedido_fin", false);
       form.setVisibleById("div_mensagem_valor_excedido_da", false);
       form.setVisibleById("div_motivo_cancel_diretoria", false);
-      
+
       if (form.getValue("dados_conformidade") == "Não") {
         form.setVisibleById("div_provisionamento_revisao", true);
         form.setVisibleById("div_analise_vinculo_fornecedor", false);
@@ -1332,7 +1349,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("section_dados_fornecedor", false);
       form.setVisibleById("section_rateio", false);
       form.setVisibleById("section_rateio_financeiro", true);
-      
+
       if (form.getValue("dados_conformidade") == "Não") {
         form.setVisibleById("div_provisionamento_revisao", true);
         form.setVisibleById("div_analise_vinculo_fornecedor", false);
@@ -1689,7 +1706,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("section_dados_fornecedor", false);
       form.setVisibleById("section_rateio", false);
       form.setVisibleById("section_rateio_financeiro", true);
-      
+
       if (form.getValue("dados_conformidade") == "Não") {
         form.setVisibleById("div_provisionamento_revisao", true);
         form.setVisibleById("div_analise_vinculo_fornecedor", false);
