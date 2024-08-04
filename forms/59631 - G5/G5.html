@@ -454,6 +454,15 @@
                 <label id="chave_forn"></label>
               </div>
             </div>
+            <div class="col-sm-6 form-field" id="div_cod_boleto" name="div_cod_boleto" data-type="textbox" data-show-properties
+              data-field-name="cod_boleto">
+              <div class="form-input">
+                <div class="form-group">
+                  <label>Cód. do Boleto</label>
+                  <input type="text" class="form-control" id="cod_boleto" name="cod_boleto" data-size="big">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -467,7 +476,7 @@
                 data-field-name="global_checkbox">
                 <div class="form-input">
                   <div class="form-group">
-                    <input type="checkbox" name="cliente_global" id="cliente_global">
+                    <input type="checkbox" name="cliente_global" id="cliente_global" checked>
                     <label for="cliente_global">Global</label>
                   </div>
                 </div>
@@ -737,12 +746,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-3 form-field" id="div_tipo_rua" data-type="textbox" data-show-properties
+              <div class="col-sm-3 form-field" id="div_tipo_rua" data-type="textbox" data-show-properties hidden
                 data-field-name="tipo_rua">
                 <div class="form-input">
                   <div class="form-group">
-                    <label>Tipo de Rua</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="tipo_rua" id="tipo_rua">
+                    <label>Tipo de Rua</label>
+                    <input type="text" class="form-control" name="tipo_rua" id="tipo_rua" value="1" >
                   </div>
                 </div>
               </div>
@@ -760,7 +769,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>Número</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="numero" value data-size="big">
+                    <input type="text" class="form-control" name="numero" value data-size="big" maxlength="8">
                   </div>
                 </div>
               </div>
@@ -775,12 +784,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-2 form-field" id="div_tipo_bairro" data-type="textbox" data-show-properties
+              <div class="col-sm-2 form-field" id="div_tipo_bairro" data-type="textbox" data-show-properties hidden
                 data-field-name="tipo_bairro">
                 <div class="form-input">
                   <div class="form-group">
-                    <label>Tipo de Bairro</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="tipo_bairro" id="tipo_bairro">
+                    <label>Tipo de Bairro</label>
+                    <input type="text" class="form-control" name="tipo_bairro" id="tipo_bairro" value="1">
                   </div>
                 </div>
               </div>
@@ -1103,7 +1112,7 @@
                   <div class="form-input">
                     <div class="form-group">
                       <label>Dígito</label>
-                      <input type="text" class="form-control" name="digito" id="digito" />
+                      <input type="text" class="form-control" name="digito" id="digito" maxlength="1" />
                     </div>
                   </div>
                 </div>
@@ -1138,7 +1147,7 @@
                   <div class="form-input">
                     <div class="form-group">
                       <label>Dígito</label>
-                      <input type="text" class="form-control" name="digito_conta_corrente" id="digito_conta_corrente" />
+                      <input type="text" class="form-control" name="digito_conta_corrente" id="digito_conta_corrente" maxlength="1"/>
                     </div>
                   </div>
                 </div>
@@ -1418,19 +1427,30 @@
                         <td class="fs-v-align-middle" style="max-width:250px;">
                           <div class="form-input">
                             <input title="Filtro: Setor Solicitante" class="form-control" type="zoom" id="coluna_natureza" name="coluna_natureza" data-zoom=" 
-                            {
-                            'displayKey':'CODTBORCAMENTO',
-                            'datasetId':'dsRMMovTbOrcamentoData',
+                          {
+                            'displayKey':'NATUREZA',
+                            'datasetId':'ds_natureza_financeira',
                             'maximumSelectionLength':'1',
                             'fields':
                               [
                               {
+                                'field':'NATUREZA',
+                                'label':'NATUREZA'
+                              },
+                              {
                                 'field':'CODTBORCAMENTO',
-                                'label':'Código'
+                                'label':'Código',
+                                'visible': 'false'
+                              },
+                              {
+                                'field':'SETOR',
+                                'label':'SETOR',
+                                'visible': 'false'
                               },
                               {
                                 'field':'DESCRICAO',
-                                'label':'Desrição'
+                                'label':'Desrição',
+                                'visible': 'false'
                               }
                               ]
                             }">
@@ -1593,7 +1613,7 @@
               data-field-name="global_checkbox">
               <div class="form-input">
                 <div class="form-group">
-                  <input type="checkbox" name="cliente_global_fin" id="cliente_global_fin">
+                  <input type="checkbox" name="cliente_global_fin" id="cliente_global_fin" checked>
                   <label for="cliente_global_fin">Global</label>
                 </div>
               </div>
@@ -1863,11 +1883,11 @@
               </div>
             </div>
             <div class="col-sm-3 form-field" id="div_tipo_rua_fin" data-type="textbox" data-show-properties
-              data-field-name="tipo_rua_fin">
+              data-field-name="tipo_rua_fin" hidden>
               <div class="form-input">
                 <div class="form-group">
                   <label>Tipo de Rua</label><span class="required text-danger"><strong>*</strong></span>
-                  <input type="text" class="form-control" name="tipo_rua_fin" id="tipo_rua_fin">
+                  <input type="text" class="form-control" name="tipo_rua_fin" id="tipo_rua_fin" value="1">
                 </div>
               </div>
             </div>
@@ -1885,7 +1905,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label>Número</label><span class="required text-danger"><strong>*</strong></span>
-                  <input type="text" class="form-control" name="numero_fin" value data-size="big">
+                  <input type="text" class="form-control" name="numero_fin" value data-size="big" maxlength="8">
                 </div>
               </div>
             </div>
@@ -1901,11 +1921,11 @@
               </div>
             </div>
             <div class="col-sm-2 form-field" id="div_tipo_bairro_fin" data-type="textbox" data-show-properties
-              data-field-name="tipo_bairro_fin">
+              data-field-name="tipo_bairro_fin" hidden>
               <div class="form-input">
                 <div class="form-group">
                   <label>Tipo de Bairro</label><span class="required text-danger"><strong>*</strong></span>
-                  <input type="text" class="form-control" name="tipo_bairro_fin" id="tipo_bairro_fin">
+                  <input type="text" class="form-control" name="tipo_bairro_fin" id="tipo_bairro_fin" value="1">
                 </div>
               </div>
             </div>
@@ -2233,7 +2253,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>Dígito</label>
-                    <input type="text" class="form-control" name="digito_fin" id="digito_fin" />
+                    <input type="text" class="form-control" name="digito_fin" id="digito_fin" maxlength="1"/>
                   </div>
                 </div>
               </div>
@@ -2268,7 +2288,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>Dígito</label>
-                    <input type="text" class="form-control" name="digito_conta_corrente_fin" id="digito_conta_corrente_fin" />
+                    <input type="text" class="form-control" name="digito_conta_corrente_fin" id="digito_conta_corrente_fin" maxlength="1"/>
                   </div>
                 </div>
               </div>
@@ -2547,22 +2567,33 @@
                         <td class="fs-v-align-middle">
                           <div class="form-input">
                             <input title="Filtro: Setor Solicitante" class="form-control" type="zoom" id="coluna_natureza_fin" name="coluna_natureza_fin" data-zoom=" 
+                            {
+                              'displayKey':'NATUREZA',
+                              'datasetId':'ds_natureza_financeira',
+                              'maximumSelectionLength':'1',
+                              'fields':
+                                [
                                 {
-                                'displayKey':'CODTBORCAMENTO',
-                                'datasetId':'dsRMMovTbOrcamentoData',
-                                'maximumSelectionLength':'1',
-                                'fields':
-                                  [
-                                  {
-                                    'field':'CODTBORCAMENTO',
-                                    'label':'Código'
-                                  },
-                                  {
-                                    'field':'DESCRICAO',
-                                    'label':'Desrição'
-                                  }
-                                  ]
-                                }">
+                                  'field':'NATUREZA',
+                                  'label':'NATUREZA'
+                                },
+                                {
+                                  'field':'CODTBORCAMENTO',
+                                  'label':'Código',
+                                  'visible': 'false'
+                                },
+                                {
+                                  'field':'SETOR',
+                                  'label':'SETOR',
+                                  'visible': 'false'
+                                },
+                                {
+                                  'field':'DESCRICAO',
+                                  'label':'Desrição',
+                                  'visible': 'false'
+                                }
+                                ]
+                              }">
                           </div>
                         </td>
                         <td class="fs-v-align-middle">
@@ -3188,6 +3219,7 @@
                 <input type="text" class="form-control" id="cap_mensal_analise" name="cap_mensal_analise" data-size="small" placeholder="00.00" mask="#00.00" value="00.00" maxlength="5">
               </div>
             </div>
+            <!--
             <h3>Dados Adicionais</h3>
             <div class="form-field" data-type="tabledetail" data-show-properties
               data-field-name="dados_adicionais">
@@ -3281,6 +3313,7 @@
                   PAGO!</h3>
               </div>
             </div>
+            -->
             <!--
                 <div class="row">
                   <div class="col-sm-3" name="div_ccusto_analise"                     id="div_ccusto_analise">
@@ -3952,7 +3985,7 @@
             <div class="col-sm-2">
               <label for="hidden_coligada_cli_for">Coligada
                 Cliente/Fornecedor</label>
-              <input type="text" class="form-control" id="hidden_coligada_cli_for" name="hidden_coligada_cli_for" data-size="small">
+              <input type="text" class="form-control" id="hidden_coligada_cli_for" name="hidden_coligada_cli_for" data-size="small" value="0">
             </div>
             <div class="col-sm-2">
               <label for="hidden_telefone">Telefone</label>

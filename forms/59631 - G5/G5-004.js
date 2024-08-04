@@ -566,3 +566,16 @@ function tipoDaChavePixDadosPagamento(tipo_pix, chave) {
     $("#chave_forn").text("Chave: " + chave);
   }
 }
+
+function toggleCampoDadosPgmt(selectedItem) {
+  if (selectedItem["DESCRICAO"] == "BOLETO") {
+    $("#div_cod_boleto").show(400);
+    $("#div_chave_tipo_forn").hide(400);
+    toggleCodBoleto($("#hidden_dados_pgmt").val());
+  }
+  if (selectedItem["DESCRICAO"] == "PIX") {
+    $("#div_cod_boleto").hide(400);
+    $("#div_chave_tipo_forn").show(400);
+    tipoDaChavePixDadosPagamento(selectedItem["TIPOPIX"], selectedItem["CHAVE"]);
+  }
+}

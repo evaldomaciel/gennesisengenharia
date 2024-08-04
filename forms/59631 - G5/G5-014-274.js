@@ -530,8 +530,10 @@ function tipoDaChavePixDadosPagamentoFin(tipo_pix, chave) {
 function toggleCodBoleto(valor) {
   if (valor == "BOLETO") {
     $("#div_cod_boleto_analise").show(400);
+    $("#div_cod_boleto").show(400);
   } else {
     $("#div_cod_boleto_analise").hide(400);
+    $("#div_cod_boleto").hide(400);
   }
 }
 

@@ -76,16 +76,23 @@ function displayFields(form, customHTML) {
     if (form.getFormMode() == "VIEW") {
       /* EXIBIÇÃO DAS DIVS DE ETAPAS */
 
+      if (form.getValue("dados_fornecedor") == "BOLETO") {
+        form.setVisibleById("div_cod_boleto", true);
+      } else {
+        form.setVisibleById("div_cod_boleto", false);
+      }
 
       /* CADASTRO DE FORNECEDOR */
       if (form.getValue("fornecedor_cadastrado") == "Não") {
         form.setVisibleById("div_cadastrar_fornecedor", true);
         form.setVisibleById("div_vincular_fornecedor", false);
         form.setVisibleById("div_dados_pagamento", false);
+        form.setVisibleById("div_cod_boleto", false);
       } else {
         form.setVisibleById("div_cadastrar_fornecedor", false);
         form.setVisibleById("div_vincular_fornecedor", true);
         form.setVisibleById("div_dados_pagamento", true);
+        form.setVisibleById("div_cod_boleto", true);
       }
 
       /* 007 - APROVAÇÃO GESTOR */
@@ -562,6 +569,8 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_mensagem_valor_excedido_da", false);
       form.setVisibleById("div_mensagem_valor_excedido_fin", false);
       form.setVisibleById("div_cod_boleto_analise", false);
+      form.setVisibleById("div_chave_tipo_forn", false);
+      form.setVisibleById("div_cod_boleto", false);
       form.setVisibleById("div_chave_cpf", false);
       form.setVisibleById("div_chave_cnpj", false);
       form.setVisibleById("div_chave_email", false);
@@ -594,7 +603,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_aprovacao_gestor", true);
       form.setVisibleById("div_cadastrar_fornecedor", false);
       form.setVisibleById("div_aprovacao_diretoria", false);
-      form.setVisibleById("div_dados_fornecedor_financeiro", true);
+      form.setVisibleById("div_dados_fornecedor_financeiro", false);
       form.setVisibleById("div_provisionamento", false);
       form.setVisibleById("div_provisionamento_revisao", false);
       form.setVisibleById("div_analise_vinculo_fornecedor", false);
@@ -610,6 +619,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("btn-anexo-as", false);
       form.setVisibleById("div_teveJuros", false);
       form.setVisibleById("div_vincular_fornecedor", false);
+      form.setVisibleById("div_chave_tipo_forn", false);
 
       /* VALIDAÇÃO CAMPOS HOUVE JUROS */
       if (form.getValue("teve_juros") == "Não") {
@@ -623,10 +633,16 @@ function displayFields(form, customHTML) {
         form.setVisibleById("div_cadastrar_fornecedor", true);
         form.setVisibleById("div_vincular_fornecedor", false);
         form.setVisibleById("div_dados_pagamento", false);
+        form.setVisibleById("div_cod_boleto", false);
       } else {
         form.setVisibleById("div_cadastrar_fornecedor", false);
         form.setVisibleById("div_vincular_fornecedor", true);
         form.setVisibleById("div_dados_pagamento", true);
+        if (form.getValue("hidden_dados_pgmt") == "BOLETO") {
+          form.setVisibleById("div_cod_boleto", true);
+        } else {
+          form.setVisibleById("div_cod_boleto", false);
+        }
       }
 
       /* CAMPO CATEGORIA */
@@ -748,6 +764,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("btn_add_linha_fin", false);
       form.setVisibleById("btn_add_linha_as", false);
       form.setVisibleById("btn-anexo-as", false);
+      form.setVisibleById("div_chave_tipo_forn", false);
 
       /* VALIDAÇÃO CAMPOS HOUVE JUROS */
       if (form.getValue("teve_juros") == "Não") {
@@ -761,10 +778,16 @@ function displayFields(form, customHTML) {
         form.setVisibleById("div_cadastrar_fornecedor", true);
         form.setVisibleById("div_vincular_fornecedor", false);
         form.setVisibleById("div_dados_pagamento", false);
+        form.setVisibleById("div_cod_boleto", false);
       } else {
         form.setVisibleById("div_cadastrar_fornecedor", false);
         form.setVisibleById("div_vincular_fornecedor", true);
         form.setVisibleById("div_dados_pagamento", true);
+        if (form.getValue("hidden_dados_pgmt") == "BOLETO") {
+          form.setVisibleById("div_cod_boleto", true);
+        } else {
+          form.setVisibleById("div_cod_boleto", false);
+        }
       }
 
       /* CAMPO CATEGORIA */
@@ -884,6 +907,8 @@ function displayFields(form, customHTML) {
       /* DIVS CONDICIONAIS */
       form.setVisibleById("btn_add_linha", false);
       form.setVisibleById("div_cod_boleto_analise", false);
+      form.setVisibleById("div_chave_tipo_forn", false);
+      form.setVisibleById("div_cod_boleto", false);
       form.setVisibleById("btn_add_linha_as", false);
       form.setVisibleById("btn_add_linha_fin", false);
       form.setVisibleById("div_mensagem_valor_excedido", false);
@@ -902,8 +927,10 @@ function displayFields(form, customHTML) {
 
       if (form.getValue("hidden_dados_pgmt") == "BOLETO") {
         form.setVisibleById("div_cod_boleto_analise", true);
+        form.setVisibleById("div_cod_boleto", true);
       } else {
         form.setVisibleById("div_cod_boleto_analise", false);
+        form.setVisibleById("div_cod_boleto", false);
       }
 
       /* VALIDAÇÃO CAMPOS HOUVE JUROS */

@@ -42,6 +42,7 @@ function enableFields(form) {
       form.setEnabled("fornecedor_dados", false);
       form.setEnabled("vincular_fornecedor", false);
       form.setEnabled("dados_pagamento", false);
+      form.setEnabled("cod_boleto", false);
 
       /* SECTION CADASTRO DE FORNECEDOR */
       form.setEnabled("cliente_global", false);
@@ -153,6 +154,7 @@ function enableFields(form) {
       form.setEnabled("fornecedor_dados", false);
       form.setEnabled("vincular_fornecedor", false);
       form.setEnabled("dados_pagamento", false);
+      form.setEnabled("cod_boleto", false);
 
       /* SECTION CADASTRO DE FORNECEDOR */
       form.setEnabled("cliente_global", false);
@@ -265,6 +267,7 @@ function enableFields(form) {
       form.setEnabled("fornecedor_dados", false);
       form.setEnabled("vincular_fornecedor", false);
       form.setEnabled("dados_pagamento", false);
+      form.setEnabled("cod_boleto", false);
 
       /* SECTION CADASTRO DE FORNECEDOR */
       form.setEnabled("cliente_global", false);
@@ -506,6 +509,7 @@ function enableFields(form) {
       form.setEnabled("fornecedor_dados", false);
       form.setEnabled("vincular_fornecedor", false);
       form.setEnabled("dados_pagamento", false);
+      form.setEnabled("cod_boleto", false);
 
       /* SECTION CADASTRO DE FORNECEDOR */
       form.setEnabled("cliente_global", false);
