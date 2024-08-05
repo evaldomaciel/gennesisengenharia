@@ -3,18 +3,18 @@ function displayFields(form, customHTML) {
   var user = getValue("WKUser");
 
   /** Vamos acelerar o preenchimento do formulario na atividade inicial para testes */
-  if ((user == "fluig" || user == "4ef20412-7687-40a4-b1c8-095c0a92503e") && form.getFormMode() == "ADD") {
-    var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(
-      DatasetFactory.createConstraint('documentid', '60831', '60831', ConstraintType.MUST)
-    ), null);
+  // if ((user == "fluig" || user == "4ef20412-7687-40a4-b1c8-095c0a92503e") && form.getFormMode() == "ADD") {
+  //   var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(
+  //     DatasetFactory.createConstraint('documentid', '60915', '60915', ConstraintType.MUST)
+  //   ), null);
 
-    var colunas = datasetDs_G5.getColumnsName();
-    for (let index = 0; index < colunas.length; index++) {
-      let campo = colunas[index];
-      let valor = datasetDs_G5.getValue(0, campo);
-      form.setValue(campo, valor);
-    }
-  }
+  //   var colunas = datasetDs_G5.getColumnsName();
+  //   for (let index = 0; index < colunas.length; index++) {
+  //     let campo = colunas[index];
+  //     let valor = datasetDs_G5.getValue(0, campo);
+  //     form.setValue(campo, valor);
+  //   }
+  // }
 
   if (form.getFormMode() == "ADD") form.setValue("idLan", "-1");
 

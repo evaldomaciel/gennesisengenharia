@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>3</version>
+      <version>13</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>59631</formId>
@@ -2588,7 +2588,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>3</version>
+        <version>13</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2600,7 +2600,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>3</version>
+        <version>13</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2612,7 +2612,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>3</version>
+        <version>13</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2624,7 +2624,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>3</version>
+        <version>13</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2636,7 +2636,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>3</version>
+        <version>13</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2648,7 +2648,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>3</version>
+        <version>13</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2660,7 +2660,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>3</version>
+        <version>13</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4514,20 +4514,23 @@ function captaChavePix(tipo_chave) {
     var senha = &apos;Suporte#5&apos;
     var authenticatedService = getWebService(usuario, senha, &quot;RMWsDataServer&quot;, &quot;com.totvs.WsDataServer&quot;, &quot;com.totvs.IwsDataServer&quot;);
 
-    var idLanModelo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : 19051;
+    var idLanModelo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : 28757;
     var idLanNovo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : &quot;-1&quot;;
 
-    var primaryKey = hAPI.getCardValue(&quot;coligada&quot;) + &quot;;&quot; + idLanModelo;
-    var context = &quot;CodSistema=F;CodColigada=1&quot;;
-    var text = String(authenticatedService.readRecord(dataServerName, primaryKey, context));
-    if (!ChekExist(text)) text = GetXml();
+    // var primaryKey = hAPI.getCardValue(&quot;coligada&quot;) + &quot;;&quot; + idLanModelo;
+    // var context = &quot;CodSistema=F;CodColigada=1&quot;;
+    // var text = String(authenticatedService.readRecord(dataServerName, primaryKey, context));
+    // if (!ChekExist(text)) text = GetXml();
+    var text = GetXml();
 
     text = formatStringToXML(text);
     text = removeNode(text, &quot;_x0024_IMAGES&quot;);
     text = removeNode(text, &quot;FLANCOMPL&quot;);
     text = removeNode(text, &quot;FLANRATCCU&quot;);
 
-    text = replaceValue(text, &apos;CODCOLIGADA&apos;, hAPI.getCardValue(&quot;coligada&quot;));
+    text = replaceValue(text, &apos;CODCOLIGADA&apos;, hAPI.getCardValue(&quot;CODCOLIGADA&quot;));
+    text = replaceValue(text, &apos;CODCOLCONVENIO&apos;, hAPI.getCardValue(&quot;CODCOLIGADA&quot;));
+    text = replaceValue(text, &apos;CODCOLPGTO&apos;, hAPI.getCardValue(&quot;CODCOLIGADA&quot;));
     text = replaceValue(text, &apos;IDLAN&apos;, idLanNovo);
     text = replaceValue(text, &apos;NUMERODOCUMENTO&apos;, hAPI.getCardValue(&quot;numero_documento_analise&quot;));
     text = replaceValue(text, &apos;PAGREC&apos;, hAPI.getCardValue(&quot;pagar_receber&quot;));
@@ -4546,7 +4549,7 @@ function captaChavePix(tipo_chave) {
     text = replaceValue(text, &apos;CODCFO&apos;, hAPI.getCardValue(&quot;hidden_codigo_cli_for&quot;));
     text = replaceValue(text, &apos;CODCOLCXA&apos;, hAPI.getCardValue(&quot;coligada&quot;));
     text = replaceValue(text, &apos;CODCXA&apos;, hAPI.getCardValue(&quot;conta_caixa_analise&quot;));
-    text = replaceValue(text, &apos;CODTDO&apos;, hAPI.getCardValue(&quot;dados_pagamento_analise&quot;));
+    text = replaceValue(text, &apos;CODTDO&apos;, hAPI.getCardValue(&quot;CODTDO&quot;));
     text = replaceValue(text, &apos;CODFILIAL&apos;, hAPI.getCardValue(&quot;filial_analise&quot;));
     text = replaceValue(text, &apos;CNABBANCO&apos;, &quot;341&quot;);
     text = replaceValue(text, &apos;REEMBOLSAVEL&apos;, &quot;0&quot;);
@@ -4576,10 +4579,11 @@ function captaChavePix(tipo_chave) {
       rateios += makeFLANRATCCUXML(dadosDoItem);
     }
     text = addItem(text, &quot;&lt;/FinLAN&gt;&quot;, rateios);
+
     var newXML = new XML(text)
     log.info(&quot;============================= XML =============================&quot;)
     log.info(newXML)
-    var result = authenticatedService.saveRecord(dataServerName, newXML, context);
+    var result = authenticatedService.saveRecord(dataServerName, text, context);
     var result = String(result);
     checkIsPK(result, 2);
     var movimentoGerado = result.split(&quot;;&quot;)[1];
@@ -4588,6 +4592,75 @@ function captaChavePix(tipo_chave) {
   } catch (error) {
     throw String(&quot; Linha: &quot; + error.lineNuber + &quot; - &quot; + String(error));
   }
+}
+
+function GetXml() {
+  return &quot;&lt;FinLAN&gt;&quot; +
+    &quot;  &lt;FLAN&gt;&quot; +
+    &quot;     &lt;CODCOLIGADA&gt;2&lt;/CODCOLIGADA&gt;&quot; +
+    &quot;     &lt;IDLAN&gt;-1&lt;/IDLAN&gt;&quot; +
+    &quot;     &lt;NUMERODOCUMENTO&gt;4549&lt;/NUMERODOCUMENTO&gt;&quot; +
+    &quot;     &lt;NFOUDUP&gt;0&lt;/NFOUDUP&gt;&quot; +
+    &quot;     &lt;CLASSIFICACAO&gt;0&lt;/CLASSIFICACAO&gt;&quot; +
+    &quot;     &lt;PAGREC&gt;2&lt;/PAGREC&gt;&quot; +
+    &quot;     &lt;CNABBANCO&gt;2&lt;/CNABBANCO&gt;&quot; +
+    &quot;     &lt;REEMBOLSAVEL&gt;0&lt;/REEMBOLSAVEL&gt;&quot; +
+    &quot;     &lt;CARENCIAJUROS&gt;0&lt;/CARENCIAJUROS&gt;&quot; +
+    &quot;     &lt;MULTADIA&gt;0&lt;/MULTADIA&gt;&quot; +
+    &quot;     &lt;PERCJUROS&gt;0&lt;/PERCJUROS&gt;&quot; +
+    &quot;     &lt;PERCDESCONTO&gt;0&lt;/PERCDESCONTO&gt;&quot; +
+    &quot;     &lt;PERCMULTA&gt;0&lt;/PERCMULTA&gt;&quot; +
+    &quot;     &lt;PERCCAP&gt;0&lt;/PERCCAP&gt;&quot; +
+    &quot;     &lt;STATUSLAN&gt;0&lt;/STATUSLAN&gt;&quot; +
+    &quot;     &lt;CODAPLICACAO&gt;F&lt;/CODAPLICACAO&gt;&quot; +
+    &quot;     &lt;CODCCUSTO&gt;01.01.01.01.001&lt;/CODCCUSTO&gt;&quot; +
+    &quot;     &lt;HISTORICO&gt;teste&lt;/HISTORICO&gt;&quot; +
+    &quot;     &lt;DATACRIACAO&gt;2024-07-31T00:00:00&lt;/DATACRIACAO&gt;&quot; +
+    &quot;     &lt;DATAVENCIMENTO&gt;2024-08-05T00:00:00.000&lt;/DATAVENCIMENTO&gt;&quot; +
+    &quot;     &lt;DATAEMISSAO&gt;2024-08-05T00:00:00.000&lt;/DATAEMISSAO&gt;&quot; +
+    &quot;     &lt;DATAPREVBAIXA&gt;2024-08-05T00:00:00.000&lt;/DATAPREVBAIXA&gt;&quot; +
+    &quot;     &lt;MESDECOMPETENCIA&gt;2024-09-14T00:00:00&lt;/MESDECOMPETENCIA&gt;&quot; +
+    &quot;     &lt;VALORORIGINAL&gt;1500,00&lt;/VALORORIGINAL&gt;&quot; +
+    &quot;     &lt;VALORBAIXADO&gt;0&lt;/VALORBAIXADO&gt;&quot; +
+    &quot;     &lt;VALORCAP&gt;0&lt;/VALORCAP&gt;&quot; +
+    &quot;     &lt;VALORCAPBX&gt;0&lt;/VALORCAPBX&gt;&quot; +
+    &quot;     &lt;VALORJUROS&gt;0&lt;/VALORJUROS&gt;&quot; +
+    &quot;     &lt;VALORDESCONTO&gt;0&lt;/VALORDESCONTO&gt;&quot; +
+    &quot;     &lt;VALORCHEQUE&gt;0&lt;/VALORCHEQUE&gt;&quot; +
+    &quot;     &lt;VALOROP1&gt;0&lt;/VALOROP1&gt;&quot; +
+    &quot;     &lt;VALOROP2&gt;0&lt;/VALOROP2&gt;&quot; +
+    &quot;     &lt;VALOROP3&gt;0&lt;/VALOROP3&gt;&quot; +
+    &quot;     &lt;VALOROP4&gt;0&lt;/VALOROP4&gt;&quot; +
+    &quot;     &lt;VALOROP5&gt;0&lt;/VALOROP5&gt;&quot; +
+    &quot;     &lt;VALOROP6&gt;0&lt;/VALOROP6&gt;&quot; +
+    &quot;     &lt;VALORMULTA&gt;0&lt;/VALORMULTA&gt;&quot; +
+    &quot;     &lt;VALORAUXILIAR&gt;1&lt;/VALORAUXILIAR&gt;&quot; +
+    &quot;     &lt;VALORBASEIRRF&gt;100&lt;/VALORBASEIRRF&gt;&quot; +
+    &quot;     &lt;VALORIRRF&gt;0&lt;/VALORIRRF&gt;&quot; +
+    &quot;     &lt;VALORREPASSE&gt;0&lt;/VALORREPASSE&gt;&quot; +
+    &quot;     &lt;VALORVENCIMENTOANTECIP&gt;0&lt;/VALORVENCIMENTOANTECIP&gt;&quot; +
+    &quot;     &lt;VALORNOTACREDITO&gt;0&lt;/VALORNOTACREDITO&gt;&quot; +
+    &quot;     &lt;VALORADIANTAMENTO&gt;0&lt;/VALORADIANTAMENTO&gt;&quot; +
+    &quot;     &lt;VALORDEVOLUCAO&gt;0&lt;/VALORDEVOLUCAO&gt;&quot; +
+    &quot;     &lt;JUROSDIA&gt;0&lt;/JUROSDIA&gt;&quot; +
+    &quot;     &lt;CAPMENSAL&gt;0&lt;/CAPMENSAL&gt;&quot; +
+    &quot;     &lt;TAXASVENDOR&gt;0&lt;/TAXASVENDOR&gt;&quot; +
+    &quot;     &lt;JUROSVENDOR&gt;0&lt;/JUROSVENDOR&gt;&quot; +
+    &quot;     &lt;CODCOLCFO&gt;2&lt;/CODCOLCFO&gt;&quot; +
+    &quot;     &lt;CODCFO&gt;000006288&lt;/CODCFO&gt;&quot; +
+    &quot;     &lt;CODCOLCXA&gt;2&lt;/CODCOLCXA&gt;&quot; +
+    &quot;     &lt;CODCXA&gt;IMPL&lt;/CODCXA&gt;&quot; +
+    &quot;     &lt;IDPGTO&gt;1&lt;/IDPGTO&gt;&quot; +
+    &quot;     &lt;CODTDO&gt;FATURA&lt;/CODTDO&gt;&quot; +
+    &quot;     &lt;CODFILIAL&gt;1&lt;/CODFILIAL&gt;&quot; +
+    &quot;     &lt;SERIEDOCUMENTO&gt;@@@&lt;/SERIEDOCUMENTO&gt;&quot; +
+    &quot;     &lt;CODCOLPGTO&gt;2&lt;/CODCOLPGTO&gt;&quot; +
+    &quot;     &lt;NUMLOTECONTABIL&gt;0&lt;/NUMLOTECONTABIL&gt;&quot; +
+    &quot;     &lt;TIPOCONTABILLAN&gt;0&lt;/TIPOCONTABILLAN&gt;&quot; +
+    &quot;     &lt;MODELOCONTABILIZACAO&gt;0&lt;/MODELOCONTABILIZACAO&gt;&quot; +
+    &quot;     &lt;MODELOCONTABILIZACAOBAIXA&gt;0&lt;/MODELOCONTABILIZACAOBAIXA&gt;&quot; +
+    &quot;  &lt;/FLAN&gt;&quot; +
+    &quot;&lt;/FinLAN&gt;&quot;;
 }
 
 function getConstraints(constraints) {
@@ -4735,150 +4808,7 @@ function formatStringToXML(params) {
   text = text.replace(regexDspace, &quot; &quot;);
   return text = text.trim();
 }
-
-function GetXml() {
-  return &quot;&lt;FinLAN&gt;&quot; +
-    &quot;\n   &lt;FLAN&gt;&quot; +
-    &quot;\n      &lt;CODCOLIGADA&gt;1&lt;/CODCOLIGADA&gt;&quot; +
-    &quot;\n      &lt;IDLAN&gt;-1&lt;/IDLAN&gt;  &quot; +
-    &quot;\n      &lt;NUMERODOCUMENTO&gt;000046632/09&lt;/NUMERODOCUMENTO&gt;&quot; +
-    &quot;\n      &lt;NFOUDUP&gt;0&lt;/NFOUDUP&gt;&quot; +
-    &quot;\n      &lt;CLASSIFICACAO&gt;0&lt;/CLASSIFICACAO&gt;&quot; +
-    &quot;\n      &lt;PAGREC&gt;2&lt;/PAGREC&gt;&quot; +
-    &quot;\n      &lt;STATUSLAN&gt;0&lt;/STATUSLAN&gt;&quot; +
-    &quot;\n      &lt;CODAPLICACAO&gt;F&lt;/CODAPLICACAO&gt;&quot; +
-    &quot;\n      &lt;CODCCUSTO&gt;01.01.01.01.002&lt;/CODCCUSTO&gt;&quot; +
-    &quot;\n      &lt;HISTORICO&gt;teste&lt;/HISTORICO&gt;&quot; +
-    &quot;\n      &lt;DATAVENCIMENTO&gt;2024-07-31T00:00:00.000&lt;/DATAVENCIMENTO&gt;&quot; +
-    &quot;\n      &lt;DATAEMISSAO&gt;2024-07-25T00:00:00.000&lt;/DATAEMISSAO&gt;&quot; +
-    &quot;\n      &lt;DATAPREVBAIXA&gt;2024-07-25T00:00:00.000&lt;/DATAPREVBAIXA&gt;&quot; +
-    &quot;\n      &lt;VALORORIGINAL&gt;1.0000&lt;/VALORORIGINAL&gt;&quot; +
-    &quot;\n      &lt;VALORCAPBX&gt;0.0000&lt;/VALORCAPBX&gt;&quot; +
-    &quot;\n      &lt;VALORJUROS&gt;0.0000&lt;/VALORJUROS&gt;&quot; +
-    &quot;\n      &lt;VALORDESCONTO&gt;0.0000&lt;/VALORDESCONTO&gt;&quot; +
-    &quot;\n      &lt;VALORMULTA&gt;0.0000&lt;/VALORMULTA&gt;&quot; +
-    &quot;\n      &lt;VALORAUXILIAR&gt;0.0000&lt;/VALORAUXILIAR&gt;&quot; +
-    &quot;\n      &lt;VALORBASEIRRF&gt;100.0000&lt;/VALORBASEIRRF&gt;&quot; +
-    &quot;\n      &lt;VALORIRRF&gt;0.0000&lt;/VALORIRRF&gt;&quot; +
-    &quot;\n      &lt;VALORREPASSE&gt;0.0000&lt;/VALORREPASSE&gt;&quot; +
-    &quot;\n      &lt;VALORVENCIMENTOANTECIP&gt;0.0000&lt;/VALORVENCIMENTOANTECIP&gt;&quot; +
-    &quot;\n      &lt;VALORNOTACREDITO&gt;0.0000&lt;/VALORNOTACREDITO&gt;&quot; +
-    &quot;\n      &lt;VALORADIANTAMENTO&gt;0.0000&lt;/VALORADIANTAMENTO&gt;&quot; +
-    &quot;\n      &lt;VALORDEVOLUCAO&gt;0.0000&lt;/VALORDEVOLUCAO&gt;&quot; +
-    &quot;\n      &lt;CAPMENSAL&gt;00.00&lt;/CAPMENSAL&gt;&quot; +
-    &quot;\n      &lt;TAXASVENDOR&gt;0.0000&lt;/TAXASVENDOR&gt;&quot; +
-    &quot;\n      &lt;JUROSVENDOR&gt;0.0000&lt;/JUROSVENDOR&gt;&quot; +
-    &quot;\n      &lt;CODCOLCFO&gt;0&lt;/CODCOLCFO&gt;&quot; +
-    &quot;\n      &lt;CODCFO&gt;000000003&lt;/CODCFO&gt;&quot; +
-    &quot;\n      &lt;CODCOLCXA&gt;1&lt;/CODCOLCXA&gt;&quot; +
-    &quot;\n      &lt;CODCXA&gt;99522-9&lt;/CODCXA&gt;&quot; +
-    &quot;\n      &lt;IDPGTO&gt;1&lt;/IDPGTO&gt;&quot; +
-    &quot;\n      &lt;CODTDO&gt;PIX&lt;/CODTDO&gt;&quot; +
-    &quot;\n      &lt;CODFILIAL&gt;1&lt;/CODFILIAL&gt;&quot; +
-    &quot;\n      &lt;SERIEDOCUMENTO&gt;1&lt;/SERIEDOCUMENTO&gt;&quot; +
-    &quot;\n      &lt;TIPOCONTABILLAN&gt;0&lt;/TIPOCONTABILLAN&gt;&quot; +
-    &quot;\n      &lt;CODMOEVALORORIGINAL&gt;R$&lt;/CODMOEVALORORIGINAL&gt;&quot; +
-    &quot;\n      &lt;LIBAUTORIZADA&gt;0&lt;/LIBAUTORIZADA&gt;&quot; +
-    &quot;\n      &lt;STATUSEXPORTACAO&gt;0&lt;/STATUSEXPORTACAO&gt;&quot; +
-    &quot;\n      &lt;NUMLOTECONTABIL&gt;0&lt;/NUMLOTECONTABIL&gt;&quot; +
-    &quot;\n      &lt;STATUSEXTRATO&gt;0&lt;/STATUSEXTRATO&gt;&quot; +
-    &quot;\n      &lt;CNABACEITE&gt;0&lt;/CNABACEITE&gt;&quot; +
-    &quot;\n      &lt;CNABSTATUS&gt;0&lt;/CNABSTATUS&gt;&quot; +
-    &quot;\n      &lt;CNABBANCO&gt;341&lt;/CNABBANCO&gt;&quot; +
-    &quot;\n      &lt;REEMBOLSAVEL&gt;0&lt;/REEMBOLSAVEL&gt;&quot; +
-    &quot;\n      &lt;USUARIO&gt;LUCIANA.S&lt;/USUARIO&gt;&quot; +
-    &quot;\n      &lt;BAIXAAUTORIZADA&gt;1&lt;/BAIXAAUTORIZADA&gt;&quot; +
-    &quot;\n      &lt;TEMCHEQUEPARCIAL&gt;0&lt;/TEMCHEQUEPARCIAL&gt;&quot; +
-    &quot;\n      &lt;JAIMPRIMIU&gt;0&lt;/JAIMPRIMIU&gt;&quot; +
-    &quot;\n      &lt;NUMBLOQUEIOS&gt;0&lt;/NUMBLOQUEIOS&gt;&quot; +
-    &quot;\n      &lt;COTACAOINCLUSAO&gt;1.000000000&lt;/COTACAOINCLUSAO&gt;&quot; +
-    &quot;\n      &lt;COTACAOBAIXA&gt;0.000000000&lt;/COTACAOBAIXA&gt;&quot; +
-    &quot;\n      &lt;CARENCIAJUROS&gt;0&lt;/CARENCIAJUROS&gt;&quot; +
-    &quot;\n      &lt;TIPOJUROSDIA&gt;0&lt;/TIPOJUROSDIA&gt;&quot; +
-    &quot;\n      &lt;USUARIOCRIACAO&gt;LUCIANA.S&lt;/USUARIOCRIACAO&gt;&quot; +
-    &quot;\n      &lt;DATAALTERACAO&gt;2024-03-05T00:00:00&lt;/DATAALTERACAO&gt;&quot; +
-    &quot;\n      &lt;ALTERACAOBLOQUEADA&gt;0&lt;/ALTERACAOBLOQUEADA&gt;&quot; +
-    &quot;\n      &lt;MULTADIA&gt;0.0000&lt;/MULTADIA&gt;&quot; +
-    &quot;\n      &lt;DESCONTADO&gt;0&lt;/DESCONTADO&gt;&quot; +
-    &quot;\n      &lt;VALORINSS&gt;0.0000&lt;/VALORINSS&gt;&quot; +
-    &quot;\n      &lt;VALORDEDUCAO&gt;0.0000&lt;/VALORDEDUCAO&gt;&quot; +
-    &quot;\n      &lt;APLICFORMULA&gt;F&lt;/APLICFORMULA&gt;&quot; +
-    &quot;\n      &lt;INSSEMOUTRAEMPRESA&gt;0.0000&lt;/INSSEMOUTRAEMPRESA&gt;&quot; +
-    &quot;\n      &lt;PERCENTBASEINSS&gt;100.0000&lt;/PERCENTBASEINSS&gt;&quot; +
-    &quot;\n      &lt;OCAUTONOMO&gt;0&lt;/OCAUTONOMO&gt;&quot; +
-    &quot;\n      &lt;PERCBASEINSSEMPREGADO&gt;100.0000&lt;/PERCBASEINSSEMPREGADO&gt;&quot; +
-    &quot;\n      &lt;INSSEDITADO&gt;0&lt;/INSSEDITADO&gt;&quot; +
-    &quot;\n      &lt;IRRFEDITADO&gt;0&lt;/IRRFEDITADO&gt;&quot; +
-    &quot;\n      &lt;REUTILIZACAO&gt;0&lt;/REUTILIZACAO&gt;&quot; +
-    &quot;\n      &lt;CATEGORIAAUTONOMO&gt;0&lt;/CATEGORIAAUTONOMO&gt;&quot; +
-    &quot;\n      &lt;VALORSESTSENAT&gt;0.0000&lt;/VALORSESTSENAT&gt;&quot; +
-    &quot;\n      &lt;CONVENIO&gt;99522&lt;/CONVENIO&gt;&quot; +
-    &quot;\n      &lt;DIGCONVENIO&gt;9&lt;/DIGCONVENIO&gt;&quot; +
-    &quot;\n      &lt;PERCJUROS&gt;0&lt;/PERCJUROS&gt;&quot; +
-    &quot;\n      &lt;PERCDESCONTO&gt;0&lt;/PERCDESCONTO&gt;&quot; +
-    &quot;\n      &lt;PERCMULTA&gt;0&lt;/PERCMULTA&gt;&quot; +
-    &quot;\n      &lt;PERCCAP&gt;0&lt;/PERCCAP&gt;&quot; +
-    &quot;\n      &lt;PERCOP1&gt;0&lt;/PERCOP1&gt;&quot; +
-    &quot;\n      &lt;PERCOP2&gt;0&lt;/PERCOP2&gt;&quot; +
-    &quot;\n      &lt;PERCOP3&gt;0&lt;/PERCOP3&gt;&quot; +
-    &quot;\n      &lt;PERCOP4&gt;0&lt;/PERCOP4&gt;&quot; +
-    &quot;\n      &lt;PERCOP5&gt;0&lt;/PERCOP5&gt;&quot; +
-    &quot;\n      &lt;PERCOP6&gt;0&lt;/PERCOP6&gt;&quot; +
-    &quot;\n      &lt;PERCOP7&gt;0&lt;/PERCOP7&gt;&quot; +
-    &quot;\n      &lt;PERCOP8&gt;0&lt;/PERCOP8&gt;&quot; +
-    &quot;\n      &lt;VALORINSSEMPREGADOR&gt;0&lt;/VALORINSSEMPREGADOR&gt;&quot; +
-    &quot;\n      &lt;VALORBASEINSSEMPREGADOR&gt;0&lt;/VALORBASEINSSEMPREGADOR&gt;&quot; +
-    &quot;\n      &lt;VRBASEINSS&gt;0&lt;/VRBASEINSS&gt;&quot; +
-    &quot;\n      &lt;VRBASEIRRF&gt;0.0000&lt;/VRBASEIRRF&gt;&quot; +
-    &quot;\n      &lt;VALORSERVICO&gt;0.0000&lt;/VALORSERVICO&gt;&quot; +
-    &quot;\n      &lt;VRBASEINSSOUTRAEMPRESA&gt;0.0000&lt;/VRBASEINSSOUTRAEMPRESA&gt;&quot; +
-    &quot;\n      &lt;IDHISTORICO&gt;6125&lt;/IDHISTORICO&gt;&quot; +
-    &quot;\n      &lt;PreencherRatCCusto&gt;true&lt;/PreencherRatCCusto&gt;&quot; +
-    &quot;\n      &lt;PreencherRatDepto&gt;true&lt;/PreencherRatDepto&gt;&quot; +
-    &quot;\n      &lt;VALORDEDUCAODEPENDENTES&gt;0.0000&lt;/VALORDEDUCAODEPENDENTES&gt;&quot; +
-    &quot;\n      &lt;VRPERDAFINANCEIRA&gt;0.0000&lt;/VRPERDAFINANCEIRA&gt;&quot; +
-    &quot;\n      &lt;MODELOCONTABILIZACAO&gt;0&lt;/MODELOCONTABILIZACAO&gt;&quot; +
-    &quot;\n      &lt;MODELOCONTABILIZACAOBAIXA&gt;0&lt;/MODELOCONTABILIZACAOBAIXA&gt;&quot; +
-    &quot;\n      &lt;CODCOLCONVENIO&gt;1&lt;/CODCOLCONVENIO&gt;&quot; +
-    &quot;\n      &lt;IDCONVENIO&gt;14&lt;/IDCONVENIO&gt;&quot; +
-    &quot;\n      &lt;VALORORIGINALBX&gt;0&lt;/VALORORIGINALBX&gt;&quot; +
-    &quot;\n      &lt;VALORDESCONTOBX&gt;0&lt;/VALORDESCONTOBX&gt;&quot; +
-    &quot;\n      &lt;VALORJUROSBX&gt;0&lt;/VALORJUROSBX&gt;&quot; +
-    &quot;\n      &lt;VALORMULTABX&gt;0&lt;/VALORMULTABX&gt;&quot; +
-    &quot;\n      &lt;VALORCAPBX&gt;0&lt;/VALORCAPBX&gt;&quot; +
-    &quot;\n      &lt;VALOROP1BX&gt;0,0000&lt;/VALOROP1BX&gt;&quot; +
-    &quot;\n      &lt;VALOROP2BX&gt;0,0000&lt;/VALOROP2BX&gt;&quot; +
-    &quot;\n      &lt;VALOROP3BX&gt;0,0000&lt;/VALOROP3BX&gt;&quot; +
-    &quot;\n      &lt;VALOROP4BX&gt;0,0000&lt;/VALOROP4BX&gt;&quot; +
-    &quot;\n      &lt;VALOROP5BX&gt;0,0000&lt;/VALOROP5BX&gt;&quot; +
-    &quot;\n      &lt;VALOROP6BX&gt;0,0000&lt;/VALOROP6BX&gt;&quot; +
-    &quot;\n      &lt;VALOROP7BX&gt;0,0000&lt;/VALOROP7BX&gt;&quot; +
-    &quot;\n      &lt;VALOROP8BX&gt;0,0000&lt;/VALOROP8BX&gt;&quot; +
-    &quot;\n      &lt;VALORINSSBX&gt;0&lt;/VALORINSSBX&gt;&quot; +
-    &quot;\n      &lt;VALORIRRFBX&gt;0&lt;/VALORIRRFBX&gt;&quot; +
-    &quot;\n      &lt;VALORSESTSENATBX&gt;0&lt;/VALORSESTSENATBX&gt;&quot; +
-    &quot;\n      &lt;VALORDEVOLUCAOBX&gt;0&lt;/VALORDEVOLUCAOBX&gt;&quot; +
-    &quot;\n      &lt;VALORNOTACREDITOBX&gt;0&lt;/VALORNOTACREDITOBX&gt;&quot; +
-    &quot;\n      &lt;VALORADIANTAMENTOBX&gt;0&lt;/VALORADIANTAMENTOBX&gt;&quot; +
-    &quot;\n      &lt;VALORJUROSVENDORBX&gt;0&lt;/VALORJUROSVENDORBX&gt;&quot; +
-    &quot;\n      &lt;VALORRETENCOESBX&gt;0&lt;/VALORRETENCOESBX&gt;&quot; +
-    &quot;\n      &lt;STATUSORCAMENTO&gt;0&lt;/STATUSORCAMENTO&gt;&quot; +
-    &quot;\n      &lt;BAIXAPENDENTE&gt;0&lt;/BAIXAPENDENTE&gt;&quot; +
-    &quot;\n      &lt;CODCOLTOMADOR&gt;0&lt;/CODCOLTOMADOR&gt;&quot; +
-    &quot;\n      &lt;VALORDESCONTOACORDO&gt;0.0000&lt;/VALORDESCONTOACORDO&gt;&quot; +
-    &quot;\n      &lt;VALORJUROSACORDO&gt;0.0000&lt;/VALORJUROSACORDO&gt;&quot; +
-    &quot;\n      &lt;VALORACRESCIMOACORDO&gt;0.0000&lt;/VALORACRESCIMOACORDO&gt;&quot; +
-    &quot;\n      &lt;VALORDEDUCAOVARIAVEL&gt;0.0000&lt;/VALORDEDUCAOVARIAVEL&gt;&quot; +
-    &quot;\n      &lt;STATUSLIQDUVIDOSA&gt;0&lt;/STATUSLIQDUVIDOSA&gt;&quot; +
-    &quot;\n      &lt;VALORVINCULADO&gt;0&lt;/VALORVINCULADO&gt;&quot; +
-    &quot;\n      &lt;STATUSNEGATIVACAO&gt;0&lt;/STATUSNEGATIVACAO&gt;&quot; +
-    &quot;\n      &lt;PreencheDadosBancarios&gt;true&lt;/PreencheDadosBancarios&gt;&quot; +
-    &quot;\n      &lt;STATUSTERCEIRIZACAO&gt;0&lt;/STATUSTERCEIRIZACAO&gt;&quot; +
-    &quot;\n      &lt;STATUSAPROVACAO&gt;0&lt;/STATUSAPROVACAO&gt;&quot; +
-    &quot;\n      &lt;CODCOLPGTO&gt;1&lt;/CODCOLPGTO&gt;&quot; +
-    &quot;\n  &lt;/FLAN&gt;&quot; +
-    &quot;\n&lt;/FinLAN&gt;&quot;;
-}</eventDescription>
+</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -5605,7 +5535,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>3</version>
+        <version>13</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5616,7 +5546,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>3</version>
+        <version>13</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5629,7 +5559,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>3</version>
+        <version>13</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -5647,7 +5577,7 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>3</version>
+        <version>13</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -5666,7 +5596,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>3</version>
+        <version>13</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -5679,7 +5609,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>3</version>
+        <version>13</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -5696,7 +5626,7 @@ Informamos que sua solicitação: [Título da solicitação] foi paga. Segue aba
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>3</version>
+        <version>13</version>
         <stateSequence>287</stateSequence>
         <triggerSequence>4</triggerSequence>
       </processStateTriggerPK>
@@ -5775,7 +5705,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5785,7 +5715,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5799,7 +5729,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5809,7 +5739,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5819,7 +5749,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -5829,7 +5759,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5839,7 +5769,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5853,7 +5783,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5863,7 +5793,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5873,7 +5803,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>3</processVersion>
+      <processVersion>13</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

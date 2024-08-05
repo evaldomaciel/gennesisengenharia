@@ -108,6 +108,68 @@ function filtraNaturezaPorSetorDa() {
   return true;
 }
 
+function filtraTipoDeDocumentoPorColigada(codColigada) {
+  codColigada = parseInt(codColigada);
+  if (codColigada >= 0) reloadZoomFilterValues(`tipo_documento_analise`, `filtro,CODCOLIGADA = ${codColigada}`);
+  return true;
+}
+
+function filtraContaCaixaPelaColigadaEFilial(codColigada) {
+  codColigada = parseInt(codColigada);
+  if (codColigada >= 0) reloadZoomFilterValues(`conta_caixa_analise`, `filtro,FCXA.CODCOLIGADA = ${codColigada}`);
+}
+
+function validaContaCaixa(codContaCaixa) {
+  let codColigada = String($("#CODCOLIGADA").val());
+  var datasetDsReadRecord = DatasetFactory.getDataset('dsReadRecord', null, new Array(
+    DatasetFactory.createConstraint('dataServer', 'FinCxaDataBR', null, ConstraintType.MUST),
+    DatasetFactory.createConstraint('primaryKey', `${codColigada};${codContaCaixa}`, null, ConstraintType.MUST),
+    DatasetFactory.createConstraint('mainTag', 'FCxa', null, ConstraintType.MUST)
+  ), null);
+
+  if (datasetDsReadRecord.values.length > 0) {
+    let codFlialSol = $("#CODFILIAL").val();
+    if (datasetDsReadRecord.values[0].Erro != undefined) {
+      exibeMsg(
+        "Atenção!",
+        `${datasetDsReadRecord.values[0].Erro} - ${datasetDsReadRecord.values[0].primaryKey}`,
+        "warning"
+      )
+      return;
+    }
+    else {
+      let codFilialCX = datasetDsReadRecord.values[0].CODFILIAL;
+      if (codFilialCX == undefined || codFilialCX == "") {
+        // conta caixa global, tudo certo!
+        return;
+      }
+      if (codFilialCX != codFlialSol) {
+        exibeMsg(
+          "Atenção!",
+          `A conta caixa selecionada esta vinculada a filial ${codFilialCX}, diferente da filial ${codFlialSol} informada no início da solicitação!`,
+          "warning"
+        )
+      }
+    }
+  } else {
+    exibeMsg(
+      "Atenção!",
+      "Não encontramos dados do cadastro desta conta caixa no Totvs RM!",
+      "warning"
+    )
+  }
+}
+
+function exibeMsg(title, message, type) {
+  FLUIGC.toast({
+    title: `<h4>${title}</h4>`,
+    message: message,
+    type: type,
+    timeout: 'slow'
+  });
+}
+
+
 function limpaFiltroNaturezaPorSetorDa() {
   var tableBody = document
     .getElementById("table_dados_adicionais")

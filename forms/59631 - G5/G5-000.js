@@ -269,6 +269,8 @@ function reloadZoomAfterLoad(loaded, count) {
       reloadZoomAfterLoad(false);
       filtraNaturezaPorSetor();
       filtraNaturezaPorSetorFin();
+      filtraTipoDeDocumentoPorColigada(String($("#CODCOLIGADA").val()));
+      filtraContaCaixaPelaColigadaEFilial(String($("#CODCOLIGADA").val()))
     }
     else {
       setTimeout(() => {
@@ -280,6 +282,7 @@ function reloadZoomAfterLoad(loaded, count) {
 
 /** Aqui acaba o ready */
 function setSelectedZoomItem(selectedItem) {
+  console.log(selectedItem);
   var FIELD = selectedItem.inputId;
 
   /* ATRIBUIÇÕES */
@@ -321,6 +324,7 @@ function setSelectedZoomItem(selectedItem) {
   if (FIELD == "centro_de_custo") {
     $("#hidden_filial_cc").val(selectedItem["CODFILIAL"]);
     window["filial"].value = selectedItem["CODFILIAL"];
+    window["CODFILIAL"].value = selectedItem["CODFILIAL"];
     window["filial_analise"].value = selectedItem["CODFILIAL"];
     $("#nome_ccusto").text(selectedItem["NOMECCUSTO"]);
     adicionaCentroCustoRateio(selectedItem);
@@ -328,9 +332,13 @@ function setSelectedZoomItem(selectedItem) {
   if (FIELD == "conta_caixa_analise") {
     $("#nome_conta_analise").val(selectedItem["DESCRICAO"]);
     $("#hidden_numbanco").val(selectedItem["DESCRICAO"]);
+    validaContaCaixa(selectedItem["CODCXA"]);
   }
   if (FIELD == "coligada") {
+    $("#CODCOLIGADA").val(selectedItem["ID"]);
     filtraPorColigada(selectedItem["ID"]);
+    filtraTipoDeDocumentoPorColigada(selectedItem["ID"]);
+    filtraContaCaixaPelaColigadaEFilial(selectedItem["ID"]);
   }
   if (FIELD == "ccusto_analise") {
     $("#nome_ccusto_analise").val(selectedItem["NOMECCUSTO"]);
@@ -354,6 +362,7 @@ function setSelectedZoomItem(selectedItem) {
   }
   if (FIELD == "filial_analise") {
     $("#nome_filial_analise").val(selectedItem["NOME"]);
+    $("#CODFILIAL").val(selectedItem["CODFILIAL"]);
   }
   if (FIELD == "filial_d_bancarios") {
     $("#nome_filial_d_bancarios").val(selectedItem["NOME"]);
@@ -379,7 +388,8 @@ function setSelectedZoomItem(selectedItem) {
     $("#nome_cliente_forn_fin").val(selectedItem["Nome"]);
   }
   if (FIELD == "tipo_documento_analise") {
-    $("#nome_tipo_documento").val(selectedItem["Nome"]);
+    $("#CODTDO").val(selectedItem["CODTDO"]);
+    $("#nome_tipo_documento").val(selectedItem["DESCRICAO"]);
   }
   if (FIELD == "vincular_fornecedor") {
     let campo = $("#vincular_fornecedor").val();
@@ -499,9 +509,12 @@ function removedZoomItem(removedItem) {
     $("#chave_forn_analise").text("");
     toggleCodBoleto("");
   }
-}
 
-function setFilterZoom() { }
+  if (removedItem.inputId == "tipo_documento_analise") {
+    $("#CODTDO").val("");
+    $("#nome_tipo_documento").val("");
+  }
+}
 
 function formataCpfCnpj(valor) {
   var value = valor.replace(/[^\d]/g, ""); // Remove caracteres não numéricos

@@ -91,8 +91,8 @@
               </div>
             </div>
             <div class="col-sm-4" id="div_coligada">
-              <div class="form-field" data-type="textarea" data-show-properties
-                data-field-name="coligada">
+              <input type="hidden" name="CODCOLIGADA" id="CODCOLIGADA" />
+              <div class="form-field" data-type="textarea" data-show-properties data-field-name="coligada">
                 <label>Coligada<span class="text-danger"><strong>*</strong></span></label>
                 <input title='ds_coligada' class="form-control" type="zoom" id="coligada" name="coligada" data-zoom=" 
                       {
@@ -751,7 +751,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>Tipo de Rua</label>
-                    <input type="text" class="form-control" name="tipo_rua" id="tipo_rua" value="1" >
+                    <input type="text" class="form-control" name="tipo_rua" id="tipo_rua" value="1">
                   </div>
                 </div>
               </div>
@@ -1147,7 +1147,7 @@
                   <div class="form-input">
                     <div class="form-group">
                       <label>Dígito</label>
-                      <input type="text" class="form-control" name="digito_conta_corrente" id="digito_conta_corrente" maxlength="1"/>
+                      <input type="text" class="form-control" name="digito_conta_corrente" id="digito_conta_corrente" maxlength="1" />
                     </div>
                   </div>
                 </div>
@@ -2253,7 +2253,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>Dígito</label>
-                    <input type="text" class="form-control" name="digito_fin" id="digito_fin" maxlength="1"/>
+                    <input type="text" class="form-control" name="digito_fin" id="digito_fin" maxlength="1" />
                   </div>
                 </div>
               </div>
@@ -2288,7 +2288,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>Dígito</label>
-                    <input type="text" class="form-control" name="digito_conta_corrente_fin" id="digito_conta_corrente_fin" maxlength="1"/>
+                    <input type="text" class="form-control" name="digito_conta_corrente_fin" id="digito_conta_corrente_fin" maxlength="1" />
                   </div>
                 </div>
               </div>
@@ -2707,8 +2707,8 @@
               </div>
               <!-- TODO: Parte da integração -->
               <div class="col-sm-3" name="div_filial_analise" id="div_filial_analise">
-                <div class="form-field" data-type="textarea" data-show-properties
-                  data-field-name="filial_analise">
+                <input type="hidden" name="CODFILIAL" id="CODFILIAL" />
+                <div class="form-field" data-type="textarea" data-show-properties data-field-name="filial_analise">
                   <label>Filial<span class="text-danger"><strong>*</strong></span></label>
                   <input title='ds_filiais' class="form-control" placeholder="Selecione a filial" type="zoom" id="filial_analise" name="filial_analise" readonly
                     data-zoom=" 
@@ -2881,23 +2881,24 @@
             <div class="row">
               <!-- TODO: Parte da Integração -->
               <div class="col-sm-3" name="div_tipo_documento_analise" id="div_tipo_documento_analise">
-                <div class="form-field" data-type="textarea" data-show-properties
-                  data-field-name="tipo_documento_analise">
+                <div class="form-field" data-type="textarea" data-show-properties data-field-name="tipo_documento_analise">
                   <label>Tipo de documento<span class="text-danger"><strong>*</strong></span></label>
+                  <input type="hidden" name="CODTDO" id="CODTDO" />
                   <input title='ds_tipo_documento' class="form-control" type="zoom" id="tipo_documento_analise" name="tipo_documento_analise" data-zoom=" 
                         {
-                        'displayKey':'Nome',
-                        'datasetId':'ds_tipo_documento',
+                        'displayKey':'DESCRICAO',
+                        'datasetId':'dsRMFinTDODataBR',
                         'maximumSelectionLength':'1',
                         'fields':
                           [
                           {
-                            'field':'ID',
-                            'label':'ID'
+                            'field':'CODTDO',
+                            'label':'Código',
+                            'visible': 'false'
                           },
                           {
-                            'field':'Nome',
-                            'label':'Nome'
+                            'field':'DESCRICAO',
+                            'label':'Descrição'
                           }
                           ]
                         }">
@@ -2920,7 +2921,7 @@
                   <div class="form-input">
                     <div class="form-group">
                       <label>Número do Documento</label><span class="required text-danger"><strong>*</strong></span>
-                      <input type="text" class="form-control" name="numero_documento_analise" id="numero_documento_analise" maxlength="12" mask="000000000/00" />
+                      <input type="text" class="form-control" name="numero_documento_analise" id="numero_documento_analise" maxlength="10" mask="0000000/00" />
                     </div>
                   </div>
                 </div>
@@ -3040,12 +3041,13 @@
                 <input type="text" class="form-control" id="valor_baixado_analise" name="valor_baixado_analise" placeholder="Digite aqui..." data-size="small" mask="#000.000.000,00" maxlength="14">
               </div>
               <div class="col-sm-2" name="div_conta_caixa_analise" id="div_conta_caixa_analise">
+                <input type="hidden" name="CODFILIAL_CODCXA" id="CODFILIAL_CODCXA" />
                 <div class="form-field" data-type="textarea" data-show-properties data-field-name="conta_caixa_analise">
                   <label>Conta/Caixa<span class="text-danger"><strong>*</strong></span></label>
                   <input title='ds_buscaContas' class="form-control" type="zoom" id="conta_caixa_analise" name="conta_caixa_analise" data-zoom=" 
                           {
                           'displayKey':'CODCXA',
-                          'datasetId':'ds_buscaContas',
+                          'datasetId':'dsRMFinCxaDataBR',
                           'maximumSelectionLength':'1',
                           'fields':
                             [

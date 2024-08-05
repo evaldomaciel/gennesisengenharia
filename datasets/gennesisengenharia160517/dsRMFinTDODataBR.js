@@ -1,7 +1,7 @@
 function createDataset(fields, constraints, sortFields) {
 	try {
 		return processResult(callService(fields, constraints, sortFields));
-	} catch(e) {
+	} catch (e) {
 		return processErrorResult(e, constraints);
 	}
 }
@@ -25,7 +25,7 @@ function callService(fields, constraints, sortFields) {
 	var service = serviceLocator.getRMIwsDataServer();
 	var headers = getSOAPHeaders(serviceHelper, serviceData.extraParams.headers);
 	var customClient = serviceHelper.getCustomClient(service, properties, headers);
-	var response = customClient.readView(getParamValue(params.dataServerName, assigns.dataServerName), getParamValue(params.filtro, assigns.filtro), 
+	var response = customClient.readView(getParamValue(params.dataServerName, assigns.dataServerName), getParamValue(params.filtro, assigns.filtro),
 		getParamValue(params.contexto, assigns.contexto));
 
 	return response;
@@ -56,7 +56,7 @@ function onSync(lastSyncDate) {
 			}
 		}
 
-	} catch(e) {
+	} catch (e) {
 		log.info('Dataset synchronization error : ' + e.message);
 
 	}
@@ -68,7 +68,7 @@ function verifyConstraints(params, constraints) {
 		for (var i = 0; i < constraints.length; i++) {
 			try {
 				params[constraints[i].fieldName] = JSON.parse(constraints[i].initialValue);
-			} catch(e) {
+			} catch (e) {
 				params[constraints[i].fieldName] = constraints[i].initialValue;
 			}
 		}
@@ -84,7 +84,7 @@ function processResult(result) {
 	var source = new org.xml.sax.InputSource(new java.io.StringReader(result));
 	var xmlResponse = parser.parse(source);
 
-	var nodes = xmlResponse.getElementsByTagName("TTBORCAMENTO");
+	var nodes = xmlResponse.getElementsByTagName("FTDO");
 
 	for (var i = 0; i < nodes.getLength(); i++) {
 		var children = nodes.item(i).getChildNodes();
@@ -120,9 +120,9 @@ function processErrorResult(error, constraints) {
 	var dataset = DatasetBuilder.newDataset();
 
 	var params = data().inputValues;
-verifyConstraints(params, constraints);
+	verifyConstraints(params, constraints);
 
-dataset.addColumn('error');
+	dataset.addColumn('error');
 	dataset.addColumn('dataServerName');
 	dataset.addColumn('filtro');
 	dataset.addColumn('contexto');
@@ -163,46 +163,46 @@ function getObjectFactory(serviceHelper) {
 function getSOAPHeaders(serviceHelper, headers) {
 	var soapHeaders = [];
 
-	
+
 
 	return soapHeaders;
 }
 
 function data() {
 	return {
-  "fluigService" : "RMWsDataServer",
-  "operation" : "readView",
-  "soapService" : "WsDataServer",
-  "portType" : "IwsDataServer",
-  "locatorClass" : "com.totvs.WsDataServer",
-  "portTypeMethod" : "getRMIwsDataServer",
-  "parameters" : [ ],
-  "inputValues" : {
-    "dataServerName" : "MovTbOrcamentoData",
-    "filtro" : "TTBORCAMENTO.SINTETICOANALITICO = 1 AND TTBORCAMENTO.NATUREZA IN (2, 3) AND TTBORCAMENTO.INATIVO = 0",
-    "contexto" : "CODCOLIGADA=1"
-  },
-  "inputAssignments" : {
-    "dataServerName" : "VALUE",
-    "filtro" : "VALUE",
-    "contexto" : "VALUE"
-  },
-  "outputValues" : { },
-  "outputAssignments" : { },
-  "extraParams" : {
-    "disableChunking" : false,
-    "useSSL" : false,
-    "basicAuthentication" : true,
-    "basicAuthenticationUsername" : "suporte.totvs",
-    "basicAuthenticationPassword" : "Suporte#5",
-    "parseResult" : true,
-    "headers" : [ ],
-    "datasetkeys" : [ ],
-    "parserType" : "XML",
-    "mainNode" : "TTBORCAMENTO",
-    "enabled" : true
-  }
-}
+		"fluigService": "RMWsDataServer",
+		"operation": "readView",
+		"soapService": "WsDataServer",
+		"portType": "IwsDataServer",
+		"locatorClass": "com.totvs.WsDataServer",
+		"portTypeMethod": "getRMIwsDataServer",
+		"parameters": [],
+		"inputValues": {
+			"dataServerName": "FinTDODataBR",
+			"filtro": "FTDO.INATIVO = 0 AND FTDO.PAGREC IN (2, 3)",
+			"contexto": "CODCOLIGADA=1"
+		},
+		"inputAssignments": {
+			"dataServerName": "VALUE",
+			"filtro": "VALUE",
+			"contexto": "VALUE"
+		},
+		"outputValues": {},
+		"outputAssignments": {},
+		"extraParams": {
+			"disableChunking": false,
+			"useSSL": false,
+			"basicAuthentication": true,
+			"basicAuthenticationUsername": "suporte.totvs",
+			"basicAuthenticationPassword": "Suporte#5",
+			"parseResult": true,
+			"headers": [],
+			"datasetkeys": [],
+			"parserType": "XML",
+			"mainNode": "FTDO",
+			"enabled": true
+		}
+	}
 }
 
- function stringToBoolean(param) { if(typeof(param) === 'boolean') {  return param;  }  if (param == null || param === 'null') {  return false;  }  switch(param.toLowerCase().trim()) {  case 'true': case 'yes': case '1': return true;  case 'false': case 'no': case '0': case null: return false;  default: return Boolean(param);  }  } 
+function stringToBoolean(param) { if (typeof (param) === 'boolean') { return param; } if (param == null || param === 'null') { return false; } switch (param.toLowerCase().trim()) { case 'true': case 'yes': case '1': return true; case 'false': case 'no': case '0': case null: return false; default: return Boolean(param); } } 

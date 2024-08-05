@@ -650,9 +650,6 @@ function validateForm(form) {
             }
         }
         /* ETAPA 128 - PAGAMENTO PARCIAL */
-        data_vencimento_pp
-        data_pagamento_pp
-
     } else if (activity == 128) {
         if (form.getValue("pagamento_realizado_pp") == "Sim") {
 

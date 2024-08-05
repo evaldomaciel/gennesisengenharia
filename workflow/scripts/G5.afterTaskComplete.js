@@ -168,8 +168,8 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
             log.dir(dataParamsEmail)
         
            /// Get Dataset para uma variavel;
-            var parametros = new java.util.HashMap();  
-            
+            var parametros = new java.util.HashMap();
+
             parametros.put("ASSUNTO", dataParamsEmail.assunto);
             parametros.put("USUARIO", dataParamsEmail.usuario);
             parametros.put("TITULO_SOLICITACAO", dataParamsEmail.titulo_solicitacao);
