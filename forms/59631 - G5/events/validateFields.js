@@ -4,6 +4,7 @@ function validateForm(form) {
     var msg = "";
 
     var table_pagamento_parcial = form.getChildrenIndexes("table_pagamento_parcial");
+    var table_pagamento_unico = form.getChildrenIndexes("table_pagamento_unico");
 
 
     /* ETAPA 000 | 004 - INICIO */
@@ -143,6 +144,9 @@ function validateForm(form) {
             }
             if (form.getValue("contato") == "" || form.getValue("contato") == null) {
                 msg += '<br><b>O campo <font color="red">Contato</font> \u00E9 obrigat\u00F3rio!</b>';
+            }
+            if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido")) {
+                msg += '<br><b>O campo <font color="red">CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!</b>';
             }
             /*
             if (form.getValue("classificacao_default") == "" || form.getValue("classificacao_default") == null) {
@@ -645,23 +649,20 @@ function validateForm(form) {
             if (form.getValue("valor_pu") == "" || form.getValue("valor_pu") == null) {
                 msg += '<br><b>O campo <font color="red">Valor total a ser pago</font> \u00E9 obrigat\u00F3rio!</b>';
             }
-            if (form.getValue("data_pagamento") == "" || form.getValue("data_pagamento") == null) {
-                msg += '<br><b>O campo <font color="red">Data de Pagamento</font> \u00E9 obrigat\u00F3rio!</b>';
+        }
+        for (var index = 0; index < table_pagamento_unico.length; index++) {
+            var idCampo = table_pagamento_unico[index];
+            if (form.getValue("data_vencimento_pu___" + idCampo) == "") {
+                msg += '<br><b>O campo <font color="red">Data do vencimento</font> é \u00E9 obrigat\u00F3rio!</b>';
+            }
+            if (form.getValue("data_pagamento_pu___" + idCampo) == "") {
+                msg += '<br><b>O campo <font color="red">Data do pagamento</font> é \u00E9 obrigat\u00F3rio!</b>';
             }
         }
         /* ETAPA 128 - PAGAMENTO PARCIAL */
     } else if (activity == 128) {
         if (form.getValue("pagamento_realizado_pp") == "Sim") {
 
-            for (var index = 0; index < table_pagamento_parcial.length; index++) {
-                var idCampo = table_pagamento_parcial[index];
-                if (form.getValue("data_vencimento_pp___" + idCampo) == "") {
-                    msg += '<br><b>O campo <font color="red">Data do vencimento</font> é \u00E9 obrigat\u00F3rio!</b>';
-                }
-                if (form.getValue("data_pagamento_pp___" + idCampo) == "") {
-                    msg += '<br><b>O campo <font color="red">Data do pagamento</font> é \u00E9 obrigat\u00F3rio!</b>';
-                }
-            }
 
             if (form.getValue("teve_juros_pp") == "" || form.getValue("teve_juros_pp") == null) {
                 msg += '<br><b>O campo <font color="red">Houve juros no pagamento</font> \u00E9 obrigat\u00F3rio!</b>';
@@ -680,8 +681,21 @@ function validateForm(form) {
             if (form.getValue("valor_final_pp") == "" || form.getValue("valor_final_pp") == null) {
                 msg += '<br><b>O campo <font color="red">Valor total pago final (R$)</font> \u00E9 obrigat\u00F3rio!</b>';
             }
+            for (var index = 0; index < table_pagamento_parcial.length; index++) {
+                var idCampo = table_pagamento_parcial[index];
+                if (form.getValue("data_vencimento_pp___" + idCampo) == "") {
+                    msg += '<br><b>O campo <font color="red">Data do vencimento</font> é \u00E9 obrigat\u00F3rio!</b>';
+                }
+                if (form.getValue("data_pagamento_pp___" + idCampo) == "") {
+                    msg += '<br><b>O campo <font color="red">Data do pagamento</font> é \u00E9 obrigat\u00F3rio!</b>';
+                }
+            }
         }
+    } else if (activity == 274) {
+    if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido_fin")) {
+        msg += '<br><b>O campo <font color="red">CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!</b>';
     }
+  }
 
     if (msg != "") {
         throw (

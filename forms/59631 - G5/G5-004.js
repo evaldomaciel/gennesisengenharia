@@ -79,66 +79,6 @@ function adicionaFilialEmAnalise(filial) {
   window["filial_analise"].value = filial;
 }
 
-function filtraPorColigada(coligada) {
-  $(`[name^="coluna_ccusto___"]`).each((i, e) => {
-    console.log(e.name)
-    reloadZoomFilterValues(e.name, `CODCOLIGADA,${coligada}`);
-  });
-
-  if (centro_de_custo.open != undefined) reloadZoomFilterValues("centro_de_custo", `CODCOLIGADA,${coligada}`);
-  if (dados_pagamento.open != undefined) reloadZoomFilterValues("dados_pagamento", `CGC,${$("#hidden_cnpj_fornecedor").val()},COLIGADA,${$("#coligada").val()}`);
-  if (dados_pagamento_analise.open != undefined) reloadZoomFilterValues("dados_pagamento_analise", `CGC,${$("#hidden_cnpj_fornecedor").val()},COLIGADA,${$("#coligada").val()}`);
-  if (filial.open != undefined) reloadZoomFilterValues("filial", `COLIGADA,${coligada}`);
-  if (vincular_fornecedor.open != undefined) reloadZoomFilterValues("vincular_fornecedor", `CODCOLIGADA,${coligada}`);
-  if (vincular_fornecedor_analise.open != undefined) reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
-
-  /* CAMPO OCULTO CASO O USUÁRIO CADASTRE UM FORNECEDOR */
-  $("#hidden_coligada_cli_for").val(coligada);
-}
-
-function limpaFiltroColigada() {
-  reloadZoomFilterValues("filial");
-  reloadZoomFilterValues("centro_de_custo");
-  reloadZoomFilterValues("dados_pagamento");
-  reloadZoomFilterValues("dados_pagamento_analise");
-  reloadZoomFilterValues("vincular_fornecedor");
-  reloadZoomFilterValues("vincular_fornecedor_analise");
-  var tableBody = document
-    .getElementById("table_rateio_ccusto")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-  if (rows.length == 1) {
-    acrescentarLinha();
-    rows = tableBody.getElementsByTagName("tr");
-  }
-  for (let i = 1; i < rows.length; i++) {
-    var colunaCcustoInput = linha[i].querySelector(
-      `[name="coluna_ccusto___${i}"]`,
-    );
-    reloadZoomFilterValues(colunaCcustoInput.id);
-  }
-}
-
-function filtraNaturezaPorSetor() {
-  let valorDoCampo = String($("#setor_solicitante").val());
-  $(`[name^="coluna_natureza___"]`).each((i, e) => {
-    if (e.type == 'hidden') return;
-    $("#coluna_natureza___1").attr("type")
-    reloadZoomFilterValues(e.name, `SETOR,${valorDoCampo}`);
-  });
-  return true;
-}
-
-function limpaFiltroNaturezaPorSetor() {
-  let valorDoCampo = String($("#setor_solicitante").val());
-  $(`[name^="coluna_natureza___"]`).each((i, e) => {
-    console.log(e.name)
-    $(`[name='${e.name}']`).val(null).trigger("change");
-    reloadZoomFilterValues(e.name, `SETOR,${valorDoCampo}`);
-  });
-}
-
 function corDaUrgenciaSolicitacao(urgencia) {
   var inputField = $("#urgencia_solicitacao");
   if (urgencia == "Normal") {
@@ -565,6 +505,10 @@ function tipoDaChavePixDadosPagamento(tipo_pix, chave) {
     $("#tipo_forn").text("Tipo: Aleatória");
     $("#chave_forn").text("Chave: " + chave);
   }
+}
+
+function salvaCGCCFO(valor) {
+  $("#CGCCFO").val(valor);
 }
 
 function toggleCampoDadosPgmt(selectedItem) {

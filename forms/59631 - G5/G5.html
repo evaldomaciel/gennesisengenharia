@@ -10,14 +10,15 @@
   <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
   <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
   <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
-  <script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.min.js"></script>
   <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
   <!-- CUSTOM -->
   <link href="/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
   <link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
   <script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
   <script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+  <script src="jquery.mask.min.js"></script>
   <link href="G5.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="G5-zoom.js"></script>
   <script type="text/javascript" src="G5-anexos.js"></script>
   <script type="text/javascript" src="G5-000.js"></script>
   <script type="text/javascript" src="G5-004.js"></script>
@@ -145,6 +146,7 @@
           </div>
           <div class="row">
             <div class="col-sm-6" name="div_setor_solicitante" id="div_setor_solicitante">
+              <input type="hidden" name="SETORSOLICITANTE" id="SETORSOLICITANTE" />
               <div class="form-field" data-type="textarea" data-show-properties
                 data-field-name="setor_solicitante">
                 <label>Setor Solicitante<span class="text-danger"><strong>*</strong></span></label>
@@ -372,6 +374,7 @@
           </div>
           <div class="row">
             <div class="col-sm-6" name="div_vincular_fornecedor" id="div_vincular_fornecedor">
+              <input type="hidden" name="CGCCFO" id="CGCCFO" />
               <div class="form-field" data-type="textarea" data-show-properties data-field-name="vincular_fornecedor">
                 <label>Vincular Fornecedor<span class="text-danger"><strong>*</strong></span></label>
                 <input title='ds_fornecedoresRM' class="form-control" placeholder="Selecione o fornecedor" type="zoom" id="vincular_fornecedor" name="vincular_fornecedor" data-zoom=" 
@@ -572,7 +575,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CPF</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="CPF" value
+                    <input type="text" class="form-control" name="CPF" onchange="salvaCGCCFO(this.value)"
                       placeholder="Digite o CPF do colaborador" data-size="big" mask="000.000.000-00" maxlength="14" data-only-numbers="true">
                   </div>
                 </div>
@@ -582,7 +585,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CNPJ</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="CNPJ" value
+                    <input type="text" class="form-control" name="CNPJ" onchange="salvaCGCCFO(this.value)"
                       placeholder="Digite o CNPJ do colaborador" data-size="big" mask="00.000.000/0000-00" maxlength="18" data-only-numbers="true">
                   </div>
                 </div>
@@ -1194,8 +1197,8 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CPF/CNPJ do Favorecido</label>
-                    <input type="text" class="form-control" id="CpfCnpj_favorecido" name="CpfCnpj_favorecido" value
-                      data-size="big" maxlength="18" onchange="formataCpfCnpj(this.value)">
+                    <input type="text" class="form-control cpfCnpj" id="CpfCnpj_favorecido" name="CpfCnpj_favorecido" value
+                      data-size="big" maxlength="18">
                   </div>
                 </div>
               </div>
@@ -1412,12 +1415,8 @@
                   <table tablename="table_rateio_ccusto" id="table_rateio_ccusto" class="table" noaddbutton="true">
                     <thead>
                       <tr class="tableHeadRow">
-                        <th style="min-width: 300px;" class="tableColumn"><label
-                            title="Filtrado pelo campo: Setor Solicitante">Natureza
-                            Orçamentária Financeira</label><span class="required text-danger"><strong>*</strong></span></th>
-                        <th style="min-width: 300px;" class="tableColumn"><label
-                            title="Filtrado pelo campo: Coligada">Centro de
-                            Custo</label><span class="required text-danger"><strong>*</strong></span></th>
+                        <th style="min-width: 300px;" class="tableColumn"><label title="Filtrado pelo campo: Setor Solicitante">Natureza Orçamentária Financeira</label><span class="required text-danger"><strong>*</strong></span></th>
+                        <th style="min-width: 300px;" class="tableColumn"><label title="Filtrado pelo campo: Coligada">Centro de Custo</label><span class="required text-danger"><strong>*</strong></span></th>
                         <th style="min-width: 150px;" class="tableColumn">Valor<span class="required text-danger"><strong>*</strong></span></th>
                         <th style="min-width: 100px;" class="tableColumn">Percentual<span class="required text-danger"><strong>*</strong></span></th>
                       </tr>
@@ -1458,9 +1457,8 @@
                           </div>
                         </td>
                         <td class="fs-v-align-middle" style="max-width:250px;">
-                          <div class="form-input" style="margin-top: 27px;">
-                            <input title='ds_centroCustosRM'
-                              class="form-control" type="zoom" id="coluna_ccusto" name="coluna_ccusto" data-zoom=" 
+                          <div class="form-input">
+                            <input title='ds_centroCustosRM' class="form-control" type="zoom" id="coluna_ccusto" name="coluna_ccusto" data-zoom=" 
                                   {
                                   'displayKey':'TODOS',
                                   'datasetId':'ds_centro_de_custos',
@@ -1494,8 +1492,7 @@
                     </tbody>
                   </table>
                 </div>
-                <button type="button" class="btn btn-primary" id="btn_add_linha" onclick="acrescentarLinha()">Novo
-                  Registro</button>
+                <button type="button" class="btn btn-primary" id="btn_add_linha" onclick="acrescentarLinha()">Novo Registro</button>
               </div>
             </div>
           </div>
@@ -1507,8 +1504,7 @@
           </div>
           <div class="row">
             <div class="col-sm-12 form-group" id="div_mensagem_valor_excedido">
-              <h3>ERRO: VALOR DO RATEIO SUPERIOR AO VALOR TOTAL A SER
-                PAGO!</h3>
+              <h3>ERRO: VALOR DO RATEIO SUPERIOR AO VALOR TOTAL A SER PAGO!</h3>
             </div>
           </div>
         </div>
@@ -2335,7 +2331,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label>CPF/CNPJ do Favorecido</label>
-                  <input type="text" class="form-control" id="CpfCnpj_favorecido_fin" name="CpfCnpj_favorecido_fin" value data-size="big" maxlength="18" onchange="formataCpfCnpj(this.value)">
+                  <input type="text" class="form-control cpfCnpj" id="CpfCnpj_favorecido_fin" name="CpfCnpj_favorecido_fin" value data-size="big" maxlength="18" />
                 </div>
               </div>
             </div>
@@ -2597,7 +2593,7 @@
                           </div>
                         </td>
                         <td class="fs-v-align-middle">
-                          <div class="form-input" style="margin-top: 27px;">
+                          <div class="form-input">
                             <input title='ds_centroCustosRM'
                               class="form-control" type="zoom" id="coluna_ccusto_fin" name="coluna_ccusto_fin" data-zoom=" 
                                 {
@@ -2758,6 +2754,7 @@
             <div class="row">
               <!-- TODO: Parte da Integração -->
               <div class="col-sm-6" name="div_vincular_forn_analise" id="div_vincular_forn_analise">
+                <input type="hidden" name="CGCCFO_analise" id="CGCCFO_analise" />
                 <div class="form-field" data-type="textarea" data-show-properties
                   data-field-name="vincular_fornecedor_analise">
                   <label>Vincular Fornecedor<span class="text-danger"><strong>*</strong></span></label>
@@ -2801,8 +2798,7 @@
                 <div class="form-field" data-type="textarea" data-show-properties
                   data-field-name="dados_pagamento_analise">
                   <label
-                    title="Esse campo necessita da Coligada e do CNPJ do Fornecedor: Selecione a Coligada e vincule o fornecedor para buscar os dados de pagamento.">
-                    Dados de Pagamento<span class="text-danger"><strong>*</strong></span></label>
+                    title="Esse campo necessita da Coligada e do CNPJ do Fornecedor: Selecione a Coligada e vincule o fornecedor para buscar os dados de pagamento.">Dados de Pagamento<span class="text-danger"><strong>*</strong></span></label>
                   <input title='ds_forma_pagamento' class="form-control" placeholder="Selecione o fornecedor" type="zoom" id="dados_pagamento_analise" name="dados_pagamento_analise" data-zoom=" 
                           {
                           'displayKey':'DESCRICAO',
@@ -2862,8 +2858,8 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CPF/CNPJ</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" id="CpfCnpj_analise" name="CpfCnpj_analise" value
-                      data-size="big" maxlength="18" onchange="formataCpfCnpj(this.value)">
+                    <input type="text" class="form-control cpfCnpj" id="CpfCnpj_analise" name="CpfCnpj_analise" value
+                      data-size="big" maxlength="18" />
                   </div>
                 </div>
               </div>
@@ -3262,7 +3258,7 @@
                             </div>
                           </td>
                           <td class="fs-v-align-middle" style="max-width:250px;">
-                            <div class="form-input" style="margin-top: 27px;">
+                            <div class="form-input" >
                               <input title='ds_centroCustosRM'
                                 class="form-control" type="zoom" id="coluna_ccusto_da" name="coluna_ccusto_da" data-zoom=" 
                                     {
@@ -3551,7 +3547,7 @@
                     <div class="form-input">
                       <div class="form-group">
                         <label>CPF/CNPJ do Favorecido</label>
-                        <input type="text" class="form-control"                           id="CpfCnpj_participante" name="CpfCnpj_participante"                           value data-size="big" maxlength="18"                           onchange="formataCpfCnpj(this.value)">
+                        <input type="text" class="form-control"                           id="CpfCnpj_participante" name="CpfCnpj_participante"                           value data-size="big" maxlength="18"                           onchange="formataCpfCnpj(this)">
                       </div>
                     </div>
                   </div>

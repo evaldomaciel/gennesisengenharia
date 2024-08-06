@@ -1,30 +1,3 @@
-/* FUNÇÕES ETAPA 014 - PROVISIONAMENTO */
-
-function filtraPorColigadaDa(coligada) {
-  var tableBody = document
-    .getElementById("table_dados_adicionais")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-  if (rows.length == 1) {
-    acrescentarLinhaFin();
-    rows = tableBody.getElementsByTagName("tr");
-  }
-
-  if (coligada == "" || coligada == null) {
-    for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_da___${i}"]`);
-      reloadZoomFilterValues(colunaCcustoInput.id);
-    }
-  } else {
-    reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
-    for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_da___${i}"]`);
-      reloadZoomFilterValues(colunaCcustoInput.id, `CODCOLIGADA,${coligada}`);
-    }
-  }
-}
-
 /* PREENCHE O CAMPO PORCENTAGEM DA TABELA RATEIO POR CENTRO DE CUSTO BASEADO NO VALOR TOTAL A SER PAGO */
 function updatePercentualDa(input) {
   const valorTotalInput = document.getElementById("valor_original_analise");
@@ -83,115 +56,6 @@ function getValorTotalDa() {
   }
 }
 
-function filtraNaturezaPorSetorDa() {
-  let campo = $("#setor_solicitante").val();
-  let valorDoCampo = campo[0];
-  console.log(valorDoCampo);
-
-  var tableBody = document
-    .getElementById("table_dados_adicionais")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-  if (rows.length == 1) {
-    acrescentarLinhaDa();
-    rows = tableBody.getElementsByTagName("tr");
-  }
-  for (let i = 1; i < rows.length; i++) {
-    var colunaNaturezaInput = rows[i].querySelector(`[name="coluna_natureza_da___${i}"]`);
-
-    if (colunaNaturezaInput) {
-      $(colunaNaturezaInput).val(null).trigger("change");
-      reloadZoomFilterValues(`${colunaNaturezaInput.id}`, "SETOR," + valorDoCampo);
-    }
-  }
-  return true;
-}
-
-function filtraTipoDeDocumentoPorColigada(codColigada) {
-  codColigada = parseInt(codColigada);
-  if (codColigada >= 0) reloadZoomFilterValues(`tipo_documento_analise`, `filtro,CODCOLIGADA = ${codColigada}`);
-  return true;
-}
-
-function filtraContaCaixaPelaColigadaEFilial(codColigada) {
-  codColigada = parseInt(codColigada);
-  if (codColigada >= 0) reloadZoomFilterValues(`conta_caixa_analise`, `filtro,FCXA.CODCOLIGADA = ${codColigada}`);
-}
-
-function validaContaCaixa(codContaCaixa) {
-  let codColigada = String($("#CODCOLIGADA").val());
-  var datasetDsReadRecord = DatasetFactory.getDataset('dsReadRecord', null, new Array(
-    DatasetFactory.createConstraint('dataServer', 'FinCxaDataBR', null, ConstraintType.MUST),
-    DatasetFactory.createConstraint('primaryKey', `${codColigada};${codContaCaixa}`, null, ConstraintType.MUST),
-    DatasetFactory.createConstraint('mainTag', 'FCxa', null, ConstraintType.MUST)
-  ), null);
-
-  if (datasetDsReadRecord.values.length > 0) {
-    let codFlialSol = $("#CODFILIAL").val();
-    if (datasetDsReadRecord.values[0].Erro != undefined) {
-      exibeMsg(
-        "Atenção!",
-        `${datasetDsReadRecord.values[0].Erro} - ${datasetDsReadRecord.values[0].primaryKey}`,
-        "warning"
-      )
-      return;
-    }
-    else {
-      let codFilialCX = datasetDsReadRecord.values[0].CODFILIAL;
-      if (codFilialCX == undefined || codFilialCX == "") {
-        // conta caixa global, tudo certo!
-        return;
-      }
-      if (codFilialCX != codFlialSol) {
-        exibeMsg(
-          "Atenção!",
-          `A conta caixa selecionada esta vinculada a filial ${codFilialCX}, diferente da filial ${codFlialSol} informada no início da solicitação!`,
-          "warning"
-        )
-      }
-    }
-  } else {
-    exibeMsg(
-      "Atenção!",
-      "Não encontramos dados do cadastro desta conta caixa no Totvs RM!",
-      "warning"
-    )
-  }
-}
-
-function exibeMsg(title, message, type) {
-  FLUIGC.toast({
-    title: `<h4>${title}</h4>`,
-    message: message,
-    type: type,
-    timeout: 'slow'
-  });
-}
-
-
-function limpaFiltroNaturezaPorSetorDa() {
-  var tableBody = document
-    .getElementById("table_dados_adicionais")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-
-  for (let i = 1; i < rows.length; i++) {
-    var colunaNaturezaInput = rows[i].querySelector(`[name="coluna_natureza_da___${i}"]`);
-
-    if (colunaNaturezaInput) {
-      $(colunaNaturezaInput).val(null).trigger("change");
-
-      if (
-        window[`coluna_natureza_da___${i}`] &&
-        window[`coluna_natureza_da___${i}`].element
-      ) {
-        reloadZoomFilterValues(`coluna_natureza_da___${i}`);
-      }
-    }
-  }
-}
 
 function toggleMotivoPedidoAjustes(respostaProvisionamento) {
   if (
@@ -459,31 +323,6 @@ function preencheNomeDoUFFin(value) {
   }
 }
 
-function filtraPorColigadaFin(coligada) {
-  var tableBody = document
-    .getElementById("table_rateio_ccusto_fin")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-  if (rows.length == 1) {
-    acrescentarLinhaFin();
-    rows = tableBody.getElementsByTagName("tr");
-  }
-
-  if (coligada == "" || coligada == null) {
-    for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_fin___${i}"]`);
-      reloadZoomFilterValues(colunaCcustoInput.id);
-    }
-  } else {
-    reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
-    for (let i = 1; i < rows.length; i++) {
-      var colunaCcustoInput = rows[i].querySelector(`[name="coluna_ccusto_fin___${i}"]`);
-      reloadZoomFilterValues(colunaCcustoInput.id, `CODCOLIGADA,${coligada}`);
-    }
-  }
-}
-
 /* PREENCHE O CAMPO PORCENTAGEM DA TABELA RATEIO POR CENTRO DE CUSTO BASEADO NO VALOR TOTAL A SER PAGO */
 function updatePercentualFin(input) {
   const valorTotalInput = document.getElementById("Valor_fin");
@@ -528,40 +367,6 @@ function getValorTotalFin() {
     $("#div_mensagem_valor_excedido_fin").show(400);
   } else {
     $("#div_mensagem_valor_excedido_fin").hide(400);
-  }
-}
-
-function filtraNaturezaPorSetorFin() {
-  let valorDoCampo = String($("#setor_solicitante").val());
-  $(`[name^="coluna_natureza_fin___"]`).each((i, e) => {
-    if (e.type == 'hidden') return;
-    reloadZoomFilterValues(e.name, `SETOR,${valorDoCampo}`);
-  });
-  return true;
-}
-
-function limpaFiltroNaturezaPorSetorFin() {
-  var tableBody = document
-    .getElementById("table_rateio_ccusto_fin")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-
-  for (let i = 1; i < rows.length; i++) {
-    var colunaNaturezaInput = rows[i].querySelector(
-      `[name="coluna_natureza_fin___${i}"]`,
-    );
-
-    if (colunaNaturezaInput) {
-      $(colunaNaturezaInput).val(null).trigger("change");
-
-      if (
-        window[`coluna_natureza_fin___${i}`] &&
-        window[`coluna_natureza_fin___${i}`].element
-      ) {
-        reloadZoomFilterValues(`coluna_natureza_fin___${i}`);
-      }
-    }
   }
 }
 
