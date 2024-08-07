@@ -41,9 +41,7 @@ function setSelectedZoomItem(selectedItem) {
   }
   if (FIELD == "setor_solicitante") {
     $("#SETORSOLICITANTE").val(selectedItem["Nome"]);
-    filtraNaturezaPorSetor();
-    filtraNaturezaPorSetorFin();
-    filtraNaturezaPorSetorDa();
+
   }
   if (FIELD == "centro_de_custo") {
     $("#hidden_filial_cc").val(selectedItem["CODFILIAL"]);
@@ -60,10 +58,8 @@ function setSelectedZoomItem(selectedItem) {
     validaContaCaixa(selectedItem["CODCXA"]);
   }
   if (FIELD == "coligada") {
-    $("#CODCOLIGADA").val(selectedItem["ID"]);
-    filtraPorColigada(selectedItem["ID"]);
-    filtraTipoDeDocumentoPorColigada(selectedItem["ID"]);
-    filtraContaCaixaPelaColigadaEFilial(selectedItem["ID"]);
+    $("#CODCOLIGADA").val(selectedItem["CODCOLIGADA"]);
+    $("#CODCOLIGADA").val(selectedItem["CODCOLIGADA"]);
   }
   if (FIELD == "ccusto_analise") {
     $("#nome_ccusto_analise").val(selectedItem["NOMECCUSTO"]);
@@ -74,6 +70,9 @@ function setSelectedZoomItem(selectedItem) {
     window["dados_pagamento_analise"].setValue(valorDoCampo);
     $("#hidden_dados_pgmt").val(selectedItem["DESCRICAO"]);
     toggleCampoDadosPgmt(selectedItem);
+    preencheDadosPagamento(
+      selectedItem['CODCOLIGADA'], selectedItem['CODCOLCFO'], selectedItem['CODCFO'], selectedItem['IDPGTO']
+    );
   }
   if (FIELD == "dados_pagamento_analise") {
     $("#hidden_dados_pgmt").val(selectedItem["DESCRICAO"]);
@@ -120,11 +119,10 @@ function setSelectedZoomItem(selectedItem) {
   }
   if (FIELD == "vincular_fornecedor") {
     $("#CGCCFO").val(selectedItem["CGCCFO"]);
+    $("#CGCCFO").val(selectedItem["CGCCFO"]);
     let campo = $("#vincular_fornecedor").val();
     let valorDoCampo = campo[0];
-    reloadZoomFilterValues("dados_pagamento", `CGC,${$("#CGCCFO").val()},COLIGADA,${$("#CODCOLIGADA").val()}`);
     window["vincular_fornecedor_analise"].setValue(valorDoCampo);
-
     $("#nome_forn").text(selectedItem["NOME"]);
     $("#nome_cli_fornecedor_analise").val(selectedItem["NOME"]);
     $("#cnpj_forn").text(selectedItem["CGCCFO"]);
@@ -143,18 +141,12 @@ function setSelectedZoomItem(selectedItem) {
     $("#bairro_fin").val(selectedItem["BAIRRO"]);
     $("#municipio_fin").val(selectedItem["CIDADE"]);
     $("#sigla_estado_fin").val(selectedItem["CODETD"]);
-    preencheNomeDoUFFin(selectedItem["CODETD"]);
     $("#CEP_fin").val(selectedItem["CEP"]);
     $("#telefone_fin").val(selectedItem["TELEFONE"]);
     $("#email_fin").val(selectedItem["EMAIL"]);
     $("#contato_fin").val(selectedItem["CONTATO"]);
     $("#status_tipo_cliente_fin").val(selectedItem["ATIVO"]);
     $("#codigo_municipio_fin").val(selectedItem["CODMUNICIPIO"]);
-    if (selectedItem["PESSOAFISOUJUR"] == "F") {
-      $('input[name="categoria_fin"][value="F"]').prop('checked', true);
-    } else {
-      $('input[name="categoria_fin"][value="J"]').prop('checked', true);
-    }
     $("#id_pais_fin").val(selectedItem["IDPAIS"]);
     $("#pais_fin").val(selectedItem["PAIS"]);
     $("#nacionalidade_fin").val(selectedItem["NACIONALIDADE"]);
@@ -162,6 +154,12 @@ function setSelectedZoomItem(selectedItem) {
     $("#caixa_postal_fin").val(selectedItem["CAIXAPOSTAL"]);
     $("#cad_referencia_fin").val(selectedItem["IDCFO"]); // Ref.
     $("#aposen_pensionista_fin").val(selectedItem["APOSENTADOOUPENSIONISTA"]);
+    preencheNomeDoUFFin(selectedItem["CODETD"]);
+    if (selectedItem["PESSOAFISOUJUR"] == "F") {
+      $('input[name="categoria_fin"][value="F"]').prop('checked', true);
+    } else {
+      $('input[name="categoria_fin"][value="J"]').prop('checked', true);
+    }
   }
   if (FIELD == "vincular_fornecedor_analise") {
     $("#CGCCFO_analise").val(selectedItem["CGCCFO"]);
@@ -173,6 +171,9 @@ function setSelectedZoomItem(selectedItem) {
     $("#cnpj_forn_analise").text(selectedItem["CGCCFO"]);
     $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
   }
+
+  /** Refaz os filtros de todos os campos zoom */
+  reloadZoomAfterLoad(true)
 }
 
 function setZoomData(instance, value) {
@@ -211,10 +212,11 @@ function removedZoomItem(removedItem) {
     limpaFiltroNaturezaPorSetorDa();
   }
   if (removedItem.inputId == "vincular_fornecedor") {
-    reloadZoomFilterValues("dados_pagamento");
     $("#hidden_codigo_cli_for").val("");
     $("#nome_forn").text("");
     $("#cnpj_forn").text("");
+    reloadZoomFilterValues("dados_pagamento");
+    limpaDaDadosPagamento()
   }
   if (removedItem.inputId == "vincular_fornecedor_analise") {
     $("#hidden_codigo_cli_for").val("");
@@ -231,6 +233,7 @@ function removedZoomItem(removedItem) {
     $("#chave_forn").text("");
     $("#div_chave_tipo_forn").hide(400);
     $("#div_cod_boleto").hide(400);
+    limpaDaDadosPagamento()
   }
   if (removedItem.inputId == "dados_pagamento_analise") {
     $("#tipo_forn_analise").text("");
@@ -252,6 +255,7 @@ function removedZoomItem(removedItem) {
 function reloadZoomAfterLoad(loaded, count) {
   count = count == undefined ? 0 : count + 1;
   console.log(`loaded: ${loaded} - count: ${count} `);
+  let CODCOLIGADA = String($("#CODCOLIGADA").val())
   if (loaded == true) {
     if (count >= 100) {
       console.log("Nenhum zoom foi carregado");
@@ -260,14 +264,12 @@ function reloadZoomAfterLoad(loaded, count) {
       reloadZoomAfterLoad(false);
       filtraNaturezaPorSetor();
       filtraNaturezaPorSetorFin();
-      filtraTipoDeDocumentoPorColigada(String($("#CODCOLIGADA").val()));
-      filtraContaCaixaPelaColigadaEFilial(String($("#CODCOLIGADA").val()))
+      filtraTipoDeDocumentoPorColigada(CODCOLIGADA);
+      filtraContaCaixaPelaColigadaEFilial(CODCOLIGADA)
+      filtraPorColigada(CODCOLIGADA);
       filtraPorColigadaFin();
       limpaFiltroNaturezaPorSetorFin();
-      filtraPorColigadaDa()
-      filtraTipoDeDocumentoPorColigada(String($("#CODCOLIGADA").val()))
-      filtraDadosDePagamento(String($("#CODCOLIGADA").val()))
-
+      filtraDadosPagamento();
     }
     else {
       setTimeout(() => {
@@ -299,43 +301,6 @@ function filtraNaturezaPorSetorFin() {
   return true;
 }
 
-function filtraPorColigadaDa() {
-  let coligada = $("#CODCOLIGADA").val();
-  $('[name^="coluna_ccusto_da___"]').each((i, e) => {
-    let colunaCcustoInput = $(e).attr("name");
-    if (coligada == "" || coligada == null) {
-      if (validaZoom(colunaCcustoInput)) reloadZoomFilterValues(colunaCcustoInput);
-    } else {
-      if (validaZoom("vincular_fornecedor_analise")) reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
-      if (validaZoom(colunaCcustoInput)) reloadZoomFilterValues(colunaCcustoInput, `CODCOLIGADA,${coligada}`);
-    }
-  });
-}
-
-function filtraNaturezaPorSetorDa() {
-  let campo = $("#SETORSOLICITANTE").val();
-  let valorDoCampo = campo[0];
-
-  let tableBody = document
-    .getElementById("table_dados_adicionais")
-    .getElementsByTagName("tbody")[0];
-
-  let rows = tableBody.getElementsByTagName("tr");
-  if (rows.length == 1) {
-    acrescentarLinha('table_dados_adicionais');
-    rows = tableBody.getElementsByTagName("tr");
-  }
-  for (let i = 1; i < rows.length; i++) {
-    let colunaNaturezaInput = rows[i].querySelector(`[name="coluna_natureza_da___${i}"]`);
-
-    if (colunaNaturezaInput && validaZoom(colunaNaturezaInput.id)) {
-      $(colunaNaturezaInput).val(null).trigger("change");
-      reloadZoomFilterValues(`${colunaNaturezaInput.id}`, "SETOR," + valorDoCampo);
-    }
-  }
-  return true;
-}
-
 function filtraTipoDeDocumentoPorColigada(codColigada) {
   codColigada = parseInt(codColigada);
   if (codColigada >= 0 && validaZoom("tipo_documento_analise")) reloadZoomFilterValues(`tipo_documento_analise`, `filtro,CODCOLIGADA = ${codColigada}`);
@@ -347,17 +312,13 @@ function filtraContaCaixaPelaColigadaEFilial() {
 }
 
 function filtraDadosPagamento() {
-  if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CGC,${$("#CGCCFO_analise").val()},COLIGADA,${$("#CODCOLIGADA").val()}`);
-}
-
-function filtraDadosDePagamento(codColigada) {
-  codColigada = parseInt(codColigada);
-  if (codColigada >= 0 && validaZoom("tipo_documento_analise")) reloadZoomFilterValues(`conta_caixa_analise`, `filtro,FCXA.CODCOLIGADA = ${codColigada}`);
+  if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CODCFO,${$("#hidden_codigo_cli_for").val()}`);
+  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCFO,${$("#hidden_codigo_cli_for").val()}`);
 }
 
 function validaContaCaixa(codContaCaixa) {
   let codColigada = String($("#CODCOLIGADA").val());
-  var datasetDsReadRecord = DatasetFactory.getDataset('dsReadRecord', null, new Array(
+  let datasetDsReadRecord = DatasetFactory.getDataset('dsReadRecord', null, new Array(
     DatasetFactory.createConstraint('dataServer', 'FinCxaDataBR', null, ConstraintType.MUST),
     DatasetFactory.createConstraint('primaryKey', `${codColigada};${codContaCaixa}`, null, ConstraintType.MUST),
     DatasetFactory.createConstraint('mainTag', 'FCxa', null, ConstraintType.MUST)
@@ -394,6 +355,79 @@ function validaContaCaixa(codContaCaixa) {
       "warning"
     )
   }
+}
+
+function preencheDadosPagamento(CODCOLIGADA, CODCOLCFO, CODCFO, IDPGTO) {
+  let datasetDsReadRecord = DatasetFactory.getDataset('dsReadRecord', null, new Array(
+    DatasetFactory.createConstraint('dataServer', 'FinDADOSPGTODataBR', null, ConstraintType.MUST),
+    DatasetFactory.createConstraint('primaryKey', `${CODCOLIGADA};${CODCOLCFO};${CODCFO};${IDPGTO}`, null, ConstraintType.MUST),
+    DatasetFactory.createConstraint('mainTag', 'FDadosPgto', null, ConstraintType.MUST)
+  ), null);
+
+  if (datasetDsReadRecord.values == undefined) {
+    return exibeMsg("Atenção!", `Erro no retorno do dataset. Contate o administrador!`, "warning")
+  }
+
+  if (datasetDsReadRecord.values.length > 0) {
+    if (datasetDsReadRecord.values[0].Erro != undefined) {
+      exibeMsg("Atenção!", `${datasetDsReadRecord.values[0].Erro} - ${datasetDsReadRecord.values[0].primaryKey}`, "warning")
+      return;
+    }
+    else {
+      let dadosPagamento = datasetDsReadRecord.values[0];
+      if (dadosPagamento.NUMEROBANCO != undefined) formSetValue("NUMEROBANCO", dadosPagamento.NUMEROBANCO);
+      if (dadosPagamento.NUMEROBANCO != undefined) {
+        formSetValue("NUMEROBANCO", dadosPagamento.NUMEROBANCO);
+        formSetValue("camara_comp", dadosPagamento.NUMEROBANCO);
+        autocompleteBanco(dadosPagamento.NUMEROBANCO);
+      }
+      if (dadosPagamento.FORMAPAGAMENTO != undefined) {
+        let descFormPagamento = getNomeFormaPagamento(dadosPagamento.FORMAPAGAMENTO);
+        formSetValue("forma_pagamento", descFormPagamento);
+        formSetValue("hidden_desc_fpgmto", descFormPagamento);
+        formSetValue("hidden_forma_pgmto", dadosPagamento.FORMAPAGAMENTO);
+      }
+      if (dadosPagamento.CODIGOAGENCIA != undefined) formSetValue("agencia", dadosPagamento.CODIGOAGENCIA);
+      if (dadosPagamento.DIGITOAGENCIA != undefined) formSetValue("digito", dadosPagamento.DIGITOAGENCIA);
+      if (dadosPagamento.DESCRICAO != undefined) formSetValue("nome_agencia", dadosPagamento.DESCRICAO);
+      if (dadosPagamento.CONTACORRENTE != undefined) formSetValue("conta_corrente", dadosPagamento.CONTACORRENTE);
+      if (dadosPagamento.DIGITOCONTA != undefined) formSetValue("digito_conta_corrente", dadosPagamento.DIGITOCONTA);
+      if (dadosPagamento.TIPOCONTA != undefined) formSetValue("tipo_conta", dadosPagamento.TIPOCONTA);
+      if (dadosPagamento.FAVORECIDO != undefined) formSetValue("favorecido", dadosPagamento.FAVORECIDO);
+      if (dadosPagamento.CGCFAVORECIDO != undefined) formSetValue("CpfCnpj_favorecido", dadosPagamento.CGCFAVORECIDO);
+      if (dadosPagamento.TIPOPIX != undefined) formSetValue("tipo_chave_pix", dadosPagamento.TIPOPIX);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_CPF", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_CNPJ", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_email", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_celular", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_aleatoria", dadosPagamento.CHAVE);
+    }
+  } else {
+    exibeMsg("Atenção!", `Não encontramos dados de pagamento para este fornecedor! <br/><b>primaryKey</b>: ${CODCOLIGADA};${CODCOLCFO};${CODCFO};${IDPGTO}`, "warning")
+  }
+}
+
+function limpaDaDadosPagamento() {
+  formSetValue("banco", "");
+  formSetValue("NUMEROBANCO", "");
+  formSetValue("agencia", "");
+  formSetValue("digito", "");
+  formSetValue("nome_agencia", "");
+  formSetValue("conta_corrente", "");
+  formSetValue("digito_conta_corrente", "");
+  formSetValue("tipo_conta", "");
+  formSetValue("camara_comp", "");
+  formSetValue("favorecido", "");
+  formSetValue("CpfCnpj_favorecido", "");
+  formSetValue("tipo_chave_pix", "");
+  formSetValue("chave_CPF", "");
+  formSetValue("chave_CNPJ", "");
+  formSetValue("chave_email", "");
+  formSetValue("chave_celular", "");
+  formSetValue("chave_aleatoria", "");
+  formSetValue("forma_pagamento", "");
+  formSetValue("hidden_desc_fpgmto", "");
+  formSetValue("hidden_forma_pgmto", "");
 }
 
 function limpaFiltroNaturezaPorSetorDa() {
@@ -509,4 +543,27 @@ function exibeMsg(title, message, type) {
     type: type,
     timeout: 'slow'
   });
+}
+
+function getNomeFormaPagamento(valor) {
+  var datasetDs_forma_pagamento = DatasetFactory.getDataset('ds_forma_pagamento', null, new Array(
+    DatasetFactory.createConstraint('Valor', valor, valor, ConstraintType.MUST)
+  ), null);
+  if (datasetDs_forma_pagamento.values.length > 0) return datasetDs_forma_pagamento.values[0].Nome;
+  return null;
+}
+
+function getNomeFilial(CODCOLIGADA, CODFILIAL) {
+  var datasetDsRMFisFilialDataBR = DatasetFactory.getDataset('dsRMFisFilialDataBR', null, new Array(
+    DatasetFactory.createConstraint('CODFILIAL', CODFILIAL, CODFILIAL, ConstraintType.MUST),
+    DatasetFactory.createConstraint('CODCOLIGADA', CODCOLIGADA, CODCOLIGADA, ConstraintType.MUST)
+  ), null);
+  if (datasetDsRMFisFilialDataBR.values != undefined && datasetDsRMFisFilialDataBR.values.length > 0) {
+
+  }
+}
+
+function formSetValue(nomeCampo, valor) {
+  if (window[nomeCampo].open != undefined) window[nomeCampo].setValue(valor);
+  else window[nomeCampo].value = valor;
 }

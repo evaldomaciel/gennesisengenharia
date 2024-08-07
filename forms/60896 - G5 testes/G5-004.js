@@ -90,18 +90,18 @@ function corDaUrgenciaSolicitacao(urgencia) {
 }
 
 function toggleCadastroFornecedor(fornecedorCadastrado) {
-  if (fornecedorCadastrado == "Sim") {
-    $("#div_vincular_fornecedor").show(400);
-    $("#div_dados_pagamento").show(400);
-    $("#div_nome_cnpj_forn").show(400);
-    $("#div_cadastrar_fornecedor").hide(400);
-  }
-  if (fornecedorCadastrado == "Não") {
-    $("#div_vincular_fornecedor").hide(400);
-    $("#div_dados_pagamento").hide(400);
-    $("#div_nome_cnpj_forn").hide(400);
-    $("#div_cadastrar_fornecedor").show(400);
-  }
+  // if (fornecedorCadastrado == "Sim") {
+  //   $("#div_vincular_fornecedor").show(400);
+  //   $("#div_dados_pagamento").show(400);
+  //   $("#div_nome_cnpj_forn").show(400);
+  //   $("#div_cadastrar_fornecedor").hide(400);
+  // }
+  // if (fornecedorCadastrado == "Não") {
+  //   $("#div_vincular_fornecedor").hide(400);
+  //   $("#div_dados_pagamento").hide(400);
+  //   $("#div_nome_cnpj_forn").hide(400);
+  //   $("#div_cadastrar_fornecedor").show(400);
+  // }
 }
 
 function toggleCampoPorTipo(tipoPessoa) {
