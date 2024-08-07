@@ -314,3 +314,8 @@
 .banco {
   background-color: white !important;
 }
+
+.required::after {
+  content: " *";
+  color: red;
+}

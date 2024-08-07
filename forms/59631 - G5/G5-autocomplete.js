@@ -1,4 +1,4 @@
-function autocompleteBanco() {
+function autocompleteBanco(NUMEROBANCO) {
 	/* Instantiated new autocomplete */
 
 	var listaDeBancos = {
@@ -265,6 +265,11 @@ function autocompleteBanco() {
 		367: 'Vitreo Distribuidora de Títulos e Valores Mobiliários S.A.',
 		310: 'Vortx Distribuidora de Titulos e Valores Mobiliarios Ltda.',
 		102: 'Xp Investimentos Corretora de Câmbio,Títulos d Valores Mobiliários S/A',
+	}
+	if (parseInt(NUMEROBANCO) > 0) {
+		$("#banco").val(listaDeBancos[parseInt(NUMEROBANCO)])
+		$("[name='NUMEROBANCO']").val(formatarNumero(NUMEROBANCO));
+		return;
 	}
 
 	var myAutocomplete = FLUIGC.autocomplete('.banco', {

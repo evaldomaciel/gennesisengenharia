@@ -38,8 +38,6 @@ function createDataset(fields, constraints, sortFields) {
 
         log.info("ENDPOINT -- > " + data.endpoint);
 
-
-
         var vo = clientService.invoke(JSONUtil.toJSON(data));
         var status = String(vo.getHttpStatusResult())
         var ret = JSON.parse(vo.getResult());

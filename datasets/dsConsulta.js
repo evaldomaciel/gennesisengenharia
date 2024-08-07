@@ -9,6 +9,9 @@ function createDataset(fields, constraints, sortFields) {
     var retorno4 = new java.nio.file.Files.writeString(pasta, "");
 
 
+
+
+
     var minhaQuery = "SELECT 'CONSULTA' AS 'QUERY';";
     var minhaQuery1 = "";
     var minhaQuery2 = "";
@@ -38,11 +41,11 @@ function createDataset(fields, constraints, sortFields) {
     */
     minhaQuery = "SELECT * FROM FDN_USERTENANT WHERE LOGIN LIKE '%FLUIG%' "
     // minhaQuery1 = "UPDATE FDN_USERTENANT SET PASSWORD = 'c4ca4238a0b923820dcc509a6f75849b' WHERE LOGIN = 'bi-20240401' ; "
-  
-    // minhaQuery1 = "UPDATE PROCES_WORKFLOW SET NUM_VERS = 17 WHERE  STATUS = 0 AND COD_DEF_PROCES = 'contrato_apr_ordem_compras' and NUM_VERS > 1 ;"
 
-    // minhaQuery2 = "DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
-    // minhaQuery3 = "DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
+    minhaQuery1 = "UPDATE PROCES_WORKFLOW SET NUM_VERS = 17 WHERE  STATUS = 0 AND COD_DEF_PROCES = 'contrato_apr_ordem_compras' and NUM_VERS > 1 ;"
+
+    minhaQuery2 = "DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
+    minhaQuery3 = "DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
 
     var linha = ""
 
