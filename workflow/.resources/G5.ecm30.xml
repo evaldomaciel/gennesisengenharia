@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>20</version>
+      <version>21</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>59631</formId>
@@ -2588,7 +2588,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>20</version>
+        <version>21</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2600,7 +2600,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>20</version>
+        <version>21</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2612,7 +2612,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>20</version>
+        <version>21</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2624,7 +2624,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>20</version>
+        <version>21</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2636,7 +2636,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>20</version>
+        <version>21</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2648,7 +2648,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>20</version>
+        <version>21</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2660,7 +2660,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>20</version>
+        <version>21</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4251,7 +4251,6 @@ function getAtribuicoes(atribuicao) {
       <eventDescription>function servicetask210(attempt, message) {
 
   var valores = {
-      // &quot;CODEXTERNO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;),
       &quot;NOMEFANTASIA&quot;: hAPI.getCardValue(&quot;nome_social_fin&quot;),
       &quot;NOME&quot;: hAPI.getCardValue(&quot;nome_fin&quot;),
@@ -4260,65 +4259,23 @@ function getAtribuicoes(atribuicao) {
       &quot;RUA&quot;: hAPI.getCardValue(&quot;rua_fin&quot;),
       &quot;NUMERO&quot;: hAPI.getCardValue(&quot;numero_fin&quot;),
       &quot;BAIRRO&quot;: hAPI.getCardValue(&quot;bairro_fin&quot;),
-      // &quot;CIDADE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;CODETD&quot;: hAPI.getCardValue(&quot;sigla_estado_fin&quot;),
       &quot;CEP&quot;: hAPI.getCardValue(&quot;cep_fin&quot;),
       &quot;TELEFONE&quot;: hAPI.getCardValue(&quot;hidden_telefone&quot;),
       &quot;EMAIL&quot;: hAPI.getCardValue(&quot;email_fin&quot;),
       &quot;CONTATO&quot;: hAPI.getCardValue(&quot;contato_fin&quot;),
       &quot;ATIVO&quot;: hAPI.getCardValue(&quot;status_tipo_cliente_fin&quot;),
-      // &quot;LIMITECREDITO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;DATAULTALTERACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;DATACRIACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;DATAULTMOVIMENTO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;VALOROP1&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;VALOROP2&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;VALOROP3&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;PATRIMONIO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;NUMFUNCIONARIOS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;CODMUNICIPIO&quot;: hAPI.getCardValue(&quot;codigo_municipio_fin&quot;),
       &quot;PESSOAFISOUJUR&quot;: hAPI.getCardValue(&quot;categoria_fin&quot;),
       &quot;PAIS&quot;: hAPI.getCardValue(&quot;pais_fin&quot;),
-      // &quot;CONTRIBUINTE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;CFOIMOB&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;VALFRETE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;TPTOMADOR&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;CONTRIBUINTEISS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;NUMDEPENDENTES&quot;: hAPI.getCardValue(&quot;numero_dependentes_fin&quot;),
-      // &quot;USUARIOALTERACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;ORGAOPUBLICO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;CAIXAPOSTAL&quot;: hAPI.getCardValue(&quot;caixa_postal_fin&quot;),
-      // &quot;CATEGORIAAUTONOMO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;IDCFO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;VROUTRASDEDUCOESIRRF&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;RAMOATIV&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;OPTANTEPELOSIMPLES&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;TIPORUA&quot;: hAPI.getCardValue(&quot;tipo_rua_fin&quot;),
       &quot;TIPOBAIRRO&quot;: hAPI.getCardValue(&quot;tipo_bairro_fin&quot;),
-      // &quot;REGIMEISS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;RETENCAOISS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;USUARIOCRIACAO&quot;: &quot;suporte.totvs&quot;,
-      // &quot;PORTE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;TIPOOPCOMBUSTIVEL&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;IDPAIS&quot;: hAPI.getCardValue(&quot;id_pais_fin&quot;),
       &quot;NACIONALIDADE&quot;: hAPI.getCardValue(&quot;nacionalidade_fin&quot;),
-      // &quot;CALCULAAVP&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;CODUSUARIOACESSO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;RECCREATEDBY&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;RECCREATEDON&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;RECMODIFIEDBY&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;RECMODIFIEDON&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;TIPORENDIMENTO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;FORMATRIBUTACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;SITUACAONIF&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;ISTOTVSMESSAGE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;INOVAR_AUTO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;APLICFORMULA&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;CODCFOCOLINTEGRACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;DIGVERIFICDEBAUTOMATICO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-      // &quot;ENTIDADEEXECUTORAPAA&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
       &quot;APOSENTADOOUPENSIONISTA&quot;: hAPI.getCardValue(&quot;aposen_pensionista_fin&quot;),
-      // &quot;SOCIOCOOPERADO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
   };
 
 
@@ -5533,7 +5490,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>20</version>
+        <version>21</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5544,7 +5501,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>20</version>
+        <version>21</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5557,7 +5514,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>20</version>
+        <version>21</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -5575,7 +5532,7 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>20</version>
+        <version>21</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -5594,7 +5551,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>20</version>
+        <version>21</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -5607,7 +5564,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>20</version>
+        <version>21</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -5624,7 +5581,7 @@ Informamos que sua solicitação: [Título da solicitação] foi paga. Segue aba
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>20</version>
+        <version>21</version>
         <stateSequence>287</stateSequence>
         <triggerSequence>4</triggerSequence>
       </processStateTriggerPK>
@@ -5703,7 +5660,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5713,7 +5670,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5727,7 +5684,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5737,7 +5694,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5747,7 +5704,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -5757,7 +5714,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5767,7 +5724,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5781,7 +5738,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5791,7 +5748,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5801,7 +5758,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>20</processVersion>
+      <processVersion>21</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
