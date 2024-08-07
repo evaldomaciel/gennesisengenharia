@@ -1,5 +1,14 @@
 /* FUNÇÕES GLOBAIS */
 $(document).ready(function () {
+  autocompleteBanco();
+
+  $.each($("[data-date]"), function (i, o) {
+    var id = $(o).attr("id");
+    if ($("#" + id).attr("readonly")) {
+      $("#" + id).data('DateTimePicker').disable();
+    }
+  });
+
   /* COPIA DATA DE VENCIMENTO PARA AS OUTRAS ETAPAS */
   $("#data_vencimento").on("change", function () {
     var valorData = $(this).val();
@@ -157,69 +166,25 @@ $(document).ready(function () {
     $("#hidden_valor_carencia").val(valorNumerico);
   });
 
-  /* Mascara CPF/CNPJ */
-  var cpfMascara = function (val) {
-    return val.replace(/\D/g, '').length > 11 ? '00.000.000/0000-00' : '000.000.000-009';
-  },
-    cpfOptions = {
-      onKeyPress: function (val, e, field, options) {
-        field.mask(cpfMascara.apply({}, arguments), options);
-      }
-    };
-  $('.cpfCnpj').mask(cpfMascara, cpfOptions);
 
-  // Mascara CPF/CNPJ
-  $("#CpfCnpj_analise").keydown(function () {
-    try {
-      $("#CpfCnpj_analise").unmask();
-    } catch (e) { }
-
-    var tamanho = $("#CpfCnpj_analise").val().length;
-
-    if (tamanho < 11) {
-      $("#CpfCnpj_analise").mask("999.999.999-99");
+  function applyMask(field) {
+    var value = field.val().replace(/\D/g, '');
+    console.log(String(value).length)
+    let tamanho = String(value).length;
+    if (tamanho > 11 || tamanho == 0) {
+      field.mask('00.000.000/0000-00');
     } else {
-      $("#CpfCnpj_analise").mask("99.999.999/9999-99");
+      field.mask('000.000.000-009');
     }
+  }
 
-    // ajustando foco
-    var elem = this;
-    setTimeout(function () {
-      // mudo a posição do seletor
-      elem.selectionStart = elem.selectionEnd = 10000;
-    }, 0);
-    // reaplico o valor para mudar o foco
-    var currentValue = $(this).val();
-    $(this).val("");
-    $(this).val(currentValue);
+  $('.cpfCnpj').each(function () {
+    var field = $(this);
+    applyMask(field);
+    field.on('blur focus', function (e) {
+      applyMask($(e.target));
+    });
   });
-
-  // Mascara CPF/CNPJ
-  $("#CpfCnpj_participante").keydown(function () {
-    try {
-      $("#CpfCnpj_participante").unmask();
-    } catch (e) { }
-
-    var tamanho = $("#CpfCnpj_participante").val().length;
-
-    if (tamanho < 11) {
-      $("#CpfCnpj_participante").mask("999.999.999-99");
-    } else {
-      $("#CpfCnpj_participante").mask("99.999.999/9999-99");
-    }
-
-    // ajustando foco
-    var elem = this;
-    setTimeout(function () {
-      // mudo a posição do seletor
-      elem.selectionStart = elem.selectionEnd = 10000;
-    }, 0);
-    // reaplico o valor para mudar o foco
-    var currentValue = $(this).val();
-    $(this).val("");
-    $(this).val(currentValue);
-  });
-
 
   $("#sigla_estado_fin").on("change", function () {
     // Obtém o valor digitado no campo
@@ -229,13 +194,12 @@ $(document).ready(function () {
 
   window["tipo_moeda"].value = "R$";
 
-
-  ;
-
   reloadZoomAfterLoad(true);
   $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
 
-
+  atualizaValoresTabela();
+  toggleCadastroFornecedor($('[name="fornecedor_cadastrado"]:checked').val());
+  toggleCampoPorTipo($('[name="categoria"]:checked').val());
 });
 
 /** Aqui acaba o ready */

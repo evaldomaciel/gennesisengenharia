@@ -174,6 +174,43 @@ function parseFormattedNumber(value) {
   return parseFloat(value.replace(/\./g, "").replace(",", "."));
 }
 
+function atualizaValoresTabela() {
+  $(".rateio-tabela").on("change", (e, i) => {
+    let totalValue = parseFormattedNumber($('[name="Valor"]').val());
+    let fieldName = String($(e.target).attr('name'));
+    let field = String(fieldName).split("___");
+    let fieldId = String(field[1]);
+    let fieldFin = String(field[0]).indexOf("_fin") > 0 ? "_fin" : "";
+    if (isNaN(totalValue) || totalValue === 0) return;
+    if (fieldName.indexOf('coluna_valor') >= 0) {
+      let valueField = parseFormattedNumber($(e.target).val());
+      let percent = (valueField / totalValue) * 100;
+      $(`[name="coluna_percentual${fieldFin}___${fieldId}"]`).val(percent.toFixed(2) + "%");
+      updateValorTotal();
+    }
+  });
+}
+
+function acrescentarLinha(tabela) {
+  wdkAddChild(tabela);
+  var inputs = $("[mask]");
+  MaskEvent.initMask(inputs);
+  updateValorTotal();
+  if (tabela == 'table_rateio_ccusto') {
+    filtraPorColigada($("#coligada").val());
+    filtraNaturezaPorSetor();
+  }
+  if (tabela == 'table_rateio_ccusto_fin') {
+    filtraPorColigadaFin($("#coligada").val());
+    filtraNaturezaPorSetorFin();
+  }
+}
+
+function deleteTableRow(row) {
+  fnWdkRemoveChild(row);
+  updateValorTotal();
+}
+
 /* PREENCHE O CAMPO PORCENTAGEM DA TABELA RATEIO POR CENTRO DE CUSTO BASEADO NO VALOR TOTAL A SER PAGO */
 function updatePercentual(input) {
   console.log(input);
@@ -181,7 +218,7 @@ function updatePercentual(input) {
   let field = String(input.name).split("___");
   let fieldId = String(field[1]);
   let fieldFin = String(field[0]).indexOf("_fin") > 0 ? "_fin" : "";
-  getValorTotal();
+  updateValorTotal();
   if (isNaN(valorTotal) || valorTotal === 0) return;
   let valor = parseFormattedNumber(input.value);
   let percentual = (valor / valorTotal) * 100;
@@ -189,7 +226,7 @@ function updatePercentual(input) {
 }
 
 /* CALCULA VALOR TOTAL DO RATEIO */
-function getValorTotal() {
+function updateValorTotal() {
   let tableRows = document.querySelectorAll(
     'table[tablename="table_rateio_ccusto"] tbody tr',
   );

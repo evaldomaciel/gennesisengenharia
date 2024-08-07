@@ -48,6 +48,7 @@
   display: flex;
   justify-content: end;
 }
+
 #div_valor_total_rateio {
   display: flex;
 }
@@ -218,6 +219,7 @@
   display: flex;
   justify-content: end;
 }
+
 #div_valor_total_rateio_fin {
   display: flex;
 }
@@ -307,4 +309,8 @@
 .componentAnexo .icones .btn-danger:active,
 .componentAnexo .icones .btn-danger:hover {
   border: solid 1px #cc3d3d !important;
+}
+
+.banco {
+  background-color: white !important;
 }

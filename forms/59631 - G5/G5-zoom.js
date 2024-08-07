@@ -90,13 +90,15 @@ function setSelectedZoomItem(selectedItem) {
     $("#CODFILIAL").val(selectedItem["CODFILIAL"]);
   }
   if (FIELD == "filial_d_bancarios") {
-    $("#nome_filial_d_bancarios").val(selectedItem["NOME"]);
-    $("#nome_filial_d_bancarios_fin").val(selectedItem["NOME"]);
+    $("#nome_filial_d_banc").val(selectedItem["NOME"]);
+    $("#nome_filial_d_banc_fin").val(selectedItem["NOME"]);
+    $("#nome_filial_analise").val(selectedItem["NOME"]);
     window["filial_d_bancarios_fin"].setValue(selectedItem["CODFILIAL"]);
   }
   if (FIELD == "filial_default") {
     $("#nome_filial_default").val(selectedItem["NOME"]);
     $("#nome_filial_default_fin").val(selectedItem["NOME"]);
+    $("#nome_filial_analise").val(selectedItem["NOME"]);
     window["filial_default_fin"].setValue(selectedItem["CODFILIAL"]);
   }
   if (FIELD == "forma_pagamento") {
@@ -320,7 +322,7 @@ function filtraNaturezaPorSetorDa() {
 
   let rows = tableBody.getElementsByTagName("tr");
   if (rows.length == 1) {
-    acrescentarLinhaDa();
+    acrescentarLinha('table_dados_adicionais');
     rows = tableBody.getElementsByTagName("tr");
   }
   for (let i = 1; i < rows.length; i++) {

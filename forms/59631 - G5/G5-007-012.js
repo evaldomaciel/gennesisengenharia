@@ -16,4 +16,4 @@ function toggleMotivoCancelDiretoria(respostaDiretoria) {
   if (respostaDiretoria == "reprovado") {
     $("#div_motivo_cancel_diretoria").show(400);
   }
-}dados_pagamento_analise
+}

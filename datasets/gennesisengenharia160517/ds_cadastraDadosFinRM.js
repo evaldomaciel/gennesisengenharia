@@ -4,8 +4,6 @@ function createDataset(fields, constraints, sortFields) {
     dataset.addColumn("Retorno");
     dataset.addColumn("Mensagem");
 
-    var contexto = 'CODCOLIGADA='
-
     var valores = getConstraints(constraints);
 
     try {
@@ -15,7 +13,6 @@ function createDataset(fields, constraints, sortFields) {
         var serviceHelper = wsUpdate_RM.getBean();
         var dataServerName = 'FinDADOSPGTODataBR'
 
-        
         var XML = "<FDadosPgto> " +
             ("CODCOLIGADA" in valores ? "<CODCOLIGADA>" + valores.CODCOLIGADA + "</CODCOLIGADA>" : "") +
             ("CODCOLCFO" in valores ? "<CODCOLCFO>" + valores.CODCOLCFO + "</CODCOLCFO>" : "") +
@@ -28,6 +25,12 @@ function createDataset(fields, constraints, sortFields) {
             ("ATIVO" in valores ? "<ATIVO>" + valores.ATIVO + "</ATIVO>" : "") +
             ("CHAVE" in valores ? "<CHAVE>" + valores.CHAVE + "</CHAVE>" : "") +
             ("TIPOPIX" in valores ? "<TIPOPIX>" + valores.TIPOPIX + "</TIPOPIX>" : "") +
+            ("NUMEROBANCO" in valores ? "<NUMEROBANCO>" + valores.NUMEROBANCO + "</NUMEROBANCO>" : "") +
+            ("CODIGOAGENCIA" in valores ? "<CODIGOAGENCIA>" + valores.CODIGOAGENCIA + "</CODIGOAGENCIA>" : "") +
+            ("DIGITOAGENCIA" in valores ? "<CODIGOAGENCIA>" + valores.CODIGOAGENCIA + "</CODIGOAGENCIA>" : "") +
+            ("CONTACORRENTE" in valores ? "<CONTACORRENTE>" + valores.CONTACORRENTE + "</CONTACORRENTE>" : "") +
+            ("DIGITOCONTA " in valores ? "<CONTACORRENTE>" + valores.CONTACORRENTE + "</CONTACORRENTE>" : "") +
+            ("TIPOCONTA" in valores ? "<TIPOCONTA>" + valores.TIPOCONTA + "</TIPOCONTA>" : "") +
             " </FDadosPgto> "
 
 
@@ -45,8 +48,6 @@ function createDataset(fields, constraints, sortFields) {
         } else {
             dataset.addRow(['OK', result.toString()])
         }
-
-
         return dataset
     } catch (e) {
         dataset.addRow(['ERRO' + e.lineNumber, e.toString()]);
@@ -54,11 +55,8 @@ function createDataset(fields, constraints, sortFields) {
     }
 }
 
-
-
 function getConstraints(constraints) {
     var objRetorno = {}
-
     if (constraints != null && constraints.length > 0) {
         for (var c = 0; c < constraints.length; c++) {
             if (constraints[c].fieldName.toUpperCase() != "SQLLIMIT") {
@@ -66,6 +64,5 @@ function getConstraints(constraints) {
             }
         }
     }
-
     return objRetorno;
 }

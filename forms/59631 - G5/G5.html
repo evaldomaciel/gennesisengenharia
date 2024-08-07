@@ -16,9 +16,11 @@
   <link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
   <script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
   <script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+  <!-- <script src="jquery-3.7.1.min.js"></script> -->
   <script src="jquery.mask.min.js"></script>
   <link href="G5.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="G5-zoom.js"></script>
+  <script type="text/javascript" src="G5-autocomplete.js"></script>
   <script type="text/javascript" src="G5-anexos.js"></script>
   <script type="text/javascript" src="G5-000.js"></script>
   <script type="text/javascript" src="G5-004.js"></script>
@@ -575,8 +577,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CPF</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="CPF" onchange="salvaCGCCFO(this.value)"
-                      placeholder="Digite o CPF do colaborador" data-size="big" mask="000.000.000-00" maxlength="14" data-only-numbers="true">
+                    <input type="text" class="form-control cpfCnpj" name="CPF" onchange="salvaCGCCFO(this.value)" placeholder="Digite o CPF do colaborador" data-size="big" />
                   </div>
                 </div>
               </div>
@@ -585,34 +586,11 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CNPJ</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="CNPJ" onchange="salvaCGCCFO(this.value)"
-                      placeholder="Digite o CNPJ do colaborador" data-size="big" mask="00.000.000/0000-00" maxlength="18" data-only-numbers="true">
+                    <input type="text" class="form-control cpfCnpj" name="CNPJ" onchange="salvaCGCCFO(this.value)" placeholder="Digite o CNPJ do colaborador" data-size="big" />
                   </div>
                 </div>
               </div>
             </div>
-            <!--
-              <div class="row">
-                <div class="col-sm-6 form-field" id="div_inscricao_estadual"                   data-type="textbox" data-show-properties
-                  data-field-name="inscricao_estadual">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Inscrição Estadual</label>
-                      <input type="text" class="form-control"                         name="inscricao_estadual" id="inscricao_estadual"                         placeholder="Digite a IE" maxlength="14">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 form-field" id="div_inscricao_municipal"                   data-type="textbox" data-show-properties
-                  data-field-name="inscricao_municipal">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Inscrição Municipal</label>
-                      <input type="text" class="form-control"                         name="inscricao_municipal" id="inscricao_municipal"                         placeholder="Digite a IM" maxlength="14">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              -->
             <div class="row">
               <div class="col-sm-6" id="div_tipo_cliente_forn">
                 <div class="form-field" data-type="textbox" data-show-properties
@@ -663,81 +641,6 @@
                 </div>
               </div>
             </div>
-            <!--
-              <div id="div_identidade">
-                <h3>Identidade</h3>
-                <div class="row">
-                  <div class="col-sm-4 form-field" id="div_identidade_num"                     data-type="textbox" data-show-properties
-                    data-field-name="identidade">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Numero</label>
-                        <input type="text" class="form-control"                           name="identidade" value data-size="big"                           mask="000.000.000-00" maxlength="14"                           data-only-numbers="true">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 form-field" id="div_orgao_emissor"                     data-type="textbox" data-show-properties
-                    data-field-name="orgao_emissor">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Orgão Emissor</label>
-                        <input type="text" class="form-control"                           name="orgao_emissor" id="orgao_emissor">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 form-field" id="div_estado_emissor"                     data-type="textbox" data-show-properties
-                    data-field-name="estado_emissor">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Estado Emissor</label>
-                        <input type="text" class="form-control"                           name="estado_emissor" id="estado_emissor">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-4 form-field" id="div_numero_dependentes"                     data-type="textbox" data-show-properties
-                    data-field-name="numero_dependentes">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Número de Dependentes</label><span                           class="required text-danger"><strong>*</strong></span>
-                        <input type="text" class="form-control"                           name="numero_dependentes" value data-size="big"                           maxlength="2" data-only-numbers="true">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4" name="div_aposen_pensionista"                     id="div_aposen_pensionista">
-                    <div class="form-field" data-type="textarea"                       data-show-properties
-                      data-field-name="aposen_pensionista">
-                      <label>Aposentado/Pensionista</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <span>
-                        <select class="form-control" name="aposen_pensionista"                           id="aposen_pensionista">
-                          <option value></option>
-                          <option value="0">Não</option>
-                          <option value="1">Sim</option>
-                        </select>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 form-group">
-                    <label for="nacionalidade" class="form-label">
-                      Nacionalidade<span                         class="required text-danger"><strong>*</strong></span>
-                    </label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio"                         name="nacionalidade" id="nacionalidade_brasileira"                         value="brasileira">
-                      <label class="form-check-label"                         for="nacionalidade_brasileira">
-                        Brasileira
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio"                         name="nacionalidade" id="nacionalidade_estrangeira"                         value="estrangeira">
-                      <label class="form-check-label"                         for="nacionalidade_estrangeira">
-                        Estrangeira
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              -->
             <h3>Endereço</h3>
             <div class="row">
               <div class="col-sm-2 form-field" id="div_cep" data-type="textbox" data-show-properties
@@ -876,47 +779,6 @@
                   </div>
                 </div>
               </div>
-              <!--
-                <div class="col-sm-2 form-field" id="div_codigo_municipio"                   data-type="textbox" data-show-properties
-                  data-field-name="codigo_municipio">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Código do Municipio</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input type="text" class="form-control"                         name="codigo_municipio" value data-size="big"                         maxlength="7" data-only-numbers="true">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 form-field" id="div_municipio"                   data-type="textbox" data-show-properties
-                  data-field-name="nome_municipio">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Municipio</label>
-                      <input type="text" class="form-control"                         name="nome_municipio" id="nome_municipio" value
-                        data-size="big">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 form-field" id="div_caixa_postal"                   data-type="textbox" data-show-properties
-                  data-field-name="caixa_postal">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Caixa Postal</label>
-                      <input type="text" class="form-control"                         name="caixa_postal" id="caixa_postal" value
-                        data-size="big">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 form-field" id="div_cep_caixa_postal"                   data-type="textbox" data-show-properties
-                  data-field-name="cep_caixa_postal">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>CEP Caixa Postal</label>
-                      <input type="text" class="form-control"                         name="cep_caixa_postal" id="cep_caixa_postal" value
-                        data-size="big">
-                    </div>
-                  </div>
-                </div>
-                -->
             </div>
             <h3>Contato</h3>
             <div class="row">
@@ -1004,13 +866,11 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-1 form-field" id="div_cad_referencia" data-type="textbox" data-show-properties
-                data-field-name="cad_referencia">
+              <div class="col-sm-1 form-field" id="div_cad_referencia" data-type="textbox" data-show-properties data-field-name="cad_referencia">
                 <div class="form-input">
                   <div class="form-group">
                     <label>Ref</label>
-                    <input type="text" class="form-control" name="cad_referencia" id="cad_referencia" value
-                      data-size="big" data-only-numbers="true">
+                    <input type="text" class="form-control" name="cad_referencia" id="cad_referencia" value="1" data-size="big" data-only-numbers="true" />
                   </div>
                 </div>
               </div>
@@ -1025,8 +885,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-3 form-field" id="div_filial_d_bancarios" data-type="textbox" data-show-properties
-                data-field-name="filial_d_bancarios">
+              <div class="col-sm-3 form-field" id="div_filial_d_bancarios" data-type="textbox" data-show-properties data-field-name="filial_d_bancarios">
                 <div class="form-input">
                   <div class="form-group">
                     <label>Filial</label>
@@ -1088,12 +947,12 @@
             <h3>Dados Bancários</h3>
             <div class="row">
               <div class="col-sm-3" id="div_banco">
-                <div class="form-field" data-type="textbox" data-show-properties
-                  data-field-name="banco">
+                <div class="form-field" data-type="textbox" data-show-properties data-field-name="banco">
                   <div class="form-input">
                     <div class="form-group">
                       <label>Banco</label>
-                      <input type="text" class="form-control" name="banco" id="banco" />
+                      <input type="text" class="form-control banco" name="banco" id="banco" />
+                      <input type="text" name="NUMEROBANCO" id="NUMEROBANCO" style="display: none;" readonly />
                     </div>
                   </div>
                 </div>
@@ -1145,8 +1004,7 @@
                 </div>
               </div>
               <div class="col-sm-1" id="div_digito_conta_corrente">
-                <div class="form-field" data-type="textbox" data-show-properties
-                  data-field-name="digito_conta_corrente">
+                <div class="form-field" data-type="textbox" data-show-properties data-field-name="digito_conta_corrente">
                   <div class="form-input">
                     <div class="form-group">
                       <label>Dígito</label>
@@ -1192,13 +1050,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 form-field" id="div_cpfCnpj_favorecido" data-type="textbox" data-show-properties
-                data-field-name="CpfCnpj_favorecido">
+              <div class="col-sm-6 form-field" id="div_cpfCnpj_favorecido" data-type="textbox" data-show-properties data-field-name="CpfCnpj_favorecido">
                 <div class="form-input">
                   <div class="form-group">
                     <label>CPF/CNPJ do Favorecido</label>
-                    <input type="text" class="form-control cpfCnpj" id="CpfCnpj_favorecido" name="CpfCnpj_favorecido" value
-                      data-size="big" maxlength="18">
+                    <input type="text" class="form-control cpfCnpj" id="CpfCnpj_favorecido" name="CpfCnpj_favorecido" value data-size="big" />
                   </div>
                 </div>
               </div>
@@ -1225,16 +1081,15 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CPF</label>
-                    <input type="text" class="form-control" name="chave_CPF" id="chave_CPF" value data-size="big" mask="000.000.000-00" maxlength="14" data-only-numbers="true">
+                    <input type="text" class="form-control cpfCnpj" name="chave_CPF" id="chave_CPF" value data-size="big" data-only-numbers="true">
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 form-field" id="div_chave_cnpj" data-type="textbox" data-show-properties
-                data-field-name="chave_CNPJ">
+              <div class="col-sm-6 form-field" id="div_chave_cnpj" data-type="textbox" data-show-properties data-field-name="chave_CNPJ">
                 <div class="form-input">
                   <div class="form-group">
                     <label>CNPJ</label>
-                    <input type="text" class="form-control" name="chave_CNPJ" id="chave_CNPJ" value data-size="big" mask="00.000.000/0000-00" maxlength="18" data-only-numbers="true">
+                    <input type="text" class="form-control cpfCnpj" name="chave_CNPJ" id="chave_CNPJ" value data-size="big" data-only-numbers="true">
                   </div>
                 </div>
               </div>
@@ -1270,135 +1125,6 @@
                 </div>
               </div>
             </div>
-            <!--
-              <h3>Dados Complementares</h3>
-              <div class="row">
-                <div class="col-sm-3" id="div_tipo_doc">
-                  <label for="tipo_doc" class="form-label">
-                    Tipo do DOC
-                  </label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipo_doc"                       id="tipo_C" value="C">
-                    <label class="form-check-label" for="tipo_C">
-                      Tipo C
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipo_doc"                       id="tipo_D" value="D">
-                    <label class="form-check-label" for="tipo_D">
-                      Tipo D
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-1" id="div_cod_finalidade">
-                  <div class="form-field" data-type="textbox"                     data-show-properties
-                    data-field-name="cod_finalidade">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Cód. Finalidade</label>
-                        <input type="text" class="form-control"                           name="cod_finalidade" id="cod_finalidade" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              -->
-            <!--
-              <h3>Default de Dados Bancários</h3>
-              <div class="row">
-                <div class="col-sm-4 form-group">
-                  <label for="classificacao_default" class="form-label">
-                    Classificação<span                       class="required text-danger"><strong>*</strong></span>
-                  </label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio"                       name="classificacao_default"                       id="classificacao_cliente_default" value="cliente">
-                    <label class="form-check-label"                       for="classificacao_cliente_default">
-                      Cliente
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio"                       name="classificacao_default"                       id="classificacao_fornecedor_default" value="fornecedor">
-                    <label class="form-check-label"                       for="classificacao_fornecedor_default">
-                      Fornecedor
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-4" id="div_nome_cli_fornecedor_default">
-                  <div class="form-field" data-type="textbox"                     data-show-properties
-                    data-field-name="nome_cli_fornecedor_default">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Nome do Cliente/Fornecedor</label><span                           class="required text-danger"><strong>*</strong></span>
-                        <input type="text" class="form-control"                           name="nome_cli_fornecedor_default"                           id="nome_cli_fornecedor_default" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-2 form-field" id="div_filial_default"                   data-type="textbox" data-show-properties
-                  data-field-name="filial_default">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Filial</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input title='ds_filiais' class="form-control"                         placeholder="Selecione a filial"                         type="zoom" id="filial_default" name="filial_default"                         data-zoom=" 
-                      {
-                      'displayKey':'CODFILIAL',
-                      'datasetId':'ds_buscaFiliaisRM',
-                      'maximumSelectionLength':'1',
-                      'fields':
-                        [
-                        {
-                          'field':'CODCOLIGADA',
-                          'label':'Coligada'
-                        },
-                        {
-                          'field':'CODFILIAL',
-                          'label':'Filial'
-                        },
-                        {
-                          'field':'NOME',
-                          'label':'Nome'
-                        }
-                        ]
-                      }">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4" id="div_nome_filial_default">
-                  <div class="form-field" data-type="textbox"                     data-show-properties
-                    data-field-name="nome_filial_default">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Nome Filial</label><span                           class="required text-danger"><strong>*</strong></span>
-                        <input type="text" class="form-control"                           name="nome_filial_default" id="nome_filial_default" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 form-field" id="div_dados_banc_default"                   data-type="textbox" data-show-properties
-                  data-field-name="dados_banc_default">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Dados Bancários</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input type="text" class="form-control"                         name="dados_banc_default" id="dados_banc_default" value
-                        data-size="big" data-only-numbers="true">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4" id="div_nome_dados_banc_default">
-                  <div class="form-field" data-type="textbox"                     data-show-properties
-                    data-field-name="nome_dados_banc_default">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>Nome Dados Bancários</label><span                           class="required text-danger"><strong>*</strong></span>
-                        <input type="text" class="form-control"                           name="nome_dados_banc_default"                           id="nome_dados_banc_default" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              -->
           </div>
         </section>
       </div>
@@ -1411,10 +1137,11 @@
             <div class="form-input">
               <div class="form-group">
                 <label>Rateio por Centro de Custo</label>
-                <div class="table-container" style="overflow-x: auto;">
-                  <table tablename="table_rateio_ccusto" id="table_rateio_ccusto" class="table" noaddbutton="true">
+                <div class="table-container rateio-tabela" style="overflow-x: auto;">
+                  <table tablename="table_rateio_ccusto" id="table_rateio_ccusto" class="table" noaddbutton="true" nodeletebutton="true">
                     <thead>
                       <tr class="tableHeadRow">
+                        <th class="bpm-mobile-trash-column table-rateio-ccusto-fin-delete"></th>
                         <th style="min-width: 300px;" class="tableColumn"><label title="Filtrado pelo campo: Setor Solicitante">Natureza Orçamentária Financeira</label><span class="required text-danger"><strong>*</strong></span></th>
                         <th style="min-width: 300px;" class="tableColumn"><label title="Filtrado pelo campo: Coligada">Centro de Custo</label><span class="required text-danger"><strong>*</strong></span></th>
                         <th style="min-width: 150px;" class="tableColumn">Valor<span class="required text-danger"><strong>*</strong></span></th>
@@ -1423,6 +1150,11 @@
                     </thead>
                     <tbody>
                       <tr class="tableBodyRow" id="tableBodyRow">
+                        <td class="bpm-mobile-trash-column table-rateio-ccusto-fin-delete">
+                          <span class="fluig-style-guide fs-display-block fs-md-space">
+                            <i class="fluigicon fluigicon-trash fluigicon-md" onclick="Javascript:deleteTableRow(this)" style="cursor:pointer"></i>
+                          </span>
+                        </td>
                         <td class="fs-v-align-middle" style="max-width:250px;">
                           <div class="form-input">
                             <input title="Filtro: Setor Solicitante" class="form-control" type="zoom" id="coluna_natureza" name="coluna_natureza" data-zoom=" 
@@ -1453,7 +1185,6 @@
                               }
                               ]
                             }">
-
                           </div>
                         </td>
                         <td class="fs-v-align-middle" style="max-width:250px;">
@@ -1483,7 +1214,7 @@
                           </div>
                         </td>
                         <td class="fs-v-align-middle" style="max-width:250px;">
-                          <div class="form-input"><input type="text" name="coluna_valor" id="coluna_valor" class="form-control cpItem" mask="#000.000.000,00" onchange="updatePercentual(this)" label="Valor"></div>
+                          <div class="form-input"><input type="text" name="coluna_valor" id="coluna_valor" class="form-control cpItem" mask="#000.000.000,00" label="Valor"></div>
                         </td>
                         <td class="fs-v-align-middle" style="max-width:250px;">
                           <div class="form-input"><input type="text" name="coluna_percentual" class="form-control" oninput="formatPercentual(this)" label="Percentual" readonly="true"></div>
@@ -1492,7 +1223,7 @@
                     </tbody>
                   </table>
                 </div>
-                <button type="button" class="btn btn-primary" id="btn_add_linha" onclick="acrescentarLinha()">Novo Registro</button>
+                <button type="button" class="btn btn-primary" id="btn_add_linha" onclick="acrescentarLinha('table_rateio_ccusto')">Novo Registro</button>
               </div>
             </div>
           </div>
@@ -1705,7 +1436,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label>CPF</label><span class="required text-danger"><strong>*</strong></span>
-                  <input type="text" class="form-control" name="CPF_fin" id="CPF_fin" placeholder="Digite o CPF do colaborador" data-size="big" mask="000.000.000-00" maxlength="14" data-only-numbers="true">
+                  <input type="text" class="form-control cpfCnpj" name="CPF_fin" id="CPF_fin" placeholder="Digite o CPF do colaborador" data-size="big" maxlength="14" data-only-numbers="true">
                 </div>
               </div>
             </div>
@@ -1714,34 +1445,11 @@
               <div class="form-input">
                 <div class="form-group">
                   <label>CNPJ</label><span class="required text-danger"><strong>*</strong></span>
-                  <input type="text" class="form-control" id="CNPJ_fin" name="CNPJ_fin" value
-                    placeholder="Digite o CNPJ do colaborador" data-size="big" mask="00.000.000/0000-00" maxlength="18" data-only-numbers="true">
+                  <input type="text" class="form-control" id="CNPJ_fin" name="CNPJ_fin" placeholder="Digite o CNPJ do colaborador" data-size="big" />
                 </div>
               </div>
             </div>
           </div>
-          <!--
-            <div class="row">
-              <div class="col-sm-6 form-field" id="div_inscricao_estadual_fin"                 data-type="textbox" data-show-properties
-                data-field-name="inscricao_estadual_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>Inscrição Estadual</label>
-                    <input type="text" class="form-control"                       name="inscricao_estadual_fin" id="inscricao_estadual_fin"                       placeholder="Digite a IE" maxlength="14">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 form-field" id="div_inscricao_municipal_fin"                 data-type="textbox" data-show-properties
-                data-field-name="inscricao_municipal_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>Inscrição Municipal</label>
-                    <input type="text" class="form-control"                       name="inscricao_municipal_fin"                       id="inscricao_municipal_fin" placeholder="Digite a IM"                       maxlength="14">
-                  </div>
-                </div>
-              </div>
-            </div>
-            -->
           <div class="row">
             <div class="col-sm-6" id="div_tipo_cliente_forn_fin">
               <div class="form-field" data-type="textbox" data-show-properties
@@ -1792,81 +1500,6 @@
               </div>
             </div>
           </div>
-          <!--
-            <div id="div_identidade_fin">
-              <h3>Identidade</h3>
-              <div class="row">
-                <div class="col-sm-4 form-field" id="div_identidade_num_fin"                   data-type="textbox" data-show-properties
-                  data-field-name="identidade_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Numero</label>
-                      <input type="text" class="form-control"                         name="identidade_fin" value data-size="big"                         mask="000.000.000-00" maxlength="14"                         data-only-numbers="true">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 form-field" id="div_orgao_emissor_fin"                   data-type="textbox" data-show-properties
-                  data-field-name="orgao_emissor_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Orgão Emissor</label>
-                      <input type="text" class="form-control"                         name="orgao_emissor_fin" id="orgao_emissor_fin">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 form-field" id="div_estado_emissor_fin"                   data-type="textbox" data-show-properties
-                  data-field-name="estado_emissor_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Estado Emissor</label>
-                      <input type="text" class="form-control"                         name="estado_emissor_fin" id="estado_emissor_fin">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-4 form-field" id="div_numero_dependentes_fin"                   data-type="textbox" data-show-properties
-                  data-field-name="numero_dependentes_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Número de Dependentes</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input type="text" class="form-control"                         name="numero_dependentes_fin" value data-size="big"                         maxlength="2" data-only-numbers="true">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4" name="div_aposen_pensionista_fin"                   id="div_aposen_pensionista_fin">
-                  <div class="form-field" data-type="textarea"                     data-show-properties
-                    data-field-name="aposen_pensionista_fin">
-                    <label>Aposentado/Pensionista</label><span                       class="required text-danger"><strong>*</strong></span>
-                    <span>
-                      <select class="form-control" name="aposen_pensionista_fin"                         id="aposen_pensionista_fin">
-                        <option value></option>
-                        <option value="0">Não</option>
-                        <option value="1">Sim</option>
-                      </select>
-                    </span>
-                  </div>
-                </div>
-                <div class="col-sm-4 form-group">
-                  <label for="nacionalidade_fin" class="form-label">
-                    Nacionalidade<span                       class="required text-danger"><strong>*</strong></span>
-                  </label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio"                       name="nacionalidade_fin" id="nacionalidade_brasileira_fin"                       value="brasileira">
-                    <label class="form-check-label"                       for="nacionalidade_brasileira_fin">
-                      Brasileira
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio"                       name="nacionalidade_fin"                       id="nacionalidade_estrangeira_fin" value="estrangeira">
-                    <label class="form-check-label"                       for="nacionalidade_estrangeira_fin">
-                      Estrangeira
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            -->
           <h3>Endereço</h3>
           <div class="row">
             <div class="col-sm-2 form-field" id="div_cep_fin" data-type="textbox" data-show-properties
@@ -2005,46 +1638,6 @@
                 </div>
               </div>
             </div>
-            <!--
-              <div class="col-sm-2 form-field" id="div_codigo_municipio_fin"                 data-type="textbox" data-show-properties
-                data-field-name="codigo_municipio_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>Código do Municipio</label><span                       class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control"                       name="codigo_municipio_fin" value data-size="big"                       maxlength="7" data-only-numbers="true">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2 form-field" id="div_municipio_fin"                 data-type="textbox" data-show-properties
-                data-field-name="nome_municipio_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>Municipio</label>
-                    <input type="text" class="form-control"                       name="nome_municipio_fin" id="nome_municipio_fin" value
-                      data-size="big">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2 form-field" id="div_caixa_postal_fin"                 data-type="textbox" data-show-properties
-                data-field-name="caixa_postal_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>Caixa Postal</label>
-                    <input type="text" class="form-control"                       name="caixa_postal_fin" id="caixa_postal_fin" value
-                      data-size="big">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2 form-field" id="div_cep_caixa_postal_fin"                 data-type="textbox" data-show-properties
-                data-field-name="cep_caixa_postal_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>CEP Caixa Postal</label>
-                    <input type="text" class="form-control"                       name="cep_caixa_postal_fin" id="cep_caixa_postal_fin"                       value data-size="big">
-                  </div>
-                </div>
-              </div>
-              -->
           </div>
           <h3>Contato</h3>
           <div class="row">
@@ -2138,13 +1731,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-1 form-field" id="div_cad_referencia_fin" data-type="textbox" data-show-properties
-              data-field-name="cad_referencia_fin">
+            <div class="col-sm-1 form-field" id="div_cad_referencia_fin" data-type="textbox" data-show-properties data-field-name="cad_referencia_fin">
               <div class="form-input">
                 <div class="form-group">
                   <label>Ref</label>
-                  <input type="text" class="form-control" name="cad_referencia_fin" id="cad_referencia_fin" value
-                    data-size="big" data-only-numbers="true">
+                  <input type="text" class="form-control" name="cad_referencia_fin" id="cad_referencia_fin" value="1" data-size="big" data-only-numbers="true" />
                 </div>
               </div>
             </div>
@@ -2227,7 +1818,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>Banco</label>
-                    <input type="text" class="form-control" name="banco_fin" id="banco_fin" />
+                    <input type="text" class="form-control banco" name="banco_fin" id="banco_fin" />
                   </div>
                 </div>
               </div>
@@ -2331,7 +1922,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label>CPF/CNPJ do Favorecido</label>
-                  <input type="text" class="form-control cpfCnpj" id="CpfCnpj_favorecido_fin" name="CpfCnpj_favorecido_fin" value data-size="big" maxlength="18" />
+                  <input type="text" class="form-control cpfCnpj" id="CpfCnpj_favorecido_fin" name="CpfCnpj_favorecido_fin" value data-size="big" />
                 </div>
               </div>
             </div>
@@ -2358,7 +1949,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label>CPF</label>
-                  <input type="text" class="form-control" name="chave_CPF_fin" id="chave_CPF_fin" value data-size="big" mask="000.000.000-00" maxlength="14" data-only-numbers="true">
+                  <input type="text" class="form-control cpfCnpj" name="chave_CPF_fin" id="chave_CPF_fin" value data-size="big" />
                 </div>
               </div>
             </div>
@@ -2367,7 +1958,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label>CNPJ</label>
-                  <input type="text" class="form-control" name="chave_CNPJ_fin" id="chave_CNPJ_fin" value data-size="big" mask="00.000.000/0000-00" maxlength="18" data-only-numbers="true">
+                  <input type="text" class="form-control cpfCnpj" name="chave_CNPJ_fin" id="chave_CNPJ_fin" value data-size="big" />
                 </div>
               </div>
             </div>
@@ -2403,134 +1994,6 @@
               </div>
             </div>
           </div>
-          <!--
-            <h3>Dados Complementares</h3>
-            <div class="row">
-              <div class="col-sm-3" id="div_tipo_doc_fin">
-                <label for="tipo_doc_fin" class="form-label">
-                  Tipo do DOC
-                </label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio"                     name="tipo_doc_fin" id="tipo_C_fin" value="C">
-                  <label class="form-check-label" for="tipo_C_fin">
-                    Tipo C
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio"                     name="tipo_doc_fin" id="tipo_D_fin" value="D">
-                  <label class="form-check-label" for="tipo_D_fin">
-                    Tipo D
-                  </label>
-                </div>
-              </div>
-              <div class="col-sm-1" id="div_cod_finalidade_fin">
-                <div class="form-field" data-type="textbox" data-show-properties
-                  data-field-name="cod_finalidade_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Cód. Finalidade</label>
-                      <input type="text" class="form-control"                         name="cod_finalidade_fin" id="cod_finalidade_fin" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            -->
-          <!--
-            <h3>Default de Dados Bancários</h3>
-            <div class="row">
-              <div class="col-sm-4 form-group">
-                <label for="classificacao_default_fin" class="form-label">
-                  Classificação<span                     class="required text-danger"><strong>*</strong></span>
-                </label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio"                     name="classificacao_default_fin"                     id="classificacao_cliente_default_fin" value="cliente">
-                  <label class="form-check-label"                     for="classificacao_cliente_default_fin">
-                    Cliente
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio"                     name="classificacao_default_fin"                     id="classificacao_fornecedor_default_fin"                     value="fornecedor">
-                  <label class="form-check-label"                     for="classificacao_fornecedor_default_fin">
-                    Fornecedor
-                  </label>
-                </div>
-              </div>
-              <div class="col-sm-4" id="div_nome_cli_forn_default_fin">
-                <div class="form-field" data-type="textbox" data-show-properties
-                  data-field-name="nome_cli_forn_default_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Nome do Cliente/Fornecedor</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input type="text" class="form-control"                         name="nome_cli_forn_default_fin"                         id="nome_cli_forn_default_fin" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-2 form-field" id="div_filial_default_fin"                 data-type="textbox" data-show-properties
-                data-field-name="filial_default_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>Filial</label><span                       class="required text-danger"><strong>*</strong></span>
-                    <input title='ds_filiais' class="form-control"                       placeholder="Selecione a filial"                       type="zoom" id="filial_default_fin"                       name="filial_default_fin" data-zoom=" 
-                      {
-                      'displayKey':'CODFILIAL',
-                      'datasetId':'ds_buscaFiliaisRM',
-                      'maximumSelectionLength':'1',
-                      'fields':
-                        [
-                        {
-                          'field':'CODCOLIGADA',
-                          'label':'Coligada'
-                        },
-                        {
-                          'field':'CODFILIAL',
-                          'label':'Filial'
-                        },
-                        {
-                          'field':'NOME',
-                          'label':'Nome'
-                        }
-                        ]
-                      }">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4" id="div_nome_filial_default_fin">
-                <div class="form-field" data-type="textbox" data-show-properties
-                  data-field-name="nome_filial_default_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Nome Filial</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input type="text" class="form-control"                         name="nome_filial_default_fin"                         id="nome_filial_default_fin" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2 form-field" id="div_dados_banc_default_fin"                 data-type="textbox" data-show-properties
-                data-field-name="dados_banc_default_fin">
-                <div class="form-input">
-                  <div class="form-group">
-                    <label>Dados Bancários</label><span                       class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control"                       name="dados_banc_default_fin" id="dados_banc_default_fin"                       value data-size="big" data-only-numbers="true">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4" id="div_nome_dados_banc_default_fin">
-                <div class="form-field" data-type="textbox" data-show-properties
-                  data-field-name="nome_dados_banc_default_fin">
-                  <div class="form-input">
-                    <div class="form-group">
-                      <label>Nome Dados Bancários</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input type="text" class="form-control"                         name="nome_dados_banc_default_fin"                         id="nome_dados_banc_default_fin" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            -->
         </div>
       </section>
       <section id="section_rateio_financeiro" class="panel panel-primary">
@@ -2549,9 +2012,10 @@
               <div class="form-group">
                 <label>Rateio por Centro de Custo</label>
                 <div class="table-container" style="overflow-x: auto;">
-                  <table tablename="table_rateio_ccusto_fin" id="table_rateio_ccusto_fin" class="table" noaddbutton="true">
+                  <table tablename="table_rateio_ccusto_fin" id="table_rateio_ccusto_fin" class="table" noaddbutton="true" noadeletebutton="true">
                     <thead>
                       <tr class="tableHeadRow">
+                        <th class="bpm-mobile-trash-column table-rateio-ccusto-delete"></th>
                         <th style="min-width: 300px;" class="tableColumn"><label title="Filtrado pelo campo: Setor Solicitante">Natureza Orçamentária Financeira</label><span class="required text-danger"><strong>*</strong></span></th>
                         <th style="min-width: 300px;" class="tableColumn"><label title="Filtrado pelo campo: Coligada">Centro de Custo</label><span class="required text-danger"><strong>*</strong></span></th>
                         <th style="min-width: 150px;" class="tableColumn">Valor<span class="required text-danger"><strong>*</strong></span></th>
@@ -2560,6 +2024,11 @@
                     </thead>
                     <tbody>
                       <tr class="tableBodyRow" id="tableBodyRow">
+                        <td class="bpm-mobile-trash-column table-rateio-ccusto-delete">
+                          <span class="fluig-style-guide fs-display-block fs-md-space">
+                            <i class="fluigicon fluigicon-trash fluigicon-md" onclick="Javascript:deleteTableRow(this)" style="cursor:pointer"></i>
+                          </span>
+                        </td>
                         <td class="fs-v-align-middle">
                           <div class="form-input">
                             <input title="Filtro: Setor Solicitante" class="form-control" type="zoom" id="coluna_natureza_fin" name="coluna_natureza_fin" data-zoom=" 
@@ -2620,7 +2089,7 @@
                           </div>
                         </td>
                         <td class="fs-v-align-middle">
-                          <div class="form-input"><input type="text" name="coluna_valor_fin" id="coluna_valor_fin" class="form-control cpItem" mask="#000.000.000,00" onchange="updatePercentual(this)" label="Valor"></div>
+                          <div class="form-input"><input type="text" name="coluna_valor_fin" id="coluna_valor_fin" class="form-control cpItem" mask="#000.000.000,00" label="Valor"></div>
                         </td>
                         <td class="fs-v-align-middle">
                           <div class="form-input"><input type="text" name="coluna_percentual_fin" id="coluna_percentual_fin" class="form-control" oninput="formatPercentual(this)" label="Percentual" readonly="true"></div>
@@ -2629,7 +2098,7 @@
                     </tbody>
                   </table>
                 </div>
-                <button type="button" class="btn btn-primary" id="btn_add_linha_fin" onclick="acrescentarLinhaFin()">Novo Registro</button>
+                <button type="button" class="btn btn-primary" id="btn_add_linha_fin" onclick="acrescentarLinha('table_rateio_ccusto_fin')">Novo Registro</button>
               </div>
             </div>
           </div>
@@ -2741,12 +2210,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-1 form-field" id="div_referencia_analise" data-type="textbox" data-show-properties
-                data-field-name="referencia_analise">
+              <div class="col-sm-1 form-field" id="div_referencia_analise" data-type="textbox" data-show-properties data-field-name="referencia_analise">
                 <div class="form-input">
                   <div class="form-group">
                     <label>Ref</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control" name="referencia_analise" id="referencia_analise" value data-size="big" data-only-numbers="true">
+                    <input type="text" class="form-control" name="referencia_analise" id="referencia_analise" value="1" data-size="big" data-only-numbers="true" />
                   </div>
                 </div>
               </div>
@@ -2858,18 +2326,15 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label>CPF/CNPJ</label><span class="required text-danger"><strong>*</strong></span>
-                    <input type="text" class="form-control cpfCnpj" id="CpfCnpj_analise" name="CpfCnpj_analise" value
-                      data-size="big" maxlength="18" />
+                    <input type="text" class="form-control cpfCnpj" id="CpfCnpj_analise" name="CpfCnpj_analise" />
                   </div>
                 </div>
               </div>
-              <div class="col-sm-4 form-field" id="div_cod_boleto_analise" data-type="textbox" data-show-properties
-                data-field-name="cod_boleto_analise">
+              <div class="col-sm-4 form-field" id="div_cod_boleto_analise" data-type="textbox" data-show-properties data-field-name="cod_boleto_analise">
                 <div class="form-input">
                   <div class="form-group">
                     <label>Cód. do Boleto</label>
-                    <input type="text" class="form-control" id="cod_boleto_analise" name="cod_boleto_analise" value
-                      data-size="big">
+                    <input type="text" class="form-control" id="cod_boleto_analise" name="cod_boleto_analise" value data-size="big">
                   </div>
                 </div>
               </div>
@@ -3217,272 +2682,6 @@
                 <input type="text" class="form-control" id="cap_mensal_analise" name="cap_mensal_analise" data-size="small" placeholder="00.00" mask="#00.00" value="00.00" maxlength="5">
               </div>
             </div>
-            <!--
-            <h3>Dados Adicionais</h3>
-            <div class="form-field" data-type="tabledetail" data-show-properties
-              data-field-name="dados_adicionais">
-              <div class="form-input">
-                <div class="form-group">
-                  <div class="table-container" style="overflow-x: auto;">
-                    <table tablename="table_dados_adicionais" id="table_dados_adicionais" class="table" noaddbutton="true">
-                      <thead>
-                        <tr class="tableHeadRow">
-                          <th style="min-width: 300px;" class="tableColumn"><label
-                              title="Filtrado pelo campo: Setor Solicitante">Natureza
-                              Orçamentária Financeira</label><span class="required text-danger"><strong>*</strong></span></th>
-                          <th style="min-width: 300px;" class="tableColumn"><label
-                              title="Filtrado pelo campo: Coligada">Centro de
-                              Custo</label><span class="required text-danger"><strong>*</strong></span></th>
-                          <th style="min-width: 150px;" class="tableColumn">Valor<span class="required text-danger"><strong>*</strong></span></th>
-                          <th style="min-width: 100px;" class="tableColumn">Percentual<span class="required text-danger"><strong>*</strong></span></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="tableBodyRow" id="tableBodyRow">
-                          <td class="fs-v-align-middle" style="max-width:250px;">
-                            <div class="form-input">
-                              <input title="Filtro: Setor Solicitante" class="form-control" type="zoom" id="coluna_natureza_da" name="coluna_natureza_da" data-zoom=" 
-                                      {
-                                      'displayKey':'natureza',
-                                      'datasetId':'ds_natureza_financeira',
-                                      'maximumSelectionLength':'1',
-                                      'fields':
-                                        [
-                                        {
-                                          'field':'natureza',
-                                          'label':'Nome'
-                                        }
-                                        ]
-                                      }">
-
-                            </div>
-                          </td>
-                          <td class="fs-v-align-middle" style="max-width:250px;">
-                            <div class="form-input" >
-                              <input title='ds_centroCustosRM'
-                                class="form-control" type="zoom" id="coluna_ccusto_da" name="coluna_ccusto_da" data-zoom=" 
-                                    {
-                                    'displayKey':'TODOS',
-                                    'datasetId':'ds_centro_de_custos',
-                                    'maximumSelectionLength':'1',
-                                    'fields':
-                                        [
-                                        {
-                                          'field':'CCUSTO',
-                                          'label':'Cod. Centro de Custo'
-                                        },
-                                        {
-                                          'field':'NOMECCUSTO',
-                                          'label':'Nome'
-                                        },
-                                        {
-                                          'field':'CODFILIAL',
-                                          'label':'Filial'
-                                        }
-                                        ]
-                                    }">
-                              <label id="ccusto_nome_da" style="margin-top: 5px; display: block; font-size: x-small"></label>
-                            </div>
-                          </td>
-                          <td class="fs-v-align-middle" style="max-width:250px;">
-                            <div class="form-input"><input type="text" name="coluna_valor_da" id="coluna_valor_da" class="form-control cpItem" mask="#000.000.000,00" onchange="updatePercentualDa(this)" label="Valor"></div>
-                          </td>
-                          <td class="fs-v-align-middle" style="max-width:250px;">
-                            <div class="form-input"><input type="text" name="coluna_percentual_da" class="form-control" oninput="formatPercentualDa(this)" label="Percentual" readonly="true"></div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <button type="button" class="btn btn-primary" id="btn_add_linha_da" onclick="acrescentarLinhaDa()">Novo
-                    Registro</button>
-                </div>
-              </div>
-            </div>
-            <div class="row" id="row_valor_rateio_da">
-              <div class="col-sm-3 form-group" id="div_valor_total_rateio_da">
-                <label for="valor_total_rateio_da" id="label_valor_total_rateio_da">Valor Total:</label>
-                <input type="text" class="form-control" id="valor_total_rateio_da" name="valor_total_rateio_da" data-size="small" mask="#000.000.000,00" maxlength="14" readonly="true">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 form-group" id="div_mensagem_valor_excedido_da">
-                <h3>ERRO: VALOR DO RATEIO SUPERIOR AO VALOR TOTAL A SER
-                  PAGO!</h3>
-              </div>
-            </div>
-            -->
-            <!--
-                <div class="row">
-                  <div class="col-sm-3" name="div_ccusto_analise"                     id="div_ccusto_analise">
-                    <div class="form-field" data-type="textarea"                       data-show-properties
-                      data-field-name="centro_de_custos">
-                      <label title="Campo filtrado por Coligada">Centro de
-                        Custo<span                           class="text-danger"><strong>*</strong></span></label>
-                      <input title='ds_centro_de_custos' class="form-control"                         type="zoom" id="ccusto_analise" name="ccusto_analise"                         data-zoom=" 
-                          {
-                          'displayKey':'TODOS',
-                          'datasetId':'ds_centro_de_custos',
-                          'maximumSelectionLength':'1',
-                          'fields':
-                              [
-                              {
-                                'field':'CCUSTO',
-                                'label':'Cod. Centro de Custo'
-                              },
-                              {
-                                'field':'NOMECCUSTO',
-                                'label':'Nome'
-                              },
-                              {
-                                'field':'CODFILIAL',
-                                'label':'Filial'
-                              }
-                              ]
-                          }">
-                    </div>
-                  </div>
-                  <div class="col-sm-3" id="div_nome_ccusto_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="nome_ccusto_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Nome do centro de custo</label><span                             class="required text-danger"><strong>*</strong></span>
-                          <input type="text" class="form-control"                             name="nome_ccusto_analise"                             id="nome_ccusto_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-2" name="div_reembolsavel_analise"                     id="div_reembolsavel_analise">
-                    <div class="form-field" data-type="textarea"                       data-show-properties
-                      data-field-name="reembolsavel_analise">
-                      <label>Reembolsável</label>
-                      <span>
-                        <select class="form-control" name="reembolsavel_analise"                           id="reembolsavel_analise">
-                          <option value="0">Não</option>
-                          <option value="1">Sim</option>
-                        </select>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-2" id="div_departamento_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="departamento_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Departamento</label>
-                          <input type="text" class="form-control"                             name="departamento_analise"                             id="departamento_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4" id="div_departamento_nome_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="departamento_nome_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Nome Departamento</label>
-                          <input type="text" class="form-control"                             name="departamento_nome_analise"                             id="departamento_nome_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-2" id="div_vendedor_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="vendedor_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Vendedor</label>
-                          <input type="text" class="form-control"                             name="vendedor_analise" id="vendedor_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4" id="div_vendedor_nome_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="vendedor_nome_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Nome Vendedor</label>
-                          <input type="text" class="form-control"                             name="vendedor_nome_analise"                             id="vendedor_nome_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-2 align-self-end"                     id="div_representante_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="representante_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Representante</label>
-                          <input type="text" class="form-control"                             name="representante_analise"                             id="representante_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 align-self-end"                     id="div_represen_nome_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="representante_nome_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Nome Representante</label>
-                          <input type="text" class="form-control"                             name="representante_nome_analise"                             id="representante_nome_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-2 align-self-end"                     id="div_contrato_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="contrato_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Contrato</label>
-                          <input type="text" class="form-control"                             name="contrato_analise" id="contrato_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 align-self-end"                     id="div_contrato_nome_analise">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="contrato_nome_analise">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Nome Contrato</label>
-                          <input type="text" class="form-control"                             name="contrato_nome_analise"                             id="contrato_nome_analise" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-2" id="div_reutilizacao">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="reutilizacao">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Reutilização</label>
-                          <input type="number" class="form-control"                             name="reutilizacao" id="reutilizacao" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4" id="div_mes_ano_competencia">
-                    <div class="form-field" data-type="textbox"                       data-show-properties
-                      data-field-name="mes_ano_competencia">
-                      <div class="form-input">
-                        <div class="form-group">
-                          <label>Mês/Ano de Competência</label>
-                          <input type="number" class="form-control"                             name="mes_ano_competencia"                             id="mes_ano_competencia" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                !-->
             <h3>Contabilização</h3>
             <div class="row">
               <div class="col-sm-4" name="div_tipo_contabil" id="div_tipo_contabil">
@@ -3520,79 +2719,6 @@
                 </div>
               </div>
             </div>
-            <!--
-                <h3>Livro Caixa Digital do produtor rural</h3>
-                <div class="row">
-                  <div class="col-sm-4" name="div_classificacao_lanca"                     id="div_classificacao_lanca">
-                    <div class="form-field" data-type="textarea"                       data-show-properties
-                      data-field-name="classificacao_lanca">
-                      <label>Classificação do lançamento no LCDPR</label><span                         class="required text-danger"><strong>*</strong></span>
-                      <input title="ds_classificacao_lancamento"                         class="form-control"                         placeholder="Selecione o fornecedor"                         type="zoom" id="classificacao_lancamento"                         name="classificacao_lancamento" data-zoom=" 
-                        {
-                        'displayKey':'ID',
-                        'datasetId':'ds_classificacao_lancamento',
-                        'maximumSelectionLength':'1',
-                        'fields':
-                          [
-                          {
-                            'field':'Nome',
-                            'label':'Nome'
-                          }
-                          ]
-                        }">
-                    </div>
-                  </div>
-                  <div class="col-sm-4 form-field" id="div_cpfCnpj_participante"                     data-type="textbox" data-show-properties
-                    data-field-name="CpfCnpj_participante">
-                    <div class="form-input">
-                      <div class="form-group">
-                        <label>CPF/CNPJ do Favorecido</label>
-                        <input type="text" class="form-control"                           id="CpfCnpj_participante" name="CpfCnpj_participante"                           value data-size="big" maxlength="18"                           onchange="formataCpfCnpj(this)">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4" name="div_modalidade_lancamento"                     id="div_modalidade_lancamento">
-                    <div class="form-field" data-type="textarea"                       data-show-properties
-                      data-field-name="modalidade_lancamento">
-                      <label>Modalidade Lançamento</label>
-                      <input title="ds_modalidade_lancamento"                         class="form-control"                         placeholder="Selecione o fornecedor"                         type="zoom" id="modalidade_lancamento"                         name="modalidade_lancamento" data-zoom=" 
-                        {
-                        'displayKey':'Nome',
-                        'datasetId':'ds_modalidade_lancamento',
-                        'maximumSelectionLength':'1',
-                        'fields':
-                          [
-                          {
-                            'field':'Nome',
-                            'label':'Nome'
-                          }
-                          ]
-                        }">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-12" name="div_tipo_lancamento"                     id="div_tipo_lancamento">
-                    <div class="form-field" data-type="textarea"                       data-show-properties
-                      data-field-name="tipo_lancamento">
-                      <label>Tipo de lançamento no LCDPR</label>
-                      <input title="ds_tipo_lancamento" class="form-control"                         placeholder="Selecione o fornecedor"                         type="zoom" id="tipo_lancamento" name="tipo_lancamento"                         data-zoom=" 
-                        {
-                        'displayKey':'Nome',
-                        'datasetId':'ds_tipo_lancamento',
-                        'maximumSelectionLength':'1',
-                        'fields':
-                          [
-                          {
-                            'field':'Nome',
-                            'label':'Nome'
-                          }
-                          ]
-                        }">
-                    </div>
-                  </div>
-                </div>
-                -->
             <div class="row">
               <div class="col-sm-4" name="div_seleciona_fase_envio" id="div_seleciona_fase_envio" hidden>
                 <div class="form-field" data-type="textarea" data-show-properties
@@ -3965,7 +3091,9 @@
 
     <div id="div_confirma_integracao" name="div_confirma_integracao">
       <section id="section_confirma_integracao" class="panel panel-primary">
-        <div class="panel-heading" style="font-weight: 800; "><i class="flaticon flaticon-checkbox  icon-lg" aria-hidden="true"></i> Integração Efetuada com Sucesso! </div>
+        <div class="panel-heading" style="font-weight: 800; "><i class="flaticon flaticon-checkbox  icon-lg" aria-hidden="true"></i> Integração Efetuada com Sucesso!
+          <br />Referência do Lançamento Financeiro: <span id="idLanSucesso" style="color: #00ff3c;"></span>
+        </div>
       </section>
     </div>
 
@@ -4576,43 +3704,6 @@
       var id = $(o).attr("id");
       FLUIGC.calendar("#" + id);
     });
-
-    $(document).ready(function () {
-      $.each($("[data-date]"), function (i, o) {
-        var id = $(o).attr("id");
-        if ($("#" + id).attr("readonly")) {
-          $("#" + id).data('DateTimePicker').disable();
-        }
-      });
-    });
-
-    function acrescentarLinha() {
-      wdkAddChild("table_rateio_ccusto");
-      var inputs = $("[mask]");
-      MaskEvent.initMask(inputs);
-
-      filtraNaturezaPorSetor();
-      filtraPorColigada($("#coligada").val());
-    }
-
-    function acrescentarLinhaFin() {
-      wdkAddChild("table_rateio_ccusto_fin");
-      var inputs = $("[mask]");
-      MaskEvent.initMask(inputs);
-
-      filtraPorColigadaFin($("#coligada").val());
-      filtraNaturezaPorSetorFin();
-    }
-
-    function acrescentarLinhaDa() {
-      wdkAddChild("table_dados_adicionais");
-      var inputs = $("[mask]");
-      MaskEvent.initMask(inputs);
-
-      filtraPorColigadaDa($("#coligada").val());
-    }
-
-
   </script>
 </body>
 

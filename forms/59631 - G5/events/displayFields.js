@@ -18,6 +18,11 @@ function displayFields(form, customHTML) {
 
   if (form.getFormMode() == "ADD") form.setValue("idLan", "-1");
 
+  form.setVisibleById("div_cad_referencia", false);
+  form.setVisibleById("div_cad_referencia_fin", false);
+  form.setVisibleById("div_referencia_analise", false);
+
+
 
   var adminUser = false;
   var c1 = DatasetFactory.createConstraint("colleaguePK.colleagueId", user, user, ConstraintType.MUST);
@@ -1868,6 +1873,18 @@ function displayFields(form, customHTML) {
         customAppend += '\n\t $("#section_dados_bancarios_financeiro").css("backgroundColor","' + corDeFundoInativa + '");';
       }
 
+    }
+
+    var idLan = parseInt(form.getValue("idLan"));
+    if (idLan > 0) {
+      form.setVisibleById("div_confirma_integracao", true);
+      customHTML.append("\n<script> $('#idLanSucesso').text(" + idLan + "); </script>");
+    }
+
+    /** Negações */
+    if (activity != 0 && activity != 4 && activity != 221 && activity != 216 && activity != 295 && activity != 223) {
+      customHTML.append("\n<script> $('.table-rateio-ccusto-delete').hide(); </script>");
+      customHTML.append("\n<script> $('.table-rateio-ccusto-fin-delete').hide(); </script>");
     }
   } catch (error) {
     log.info("Erro no G5: ", error);
