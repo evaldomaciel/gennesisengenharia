@@ -13,10 +13,7 @@ function createDataset(fields, constraints, sortFields) {
 		var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + "/log/server.log"));
 		var retorno4 = new java.nio.file.Files.writeString(pasta, "");
 
-		/** Autenticação */
-		var user = "suporte.totvs";
-		var pass = "Suporte#5";
-		var context = "CodUsuario=suporte.totvs;CodSistema=F;CodColigada=1"
+
 
 		if (constraints) {
 			for (var index = 0; index < constraints.length; index++) {
@@ -27,6 +24,11 @@ function createDataset(fields, constraints, sortFields) {
 				dataServer = fieldName == 'dataServer' ? initialValue : dataServer;
 			}
 		}
+
+		/** Autenticação */
+		var user = "suporte.totvs";
+		var pass = "Suporte#5";
+		var context = "CodUsuario=suporte.totvs;CodSistema=F;CodColigada=" + String(primaryKey).split(";")[0];
 
 		var result = dcReadRecord(dataServer, context, user, pass, primaryKey);
 

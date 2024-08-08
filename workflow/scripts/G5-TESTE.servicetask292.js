@@ -1,10 +1,10 @@
 function servicetask292(attempt, message) {
   var valores = {
-    "CODCOLIGADA": hAPI.getCardValue("hidden_coligada_cli_for"),
+     "CODCOLIGADA": hAPI.getCardValue("hidden_coligada_cli_for"),
     "CODCFO": hAPI.getCardValue("hidden_codigo_cli_for"),
     "CODCOLCFO": hAPI.getCardValue("hidden_coligada_cli_for"),
     "IDPGTO": hAPI.getCardValue("cad_referencia_fin"),
-    "CGCCFO": capta_Cpf_Cnpj(hAPI.getCardValue("categoria_fin")),
+    "CGCCFO": hAPI.getCardValue("CGCCFO"),
     "DESCRICAO": hAPI.getCardValue("hidden_desc_fpgmto"),
     "FORMAPAGAMENTO": hAPI.getCardValue("hidden_forma_pgmto"),
     "FAVORECIDO": hAPI.getCardValue("favorecido_fin"),
@@ -13,11 +13,11 @@ function servicetask292(attempt, message) {
     "CHAVE": captaChavePix(hAPI.getCardValue("tipo_chave_pix_fin")),
     "TIPOPIX": hAPI.getCardValue("tipo_chave_pix_fin"),
     "NUMEROBANCO": hAPI.getCardValue("NUMEROBANCO"),
-    "CODIGOAGENCIA": hAPI.getCardValue("agencia"),
-    "DIGITOAGENCIA": hAPI.getCardValue("digito"),
-    "CONTACORRENTE": hAPI.getCardValue("conta_corrente") ,
-    "DIGITOCONTA": hAPI.getCardValue("digito_conta_corrente"),
-    "TIPOCONTA": hAPI.getCardValue("TIPOCONTA") == "conta_corrente" ? "1" : "2"
+    "CODIGOAGENCIA": hAPI.getCardValue("agencia_fin"),
+    "DIGITOAGENCIA": hAPI.getCardValue("digito_fin"),
+    "CONTACORRENTE": hAPI.getCardValue("conta_corrente_fin"),
+    "DIGITOCONTA": hAPI.getCardValue("digito_conta_corrente_fin"),
+    "TIPOCONTA": hAPI.getCardValue("tipo_conta_fin")
   };
 
   log.info("VALORES --> ")

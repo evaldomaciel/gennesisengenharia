@@ -210,6 +210,9 @@ $(document).ready(function () {
   toggleCamposJurosPu(formGetValue('teve_juros_pu'));
   toggleCamposDePagamentoPp(formGetValue('pagamento_realizado_pp'))
   toggleCamposJurosPp(formGetValue('teve_juros_pp'))
+  toggleMotivoPedidoAjustes(formGetValue('dados_conformidade'))
+  toggleCampoChavePix(formGetValue('tipo_chave_pix'))
+  toggleCampoChavePixFin(formGetValue('tipo_chave_pix'))
 });
 
 /** Aqui acaba o ready */

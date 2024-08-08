@@ -270,6 +270,8 @@ function autocompleteBanco(NUMEROBANCO) {
 		$("#banco").val(listaDeBancos[parseInt(NUMEROBANCO)])
 		$("#banco_fin").val(listaDeBancos[parseInt(NUMEROBANCO)])
 		$("[name='NUMEROBANCO']").val(formatarNumero(NUMEROBANCO));
+		formSetValue("camara_comp", $("[name='NUMEROBANCO']").val());
+		formSetValue("camara_comp_fin", $("[name='NUMEROBANCO']").val());
 		return;
 	}
 

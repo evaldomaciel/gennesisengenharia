@@ -27,7 +27,8 @@ function callService(fields, constraints, sortFields) {
 	var customClient = serviceHelper.getCustomClient(service, properties, headers);
 	var response = customClient.readView(getParamValue(params.dataServerName, assigns.dataServerName), getParamValue(params.filtro, assigns.filtro),
 		getParamValue(params.contexto, assigns.contexto));
-
+	log.info("================ contexto ================ ")
+log.info(String(params.contexto))
 	return response;
 }
 
@@ -65,17 +66,23 @@ function onSync(lastSyncDate) {
 
 function verifyConstraints(params, constraints) {
 	var filtro = new Array();
+	var contexto = "CODCOLIGADA=1";
 	filtro.push("1=1");
 	if (constraints != null) {
 		for (var i = 0; i < constraints.length; i++) {
 			try {
 				if (String(constraints[i].fieldName).toUpperCase() != "SQLLIMIT") filtro.push([constraints[i].fieldName] + " = '" + constraints[i].initialValue + "'")
+				if (String(constraints[i].fieldName).toUpperCase() == "CODCOLIGADA") {
+					filtro.push([constraints[i].fieldName] + " = '" + constraints[i].initialValue + "'");
+					contexto = "CODCOLIGADA=" + constraints[i].initialValue;
+				}
 			} catch (e) {
 				params[constraints[i].fieldName] = constraints[i].initialValue;
 			}
 		}
 	}
 	params.filtro = filtro.join(" AND ");
+	params.contexto = contexto;
 }
 
 function processResult(result) {

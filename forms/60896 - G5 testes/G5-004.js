@@ -249,41 +249,6 @@ function adicionaIdPais(pais) {
   }
 }
 
-function igualaLinhasTabelas() {
-  var tableBody = document
-    .getElementById("table_rateio_ccusto")
-    .getElementsByTagName("tbody")[0];
-
-  var tableBodyFin = document
-    .getElementById("table_rateio_ccusto_fin")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-  var rowsFin = tableBodyFin.getElementsByTagName("tr");
-
-  var rowsSize = rows.length;
-  var rowsFinSize = rowsFin.length;
-
-  while (rowsSize > rowsFinSize) {
-    acrescentarLinhaFin();
-    rowsFinSize += 1;
-  }
-
-  for (rowsFinSize; rowsFinSize > rowsSize; rowsFinSize--) {
-    console.log(
-      $(
-        "table[tablename=table_rateio_ccusto_fin] tbody tr#tableBodyRow___" +
-        rowsFinSize,
-      ).val(),
-    );
-    console.log($("table[tablename=table_rateio_ccusto_fin] tbody tr"));
-    $(
-      "table[tablename=table_rateio_ccusto_fin] tbody tr#tableBodyRow___" +
-      rowsFinSize,
-    ).remove();
-  }
-}
-
 /* CONVERTE UM CAMPO DATA PRA TIMESTAMP ISO 8601 */
 function getTimestamp(data) {
   console.log(data);

@@ -283,7 +283,6 @@ function filtraPorColigadaFin() {
     if (coligada == "" || coligada == null) {
       if (validaZoom(colunaCcustoInput)) reloadZoomFilterValues(colunaCcustoInput);
     } else {
-      if (validaZoom("vincular_fornecedor_analise")) reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${coligada}`);
       if (validaZoom(colunaCcustoInput)) reloadZoomFilterValues(colunaCcustoInput, `CODCOLIGADA,${coligada}`);
     }
   });
@@ -309,8 +308,8 @@ function filtraContaCaixaPelaColigadaEFilial() {
 }
 
 function filtraDadosPagamento() {
-  if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CODCFO,${$("#hidden_codigo_cli_for").val()}`);
-  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCFO,${$("#hidden_codigo_cli_for").val()}`);
+  if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CODCOLIGADA,${$("#hidden_coligada_cli_for").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
+  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCOLIGADA,${$("#hidden_coligada_cli_for").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
 }
 
 function validaContaCaixa(codContaCaixa) {
@@ -375,8 +374,6 @@ function preencheDadosPagamento(CODCOLIGADA, CODCOLCFO, CODCFO, IDPGTO) {
       if (dadosPagamento.NUMEROBANCO != undefined) formSetValue("NUMEROBANCO", dadosPagamento.NUMEROBANCO);
       if (dadosPagamento.NUMEROBANCO != undefined) {
         formSetValue("NUMEROBANCO", dadosPagamento.NUMEROBANCO);
-        formSetValue("camara_comp", dadosPagamento.NUMEROBANCO);
-        formSetValue("camara_comp_fin", dadosPagamento.NUMEROBANCO);
         autocompleteBanco(dadosPagamento.NUMEROBANCO);
       }
       if (dadosPagamento.FORMAPAGAMENTO != undefined) {
@@ -485,7 +482,6 @@ function filtraPorColigada() {
   if (dados_pagamento_analise.open != undefined) filtraDadosPagamento();
   if (conta_caixa_analise.open != undefined) filtraContaCaixaPelaColigadaEFilial();
   if (vincular_fornecedor.open != undefined) reloadZoomFilterValues("vincular_fornecedor", `CODCOLIGADA,${value}`);
-  if (vincular_fornecedor_analise.open != undefined) reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${value}`);
 }
 
 function limpaFiltroColigada() {
@@ -493,7 +489,6 @@ function limpaFiltroColigada() {
   reloadZoomFilterValues("dados_pagamento");
   reloadZoomFilterValues("dados_pagamento_analise");
   reloadZoomFilterValues("vincular_fornecedor");
-  reloadZoomFilterValues("vincular_fornecedor_analise");
   var tableBody = document
     .getElementById("table_rateio_ccusto")
     .getElementsByTagName("tbody")[0];
@@ -589,10 +584,10 @@ function formSetValue(nomeCampo, valor) {
 function formGetValue(nomeCampo) {
   console.log(nomeCampo);
   let tipoCampo = $(`[name="${nomeCampo}"]`).attr("type");
-  
+
   if (tipoCampo == 'radio') return $(`[name="${nomeCampo}"]:checked`).val();
   if (tipoCampo == 'zoom') return String($(`[name="${nomeCampo}"]`).val());
-  
+
   let nodeName = $(`[name="${nomeCampo}"]`).get(0).nodeName;
   if (nodeName == 'SELECT') return $(`[name="${nomeCampo}"] option:selected`).val();
 

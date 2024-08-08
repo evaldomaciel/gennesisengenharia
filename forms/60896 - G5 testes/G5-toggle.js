@@ -32,11 +32,19 @@ function toggleCampoPorTipo(tipoPessoa) {
     $("#div_cnpj").hide(400);
     $("#div_data_nascimento").show(400);
     $("#div_estado_civil").show(400);
+    $("#div_cpf_fin").show(400);
+    $("#div_cnpj_fin").hide(400);
+    $("#div_data_nascimento_fin").show(400);
+    $("#div_estado_civil_fin").show(400);
   } else {
     $("#div_cpf").hide(400);
     $("#div_cnpj").show(400);
     $("#div_data_nascimento").hide(400);
     $("#div_estado_civil").hide(400);
+    $("#div_cpf_fin").hide(400);
+    $("#div_cnpj_fin").show(400);
+    $("#div_data_nascimento_fin").hide(400);
+    $("#div_estado_civil_fin").hide(400);
   }
 }
 
@@ -97,15 +105,12 @@ function toggleCampoDadosPgmt(desc, tipoPix, chave) {
 }
 
 function toggleMotivoPedidoAjustes(respostaProvisionamento) {
-  if (
-    respostaProvisionamento == "Nao" ||
-    respostaProvisionamento == "Cancelar"
-  ) {
-    $("#div_provisionamento_revisao").show(400);
-    $("#div_analise_vinculo_fornecedor").hide(400);
-  } else {
+  if (respostaProvisionamento == "Sim") {
     $("#div_provisionamento_revisao").hide(400);
     $("#div_analise_vinculo_fornecedor").show(400);
+  } else {
+    $("#div_provisionamento_revisao").show(400);
+    $("#div_analise_vinculo_fornecedor").hide(400);
   }
 }
 

@@ -1,5 +1,4 @@
 function displayFields(form, customHTML) {
-
   var user = getValue("WKUser");
   var adminUser = isAdminUser(user);
   var activity = getValue("WKNumState");
@@ -72,8 +71,20 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_confirma_integracao", false);
     }
 
+    else if (activity == 274) {
+      cor_div_dados_fornecedor_financeiro = corDeFundoAtiva;
+      form.setVisibleById("div_provisionamento", false);
+      form.setVisibleById("div_provisionamento_revisao", false);
+      form.setVisibleById("div_aguardando_vencimento", false);
+      form.setVisibleById("div_pagamento_unico", false);
+      form.setVisibleById("div_pagamento_parcial", false);
+      form.setVisibleById("div_confirma_integracao", false);
+    }
+
     else if (activity == 14) {
+      /**  Provisionamento */
       cor_div_provisionamento = corDeFundoAtiva;
+      cor_div_provisionamento_revisao = corDeFundoAtiva;
       form.setVisibleById("div_aguardando_vencimento", false);
       form.setVisibleById("div_pagamento_unico", false);
       form.setVisibleById("div_pagamento_parcial", false);
@@ -138,15 +149,16 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_confirma_integracao", true);
       customAppend += "\n $('#idLanSucesso').text(" + idLan + "); ";
     }
-    if (String(form.getValue("mensagem_solicitacao_ajustes")).length > 3) {
-      form.setVisibleById("div_provisionamento_revisao", true);
+
+    if (String(form.getValue("mensagem_solicitacao_ajustes")) == "") {
+      form.setVisibleById("div_provisionamento_revisao", false);
     }
 
     /** Negações */
-    if (adminUser == false) {
-      form.setVisibleById("div_dados_ocultos", false);
-      form.setVisibleById("div_atribuicoes", false);
-    }
+    // if (adminUser == false) {
+    form.setVisibleById("div_dados_ocultos", false);
+    form.setVisibleById("div_atribuicoes", false);
+    // }
 
     if (activity != 0 && activity != 4 && activity != 221 && activity != 216 && activity != 295 && activity != 223) {
       customAppend += "\n $('.table-rateio-ccusto-delete').hide(); ";
@@ -160,10 +172,36 @@ function displayFields(form, customHTML) {
       form.setVisibleById("btn_add_linha_fin", false);
     }
 
+    if (activity != 7 && form.getValue('mensagem_cancel_gestor') == "") {
+      form.setVisibleById('div_aprovacao_gestor', false);
+    }
+    if (activity != 12 && form.getValue('mensagem_cancel_diretoria') == "") {
+      form.setVisibleById('div_aprovacao_diretoria', false);
+    }
+
     customAppend += "\n</script>";
     customHTML.append(customAppend);
-    customHTML.append("\n <script> var algo = " + JSONUtil.toJSON(todosOsCampos()) + " </script>")
+    // customHTML.append("\n <script> var algo = " + JSONUtil.toJSON(preencheFormAcelerador(form)) + " </script>")
 
+
+
+    /** INICO DO PREENCHIMENTO AUTOMATICO PARA TESTE 
+    if (user == '4ef20412-7687-40a4-b1c8-095c0a92503e' && form.getFormMode() == "ADD") {
+      var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
+        DatasetFactory.createConstraint('documentid', '61170', '61170', ConstraintType.MUST)
+      ), null);
+
+      var colunas = datasetDs_G5.getColumnsName();
+      customHTML.append("\n<script> var colunasSize = '" + colunas.length + "'; </script>");
+      customHTML.append("\n<script> var colunas = '" + JSONUtil.toJSON(colunas) + "'; </script>");
+      for (var index = 0; index < colunas.length; index++) {
+        var campo = colunas[index];
+        var valor = datasetDs_G5.getValue(0, campo);
+        form.setValue(campo, valor);
+        customHTML.append("\n<script> var " + campo + " = '" + valor + "'; </script>");
+      }
+    }
+    /** FIM DO PREENCHIMENTO AUTOMATICO */
 
   } catch (error) {
     log.info("Erro no G5: ", error);
@@ -231,22 +269,18 @@ function getExpediente() {
 }
 
 /** Vamos acelerar o preenchimento do formulario na atividade inicial para testes */
-function todosOsCampos() {
-  var todosOsCamposArray = new Array();
-  // if ((user == "fluig" || user == "4ef20412-7687-40a4-b1c8-095c0a92503e") && form.getFormMode() == "ADD") {
-  var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
-    DatasetFactory.createConstraint('documentid', '60896', '60896', ConstraintType.MUST)
-  ), null);
+function preencheFormAcelerador(form) {
+  if ((user == "fluig" || user == "4ef20412-7687-40a4-b1c8-095c0a92503e") && form.getFormMode() == "ADD") {
+    var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
+      DatasetFactory.createConstraint('documentid', '61170', '61170', ConstraintType.MUST)
+    ), null);
 
-  var colunas = datasetDs_G5.getColumnsName();
-  return colunas;
-  for (var index = 0; index < colunas.length; index++) {
-    var campo = colunas[index];
-    var valor = datasetDs_G5.getValue(0, campo);
-    // form.setValue(campo, valor);
-
-    // todosOsCamposArray.push(" form.setEnabled('" + campo + "', false); ")
+    var colunas = datasetDs_G5.getColumnsName();
+    for (var index = 0; index < colunas.length; index++) {
+      var campo = colunas[index];
+      var valor = datasetDs_G5.getValue(0, campo);
+      form.setValue(campo, valor);
+    }
   }
-  // }
-  return todosOsCamposArray;
+  return colunas;
 }

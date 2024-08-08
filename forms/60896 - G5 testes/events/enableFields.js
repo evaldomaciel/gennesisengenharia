@@ -123,59 +123,7 @@ function enableFields(form) {
     }
 
     if (activity != 14) {
-      form.setEnabled("dados_conformidade", false);
-      form.setEnabled("pagar_receber", false);
-      form.setEnabled("filial_analise", false);
-      form.setEnabled("nome_filial_analise", false);
-      form.setEnabled("referencia_analise", false);
-      form.setEnabled("vincular_fornecedor_analise", false);
-      form.setEnabled("dados_pagamento_analise", false);
-      form.setEnabled("nome_cli_fornecedor_analise", false);
-      form.setEnabled("CpfCnpj_analise", false);
-      form.setEnabled("cod_boleto_analise", false);
-      form.setEnabled("tipo_documento_analise", false);
-      form.setEnabled("nome_tipo_documento", false);
-      form.setEnabled("numero_documento_analise", false);
-      form.setEnabled("segundo_numero_analise", false);
-      form.setEnabled("data_emissao_analise", false);
-      form.setEnabled("data_vencimento_analise", false);
-      form.setEnabled("data_baixa_analise", false);
-      form.setEnabled("data_previa_baixa_analise", false);
-      form.setEnabled("historico_analise", false);
-      form.setEnabled("serie_documento_analise", false);
-      form.setEnabled("valor_original_analise", false);
-      form.setEnabled("tipo_moeda", false);
-      form.setEnabled("indexador_analise", false);
-      form.setEnabled("nome_indexador_analise", false);
-      form.setEnabled("valor_baixado_analise", false);
-      form.setEnabled("conta_caixa_analise", false);
-      form.setEnabled("nome_conta_analise", false);
-      form.setEnabled("desconto_analise", false);
-      form.setEnabled("percentual_desc_analise", false);
-      form.setEnabled("formula_analise", false);
-      form.setEnabled("convenio_analise", false);
-      form.setEnabled("nome_convenio_analise", false);
-      form.setEnabled("juros_analise", false);
-      form.setEnabled("percentual_juros_analise", false);
-      form.setEnabled("formula_juros_analise", false);
-      form.setEnabled("juros_dia_analise", false);
-      form.setEnabled("juros_dia_analise", false);
-      form.setEnabled("taxa_valor_analise", false);
-      form.setEnabled("carencia_juros_analise", false);
-      form.setEnabled("multa_analise", false);
-      form.setEnabled("percentual_multa_analise", false);
-      form.setEnabled("formula_multa_analise", false);
-      form.setEnabled("multa_dia_analise", false);
-      form.setEnabled("data_valor_liquido", false);
-      form.setEnabled("valor_liquido", false);
-      form.setEnabled("capitalizacao_analise", false);
-      form.setEnabled("percentual_cap_analise", false);
-      form.setEnabled("formula_cap_analise", false);
-      form.setEnabled("cap_mensal_analise", false);
-      form.setEnabled("tipo_contabil", false);
-      form.setEnabled("status_liquidacao", false);
-      form.setEnabled("seleciona_fase_envio", false);
-      form.setEnabled("solicitacao_mult_analise", false);
+
 
       for (var index = 0; index < table_rateio_ccusto_fin_indexes.length; index++) {
         var pos = table_rateio_ccusto_fin_indexes[index];
@@ -187,7 +135,7 @@ function enableFields(form) {
       form.setEnabled("valor_total_rateio_fin", false);
     }
 
-    if (activity != 14 && activity != 274) {
+    if (activity != 14 && activity != 274 && activity != 216 && activity != 295) {
       form.setEnabled("cliente_global_fin", false);
       form.setEnabled("data_nascimento_fin", false);
       form.setEnabled("estado_civil_fin", false);
@@ -244,6 +192,63 @@ function enableFields(form) {
       form.setEnabled("chave_email_fin", false);
       form.setEnabled("chave_celular_fin", false);
       form.setEnabled("chave_aleatoria_fin", false);
+    }
+
+    if (activity != 4 && activity != 0 && activity != 14 && activity != 274 && activity != 216 && activity != 295) {
+      form.setEnabled("vincular_fornecedor_analise", false);
+      form.setEnabled("dados_pagamento_analise", false);
+
+      form.setEnabled("dados_conformidade", false);
+      form.setEnabled("pagar_receber", false);
+      form.setEnabled("filial_analise", false);
+      form.setEnabled("nome_filial_analise", false);
+      form.setEnabled("referencia_analise", false);
+      form.setEnabled("nome_cli_fornecedor_analise", false);
+      form.setEnabled("CpfCnpj_analise", false);
+      form.setEnabled("cod_boleto_analise", false);
+      form.setEnabled("tipo_documento_analise", false);
+      form.setEnabled("nome_tipo_documento", false);
+      form.setEnabled("numero_documento_analise", false);
+      form.setEnabled("segundo_numero_analise", false);
+      form.setEnabled("data_emissao_analise", false);
+      form.setEnabled("data_vencimento_analise", false);
+      form.setEnabled("data_baixa_analise", false);
+      form.setEnabled("data_previa_baixa_analise", false);
+      form.setEnabled("historico_analise", false);
+      form.setEnabled("serie_documento_analise", false);
+      form.setEnabled("valor_original_analise", false);
+      form.setEnabled("tipo_moeda", false);
+      form.setEnabled("indexador_analise", false);
+      form.setEnabled("nome_indexador_analise", false);
+      form.setEnabled("valor_baixado_analise", false);
+      form.setEnabled("conta_caixa_analise", false);
+      form.setEnabled("nome_conta_analise", false);
+      form.setEnabled("desconto_analise", false);
+      form.setEnabled("percentual_desc_analise", false);
+      form.setEnabled("formula_analise", false);
+      form.setEnabled("convenio_analise", false);
+      form.setEnabled("nome_convenio_analise", false);
+      form.setEnabled("juros_analise", false);
+      form.setEnabled("percentual_juros_analise", false);
+      form.setEnabled("formula_juros_analise", false);
+      form.setEnabled("juros_dia_analise", false);
+      form.setEnabled("juros_dia_analise", false);
+      form.setEnabled("taxa_valor_analise", false);
+      form.setEnabled("carencia_juros_analise", false);
+      form.setEnabled("multa_analise", false);
+      form.setEnabled("percentual_multa_analise", false);
+      form.setEnabled("formula_multa_analise", false);
+      form.setEnabled("multa_dia_analise", false);
+      form.setEnabled("data_valor_liquido", false);
+      form.setEnabled("valor_liquido", false);
+      form.setEnabled("capitalizacao_analise", false);
+      form.setEnabled("percentual_cap_analise", false);
+      form.setEnabled("formula_cap_analise", false);
+      form.setEnabled("cap_mensal_analise", false);
+      form.setEnabled("tipo_contabil", false);
+      form.setEnabled("status_liquidacao", false);
+      form.setEnabled("seleciona_fase_envio", false);
+      form.setEnabled("solicitacao_mult_analise", false);
     }
 
     /** Todos os campos  */
