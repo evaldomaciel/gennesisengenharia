@@ -123,7 +123,7 @@ function enableFields(form) {
     }
 
     if (activity != 14) {
-
+      form.setEnabled("dados_conformidade", false);
 
       for (var index = 0; index < table_rateio_ccusto_fin_indexes.length; index++) {
         var pos = table_rateio_ccusto_fin_indexes[index];
