@@ -46,11 +46,12 @@ function setSelectedZoomItem(selectedItem) {
   if (FIELD == "centro_de_custo") {
     $("#hidden_filial_cc").val(selectedItem["CODFILIAL"]);
     $("#nome_ccusto").text(selectedItem["NOMECCUSTO"]);
-
-    window["filial"].value = $("#hidden_filial_cc").val();
     window["CODFILIAL"].value = $("#hidden_filial_cc").val();
     window["filial_analise"].value = $("#hidden_filial_cc").val();
     adicionaCentroCustoRateio(selectedItem);
+    let nomeFilial = getNomeFilial($("#CODCOLIGADA").val(), selectedItem["CODFILIAL"]);
+    $("[name='filial']").val(nomeFilial);
+    $("[name='nome_filial_analise']").val(nomeFilial);
   }
   if (FIELD == "conta_caixa_analise") {
     $("#nome_conta_analise").val(selectedItem["DESCRICAO"]);
@@ -59,20 +60,17 @@ function setSelectedZoomItem(selectedItem) {
   }
   if (FIELD == "coligada") {
     $("#CODCOLIGADA").val(selectedItem["CODCOLIGADA"]);
-    $("#CODCOLIGADA").val(selectedItem["CODCOLIGADA"]);
   }
   if (FIELD == "ccusto_analise") {
     $("#nome_ccusto_analise").val(selectedItem["NOMECCUSTO"]);
   }
   if (FIELD == "dados_pagamento") {
-    let campo = $("#dados_pagamento").val();
-    let valorDoCampo = campo[0];
-    window["dados_pagamento_analise"].setValue(valorDoCampo);
+    window["dados_pagamento_analise"].setValue(selectedItem["DESCRICAO"]);
     $("#hidden_dados_pgmt").val(selectedItem["DESCRICAO"]);
-    toggleCampoDadosPgmt(selectedItem);
-    preencheDadosPagamento(
-      selectedItem['CODCOLIGADA'], selectedItem['CODCOLCFO'], selectedItem['CODCFO'], selectedItem['IDPGTO']
-    );
+    $("#descricao").val(selectedItem["DESCRICAO"]);
+    $("#descricao_fin").val(selectedItem["DESCRICAO"]);
+    preencheDadosPagamento(selectedItem['CODCOLIGADA'], selectedItem['CODCOLCFO'], selectedItem['CODCFO'], selectedItem['IDPGTO']);
+    toggleCampoDadosPgmt(selectedItem["DESCRICAO"], selectedItem["TIPOPIX"], selectedItem["CHAVE"]);
   }
   if (FIELD == "dados_pagamento_analise") {
     $("#hidden_dados_pgmt").val(selectedItem["DESCRICAO"]);
@@ -209,7 +207,6 @@ function removedZoomItem(removedItem) {
   if (removedItem.inputId == "setor_solicitante") {
     limpaFiltroNaturezaPorSetor();
     limpaFiltroNaturezaPorSetorFin();
-    limpaFiltroNaturezaPorSetorDa();
   }
   if (removedItem.inputId == "vincular_fornecedor") {
     $("#hidden_codigo_cli_for").val("");
@@ -227,6 +224,7 @@ function removedZoomItem(removedItem) {
   }
   if (removedItem.inputId == "coligada") {
     limpaFiltroColigada();
+    $("#CODCOLIGADA").val("");
   }
   if (removedItem.inputId == "dados_pagamento") {
     $("#tipo_forn").text("");
@@ -257,7 +255,7 @@ function reloadZoomAfterLoad(loaded, count) {
   console.log(`loaded: ${loaded} - count: ${count} `);
   let CODCOLIGADA = String($("#CODCOLIGADA").val())
   if (loaded == true) {
-    if (count >= 100) {
+    if (count >= 500) {
       console.log("Nenhum zoom foi carregado");
     }
     else if (empresa.close != undefined || coligada.close != undefined || vincular_fornecedor.close != undefined || forma_pagamento.close != undefined || zTask007.close != undefined) {
@@ -268,13 +266,12 @@ function reloadZoomAfterLoad(loaded, count) {
       filtraContaCaixaPelaColigadaEFilial(CODCOLIGADA)
       filtraPorColigada(CODCOLIGADA);
       filtraPorColigadaFin();
-      limpaFiltroNaturezaPorSetorFin();
       filtraDadosPagamento();
     }
     else {
       setTimeout(() => {
         reloadZoomAfterLoad(true, count);
-      }, 3);
+      }, 300);
     }
   }
 }
@@ -379,28 +376,51 @@ function preencheDadosPagamento(CODCOLIGADA, CODCOLCFO, CODCFO, IDPGTO) {
       if (dadosPagamento.NUMEROBANCO != undefined) {
         formSetValue("NUMEROBANCO", dadosPagamento.NUMEROBANCO);
         formSetValue("camara_comp", dadosPagamento.NUMEROBANCO);
+        formSetValue("camara_comp_fin", dadosPagamento.NUMEROBANCO);
         autocompleteBanco(dadosPagamento.NUMEROBANCO);
       }
       if (dadosPagamento.FORMAPAGAMENTO != undefined) {
         let descFormPagamento = getNomeFormaPagamento(dadosPagamento.FORMAPAGAMENTO);
         formSetValue("forma_pagamento", descFormPagamento);
+        formSetValue("forma_pagamento_fin", descFormPagamento);
         formSetValue("hidden_desc_fpgmto", descFormPagamento);
         formSetValue("hidden_forma_pgmto", dadosPagamento.FORMAPAGAMENTO);
       }
       if (dadosPagamento.CODIGOAGENCIA != undefined) formSetValue("agencia", dadosPagamento.CODIGOAGENCIA);
+      if (dadosPagamento.CODIGOAGENCIA != undefined) formSetValue("agencia_fin", dadosPagamento.CODIGOAGENCIA);
       if (dadosPagamento.DIGITOAGENCIA != undefined) formSetValue("digito", dadosPagamento.DIGITOAGENCIA);
+      if (dadosPagamento.DIGITOAGENCIA != undefined) formSetValue("digito_fin", dadosPagamento.DIGITOAGENCIA);
       if (dadosPagamento.DESCRICAO != undefined) formSetValue("nome_agencia", dadosPagamento.DESCRICAO);
+      if (dadosPagamento.DESCRICAO != undefined) formSetValue("nome_agencia_fin", dadosPagamento.DESCRICAO);
       if (dadosPagamento.CONTACORRENTE != undefined) formSetValue("conta_corrente", dadosPagamento.CONTACORRENTE);
+      if (dadosPagamento.CONTACORRENTE != undefined) formSetValue("conta_corrente_fin", dadosPagamento.CONTACORRENTE);
       if (dadosPagamento.DIGITOCONTA != undefined) formSetValue("digito_conta_corrente", dadosPagamento.DIGITOCONTA);
+      if (dadosPagamento.DIGITOCONTA != undefined) formSetValue("digito_conta_corrente_fin", dadosPagamento.DIGITOCONTA);
       if (dadosPagamento.TIPOCONTA != undefined) formSetValue("tipo_conta", dadosPagamento.TIPOCONTA);
+      if (dadosPagamento.TIPOCONTA != undefined) formSetValue("tipo_conta_fin", dadosPagamento.TIPOCONTA);
       if (dadosPagamento.FAVORECIDO != undefined) formSetValue("favorecido", dadosPagamento.FAVORECIDO);
+      if (dadosPagamento.FAVORECIDO != undefined) formSetValue("favorecido_fin", dadosPagamento.FAVORECIDO);
       if (dadosPagamento.CGCFAVORECIDO != undefined) formSetValue("CpfCnpj_favorecido", dadosPagamento.CGCFAVORECIDO);
+      if (dadosPagamento.CGCFAVORECIDO != undefined) formSetValue("CpfCnpj_favorecido_fin", dadosPagamento.CGCFAVORECIDO);
       if (dadosPagamento.TIPOPIX != undefined) formSetValue("tipo_chave_pix", dadosPagamento.TIPOPIX);
+      if (dadosPagamento.TIPOPIX != undefined) formSetValue("tipo_chave_pix_fin", dadosPagamento.TIPOPIX);
       if (dadosPagamento.CHAVE != undefined) formSetValue("chave_CPF", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_CPF_fin", dadosPagamento.CHAVE);
       if (dadosPagamento.CHAVE != undefined) formSetValue("chave_CNPJ", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_CNPJ_fin", dadosPagamento.CHAVE);
       if (dadosPagamento.CHAVE != undefined) formSetValue("chave_email", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_email_fin", dadosPagamento.CHAVE);
       if (dadosPagamento.CHAVE != undefined) formSetValue("chave_celular", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_celular_fin", dadosPagamento.CHAVE);
       if (dadosPagamento.CHAVE != undefined) formSetValue("chave_aleatoria", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_aleatoria_fin", dadosPagamento.CHAVE);
+      if (dadosPagamento.CHAVE != undefined) formSetValue("chave_pix_padrao", dadosPagamento.CHAVE);
+
+      formSetValue("filial_d_bancarios", String($("[name='CODFILIAL']").val()));
+      formSetValue("nome_filial_d_banc", String($("[name='filial']").val()));
+
+      formSetValue("filial_d_bancarios_fin", String($("[name='CODFILIAL']").val()));
+      formSetValue("nome_filial_d_banc_fin", String($("[name='filial']").val()));
     }
   } else {
     exibeMsg("Atenção!", `Não encontramos dados de pagamento para este fornecedor! <br/><b>primaryKey</b>: ${CODCOLIGADA};${CODCOLCFO};${CODCFO};${IDPGTO}`, "warning")
@@ -409,68 +429,66 @@ function preencheDadosPagamento(CODCOLIGADA, CODCOLCFO, CODCFO, IDPGTO) {
 
 function limpaDaDadosPagamento() {
   formSetValue("banco", "");
+  formSetValue("banco_fin", "");
+  formSetValue("camara_comp", "");
+  formSetValue("camara_comp_fin", "");
   formSetValue("NUMEROBANCO", "");
   formSetValue("agencia", "");
+  formSetValue("agencia_fin", "");
   formSetValue("digito", "");
+  formSetValue("digito_fin", "");
   formSetValue("nome_agencia", "");
+  formSetValue("nome_agencia_fin", "");
   formSetValue("conta_corrente", "");
+  formSetValue("conta_corrente_fin", "");
   formSetValue("digito_conta_corrente", "");
+  formSetValue("digito_conta_corrente_fin", "");
   formSetValue("tipo_conta", "");
-  formSetValue("camara_comp", "");
+  formSetValue("tipo_conta_fin", "");
   formSetValue("favorecido", "");
+  formSetValue("favorecido_fin", "");
   formSetValue("CpfCnpj_favorecido", "");
+  formSetValue("CpfCnpj_favorecido_fin", "");
   formSetValue("tipo_chave_pix", "");
+  formSetValue("tipo_chave_pix_fin", "");
   formSetValue("chave_CPF", "");
+  formSetValue("chave_CPF_fin", "");
   formSetValue("chave_CNPJ", "");
+  formSetValue("chave_CNPJ_fin", "");
   formSetValue("chave_email", "");
+  formSetValue("chave_email_fin", "");
   formSetValue("chave_celular", "");
+  formSetValue("chave_celular_fin", "");
   formSetValue("chave_aleatoria", "");
+  formSetValue("chave_aleatoria_fin", "");
+  formSetValue("chave_pix_padrao", "");
   formSetValue("forma_pagamento", "");
   formSetValue("hidden_desc_fpgmto", "");
   formSetValue("hidden_forma_pgmto", "");
+  formSetValue("descricao", "");
+  formSetValue("descricao_fin", "");
+  formSetValue("filial_d_bancarios", "");
+  formSetValue("filial_d_bancarios_fin", "");
+  formSetValue("nome_filial_d_banc", "");
+  formSetValue("nome_filial_d_banc_fin", "");
 }
 
-function limpaFiltroNaturezaPorSetorDa() {
-  var tableBody = document
-    .getElementById("table_dados_adicionais")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-
-  for (let i = 1; i < rows.length; i++) {
-    var colunaNaturezaInput = rows[i].querySelector(`[name="coluna_natureza_da___${i}"]`);
-
-    if (colunaNaturezaInput) {
-      $(colunaNaturezaInput).val(null).trigger("change");
-
-      if (
-        window[`coluna_natureza_da___${i}`] &&
-        window[`coluna_natureza_da___${i}`].element
-      ) {
-        if (validaZoom(`coluna_natureza_da___${i}`)) reloadZoomFilterValues(`coluna_natureza_da___${i}`);
-      }
-    }
-  }
-}
 
 function filtraPorColigada() {
   let value = $("#CODCOLIGADA").val();
   $(`[name^="coluna_ccusto___"]`).each((i, e) => {
-    console.log(e.name)
-    reloadZoomFilterValues(e.name, `CODCOLIGADA,${value}`);
+    if (e.name.open != undefined) reloadZoomFilterValues(e.name, `CODCOLIGADA,${value}`);
   });
 
   if (centro_de_custo.open != undefined) reloadZoomFilterValues("centro_de_custo", `CODCOLIGADA,${value}`);
   if (dados_pagamento.open != undefined) reloadZoomFilterValues("dados_pagamento", `CGC,${$("#hidden_cnpj_fornecedor").val()},COLIGADA,${$("#coligada").val()}`);
   if (dados_pagamento_analise.open != undefined) filtraDadosPagamento();
   if (conta_caixa_analise.open != undefined) filtraContaCaixaPelaColigadaEFilial();
-  if (filial.open != undefined) reloadZoomFilterValues("filial", `COLIGADA,${value}`);
   if (vincular_fornecedor.open != undefined) reloadZoomFilterValues("vincular_fornecedor", `CODCOLIGADA,${value}`);
   if (vincular_fornecedor_analise.open != undefined) reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${value}`);
 }
 
 function limpaFiltroColigada() {
-  reloadZoomFilterValues("filial");
   reloadZoomFilterValues("centro_de_custo");
   reloadZoomFilterValues("dados_pagamento");
   reloadZoomFilterValues("dados_pagamento_analise");
@@ -497,7 +515,6 @@ function filtraNaturezaPorSetor() {
   let valorDoCampo = String($("#SETORSOLICITANTE").val());
   $(`[name^="coluna_natureza___"]`).each((i, e) => {
     if (e.type == 'hidden') return;
-    $("#coluna_natureza___1").attr("type")
     reloadZoomFilterValues(e.name, `SETOR,${valorDoCampo}`);
   });
   return true;
@@ -559,11 +576,25 @@ function getNomeFilial(CODCOLIGADA, CODFILIAL) {
     DatasetFactory.createConstraint('CODCOLIGADA', CODCOLIGADA, CODCOLIGADA, ConstraintType.MUST)
   ), null);
   if (datasetDsRMFisFilialDataBR.values != undefined && datasetDsRMFisFilialDataBR.values.length > 0) {
-
+    return datasetDsRMFisFilialDataBR.values[0].NOME;
   }
+  else return "";
 }
 
 function formSetValue(nomeCampo, valor) {
   if (window[nomeCampo].open != undefined) window[nomeCampo].setValue(valor);
   else window[nomeCampo].value = valor;
+}
+
+function formGetValue(nomeCampo) {
+  console.log(nomeCampo);
+  let tipoCampo = $(`[name="${nomeCampo}"]`).attr("type");
+  
+  if (tipoCampo == 'radio') return $(`[name="${nomeCampo}"]:checked`).val();
+  if (tipoCampo == 'zoom') return String($(`[name="${nomeCampo}"]`).val());
+  
+  let nodeName = $(`[name="${nomeCampo}"]`).get(0).nodeName;
+  if (nodeName == 'SELECT') return $(`[name="${nomeCampo}"] option:selected`).val();
+
+  return String($(`[name="${nomeCampo}"]`).val());
 }

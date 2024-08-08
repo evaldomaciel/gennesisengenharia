@@ -21,8 +21,6 @@ $(document).ready(function () {
   $('#cliente_global').change(function () {
     if ($(this).is(':checked')) {
       $('#hidden_coligada_cli_for').val('0');
-    } else {
-      $('#hidden_coligada_cli_for').val($("#CODCOLIGADA").val());
     }
   });
 
@@ -30,8 +28,6 @@ $(document).ready(function () {
   $('#cliente_global_fin').change(function () {
     if ($(this).is(':checked')) {
       $('#hidden_coligada_cli_for').val('0');
-    } else {
-      $('#hidden_coligada_cli_for').val($("#CODCOLIGADA").val());
     }
   });
 

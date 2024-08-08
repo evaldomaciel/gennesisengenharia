@@ -268,6 +268,7 @@ function autocompleteBanco(NUMEROBANCO) {
 	}
 	if (parseInt(NUMEROBANCO) > 0) {
 		$("#banco").val(listaDeBancos[parseInt(NUMEROBANCO)])
+		$("#banco_fin").val(listaDeBancos[parseInt(NUMEROBANCO)])
 		$("[name='NUMEROBANCO']").val(formatarNumero(NUMEROBANCO));
 		return;
 	}

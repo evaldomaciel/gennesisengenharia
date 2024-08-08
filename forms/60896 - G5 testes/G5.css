@@ -59,7 +59,7 @@
   margin-right: 3vh;
 }
 
-#div_mensagem_valor_excedido {
+.div_mensagem_valor_excedido {
   display: flex;
   color: #ff3322;
   justify-content: center;
@@ -228,12 +228,6 @@
   min-width: fit-content;
   margin-top: 2vh;
   margin-right: 3vh;
-}
-
-#div_mensagem_valor_excedido {
-  display: flex;
-  color: #ff3322;
-  justify-content: center;
 }
 
 /* COMPONENTE ANEXO */

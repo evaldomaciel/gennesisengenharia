@@ -433,6 +433,9 @@ function filtraPorColigada() {
   if (filial.open != undefined) reloadZoomFilterValues("filial", `COLIGADA,${value}`);
   if (vincular_fornecedor.open != undefined) reloadZoomFilterValues("vincular_fornecedor", `CODCOLIGADA,${value}`);
   if (vincular_fornecedor_analise.open != undefined) reloadZoomFilterValues("vincular_fornecedor_analise", `CODCOLIGADA,${value}`);
+
+  /* CAMPO OCULTO CASO O USUÁRIO CADASTRE UM FORNECEDOR */
+  $("#hidden_coligada_cli_for").val(value);
 }
 
 function limpaFiltroColigada() {

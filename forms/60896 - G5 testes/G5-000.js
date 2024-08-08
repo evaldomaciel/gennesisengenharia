@@ -170,7 +170,6 @@ $(document).ready(function () {
     $("#hidden_valor_carencia").val(valorNumerico);
   });
 
-
   function applyMask(field) {
     var value = field.val().replace(/\D/g, '');
     console.log(String(value).length)
@@ -198,12 +197,19 @@ $(document).ready(function () {
 
   window["tipo_moeda"].value = "R$";
 
-  reloadZoomAfterLoad(true);
   $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
 
+  reloadZoomAfterLoad(true);
   atualizaValoresTabela();
-  toggleCadastroFornecedor($('[name="fornecedor_cadastrado"]:checked').val());
-  toggleCampoPorTipo($('[name="categoria"]:checked').val());
+  toggleCadastroFornecedor(formGetValue('fornecedor_cadastrado'));
+  toggleCampoPorTipo(formGetValue('categoria'));
+  toggleCampoDadosPgmt(formGetValue('hidden_dados_pgmt'), formGetValue('tipo_chave_pix'), formGetValue('chave_pix_padrao'));
+  toggleMotivoCancelGestor(formGetValue('aprovacao_gestor'));
+  toggleMotivoCancelDiretoria(formGetValue('aprovacao_diretoria'));
+  toggleCamposDePagamentoPu(formGetValue('pagamento_realizado_pu'));
+  toggleCamposJurosPu(formGetValue('teve_juros_pu'));
+  toggleCamposDePagamentoPp(formGetValue('pagamento_realizado_pp'))
+  toggleCamposJurosPp(formGetValue('teve_juros_pp'))
 });
 
 /** Aqui acaba o ready */
@@ -224,9 +230,7 @@ function getLinhasTabelaRateio() {
   var tableBody = document
     .getElementById("table_rateio_ccusto_fin")
     .getElementsByTagName("tbody")[0];
-
   var rows = tableBody.getElementsByTagName("tr");
-
   var qntdLinhas = rows.length;
   $("#hidden_qntd_linhas").val(qntdLinhas);
 }

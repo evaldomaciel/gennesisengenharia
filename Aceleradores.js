@@ -39,3 +39,15 @@ $('html, body').animate({ scrollTop: $('[name="dados_pagamento_analise"]').offse
 DatasetFactory.getDataset('dsRMFinTDODataBR', null, new Array(
     DatasetFactory.createConstraint('filtro', 'CODCOLIGADA=3', 'CODCOLIGADA = 3 AND FTDO.INATIVO = 0 AND FTDO.PAGREC IN (2, 3)', ConstraintType.MUST)
 ), null);
+
+
+function vamosOcultar(params) {
+	var vamosOcultar = "";
+	$("[name]").each((i, e) => {
+		vamosOcultar += '\n form.setEnabled("' + $(e).attr('name') + '", false);'
+	})
+	return vamosOcultar
+}
+
+vamosOcultar()
+

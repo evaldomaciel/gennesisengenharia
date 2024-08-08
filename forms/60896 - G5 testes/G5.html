@@ -20,6 +20,7 @@
   <link href="G5.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="G5-zoom.js"></script>
   <script type="text/javascript" src="G5-autocomplete.js"></script>
+  <script type="text/javascript" src="G5-toggle.js"></script>
   <script type="text/javascript" src="G5-anexos.js"></script>
   <script type="text/javascript" src="G5-000.js"></script>
   <script type="text/javascript" src="G5-004.js"></script>
@@ -160,27 +161,7 @@
             <div class="col-sm-3" id="div_filial">
               <div class="form-field" data-type="textarea" data-show-properties data-field-name="filial">
                 <label class="required">Filial</label>
-                <input title='ds_filiais' class="form-control" placeholder="Selecione a filial" readonly
-                  type="zoom" id="filial" name="filial" data-zoom="                       {
-'displayKey':'CODFILIAL',
-'datasetId':'ds_buscaFiliaisRM',
-'maximumSelectionLength':'1',
-'fields':
-[
-{
-'field':'CODCOLIGADA',
-'label':'Coligada'
-},
-{
-'field':'CODFILIAL',
-'label':'Filial'
-},
-{
-'field':'NOME',
-'label':'Nome'
-}
-]
-}">
+                <input type="text" class="form-control" id="filial" name="filial" readonly />
               </div>
             </div>
             <div class="col-sm-3" id="div_urgencia_solicitacao">
@@ -708,8 +689,8 @@
               <div class="col-sm-3 form-field" id="div_estado" data-type="textbox" data-show-properties data-field-name="nome_estado">
                 <div class="form-input">
                   <div class="form-group">
-                    <label class="required" Nome</label>
-                      <input type="text" class="form-control" name="nome_estado" id="nome_estado">
+                    <label class="required"> Nome</label>
+                    <input type="text" class="form-control" name="nome_estado" id="nome_estado">
                   </div>
                 </div>
               </div>
@@ -1069,7 +1050,7 @@
                       <tr class="tableBodyRow" id="tableBodyRow">
                         <td class="bpm-mobile-trash-column table-rateio-ccusto-fin-delete">
                           <span class="fluig-style-guide fs-display-block fs-md-space">
-                            <i class="fluigicon fluigicon-trash fluigicon-md" onclick="Javascript:deleteTableRow(this)" style="cursor:pointer">
+                            <i class="fluigicon fluigicon-trash fluigicon-md" onclick="Javascript:deleteTableRow(this, 'table_rateio_ccusto_fin')" style="cursor:pointer">
                             </i></span>
                         </td>
                         <td class="fs-v-align-middle" style="max-width:250px;">
@@ -1156,7 +1137,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-12 form-group" id="div_mensagem_valor_excedido">
+            <div class="col-sm-12 form-group div_mensagem_valor_excedido" id="div_mensagem_valor_excedido" style="display: none;">
               <h3>ERRO: VALOR DO RATEIO SUPERIOR AO VALOR TOTAL A SER PAGO!</h3>
             </div>
           </div>
@@ -1836,138 +1817,6 @@
           </div>
         </div>
       </section>
-      <section id="section_rateio_financeiro" class="panel panel-primary">
-        <div class="panel-heading" style="font-weight: 800; " id="heading_cabecalho_rfin">
-          <div id="cabecalho_title_rfin">
-            <i class="flaticon flaticon-person icon-lg" aria-hidden="true"></i> Rateio
-          </div>
-          <div id="div_btn_hide_solicitacao_r_fin" class="container_hide_solicitacao">
-            <button class="btn_hide_solicitacao" id="btn_hide_solicitacao_r_fin" onclick="toggleRateioFin()">Ocultar Solicitação</button>
-          </div>
-        </div>
-        <div class="panel-body" id="div_body_rateio_fin">
-          <div class="form-field" data-type="tabledetail" data-show-properties data-field-name="Rateio_fin">
-            <div class="form-input">
-              <div class="form-group">
-                <label>Rateio por Centro de Custo</label>
-                <div class="table-container" style="overflow-x: auto;">
-                  <table tablename="table_rateio_ccusto_fin" id="table_rateio_ccusto_fin" class="table" noaddbutton="true" noadeletebutton="true">
-                    <thead>
-                      <tr class="tableHeadRow">
-                        <th class="bpm-mobile-trash-column table-rateio-ccusto-delete"></th>
-                        <th style="min-width: 300px;" class="tableColumn required">
-                          <label title="Filtrado pelo campo: Setor Solicitante">Natureza Orçamentária Financeira</label>
-                        </th>
-                        <th style="min-width: 300px;" class="tableColumn  required">
-                          <label title="Filtrado pelo campo: Coligada">Centro de Custo</label>
-                        </th>
-                        <th style="min-width: 150px;" class="tableColumn  required">Valor
-
-                        </th>
-                        <th style="min-width: 100px;" class="tableColumn required">Percentual
-
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="tableBodyRow" id="tableBodyRow">
-                        <td class="bpm-mobile-trash-column table-rateio-ccusto-delete">
-                          <span class="fluig-style-guide fs-display-block fs-md-space">
-                            <i class="fluigicon fluigicon-trash fluigicon-md" onclick="Javascript:deleteTableRow(this)" style="cursor:pointer">
-                            </i></span>
-                        </td>
-                        <td class="fs-v-align-middle">
-                          <div class="form-input">
-                            <input title="Filtro: Setor Solicitante" class="form-control" type="zoom" id="coluna_natureza_fin" name="coluna_natureza_fin" data-zoom=" 
-{
-'displayKey':'NATUREZA',
-'datasetId':'ds_natureza_financeira',
-'maximumSelectionLength':'1',
-'fields':
-[
-{
-'field':'NATUREZA',
-'label':'NATUREZA'
-},
-{
-'field':'CODTBORCAMENTO',
-'label':'Código',
-'visible': 'false'
-},
-{
-'field':'SETOR',
-'label':'SETOR',
-'visible': 'false'
-},
-{
-'field':'DESCRICAO',
-'label':'Desrição',
-'visible': 'false'
-}
-]
-}">
-                          </div>
-                        </td>
-                        <td class="fs-v-align-middle">
-                          <div class="form-input">
-                            <input title='ds_centroCustosRM'
-                              class="form-control" type="zoom" id="coluna_ccusto_fin" name="coluna_ccusto_fin" data-zoom=" 
-{
-'displayKey':'TODOS',
-'datasetId':'ds_centro_de_custos',
-'maximumSelectionLength':'1',
-'fields':
-[
-{
-'field':'CCUSTO',
-'label':'Cod. Centro de Custo'
-},
-{
-'field':'NOMECCUSTO',
-'label':'Nome'
-},
-{
-'field':'CODFILIAL',
-'label':'Filial'
-}
-]
-}">
-                            <label id="ccusto_nome_fin" style="margin-top: 5px; display: block; font-size: x-small">
-                            </label>
-                          </div>
-                        </td>
-                        <td class="fs-v-align-middle">
-                          <div class="form-input">
-                            <input type="text" name="coluna_valor_fin" id="coluna_valor_fin" class="form-control cpItem" mask="#000.000.000,00" label="Valor">
-                          </div>
-                        </td>
-                        <td class="fs-v-align-middle">
-                          <div class="form-input">
-                            <input type="text" name="coluna_percentual_fin" id="coluna_percentual_fin" class="form-control" oninput="formatPercentual(this)" label="Percentual" readonly="true">
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <button type="button" class="btn btn-primary" id="btn_add_linha_fin" onclick="acrescentarLinha('table_rateio_ccusto_fin')">Novo Registro</button>
-              </div>
-            </div>
-          </div>
-          <div class="row" id="row_valor_rateio_fin">
-            <div class="col-sm-3 form-group" id="div_valor_total_rateio_fin">
-              <label for="valor_total_rateio_fin" id="label_valor_total_rateio_fin">Valor Total:</label>
-              <input type="text" class="form-control" id="valor_total_rateio_fin" name="valor_total_rateio_fin" mask="#000.000.000,00" maxlength="14" readonly="true">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 form-group" id="div_mensagem_valor_excedido_fin">
-              <h3>ERRO: VALOR DO RATEIO SUPERIOR AO VALOR TOTAL A SER
-                PAGO!</h3>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
     <!-- FIM ETAPA DADOS DO FORNECEDOR -  FINANCEIRO-->
     <!-- ETAPA 014 - PROVISIONAMENTO ------------------------- -->
@@ -2555,6 +2404,138 @@
             </div>
           </div>
         </section>
+        <section id="section_rateio_financeiro" class="panel panel-primary">
+          <div class="panel-heading" style="font-weight: 800; " id="heading_cabecalho_rfin">
+            <div id="cabecalho_title_rfin">
+              <i class="flaticon flaticon-person icon-lg" aria-hidden="true"></i> Rateio
+            </div>
+            <div id="div_btn_hide_solicitacao_r_fin" class="container_hide_solicitacao">
+              <button class="btn_hide_solicitacao" id="btn_hide_solicitacao_r_fin" onclick="toggleRateioFin()">Ocultar Solicitação</button>
+            </div>
+          </div>
+          <div class="panel-body" id="div_body_rateio_fin">
+            <div class="form-field" data-type="tabledetail" data-show-properties data-field-name="Rateio_fin">
+              <div class="form-input">
+                <div class="form-group">
+                  <label>Rateio por Centro de Custo</label>
+                  <div class="table-container rateio-tabela" style="overflow-x: auto;">
+                    <table tablename="table_rateio_ccusto_fin" id="table_rateio_ccusto_fin" class="table" noaddbutton="true" nodeletebutton="true">
+                      <thead>
+                        <tr class="tableHeadRow">
+                          <th class="bpm-mobile-trash-column table-rateio-ccusto-fin-delete"></th>
+                          <th style="min-width: 300px;" class="tableColumn required">
+                            <label title="Filtrado pelo campo: Setor Solicitante">Natureza Orçamentária Financeira</label>
+                          </th>
+                          <th style="min-width: 300px;" class="tableColumn  required">
+                            <label title="Filtrado pelo campo: Coligada">Centro de Custo</label>
+                          </th>
+                          <th style="min-width: 150px;" class="tableColumn  required">Valor
+
+                          </th>
+                          <th style="min-width: 100px;" class="tableColumn required">Percentual
+
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="tableBodyRow" id="tableBodyRow">
+                          <td class="bpm-mobile-trash-column table-rateio-ccusto-fin-delete">
+                            <span class="fluig-style-guide fs-display-block fs-md-space">
+                              <i class="fluigicon fluigicon-trash fluigicon-md" onclick="Javascript:deleteTableRow(this, 'table_rateio_ccusto_fin')" style="cursor:pointer"> </i>
+                            </span>
+                          </td>
+                          <td class="fs-v-align-middle">
+                            <div class="form-input">
+                              <input title="Filtro: Setor Solicitante" class="form-control" type="zoom" id="coluna_natureza_fin" name="coluna_natureza_fin" data-zoom=" 
+                                      {
+                                      'displayKey':'NATUREZA',
+                                      'datasetId':'ds_natureza_financeira',
+                                      'maximumSelectionLength':'1',
+                                      'fields':
+                                      [
+                                      {
+                                      'field':'NATUREZA',
+                                      'label':'NATUREZA'
+                                      },
+                                      {
+                                      'field':'CODTBORCAMENTO',
+                                      'label':'Código',
+                                      'visible': 'false'
+                                      },
+                                      {
+                                      'field':'SETOR',
+                                      'label':'SETOR',
+                                      'visible': 'false'
+                                      },
+                                      {
+                                      'field':'DESCRICAO',
+                                      'label':'Desrição',
+                                      'visible': 'false'
+                                      }
+                                      ]
+                                      }">
+                            </div>
+                          </td>
+                          <td class="fs-v-align-middle">
+                            <div class="form-input">
+                              <input title='ds_centroCustosRM'
+                                class="form-control" type="zoom" id="coluna_ccusto_fin" name="coluna_ccusto_fin" data-zoom=" 
+                                {
+                                'displayKey':'TODOS',
+                                'datasetId':'ds_centro_de_custos',
+                                'maximumSelectionLength':'1',
+                                'fields':
+                                [
+                                {
+                                'field':'CCUSTO',
+                                'label':'Cod. Centro de Custo'
+                                },
+                                {
+                                'field':'NOMECCUSTO',
+                                'label':'Nome'
+                                },
+                                {
+                                'field':'CODFILIAL',
+                                'label':'Filial'
+                                }
+                                ]
+                                }">
+                              <label id="ccusto_nome_fin" style="margin-top: 5px; display: block; font-size: x-small">
+                              </label>
+                            </div>
+                          </td>
+                          <td class="fs-v-align-middle">
+                            <div class="form-input">
+                              <input type="text" name="coluna_valor_fin" id="coluna_valor_fin" class="form-control cpItem" mask="#000.000.000,00" label="Valor">
+                            </div>
+                          </td>
+                          <td class="fs-v-align-middle">
+                            <div class="form-input">
+                              <input type="text" name="coluna_percentual_fin" id="coluna_percentual_fin" class="form-control" oninput="formatPercentual(this)" label="Percentual" readonly="true">
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <button type="button" class="btn btn-primary" id="btn_add_linha_fin" onclick="acrescentarLinha('table_rateio_ccusto_fin')">Novo Registro</button>
+                </div>
+              </div>
+            </div>
+            <div class="row" id="row_valor_rateio_fin">
+              <div class="col-sm-3 form-group" id="div_valor_total_rateio_fin">
+                <label for="valor_total_rateio_fin" id="label_valor_total_rateio_fin">Valor Total:</label>
+                <input type="text" class="form-control" id="valor_total_rateio_fin" name="valor_total_rateio_fin" mask="#000.000.000,00" maxlength="14" readonly="true">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 form-group div_mensagem_valor_excedido" id="div_mensagem_valor_excedido_fin" style="display: none;">
+                <h3>ERRO: VALOR DO RATEIO SUPERIOR AO VALOR TOTAL A SER
+                  PAGO!</h3>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
     <!-- FIM ETAPA 014 - PROVISIONAMENTO ------------------------- -->
@@ -2672,12 +2653,11 @@
             <div class="col-sm-3" id="div_pagamento_realizado">
               <div class="form-field" data-type="textarea" data-show-properties data-field-name="pagamento_realizado_pu">
                 <label class="required">O pagamento foi realizado?</label>
-                <span>
-                  <select class="form-control" name="pagamento_realizado_pu" id="pagamento_realizado_pu" onchange="toggleCamposDePagamentoPu(this.value)">
-                    <option value></option>
-                    <option value="Sim">Sim</option>
-                    <option value="Nao">Não</option>
-                  </select></span>
+                <select class="form-control" name="pagamento_realizado_pu" id="pagamento_realizado_pu" onchange="toggleCamposDePagamentoPu(this.value)">
+                  <option value></option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">Não</option>
+                </select>
               </div>
             </div>
             <div class="col-sm-3 form-group" id="div_teve_juros_pu">
@@ -2922,155 +2902,159 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_codigo_cli_for">Codigo Cliente/Fornecedor</label>
-              <input type="text" class="form-control" id="hidden_codigo_cli_for" name="hidden_codigo_cli_for" />
+              <input type="text" class="form-control" id="hidden_codigo_cli_for" name="hidden_codigo_cli_for" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_coligada_cli_for">Coligada Cliente/Fornecedor</label>
-              <input type="text" class="form-control" id="hidden_coligada_cli_for" name="hidden_coligada_cli_for" value="0">
+              <input type="text" class="form-control" id="hidden_coligada_cli_for" name="hidden_coligada_cli_for" value="0" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="CODCOLIGADA">CODCOLIGADA</label>
-              <input type="text" class="form-control" id="CODCOLIGADA" name="CODCOLIGADA" value="0">
+              <input type="text" class="form-control" id="CODCOLIGADA" name="CODCOLIGADA" value="0" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="CODFILIAL">CODFILIAL</label>
-              <input type="text" class="form-control" id="CODFILIAL" name="CODFILIAL" value="0">
+              <input type="text" class="form-control" id="CODFILIAL" name="CODFILIAL" value="0" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="SETORSOLICITANTE">SETORSOLICITANTE</label>
-              <input type="text" class="form-control" id="SETORSOLICITANTE" name="SETORSOLICITANTE" value="0">
+              <input type="text" class="form-control" id="SETORSOLICITANTE" name="SETORSOLICITANTE" value="0" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_telefone">Telefone</label>
-              <input type="text" class="form-control" id="hidden_telefone" name="hidden_telefone" />
+              <input type="text" class="form-control" id="hidden_telefone" name="hidden_telefone" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_desc_fpgmto">Desc. Forma de Pagamento</label>
-              <input type="text" class="form-control" id="hidden_desc_fpgmto" name="hidden_desc_fpgmto" value="Descrição Padrão">
+              <input type="text" class="form-control" id="hidden_desc_fpgmto" name="hidden_desc_fpgmto" value="Descrição Padrão" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_forma_pgmto">Forma de Pagamento</label>
-              <input type="text" class="form-control" id="hidden_forma_pgmto" name="hidden_forma_pgmto" />
+              <input type="text" class="form-control" id="hidden_forma_pgmto" name="hidden_forma_pgmto" readonly />
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_valor_original">Valor Original</label>
-              <input type="text" class="form-control" id="hidden_valor_original" name="hidden_valor_original" value="0.0000" />
+              <input type="text" class="form-control" id="hidden_valor_original" name="hidden_valor_original" value="0.0000" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_valor_baixado">Valor Baixado</label>
-              <input type="text" class="form-control" id="hidden_valor_baixado" name="hidden_valor_baixado" value="0.0000" />
+              <input type="text" class="form-control" id="hidden_valor_baixado" name="hidden_valor_baixado" value="0.0000" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_valor_cap">Valor Capitaização</label>
-              <input type="text" class="form-control" id="hidden_valor_cap" name="hidden_valor_cap" value="0.0000" />
+              <input type="text" class="form-control" id="hidden_valor_cap" name="hidden_valor_cap" value="0.0000" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_valor_juros">Valor Juros</label>
-              <input type="text" class="form-control" id="hidden_valor_juros" name="hidden_valor_juros" value="0.0000" />
+              <input type="text" class="form-control" id="hidden_valor_juros" name="hidden_valor_juros" value="0.0000" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_valor_desconto">Valor Desconto</label>
-              <input type="text" class="form-control" id="hidden_valor_desconto" name="hidden_valor_desconto" value="0.0000" />
+              <input type="text" class="form-control" id="hidden_valor_desconto" name="hidden_valor_desconto" value="0.0000" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_valor_multa">Valor Multa</label>
-              <input type="text" class="form-control" id="hidden_valor_multa" name="hidden_valor_multa" value="0.0000" />
+              <input type="text" class="form-control" id="hidden_valor_multa" name="hidden_valor_multa" value="0.0000" readonly />
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_valor_carencia">Valor Carencia</label>
-              <input type="text" class="form-control" id="hidden_valor_carencia" name="hidden_valor_carencia" value="0.0000" />
+              <input type="text" class="form-control" id="hidden_valor_carencia" name="hidden_valor_carencia" value="0.0000" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_data_vencimento">Data Vencimento</label>
-              <input type="text" class="form-control" id="hidden_data_vencimento" name="hidden_data_vencimento" value="2024-01-01T00:00:00.000Z" />
+              <input type="text" class="form-control" id="hidden_data_vencimento" name="hidden_data_vencimento" value="2024-01-01T00:00:00.000Z" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_data_emissao">Data Emissao</label>
-              <input type="text" class="form-control" id="hidden_data_emissao" name="hidden_data_emissao" value="2024-01-01T00:00:00.000Z" />
+              <input type="text" class="form-control" id="hidden_data_emissao" name="hidden_data_emissao" value="2024-01-01T00:00:00.000Z" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_data_baixa">Data Baixa</label>
-              <input type="text" class="form-control" id="hidden_data_baixa" name="hidden_data_baixa" value="2024-01-01T00:00:00.000Z" />
+              <input type="text" class="form-control" id="hidden_data_baixa" name="hidden_data_baixa" value="2024-01-01T00:00:00.000Z" readonly />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <label for="hidden_data_previabaixa">Data Previa Baixa</label>
-              <input type="text" class="form-control" id="hidden_data_previabaixa" name="hidden_data_previabaixa" value="2024-01-01T00:00:00.000Z" />
+              <input type="text" class="form-control" id="hidden_data_previabaixa" name="hidden_data_previabaixa" value="2024-01-01T00:00:00.000Z" readonly />
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>Expediente:</label>
-              <input type="text" name="COD_PERIOD_EXPED" id="COD_PERIOD_EXPED" value="Default" class="form-control">
+              <input type="text" name="COD_PERIOD_EXPED" id="COD_PERIOD_EXPED" value="Default" class="form-control" readonly />
             </div>
-            <div class="col-md-2 col-xs-2">
+            <div class="col-sm-3 col-xs-2">
               <label>Data inicio:</label>
-              <input type="date" name="DATA_INICIO" id="DATA_INICIO" class="form-control">
+              <input type="date" name="DATA_INICIO" id="DATA_INICIO" class="form-control" readonly />
             </div>
-            <div class="col-md-2 col-xs-2">
+            <div class="col-sm-3 col-xs-2">
               <label>Hora inicio:</label>
-              <input type="text" name="NUM_HORA_INIC_PERIOD" id="NUM_HORA_INIC_PERIOD" class="form-control" mask="00:00:00" value="00:00:00">
+              <input type="text" name="NUM_HORA_INIC_PERIOD" id="NUM_HORA_INIC_PERIOD" class="form-control" mask="00:00:00" value="00:00:00" readonly />
             </div>
-            <div class="col-md-2 col-xs-2">
+            <div class="col-sm-3 col-xs-2">
               <label>Data fim:</label>
-              <input type="date" name="DATA_FIM" id="DATA_FIM" class="form-control">
+              <input type="date" name="DATA_FIM" id="DATA_FIM" class="form-control" readonly />
             </div>
-            <div class="col-md-2 col-xs-2">
+            <div class="col-sm-3 col-xs-2">
               <label>Hora fim:</label>
-              <input type="text" name="NUM_HORA_FIM_PERIOD" id="NUM_HORA_FIM_PERIOD" class="form-control" value="00:00:00" mask="00:00:00">
+              <input type="text" name="NUM_HORA_FIM_PERIOD" id="NUM_HORA_FIM_PERIOD" class="form-control" value="00:00:00" mask="00:00:00" readonly />
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>Filial do Centro de Custos:</label>
-              <input type="text" name="hidden_filial_cc" id="hidden_filial_cc" class="form-control">
+              <input type="text" name="hidden_filial_cc" id="hidden_filial_cc" class="form-control" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>Numero do Banco:</label>
-              <input type="text" name="hidden_numbanco" id="hidden_numbanco" class="form-control">
+              <input type="text" name="hidden_numbanco" id="hidden_numbanco" class="form-control" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>Numero do Banco RM:</label>
-              <input type="text" name="NUMEROBANCO" id="NUMEROBANCO" class="form-control">
+              <input type="text" name="NUMEROBANCO" id="NUMEROBANCO" class="form-control" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>CNPJ do Fornecedor:</label>
-              <input type="text" name="hidden_cnpj_fornecedor" id="hidden_cnpj_fornecedor" class="form-control">
+              <input type="text" name="hidden_cnpj_fornecedor" id="hidden_cnpj_fornecedor" class="form-control" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>Dados de Pagamento</label>
-              <input type="text" name="hidden_dados_pgmt" id="hidden_dados_pgmt" class="form-control">
+              <input type="text" name="hidden_dados_pgmt" id="hidden_dados_pgmt" class="form-control" readonly />
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>CGCCFO</label>
-              <input type="text" class="form-control" name="CGCCFO" id="CGCCFO" />
+              <input type="text" class="form-control" name="CGCCFO" id="CGCCFO" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>CGCCFO_analise</label>
-              <input type="text" class="form-control" name="CGCCFO_analise" id="CGCCFO_analise" />
+              <input type="text" class="form-control" name="CGCCFO_analise" id="CGCCFO_analise" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>CODTDO</label>
-              <input type="text" class="form-control" name="CODTDO" id="CODTDO" />
+              <input type="text" class="form-control" name="CODTDO" id="CODTDO" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>CODFILIAL_CODCXA</label>
-              <input type="text" class="form-control" name="CODFILIAL_CODCXA" id="CODFILIAL_CODCXA" />
+              <input type="text" class="form-control" name="CODFILIAL_CODCXA" id="CODFILIAL_CODCXA" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>anexos</label>
-              <input type="text" class="form-control" name="anexos" id="anexos" />
+              <input type="text" class="form-control" name="anexos" id="anexos" readonly />
             </div>
-            <div class="col-md-3 col-xs-3">
+            <div class="col-sm-3 col-xs-3">
               <label>idLan</label>
-              <input type="text" class="form-control" name="idLan" id="idLan" />
+              <input type="text" class="form-control" name="idLan" id="idLan" readonly />
+            </div>
+            <div class="col-sm-3 col-xs-3">
+              <label>Chave PIX Padrão</label>
+              <input type="text" name="chave_pix_padrao" id="chave_pix_padrao" class="form-control" readonly />
             </div>
           </div>
       </section>

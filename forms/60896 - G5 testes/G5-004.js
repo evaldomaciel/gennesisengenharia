@@ -1,18 +1,4 @@
 /* ETAPA 000 | 004 - INICIO */
-
-function toggleCamposJuros(teveJuros) {
-  if (teveJuros == "Sim") {
-    $("#div_teveJuros").show(400);
-    $("#Valor").prop("readonly", true);
-  } else {
-    $("#div_teveJuros").hide(400);
-    $("#Valor").prop("readonly", false);
-    $("#Valor").val("");
-    $("#valor_original").val("");
-    $("#valor_juros").val("");
-  }
-}
-
 function calculaValorTotalPago() {
   var valorOriginal = parseFloat(
     $("#valor_original").val().replace(/\./g, "").replace(",", "."),
@@ -89,75 +75,6 @@ function corDaUrgenciaSolicitacao(urgencia) {
   }
 }
 
-function toggleCadastroFornecedor(fornecedorCadastrado) {
-  // if (fornecedorCadastrado == "Sim") {
-  //   $("#div_vincular_fornecedor").show(400);
-  //   $("#div_dados_pagamento").show(400);
-  //   $("#div_nome_cnpj_forn").show(400);
-  //   $("#div_cadastrar_fornecedor").hide(400);
-  // }
-  // if (fornecedorCadastrado == "Não") {
-  //   $("#div_vincular_fornecedor").hide(400);
-  //   $("#div_dados_pagamento").hide(400);
-  //   $("#div_nome_cnpj_forn").hide(400);
-  //   $("#div_cadastrar_fornecedor").show(400);
-  // }
-}
-
-function toggleCampoPorTipo(tipoPessoa) {
-  if (tipoPessoa == "F") {
-    $("#div_cpf").show(400);
-    $("#div_cnpj").hide(400);
-    $("#div_data_nascimento").show(400);
-    $("#div_estado_civil").show(400);
-  } else {
-    $("#div_cpf").hide(400);
-    $("#div_cnpj").show(400);
-    $("#div_data_nascimento").hide(400);
-    $("#div_estado_civil").hide(400);
-  }
-}
-
-function toggleSolicitacao() {
-  $("#div_body_solicitacao").toggle(); // Alterna a exibição da div
-  let btnText = $("#btn_hide_solicitacao").text();
-  if (btnText === "Ocultar Solicitação") {
-    $("#btn_hide_solicitacao").text("Exibir Solicitação");
-  } else {
-    $("#btn_hide_solicitacao").text("Ocultar Solicitação");
-  }
-}
-
-function toggleDadosForn() {
-  $("#div_body_dados_forn_fin").toggle(); // Alterna a exibição da div
-  let btnText = $("#btn_hide_solicitacao_fin").text();
-  if (btnText === "Ocultar Solicitação") {
-    $("#btn_hide_solicitacao_fin").text("Exibir Solicitação");
-  } else {
-    $("#btn_hide_solicitacao_fin").text("Ocultar Solicitação");
-  }
-}
-
-function toggleDadosBanc() {
-  $("#div_body_dados_dfin").toggle(); // Alterna a exibição da div
-  let btnText = $("#btn_hide_solicitacao_bfin").text();
-  if (btnText === "Ocultar Solicitação") {
-    $("#btn_hide_solicitacao_bfin").text("Exibir Solicitação");
-  } else {
-    $("#btn_hide_solicitacao_bfin").text("Ocultar Solicitação");
-  }
-}
-
-function toggleRateioFin() {
-  $("#div_body_rateio_fin").toggle(); // Alterna a exibição da div
-  let btnText = $("#btn_hide_solicitacao_r_fin").text();
-  if (btnText === "Ocultar Solicitação") {
-    $("#btn_hide_solicitacao_r_fin").text("Exibir Solicitação");
-  } else {
-    $("#btn_hide_solicitacao_r_fin").text("Ocultar Solicitação");
-  }
-}
-
 /* FORMATA A PORCENTAGEM DO RATEIO */
 function formatPercentual(input) {
   const row = input.closest("tr");
@@ -185,8 +102,10 @@ function atualizaValoresTabela() {
     if (fieldName.indexOf('coluna_valor') >= 0) {
       let valueField = parseFormattedNumber($(e.target).val());
       let percent = (valueField / totalValue) * 100;
-      $(`[name="coluna_percentual${fieldFin}___${fieldId}"]`).val(percent.toFixed(2) + "%");
-      updateValorTotal();
+      let completeFieldName = `[name="coluna_percentual${fieldFin}___${fieldId}"]`;
+      $(completeFieldName).val(percent.toFixed(2) + "%");
+      let tableName = $(completeFieldName).closest("table").attr("tablename");
+      updateValorTotal(tableName);
     }
   });
 }
@@ -195,7 +114,7 @@ function acrescentarLinha(tabela) {
   wdkAddChild(tabela);
   var inputs = $("[mask]");
   MaskEvent.initMask(inputs);
-  updateValorTotal();
+  updateValorTotal(tabela);
   if (tabela == 'table_rateio_ccusto') {
     filtraPorColigada($("#coligada").val());
     filtraNaturezaPorSetor();
@@ -206,51 +125,36 @@ function acrescentarLinha(tabela) {
   }
 }
 
-function deleteTableRow(row) {
+function deleteTableRow(row, tableName) {
   fnWdkRemoveChild(row);
-  updateValorTotal();
+  console.log(tableName);
+  updateValorTotal(tableName);
 }
 
-/* PREENCHE O CAMPO PORCENTAGEM DA TABELA RATEIO POR CENTRO DE CUSTO BASEADO NO VALOR TOTAL A SER PAGO */
-function updatePercentual(input) {
-  console.log(input);
-  let valorTotal = parseFormattedNumber($('[name="Valor"]').val());
-  let field = String(input.name).split("___");
-  let fieldId = String(field[1]);
-  let fieldFin = String(field[0]).indexOf("_fin") > 0 ? "_fin" : "";
-  updateValorTotal();
-  if (isNaN(valorTotal) || valorTotal === 0) return;
-  let valor = parseFormattedNumber(input.value);
-  let percentual = (valor / valorTotal) * 100;
-  $(`[name="coluna_percentual${fieldFin}___${fieldId}"]`).val(percentual.toFixed(2) + "%");
-}
 
 /* CALCULA VALOR TOTAL DO RATEIO */
-function updateValorTotal() {
-  let tableRows = document.querySelectorAll(
-    'table[tablename="table_rateio_ccusto"] tbody tr',
-  );
+function updateValorTotal(tableName) {
+  console.log(tableName)
+
+  let fieldFin = String(tableName).indexOf("_fin") > 0 ? "_fin" : "";
   let total = 0;
 
-  tableRows.forEach((row) => {
-    let valorInput = row.querySelector('input[name^="coluna_valor"]');
-    if (valorInput && valorInput.value !== "") {
-      let valor = parseValue(valorInput.value);
-      if (!isNaN(valor)) {
-        total += valor;
-      }
+  $(`input[name^="coluna_valor${fieldFin}"]`).each((i, e) => {
+    let valor = parseValue(e.value);
+    if (!isNaN(valor)) {
+      total += valor;
     }
   });
 
   let formattedValue = formatValue(total);
-  document.getElementById("valor_total_rateio").value = formattedValue;
+  document.getElementById(`valor_total_rateio${fieldFin}`).value = formattedValue;
 
   let valorTotal = parseValue(document.getElementById("Valor").value);
 
   if (!isNaN(valorTotal) && total > valorTotal) {
-    $("#div_mensagem_valor_excedido").show(400);
+    $(`#div_mensagem_valor_excedido${fieldFin}`).show(400);
   } else {
-    $("#div_mensagem_valor_excedido").hide(400);
+    $(`#div_mensagem_valor_excedido${fieldFin}`).hide(400);
   }
   getLinhasTabelaRateio();
 }
@@ -546,17 +450,4 @@ function tipoDaChavePixDadosPagamento(tipo_pix, chave) {
 
 function salvaCGCCFO(valor) {
   $("#CGCCFO").val(valor);
-}
-
-function toggleCampoDadosPgmt(selectedItem) {
-  if (selectedItem["DESCRICAO"] == "BOLETO") {
-    $("#div_cod_boleto").show(400);
-    $("#div_chave_tipo_forn").hide(400);
-    toggleCodBoleto($("#hidden_dados_pgmt").val());
-  }
-  if (selectedItem["DESCRICAO"] == "PIX") {
-    $("#div_cod_boleto").hide(400);
-    $("#div_chave_tipo_forn").show(400);
-    tipoDaChavePixDadosPagamento(selectedItem["TIPOPIX"], selectedItem["CHAVE"]);
-  }
 }
