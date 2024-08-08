@@ -116,7 +116,12 @@ function setSelectedZoomItem(selectedItem) {
     $("#nome_tipo_documento").val(selectedItem["DESCRICAO"]);
   }
   if (FIELD == "vincular_fornecedor") {
-    $("#CGCCFO").val(selectedItem["CGCCFO"]);
+    if (selectedItem["CODCOLIGADA"] != $("[name='CODCOLIGADA']").val() && selectedItem["CODCOLIGADA"] != 0) {
+      exibeMsg("Atenção!", "O fornecedor que você selecionou não é um cadastro global (0) e/ou não pertence a mesma coligada selecionada no início do formulário. Verifique o código da coligada antes de selecionar o fornecedor ou altere a coligada onde será feito o lançamento", "danger");
+      window['vincular_fornecedor'].clear()
+      return;
+    }
+
     $("#CGCCFO").val(selectedItem["CGCCFO"]);
     let campo = $("#vincular_fornecedor").val();
     let valorDoCampo = campo[0];
