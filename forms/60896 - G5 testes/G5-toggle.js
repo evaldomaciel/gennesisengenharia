@@ -105,7 +105,7 @@ function toggleCampoDadosPgmt(desc, tipoPix, chave) {
 }
 
 function toggleMotivoPedidoAjustes(respostaProvisionamento) {
-  if (respostaProvisionamento == "Sim") {
+  if (respostaProvisionamento == "Sim" || respostaProvisionamento == "" || respostaProvisionamento == null ) {
     $("#div_provisionamento_revisao").hide(400);
     $("#div_analise_vinculo_fornecedor").show(400);
   } else {

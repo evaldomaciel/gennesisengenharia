@@ -224,7 +224,6 @@ function removedZoomItem(removedItem) {
   }
   if (removedItem.inputId == "coligada") {
     limpaFiltroColigada();
-    $("#CODCOLIGADA").val("");
   }
   if (removedItem.inputId == "dados_pagamento") {
     $("#tipo_forn").text("");
@@ -265,7 +264,8 @@ function reloadZoomAfterLoad(loaded, count) {
       filtraTipoDeDocumentoPorColigada(CODCOLIGADA);
       filtraContaCaixaPelaColigadaEFilial(CODCOLIGADA)
       filtraPorColigada(CODCOLIGADA);
-      filtraPorColigadaFin();
+      filtraCCPorColigada();
+      filtraCCPorColigadaFin();
       filtraDadosPagamento();
     }
     else {
@@ -276,7 +276,28 @@ function reloadZoomAfterLoad(loaded, count) {
   }
 }
 
-function filtraPorColigadaFin() {
+function filtraPorColigada() {
+  let CODCOLIGADA = $("#CODCOLIGADA").val();
+  if (centro_de_custo.open != undefined) reloadZoomFilterValues("centro_de_custo", `CODCOLIGADA,${CODCOLIGADA}`);
+  if (dados_pagamento.open != undefined) filtraDadosPagamento();
+  if (dados_pagamento_analise.open != undefined) filtraDadosPagamento();
+  if (conta_caixa_analise.open != undefined) filtraContaCaixaPelaColigadaEFilial();
+  if (vincular_fornecedor.open != undefined) reloadZoomFilterValues("vincular_fornecedor", `CODCOLIGADA,${CODCOLIGADA}`);
+}
+
+function filtraCCPorColigada() {
+  let coligada = $("#CODCOLIGADA").val();
+  $('[name^="coluna_ccusto___"]').each((i, e) => {
+    let colunaCcustoInput = $(e).attr("name");
+    if (coligada == "" || coligada == null) {
+      if (validaZoom(colunaCcustoInput)) reloadZoomFilterValues(colunaCcustoInput);
+    } else {
+      if (validaZoom(colunaCcustoInput)) reloadZoomFilterValues(colunaCcustoInput, `CODCOLIGADA,${coligada}`);
+    }
+  });
+}
+
+function filtraCCPorColigadaFin() {
   let coligada = $("#CODCOLIGADA").val();
   $('[name^="coluna_ccusto_fin___"]').each((i, e) => {
     let colunaCcustoInput = $(e).attr("name");
@@ -308,8 +329,8 @@ function filtraContaCaixaPelaColigadaEFilial() {
 }
 
 function filtraDadosPagamento() {
-  if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CODCOLIGADA,${$("#hidden_coligada_cli_for").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
-  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCOLIGADA,${$("#hidden_coligada_cli_for").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
+  if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
+  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
 }
 
 function validaContaCaixa(codContaCaixa) {
@@ -470,40 +491,16 @@ function limpaDaDadosPagamento() {
   formSetValue("nome_filial_d_banc_fin", "");
 }
 
-
-function filtraPorColigada() {
-  let value = $("#CODCOLIGADA").val();
-  $(`[name^="coluna_ccusto___"]`).each((i, e) => {
-    if (e.name.open != undefined) reloadZoomFilterValues(e.name, `CODCOLIGADA,${value}`);
-  });
-
-  if (centro_de_custo.open != undefined) reloadZoomFilterValues("centro_de_custo", `CODCOLIGADA,${value}`);
-  if (dados_pagamento.open != undefined) reloadZoomFilterValues("dados_pagamento", `CGC,${$("#hidden_cnpj_fornecedor").val()},COLIGADA,${$("#coligada").val()}`);
-  if (dados_pagamento_analise.open != undefined) filtraDadosPagamento();
-  if (conta_caixa_analise.open != undefined) filtraContaCaixaPelaColigadaEFilial();
-  if (vincular_fornecedor.open != undefined) reloadZoomFilterValues("vincular_fornecedor", `CODCOLIGADA,${value}`);
-}
-
 function limpaFiltroColigada() {
-  reloadZoomFilterValues("centro_de_custo");
-  reloadZoomFilterValues("dados_pagamento");
-  reloadZoomFilterValues("dados_pagamento_analise");
-  reloadZoomFilterValues("vincular_fornecedor");
-  var tableBody = document
-    .getElementById("table_rateio_ccusto")
-    .getElementsByTagName("tbody")[0];
-
-  var rows = tableBody.getElementsByTagName("tr");
-  if (rows.length == 1) {
-    acrescentarLinha();
-    rows = tableBody.getElementsByTagName("tr");
-  }
-  for (let i = 1; i < rows.length; i++) {
-    var colunaCcustoInput = linha[i].querySelector(
-      `[name="coluna_ccusto___${i}"]`,
-    );
-    reloadZoomFilterValues(colunaCcustoInput.id);
-  }
+  $("#CODCOLIGADA").val("");
+  formSetValue("centro_de_custo", "")
+  formSetValue("filial", "")
+  formSetValue("setor_solicitante", "")
+  formLimpaCampoZoom("coluna_natureza")
+  formLimpaCampoZoom("coluna_ccusto")
+  formLimpaCampoZoom("dados_pagamento");
+  formLimpaCampoZoom("dados_pagamento_analise");
+  formLimpaCampoZoom("vincular_fornecedor");
 }
 
 function filtraNaturezaPorSetor() {
@@ -577,19 +574,22 @@ function getNomeFilial(CODCOLIGADA, CODFILIAL) {
 }
 
 function formSetValue(nomeCampo, valor) {
-  if (window[nomeCampo].open != undefined) window[nomeCampo].setValue(valor);
+  if (window[nomeCampo].open != undefined) valor == "" || valor == null ? window[nomeCampo].clear() : window[nomeCampo].setValue(valor);
   else window[nomeCampo].value = valor;
 }
 
 function formGetValue(nomeCampo) {
   console.log(nomeCampo);
   let tipoCampo = $(`[name="${nomeCampo}"]`).attr("type");
-
   if (tipoCampo == 'radio') return $(`[name="${nomeCampo}"]:checked`).val();
   if (tipoCampo == 'zoom') return String($(`[name="${nomeCampo}"]`).val());
-
   let nodeName = $(`[name="${nomeCampo}"]`).get(0).nodeName;
   if (nodeName == 'SELECT') return $(`[name="${nomeCampo}"] option:selected`).val();
-
   return String($(`[name="${nomeCampo}"]`).val());
+}
+
+function formLimpaCampoZoom(nomeCampo) {
+  $(`[name^='${nomeCampo}']`).each((i, e) => {
+    if (e.name) formSetValue(e.name, "")
+  });
 }

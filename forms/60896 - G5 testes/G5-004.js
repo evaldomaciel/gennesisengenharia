@@ -116,11 +116,11 @@ function acrescentarLinha(tabela) {
   MaskEvent.initMask(inputs);
   updateValorTotal(tabela);
   if (tabela == 'table_rateio_ccusto') {
-    filtraPorColigada($("#coligada").val());
+    filtraPorColigada($("#CODCOLIGADA").val());
     filtraNaturezaPorSetor();
   }
   if (tabela == 'table_rateio_ccusto_fin') {
-    filtraPorColigadaFin($("#coligada").val());
+    filtraCCPorColigadaFin($("#CODCOLIGADA").val());
     filtraNaturezaPorSetorFin();
   }
 }
