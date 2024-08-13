@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>TESTE - G5 - Pagamentos Avulsos</processId>
-      <version>8</version>
+      <version>9</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>60896</formId>
@@ -2276,6 +2276,147 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
+        <sequence>307</sequence>
+      </processStatePK>
+      <stateName>Revisar solicitação</stateName>
+      <stateDescription>Revisar solicitação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>550</positionX>
+      <positionY>207</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <sequence>309</sequence>
+      </processStatePK>
+      <stateName>Revisar solicitação</stateName>
+      <stateDescription>Revisar solicitação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>270</positionX>
+      <positionY>1610</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <sequence>312</sequence>
+      </processStatePK>
+      <stateName>Revisar solicitação</stateName>
+      <stateDescription>Revisar solicitação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1225</positionX>
+      <positionY>1350</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
         <sequence>124</sequence>
       </processStatePK>
       <stateName>Enviar para etapa:</stateName>
@@ -2588,7 +2729,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>8</version>
+        <version>9</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2600,7 +2741,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>8</version>
+        <version>9</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2612,7 +2753,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>3</expressionOrder>
-        <version>8</version>
+        <version>9</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2624,7 +2765,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>8</version>
+        <version>9</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2636,7 +2777,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>8</version>
+        <version>9</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2648,7 +2789,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>8</version>
+        <version>9</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2660,7 +2801,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>8</version>
+        <version>9</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -3745,7 +3886,75 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>307</linkSequence>
+        <linkSequence>308</linkSequence>
+      </processLinkPK>
+      <actionLabel>Revisar solicitação</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>221</initialStateSequence>
+      <finalStateSequence>307</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>310</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>216</initialStateSequence>
+      <finalStateSequence>309</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>311</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>295</initialStateSequence>
+      <finalStateSequence>309</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>313</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>223</initialStateSequence>
+      <finalStateSequence>312</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>314</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3761,7 +3970,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>308</linkSequence>
+        <linkSequence>315</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3777,7 +3986,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>309</linkSequence>
+        <linkSequence>316</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3793,7 +4002,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>310</linkSequence>
+        <linkSequence>317</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3809,7 +4018,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>311</linkSequence>
+        <linkSequence>318</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3825,7 +4034,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>312</linkSequence>
+        <linkSequence>319</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3841,7 +4050,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>313</linkSequence>
+        <linkSequence>320</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3857,7 +4066,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>314</linkSequence>
+        <linkSequence>321</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3873,7 +4082,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>315</linkSequence>
+        <linkSequence>322</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3889,7 +4098,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>316</linkSequence>
+        <linkSequence>323</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3905,12 +4114,76 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>317</linkSequence>
+        <linkSequence>324</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>168</initialStateSequence>
       <finalStateSequence>174</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>325</linkSequence>
+      </processLinkPK>
+      <actionLabel>Revisar solicitação</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>307</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>326</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>309</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>327</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>309</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>328</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>312</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -4358,32 +4631,48 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask176(attempt, message) {
-  var userId = getValue(&quot;WKUser&quot;);
-  hAPI.setCardValue(&quot;cTask007&quot;, getAtribuicoes(&quot;G5-007&quot;)); 
-	hAPI.setCardValue(&quot;cTask012&quot;, getAtribuicoes(&quot;G5-012&quot;)); 
-	hAPI.setCardValue(&quot;cTask014&quot;, getAtribuicoes(&quot;G5-014&quot;));
-	hAPI.setCardValue(&quot;cTask034&quot;, userId);
-	hAPI.setCardValue(&quot;cTask097&quot;, getAtribuicoes(&quot;G5-097&quot;));
-	hAPI.setCardValue(&quot;cTask127&quot;, getAtribuicoes(&quot;G5-127&quot;));
-	hAPI.setCardValue(&quot;cTask128&quot;, getAtribuicoes(&quot;G5-128&quot;));
-	hAPI.setCardValue(&quot;cTask216&quot;, getAtribuicoes(&quot;G5-216&quot;));
-	hAPI.setCardValue(&quot;cTask221&quot;, getAtribuicoes(&quot;G5-221&quot;));
-	hAPI.setCardValue(&quot;cTask223&quot;, getAtribuicoes(&quot;G5-223&quot;));
-	hAPI.setCardValue(&quot;cTask274&quot;, getAtribuicoes(&quot;G5-274&quot;));
-	hAPI.setCardValue(&quot;cTask295&quot;, getAtribuicoes(&quot;G5-295&quot;));
-  
+	try {
+		var userId = getValue(&quot;WKUser&quot;);
+		hAPI.setCardValue(&quot;cTask007&quot;, getAtribuicoes(&quot;G5-007&quot;));
+		hAPI.setCardValue(&quot;cTask012&quot;, getAtribuicoes(&quot;G5-012&quot;));
+		hAPI.setCardValue(&quot;cTask014&quot;, getAtribuicoes(&quot;G5-014&quot;));
+		hAPI.setCardValue(&quot;cTask034&quot;, userId);
+		hAPI.setCardValue(&quot;cTask097&quot;, getAtribuicoes(&quot;G5-097&quot;));
+		hAPI.setCardValue(&quot;cTask127&quot;, getAtribuicoes(&quot;G5-127&quot;));
+		hAPI.setCardValue(&quot;cTask128&quot;, getAtribuicoes(&quot;G5-128&quot;));
+		hAPI.setCardValue(&quot;cTask274&quot;, getAtribuicoes(&quot;G5-274&quot;));
+
+		var CampoSetor = String(hAPI.getCardValue(&apos;setor_solicitante&apos;));
+		var campoCentroCusto = String(hAPI.getCardValue(&apos;CODFILIAL&apos;));
+		/** Tratar erro */
+		var cTask221 = getAtribuicoes(&apos;G5-221-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+		hAPI.setCardValue(&quot;cTask221&quot;, getAtribuicoes(cTask221));
+
+		var cTask216 = getAtribuicoes(&apos;G5-216-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+		hAPI.setCardValue(&quot;cTask216&quot;, getAtribuicoes(cTask216));
+
+		var cTask295 = getAtribuicoes(&apos;G5-295-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+		hAPI.setCardValue(&quot;cTask295&quot;, getAtribuicoes(cTask295));
+
+		var cTask223 = getAtribuicoes(&apos;G5-223-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+		hAPI.setCardValue(&quot;cTask223&quot;, getAtribuicoes(cTask223));
+
+		var cTask214 = getAtribuicoes(&apos;G5-214-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+		hAPI.setCardValue(&quot;cTask214&quot;, getAtribuicoes(cTask214));
+
+	} catch (error) {
+		throw new Error(error);
+	}
 }
 
-function getAtribuicoes(atribuicao)
-{
-    var constraintAtribuicao = DatasetFactory.createConstraint(&quot;ID_ATV&quot;,atribuicao, atribuicao, ConstraintType.MUST)
-    var dtsAtribuicoes = DatasetFactory.getDataset(&quot;dts_consultaCadastroAtribuicoes&quot;, null, [constraintAtribuicao], null) 
-    if (dtsAtribuicoes.rowsCount &gt; 0) 
-    {
-        return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;)
-    } else {
-        return &quot;&quot;
-    }
+function getAtribuicoes(atribuicao) {
+	var constraintAtribuicao = DatasetFactory.createConstraint(&quot;ID_ATV&quot;, atribuicao, atribuicao, ConstraintType.MUST)
+	var dtsAtribuicoes = DatasetFactory.getDataset(&quot;dts_consultaCadastroAtribuicoes&quot;, null, [constraintAtribuicao], null)
+	if (dtsAtribuicoes.rowsCount &gt; 0) {
+		return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;)
+	} else {
+		return &quot;&quot;
+	}
 }
 </eventDescription>
     </WorkflowProcessEvent>
@@ -4474,6 +4763,88 @@ function captaChavePix(tipo_chave) {
   }
 }
 </eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>publicarGED</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>/**&#xd;
+ * Publica os anexos processo na pasta de destino definida&#xd;
+ * @param {String|Number} pastaDeDestino código da pasta de destino &#xd;
+ * @returns lista de anexos publicados&#xd;
+ */&#xd;
+function publicarGED(pastaDeDestino) {&#xd;
+	var docsField = [];&#xd;
+	try {&#xd;
+		var workflowAttachments = hAPI.listAttachments();&#xd;
+		for (var i = 0; i &lt; workflowAttachments.size(); i++) {&#xd;
+			var docDto = workflowAttachments.get(i);&#xd;
+			/** Se o tipo do documento for diferente de 5 (formulário do fluig) */&#xd;
+			if (docDto.getDocumentType() != 5) {&#xd;
+				var attachments = getAttachments(docDto);&#xd;
+				log.dir({&#xd;
+					&quot;docDto.getDocumentType()&quot;: docDto.getDocumentType(),&#xd;
+					&quot;docDto.getDocumentId()&quot;: docDto.getDocumentId(),&#xd;
+				});&#xd;
+				docAPI.copyDocumentToUploadArea(docDto.getDocumentId(), docDto.getVersion());&#xd;
+				docDto.setParentDocumentId(pastaDeDestino);&#xd;
+				docDto.setInheritSecurity(true);&#xd;
+				docDto.setKeyWord(&apos;&apos;);&#xd;
+				docDto.setVersionDescription(&apos;Anexado via processo&apos;);&#xd;
+				docDto.setActiveVersion(true);&#xd;
+				docDto.setColleagueId(getValue(&quot;WKUser&quot;)); // Informar o usuário logado.&#xd;
+				docDto.setPublisherId(getValue(&quot;WKUser&quot;)); // Informar o publicador.&#xd;
+				var doc = docAPI.createDocument(docDto, attachments, null, null, null);&#xd;
+				docsField.push(doc.getDocumentId());&#xd;
+			}&#xd;
+		}&#xd;
+		return docsField;&#xd;
+	}&#xd;
+	catch (e) {&#xd;
+		log.dir({ &quot;message&quot;: e.message, &quot;lineNumber&quot;: e.lineNumber });&#xd;
+		throw &quot;Erro ao publicar o documento, por favor, contate o administrador.&lt;br/&gt;&lt;br/&gt; &quot; + e;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * Obtém os detalhes dos anexos de acordo com o ID do documento informado&#xd;
+ * @param {String|Number} docDto código do documento &#xd;
+ * @returns array de informações sobre o documento solicitado&#xd;
+ */&#xd;
+function getAttachments(docDto) {&#xd;
+	var attachmentArray = new java.util.ArrayList();&#xd;
+	var attachment = docAPI.newAttachment();&#xd;
+	attachment.setFileName(docDto.getPhisicalFile());&#xd;
+	attachment.setPrincipal(true);&#xd;
+	attachment.setAttach(false);&#xd;
+	attachmentArray.add(attachment);&#xd;
+	return attachmentArray;&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * Cria uma nova pasta no GED&#xd;
+ * @param {Number} pastaPai número da pasta pai &#xd;
+ * @param {String} nome nome para a pasta&#xd;
+ * @returns {String} o ID da pasta criada&#xd;
+ */&#xd;
+function criaPasta(pastaPai, nome) {&#xd;
+	try {&#xd;
+		var dto = docAPI.newDocumentDto();&#xd;
+		dto.setDocumentDescription(nome);&#xd;
+		dto.setDocumentType(&quot;1&quot;);&#xd;
+		dto.setParentDocumentId(pastaPai);&#xd;
+		dto.setDocumentTypeId(&quot;&quot;);&#xd;
+&#xd;
+		var folder = docAPI.createFolder(dto, null, null);&#xd;
+		log.info(&quot;PASTA CRIADA COM O ID :&quot; + folder.getDocumentId());&#xd;
+		return parseInt(folder.getDocumentId());&#xd;
+	} catch (error) {&#xd;
+		throw new Error(&quot;Não foi possível criar a pasta! &quot; + String(error));&#xd;
+	}&#xd;
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -5170,7 +5541,24 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask114(attempt, message) {
-	return false;
+	/**
+	 * Criada pasta &quot;Anexos Jurídico&quot; na raiz do GED com o ID 13590 ou 467649
+	 * HMG: gennesisengenharia160517 - pasta : 129
+	 * PRD: gennesisengenharia160516 - pasta : 129
+	 * 	var pageService = fluigAPI.getPageService();
+	 * 	var urlDoServidor = String(pageService.getServerURL()); 
+	 */
+
+	try {
+		var pastaPai = 129;
+		var nomeSubPasta = &quot;G5-&quot; + String(&quot;WKNumProces&quot;);
+		var pastaCriada = criaPasta(pastaPai, nomeSubPasta);
+		var listaDeDocumento = publicarGED(pastaCriada);
+		hAPI.setCardValue(&quot;anexos&quot;, String(listaDeDocumento.join(&quot;,&quot;)))
+		return true;
+	} catch (error) {
+
+	}
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -5520,7 +5908,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>8</version>
+        <version>9</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5531,7 +5919,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>8</version>
+        <version>9</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5544,7 +5932,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>8</version>
+        <version>9</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -5562,7 +5950,7 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>8</version>
+        <version>9</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -5581,7 +5969,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>8</version>
+        <version>9</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -5594,7 +5982,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>8</version>
+        <version>9</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -5611,7 +5999,7 @@ Informamos que sua solicitação: [Título da solicitação] foi paga. Segue aba
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>8</version>
+        <version>9</version>
         <stateSequence>287</stateSequence>
         <triggerSequence>4</triggerSequence>
       </processStateTriggerPK>
@@ -5690,7 +6078,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5700,7 +6088,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5714,7 +6102,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5724,7 +6112,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5734,7 +6122,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -5744,7 +6132,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5754,7 +6142,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5768,7 +6156,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5778,7 +6166,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5788,7 +6176,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>8</processVersion>
+      <processVersion>9</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

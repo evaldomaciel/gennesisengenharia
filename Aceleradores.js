@@ -29,9 +29,7 @@ var datasetDsReadRecord = DatasetFactory.getDataset('dsReadRecord', null, new Ar
     DatasetFactory.createConstraint('mainTag', 'FCxa', null, ConstraintType.MUST)
 ), null);
 
-
-
-$('html, body').animate({ scrollTop: $('[name="dados_pagamento_analise"]').offset().top }, 1000);
+$('html, body').animate({ scrollTop: $('[name="CODCCUSTO"]').offset().top }, 1000);
 
 
 

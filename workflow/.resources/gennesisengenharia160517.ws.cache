@@ -10,6 +10,10 @@
    </array>
   </void>
   <void method="put">
+   <string>SINAL</string>
+   <object class="java.util.ArrayList"/>
+  </void>
+  <void method="put">
    <string>mecanismoGrupo</string>
    <object class="java.util.ArrayList">
     <void method="add">

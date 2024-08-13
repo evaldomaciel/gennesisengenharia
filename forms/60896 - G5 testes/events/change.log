@@ -1,0 +1,12 @@
+2024-08-11 	6-GED ,colocar os anexos em uma pasta identificada como G5 e cada solicitação com os anexos em uma pasta com o numero da solicitação G5-125444, G5-458744, vide  modelo do G4.
+			Criada a função "criaPasta(pastaPai, nomeSubPasta)", que retorna o número da pasta criada.
+			Criada a função "publicarGED(pastaCriada)", que retorna uma lista com os IDs dos arquivos publicados no GED.
+
+			2-Atribuiçao das atividades  Erro de Integração serão atribuidas para grupos de acordo com a coligada: cTask007 = getAtribuicoes ('G5-007-'+CampoSetor+'-'+campoCentroCusto )
+			Feitas as atribuições via campo e variáveis de grupos de acordo com o dataset de atribuições. Atribuições sendo feitas via script "servicetask176".
+
+			4-Verificar a possibilidade de no caso de erro ter a opção de voltar a solicitação para a atividade 34-Revisar Solicitação
+
+			Incluídos os links para enviar para a atividade "Revisar solicitação" nas atividades de tratamento de erro.
+
+			

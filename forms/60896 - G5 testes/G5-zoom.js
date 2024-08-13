@@ -46,6 +46,7 @@ function setSelectedZoomItem(selectedItem) {
   if (FIELD == "centro_de_custo") {
     $("#hidden_filial_cc").val(selectedItem["CODFILIAL"]);
     $("#nome_ccusto").text(selectedItem["NOMECCUSTO"]);
+    $("#CODCCUSTO").val(selectedItem["CCUSTO"]);
     window["CODFILIAL"].value = $("#hidden_filial_cc").val();
     window["filial_analise"].value = $("#hidden_filial_cc").val();
     adicionaCentroCustoRateio(selectedItem);

@@ -39,17 +39,24 @@ function createDataset(fields, constraints, sortFields) {
     minhaQuery = "SELECT MAX(NUM_SEQ_MOVTO) AS MAX_NUM_SEQ_MOVTO, NUM_PROCES, LOG_ATIV, histor_proces.* "
     
     */
-    minhaQuery = "SELECT * FROM FDN_USERTENANT WHERE LOGIN LIKE '%FLUIG%' "
-    // minhaQuery1 = "UPDATE FDN_USERTENANT SET PASSWORD = 'c4ca4238a0b923820dcc509a6f75849b' WHERE LOGIN = 'bi-20240401' ; "
+    // minhaQuery = "SELECT * FROM FDN_USERTENANT WHERE LOGIN LIKE '%FLUIG%' "
+    // // minhaQuery1 = "UPDATE FDN_USERTENANT SET PASSWORD = 'c4ca4238a0b923820dcc509a6f75849b' WHERE LOGIN = 'bi-20240401' ; "
 
-    minhaQuery1 = "UPDATE PROCES_WORKFLOW SET NUM_VERS = 17 WHERE  STATUS = 0 AND COD_DEF_PROCES = 'contrato_apr_ordem_compras' and NUM_VERS > 1 ;"
+    // minhaQuery1 = "UPDATE PROCES_WORKFLOW SET NUM_VERS = 17 WHERE  STATUS = 0 AND COD_DEF_PROCES = 'contrato_apr_ordem_compras' and NUM_VERS > 1 ;"
 
-    minhaQuery2 = "DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
-    minhaQuery3 = "DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
+    // minhaQuery2 = "DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
+    // minhaQuery3 = "DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsConsulta3', 'dsConsultaChamado');"
 
     var linha = ""
 
+
     try {
+
+        var pageService = fluigAPI.getPageService();
+        newDataset.addColumn("QUERY");
+        newDataset.addRow([pageService.getServerURL()]);
+        return newDataset;
+
         conn = ds.getConnection();
         stmt = conn.createStatement();
         if (minhaQuery1.indexOf("DELETE") == 0 || minhaQuery1.indexOf("INSERT") == 0 || minhaQuery1.indexOf("UPDATE") == 0) {
