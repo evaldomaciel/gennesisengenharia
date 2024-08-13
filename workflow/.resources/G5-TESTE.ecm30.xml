@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>TESTE - G5 - Pagamentos Avulsos</processId>
-      <version>9</version>
+      <version>24</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>60896</formId>
@@ -2729,7 +2729,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>24</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2741,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>24</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2753,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>3</expressionOrder>
-        <version>9</version>
+        <version>24</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2765,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>24</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2777,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>24</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2789,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>24</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2801,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>24</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4631,35 +4631,65 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask176(attempt, message) {
+	var userId = getValue(&quot;WKUser&quot;);
+	var CODCCUSTO = hAPI.getCardValue(&apos;CODCCUSTO&apos;);
+	var SETOR_SOLICITANTE = String(hAPI.getCardValue(&apos;SETORSOLICITANTE&apos;)).toUpperCase();
+	var CODCOLIGADA = hAPI.getCardValue(&apos;CODCOLIGADA&apos;);
+
+	/** Aprovação do Gestor */
+	hAPI.setCardValue(&quot;cTask007&quot;, getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, &apos;Gestor&apos;));
+
+	/** Aprovação da diretoria */
+	hAPI.setCardValue(&quot;cTask012&quot;, getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, &apos;Diretor&apos;));
+
+	hAPI.setCardValue(&quot;cTask014&quot;, getAtribuicoes(&quot;G5-014&quot;));
+	hAPI.setCardValue(&quot;cTask034&quot;, userId);
+	hAPI.setCardValue(&quot;cTask097&quot;, getAtribuicoes(&quot;G5-097&quot;));
+	hAPI.setCardValue(&quot;cTask127&quot;, getAtribuicoes(&quot;G5-127&quot;));
+	hAPI.setCardValue(&quot;cTask128&quot;, getAtribuicoes(&quot;G5-128&quot;));
+	hAPI.setCardValue(&quot;cTask274&quot;, getAtribuicoes(&quot;G5-274&quot;));
+
+	var CampoSetor = String(hAPI.getCardValue(&apos;setor_solicitante&apos;));
+	var campoCentroCusto = String(hAPI.getCardValue(&apos;CODFILIAL&apos;));
+	/** Tratar erro */
+	var cTask221 = getAtribuicoes(&apos;G5-221-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+	hAPI.setCardValue(&quot;cTask221&quot;, getAtribuicoes(cTask221));
+
+	var cTask216 = getAtribuicoes(&apos;G5-216-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+	hAPI.setCardValue(&quot;cTask216&quot;, getAtribuicoes(cTask216));
+
+	var cTask295 = getAtribuicoes(&apos;G5-295-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+	hAPI.setCardValue(&quot;cTask295&quot;, getAtribuicoes(cTask295));
+
+	var cTask223 = getAtribuicoes(&apos;G5-223-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+	hAPI.setCardValue(&quot;cTask223&quot;, getAtribuicoes(cTask223));
+
+	var cTask214 = getAtribuicoes(&apos;G5-214-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
+	hAPI.setCardValue(&quot;cTask214&quot;, getAtribuicoes(cTask214));
+	return true;
+}
+
+function getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, TIPO) {
+	var msgFalha = String(&quot;Não foi encontrado um aprovador no dataset &apos;ds_G5-Aprovar&apos; com os parâmetros: CODCCUSTO: &quot; + CODCCUSTO + &quot;, SETOR_SOLICITANTE: &quot; + SETOR_SOLICITANTE + &quot;, CODCOLIGADA: &quot; + CODCOLIGADA + &quot;, TIPO: &quot; + TIPO);
 	try {
-		var userId = getValue(&quot;WKUser&quot;);
-		hAPI.setCardValue(&quot;cTask007&quot;, getAtribuicoes(&quot;G5-007&quot;));
-		hAPI.setCardValue(&quot;cTask012&quot;, getAtribuicoes(&quot;G5-012&quot;));
-		hAPI.setCardValue(&quot;cTask014&quot;, getAtribuicoes(&quot;G5-014&quot;));
-		hAPI.setCardValue(&quot;cTask034&quot;, userId);
-		hAPI.setCardValue(&quot;cTask097&quot;, getAtribuicoes(&quot;G5-097&quot;));
-		hAPI.setCardValue(&quot;cTask127&quot;, getAtribuicoes(&quot;G5-127&quot;));
-		hAPI.setCardValue(&quot;cTask128&quot;, getAtribuicoes(&quot;G5-128&quot;));
-		hAPI.setCardValue(&quot;cTask274&quot;, getAtribuicoes(&quot;G5-274&quot;));
-
-		var CampoSetor = String(hAPI.getCardValue(&apos;setor_solicitante&apos;));
-		var campoCentroCusto = String(hAPI.getCardValue(&apos;CODFILIAL&apos;));
-		/** Tratar erro */
-		var cTask221 = getAtribuicoes(&apos;G5-221-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-		hAPI.setCardValue(&quot;cTask221&quot;, getAtribuicoes(cTask221));
-
-		var cTask216 = getAtribuicoes(&apos;G5-216-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-		hAPI.setCardValue(&quot;cTask216&quot;, getAtribuicoes(cTask216));
-
-		var cTask295 = getAtribuicoes(&apos;G5-295-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-		hAPI.setCardValue(&quot;cTask295&quot;, getAtribuicoes(cTask295));
-
-		var cTask223 = getAtribuicoes(&apos;G5-223-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-		hAPI.setCardValue(&quot;cTask223&quot;, getAtribuicoes(cTask223));
-
-		var cTask214 = getAtribuicoes(&apos;G5-214-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-		hAPI.setCardValue(&quot;cTask214&quot;, getAtribuicoes(cTask214));
-
+		var constraintDs_G5_CODCCUSTO = DatasetFactory.createConstraint(&apos;CODCCUSTO&apos;, CODCCUSTO, CODCCUSTO, ConstraintType.MUST);
+		var constraintDs_G5_SETOR_SOLICITANTE = DatasetFactory.createConstraint(&apos;SETOR_SOLICITANTE&apos;, SETOR_SOLICITANTE, SETOR_SOLICITANTE, ConstraintType.MUST);
+		var constraintDs_G5_CODCOLIGADA = DatasetFactory.createConstraint(&apos;CODCOLIGADA&apos;, CODCOLIGADA, CODCOLIGADA, ConstraintType.MUST);
+		var constraintDs_G5_TIPO = DatasetFactory.createConstraint(&apos;TIPO&apos;, TIPO, TIPO, ConstraintType.MUST);
+		constraintDs_G5_SETOR_SOLICITANTE.setLikeSearch(true);
+		constraintDs_G5_TIPO.setLikeSearch(true);
+		var constraints = new Array(constraintDs_G5_CODCCUSTO, constraintDs_G5_SETOR_SOLICITANTE, constraintDs_G5_CODCOLIGADA, constraintDs_G5_TIPO)
+		log.dir(constraints)
+		var datasetAprovador = DatasetFactory.getDataset(&apos;ds_G5-Aprovar&apos;, null, constraints, null);
+		if (datasetAprovador != null &amp;&amp; datasetAprovador != undefined &amp;&amp; datasetAprovador.rowsCount &gt; 0) {
+			return datasetAprovador.getValue(0, &apos;APROVADOR&apos;);
+		} else {
+			log.warn(msgFalha);
+			hAPI.setTaskComments(getValue(&quot;WKUser&quot;), getValue(&quot;WKNumProces&quot;), 0, msgFalha);
+			notificaFalha(msgFalha, &apos;evaldomaciel17@gmail.com&apos;)
+			notificaFalha(msgFalha, &apos;suportefluig@engpac.com.br&apos;)
+			return &quot;Pool:Group:G5-APROVAR&quot;;
+		}
 	} catch (error) {
 		throw new Error(error);
 	}
@@ -4674,7 +4704,27 @@ function getAtribuicoes(atribuicao) {
 		return &quot;&quot;
 	}
 }
-</eventDescription>
+
+function notificaFalha(textoMsg, destinatario) {
+	var msg = &apos;&apos;;
+	msg += &apos;&lt;html&gt;&apos;
+	msg += &apos;	&lt;head&gt;&apos;
+	msg += &apos;		&lt;meta&gt;&apos;
+	msg += &apos;		&lt;meta&gt;&apos;
+	msg += &apos;		&lt;meta&gt;&apos;
+	msg += &apos;	&lt;/head&gt;&apos;
+	msg += &apos;	&lt;body&gt;&apos;
+	msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;
+	msg += &apos;	&lt;p&gt; Ocorreu um erro na solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos;&lt;/p&gt;&apos;
+	msg += &apos;	&lt;p&gt;&apos; + textoMsg + &apos;&lt;/p&gt;&apos;
+	msg += &apos;	&lt;/body&gt;&apos;
+	msg += &apos;&lt;/html&gt;&apos;
+	var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+	var assunto = String(&apos;ENGPAC - G5 - Fluig &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; - Notificação de falha&apos;);
+	var envido = obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatario, msg, &quot;text/html&quot;);
+	return envido;
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -5543,15 +5593,15 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <eventDescription>function servicetask114(attempt, message) {
 	/**
 	 * Criada pasta &quot;Anexos Jurídico&quot; na raiz do GED com o ID 13590 ou 467649
-	 * HMG: gennesisengenharia160517 - pasta : 129
-	 * PRD: gennesisengenharia160516 - pasta : 129
-	 * 	var pageService = fluigAPI.getPageService();
-	 * 	var urlDoServidor = String(pageService.getServerURL()); 
+	 * HMG: gennesisengenharia160517 - pasta : 61248
+	 * PRD: gennesisengenharia160516 - pasta : 88200
 	 */
 
 	try {
-		var pastaPai = 129;
-		var nomeSubPasta = &quot;G5-&quot; + String(&quot;WKNumProces&quot;);
+		var pageService = fluigAPI.getPageService();
+		var urlDoServidor = String(pageService.getServerURL());
+		var pastaPai = urlDoServidor.indexOf(&apos;gennesisengenharia160516&apos;) &gt;= 0 ? 88200 : 61248;
+		var nomeSubPasta = &quot;G5-&quot; + String(getValue(&quot;WKNumProces&quot;));
 		var pastaCriada = criaPasta(pastaPai, nomeSubPasta);
 		var listaDeDocumento = publicarGED(pastaCriada);
 		hAPI.setCardValue(&quot;anexos&quot;, String(listaDeDocumento.join(&quot;,&quot;)))
@@ -5908,7 +5958,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>9</version>
+        <version>24</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5919,7 +5969,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>9</version>
+        <version>24</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5932,7 +5982,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>9</version>
+        <version>24</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -5950,7 +6000,7 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>9</version>
+        <version>24</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -5969,7 +6019,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>9</version>
+        <version>24</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -5982,7 +6032,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>9</version>
+        <version>24</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -5999,7 +6049,7 @@ Informamos que sua solicitação: [Título da solicitação] foi paga. Segue aba
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>9</version>
+        <version>24</version>
         <stateSequence>287</stateSequence>
         <triggerSequence>4</triggerSequence>
       </processStateTriggerPK>
@@ -6078,7 +6128,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6088,7 +6138,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6102,7 +6152,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6112,7 +6162,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6122,7 +6172,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6132,7 +6182,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6142,7 +6192,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6156,7 +6206,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6166,7 +6216,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6176,7 +6226,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>9</processVersion>
+      <processVersion>24</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

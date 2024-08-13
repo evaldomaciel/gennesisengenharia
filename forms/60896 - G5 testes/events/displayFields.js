@@ -186,20 +186,22 @@ function displayFields(form, customHTML) {
 
 
     /** INICO DO PREENCHIMENTO AUTOMATICO PARA TESTE 
-    if (user == '4ef20412-7687-40a4-b1c8-095c0a92503e' && form.getFormMode() == "ADD") {
+    if (user == '4ef20412-7687-40a4-b1c8-095c0a92503e' && (form.getFormMode() == "ADD") || activity == 14) {
       var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
-        DatasetFactory.createConstraint('documentid', '61170', '61170', ConstraintType.MUST)
+        DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)
       ), null);
 
       var colunas = datasetDs_G5.getColumnsName();
       customHTML.append("\n<script> var colunasSize = '" + colunas.length + "'; </script>");
       customHTML.append("\n<script> var colunas = '" + JSONUtil.toJSON(colunas) + "'; </script>");
+      customHTML.append("\n<script> function preencheTodosOsCampos() { ");
       for (var index = 0; index < colunas.length; index++) {
         var campo = colunas[index];
         var valor = datasetDs_G5.getValue(0, campo);
         form.setValue(campo, valor);
-        customHTML.append("\n<script> var " + campo + " = '" + valor + "'; </script>");
+        customHTML.append("\n var ds_" + campo + " = '" + valor + "'");
       }
+      customHTML.append("\n }");
     }
     /** FIM DO PREENCHIMENTO AUTOMATICO */
 
@@ -272,7 +274,7 @@ function getExpediente() {
 function preencheFormAcelerador(form) {
   if ((user == "fluig" || user == "4ef20412-7687-40a4-b1c8-095c0a92503e") && form.getFormMode() == "ADD") {
     var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
-      DatasetFactory.createConstraint('documentid', '61170', '61170', ConstraintType.MUST)
+      DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)
     ), null);
 
     var colunas = datasetDs_G5.getColumnsName();

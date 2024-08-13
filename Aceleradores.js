@@ -49,3 +49,8 @@ function vamosOcultar(params) {
 
 vamosOcultar()
 
+var constraintProcessHistory1 = DatasetFactory.createConstraint('sqlLimit', '100', '100', ConstraintType.MUST);
+var constraintProcessHistory2 = DatasetFactory.createConstraint('processHistoryPK.processInstanceId', '44128', '44128', ConstraintType.MUST);
+var datasetProcessHistory = DatasetFactory.getDataset('processHistory', ['processHistoryPK.processInstanceId' , 'processHistoryPK.movementSequence'], new Array(constraintProcessHistory1, constraintProcessHistory2), null);
+datasetProcessHistory.values
+

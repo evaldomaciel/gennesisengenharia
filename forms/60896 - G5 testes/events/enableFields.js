@@ -5,10 +5,10 @@ function enableFields(form) {
   var table_rateio_ccusto_fin_indexes = form.getChildrenIndexes("table_rateio_ccusto_fin");
   var indexes_fin = form.getChildrenIndexes("table_rateio_ccusto_fin");
 
-  if (user == "suporte.fluig" || user == "suporte2.fluig" || user != "admin") {
-  }
-
   try {
+    if (user == "suporte.fluig" || user == "suporte2.fluig" || user != "admin") {
+    }
+
     /* ETAPA 000 | 004 - INICIO */
     if (activity == 4 || activity == 0) {
       form.setEnabled("numero_solicitacao", false);
@@ -578,7 +578,20 @@ function enableFields(form) {
       form.setEnabled("nTask295", false);
     }
 
+
+    /** Tratar erro - Habilita todos os campos */
+    if (activity == 223 || activity == 295 || activity == 216 || activity == 221) {
+      var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
+        DatasetFactory.createConstraint('documentid', form.getDocumentId(), form.getDocumentId(), ConstraintType.MUST)
+      ), null);
+      var colunas = datasetDs_G5.getColumnsName();
+      for (var index = 0; index < colunas.length; index++) {
+        var campo = colunas[index];
+        form.setEnabled(campo, true);
+      }
+    }
+
   } catch (error) {
-    console.log("error");
+    log.info("error");
   }
 }
