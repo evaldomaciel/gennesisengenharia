@@ -19,7 +19,7 @@ function validateForm(form) {
         if (form.getValue("data_vencimento") == "" || form.getValue("data_vencimento") == null) { msg += '<br><b>O campo <font color="red">Data de Vencimento</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("responsavel_solicitacao") == "" || form.getValue("responsavel_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Responsável pela Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("email_solicitante") == "" || form.getValue("email_solicitante") == null) { msg += '<br><b>O campo <font color="red">E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("copia_email_solicitante") == "" || form.getValue("copia_email_solicitante") == null) { msg += '<br><b>O campo <font color="red">Cópia do E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
+        ///if (form.getValue("copia_email_solicitante") == "" || form.getValue("copia_email_solicitante") == null) { msg += '<br><b>O campo <font color="red">Cópia do E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("teve_juros") == "" || form.getValue("teve_juros") == null) { msg += '<br><b>O campo <font color="red">Houve juros no pagamento?</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("teve_juros") == "Sim") {
             if (form.getValue("valor_original") == "" || form.getValue("valor_original") == null) { msg += '<br><b>O campo <font color="red">Valor Original</font> \u00E9 obrigat\u00F3rio!</b>'; }
@@ -91,7 +91,7 @@ function validateForm(form) {
             if (form.getValue("juros_analise") == "" || form.getValue("juros_analise") == null) { msg += '<br><b>O campo <font color="red">Juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
             if (form.getValue("percentual_juros_analise") == "" || form.getValue("percentual_juros_analise") == null) { msg += '<br><b>O campo <font color="red">% Juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
             if (form.getValue("juros_dia_analise") == "" || form.getValue("juros_dia_analise") == null) { msg += '<br><b>O campo <font color="red">Juros ao Dia</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("data_valor_liquido") == "" || form.getValue("data_valor_liquido") == null) { msg += '<br><b>O campo <font color="red">Data Valor Líquido</font> \u00E9 obrigat\u00F3rio!</b>'; }
+            ///if (form.getValue("data_valor_liquido") == "" || form.getValue("data_valor_liquido") == null) { msg += '<br><b>O campo <font color="red">Data Valor Líquido</font> \u00E9 obrigat\u00F3rio!</b>'; }
             if (form.getValue("carencia_juros_analise") == "" || form.getValue("carencia_juros_analise") == null) { msg += '<br><b>O campo <font color="red">Carência Juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
             if (form.getValue("multa_analise") == "" || form.getValue("multa_analise") == null) { msg += '<br><b>O campo <font color="red">Multa</font> \u00E9 obrigat\u00F3rio!</b>'; }
             if (form.getValue("percentual_multa_analise") == "" || form.getValue("percentual_multa_analise") == null) { msg += '<br><b>O campo <font color="red">% Multa</font> \u00E9 obrigat\u00F3rio!</b>'; }
@@ -144,7 +144,7 @@ function validateForm(form) {
         if (form.getValue("data_vencimento") == "" || form.getValue("data_vencimento") == null) { msg += '<br><b>O campo <font color="red">Data de Vencimento</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("responsavel_solicitacao") == "" || form.getValue("responsavel_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Responsável pela Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("email_solicitante") == "" || form.getValue("email_solicitante") == null) { msg += '<br><b>O campo <font color="red">E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("copia_email_solicitante") == "" || form.getValue("copia_email_solicitante") == null) { msg += '<br><b>O campo <font color="red">Cópia do E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
+        ///if (form.getValue("copia_email_solicitante") == "" || form.getValue("copia_email_solicitante") == null) { msg += '<br><b>O campo <font color="red">Cópia do E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("teve_juros") == "" || form.getValue("teve_juros") == null) { msg += '<br><b>O campo <font color="red">Houve juros no pagamento?</font> \u00E9 obrigat\u00F3rio!</b>'; }
         if (form.getValue("teve_juros") == "Sim") {
             if (form.getValue("valor_original") == "" || form.getValue("valor_original") == null) { msg += '<br><b>O campo <font color="red">Valor Original</font> \u00E9 obrigat\u00F3rio!</b>'; }

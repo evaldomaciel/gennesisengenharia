@@ -34,7 +34,8 @@ function createDataset(fields, constraints, sortFields) {
 			"IDMOV",
 			"FILIAL",
 			"CODCOLIGADA",
-			"IDMOV_RM_STATUS"  
+			"IDMOV_RM_STATUS",
+			"LOCAL_DE_ESTOQUE"
 			
 	);
 	var dataset = DatasetBuilder.newDataset();
@@ -55,8 +56,8 @@ function createDataset(fields, constraints, sortFields) {
 		log.info("authService " + authService)
 	
 		
-		var FILIAL; 
-		var CODCOLIGADA ;
+		var FILIAL=3;
+		var CODCOLIGADA=1;
 		var PARAMS;
 		
 
@@ -67,7 +68,8 @@ function createDataset(fields, constraints, sortFields) {
 				}
 				if (constraints[i].fieldName == "FILIAL") {
 					FILIAL = constraints[i].initialValue
-				}	
+				}
+				
 			}
 		}
 		
@@ -88,7 +90,8 @@ function createDataset(fields, constraints, sortFields) {
 			    row.has("IDMOV") ? row.get("IDMOV") : "",
 				row.has("FILIAL") ? row.get("FILIAL") : "",
 				row.has("CODCOLIGADA") ? row.get("CODCOLIGADA") : "",
-				row.has("IDMOV_RM_STATUS") ? row.get("IDMOV_RM_STATUS") : ""
+				row.has("IDMOV_RM_STATUS") ? row.get("IDMOV_RM_STATUS") : "",
+				row.has("LOCAL_DE_ESTOQUE") ? row.get("LOCAL_DE_ESTOQUE") : ""
 			));
 		} else
 			for (var i = 0; i < dados.length(); i++) {
@@ -97,7 +100,8 @@ function createDataset(fields, constraints, sortFields) {
 					registro.get("IDMOV"),
 					registro.get("FILIAL"),
 					registro.get("CODCOLIGADA"),
-					registro.get('IDMOV_RM_STATUS')
+					registro.get('IDMOV_RM_STATUS'),
+					registro.get('LOCAL_DE_ESTOQUE')
 				));
 			}
 		return dataset;

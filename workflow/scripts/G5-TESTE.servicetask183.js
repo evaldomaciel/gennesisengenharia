@@ -12,9 +12,10 @@ function servicetask183(attempt, message) {
 
   try {
     var dataServerName = 'FinLanDataBR'
-    var usuario = 'suporte.totvs'
-    var senha = 'Suporte#5'
+    var usuario = getConstante('rm_usuario')
+    var senha = getConstante('rm_senha')
     var authenticatedService = getWebService(usuario, senha, "RMWsDataServer", "com.totvs.WsDataServer", "com.totvs.IwsDataServer");
+    log.dir({ "getWebService": { 'usuario': usuario, 'senha': senha, "serviceRM": "RMWsDataServer", "instance": "com.totvs.WsDataServer", "authClient": "com.totvs.IwsDataServer" } });
 
     var idLanModelo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : 28757;
     var idLanNovo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : "-1";
@@ -40,7 +41,7 @@ function servicetask183(attempt, message) {
     text = replaceValue(text, 'HISTORICO', hAPI.getCardValue("historico_analise"));
     text = replaceValue(text, 'DATAVENCIMENTO', dataVencimento);
     text = replaceValue(text, 'DATAEMISSAO', dataEmissao);
-    text = replaceValue(text, 'DATAPREVBAIXA', dataPrevBaixa);
+    text = replaceValue(text, 'DATAPREVBAIXA', dataVencimento); ///dataPrevBaixa);
     text = replaceValue(text, 'VALORORIGINAL', valorOriginal);
     text = replaceValue(text, 'VALORCAPBX', formatText2Float(hAPI.getCardValue("hidden_valor_cap")));
     text = replaceValue(text, 'VALORJUROS', formatText2Float(hAPI.getCardValue("hidden_valor_juros")));

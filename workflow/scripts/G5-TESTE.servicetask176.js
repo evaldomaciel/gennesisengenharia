@@ -69,7 +69,7 @@ function getAtribuicoes(atribuicao) {
 	if (dtsAtribuicoes.rowsCount > 0) {
 		return dtsAtribuicoes.getValue(0, "hd_cod_user_atv")
 	} else {
-		return ""
+		return "Pool:Group:G5-APROVAR";
 	}
 }
 

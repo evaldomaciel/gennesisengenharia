@@ -231,7 +231,7 @@
               <div class="form-field" data-type="textbox" data-show-properties data-field-name="copia_email_solicitante">
                 <div class="form-input">
                   <div class="form-group">
-                    <label class="required">Email Cópia</label>
+                    <label>Email Cópia</label>
                     <input type="text" class="form-control" name="copia_email_solicitante" id="copia_email_solicitante" />
                   </div>
                 </div>
@@ -2087,7 +2087,7 @@
                 <label class="required">Data de Vencimento</label>
                 <input id="data_vencimento_analise" type="text" class="form-control" name="data_vencimento_analise" onchange="getDataVencimento(this, this.value)" data-date>
               </div>
-              <div class="col-sm-3" id="div_data_baixa_analise">
+              <div class="col-sm-3" id="div_data_baixa_analise" hidden>
                 <label class="required">Data de Baixa</label>
                 <input id="data_baixa_analise" type="text" class="form-control" name="data_baixa_analise" onchange="getDataBaixa(this.value)" data-date>
               </div>
@@ -2170,7 +2170,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-2 form-group" id="div_valor_baixado_analise">
+              <div class="col-sm-2 form-group" id="div_valor_baixado_analise" hidden>
                 <label class="required" for="valor_baixado_analise">Valor Baixado</label>
                 <input type="text" class="form-control" id="valor_baixado_analise" name="valor_baixado_analise" mask="#000.000.000,00" maxlength="14">
               </div>
@@ -2306,7 +2306,7 @@
                 <label class="required">Multa ao dia (%)</label>
                 <input type="text" class="form-control" id="multa_dia_analise" name="multa_dia_analise" placeholder="00.00" mask="#00.00" maxlength="5" value="00.00">
               </div>
-              <div class="col-sm-2" id="div_data_valor_liquido">
+              <div class="col-sm-2" id="div_data_valor_liquido" hidden>
                 <label class="required">Data Valor Líquido</label>
                 <input id="data_valor_liquido" type="text" class="form-control" name="data_valor_liquido" data-date>
               </div>

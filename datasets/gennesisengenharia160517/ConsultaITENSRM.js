@@ -35,9 +35,6 @@ function createDataset(fields, constraints, sortFields) {
 	var NOME_SERVICO = "WSCONSSQL";
 	var CAMINHO_SERVICO = "com.totvs.WsConsultaSQL";
 	var COLUNAS = new Array(
-			"IDMOV",
-			"FILIAL",
-			"CODCOLIGADA",
 			"NOME",
 			"UNIDADE",
 			"DISCIPLINA",
@@ -95,9 +92,6 @@ function createDataset(fields, constraints, sortFields) {
 			if (dados.isNull(0)) {
 				row = dados;
 				dataset.addRow(new Array(
-					row.has("IDMOV") ? row.get("IDMOV") : "",
-					row.has("FILIAL") ? row.get("FILIAL") : "",
-					row.has("CODCOLIGADA") ? row.get("CODCOLIGADA") : "",
 					row.has("NOME") ? row.get("NOME") : "",
 					row.has("UNIDADE") ? row.get("UNIDADE") : "",
 					row.has("DISCIPLINA") ? row.get("DISCIPLINA") : "",
@@ -110,9 +104,6 @@ function createDataset(fields, constraints, sortFields) {
 					var registro = dados.get(i);
 						{
 							dataset.addRow(new Array(
-							registro.get("IDMOV"),
-							registro.get("FILIAL"),
-							registro.get("CODCOLIGADA"),
 							registro.get("NOME"),
 							registro.get("UNIDADE"),
 							registro.get("DISCIPLINA"),

@@ -14,7 +14,7 @@ function createDataset(fields, constraints, sortFields) {
         var data = {
             companyId: getValue('WKCompany') + '',
             serviceCode: 'RestRM',
-            endpoint: '/ZZZ.FORNECEDORES/0/M' + filter,
+            endpoint: '/ZZZ.FORNECEDORES/0/T' + filter,
             method: 'GET',
             timeoutService: '120', // segundos
             options: {

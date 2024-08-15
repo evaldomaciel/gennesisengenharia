@@ -12,8 +12,8 @@ function servicetask183(attempt, message) {
 
   try {
     var dataServerName = 'FinLanDataBR'
-    var usuario = 'suporte.totvs'
-    var senha = 'Suporte#5'
+    var usuario = getConstante('rm_usuario')
+    var senha = getConstante('rm_senha')
     var authenticatedService = getWebService(usuario, senha, "RMWsDataServer", "com.totvs.WsDataServer", "com.totvs.IwsDataServer");
 
     var idLanModelo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : 28757;

@@ -72,3 +72,15 @@ function criaPasta(pastaPai, nome) {
 		throw new Error("Não foi possível criar a pasta! " + String(error));
 	}
 }
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
+	for (var i = 0; i < oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, "id").trim() == param.trim()) {
+			return oConstantes.getValue(i, "Valor").trim();
+		}
+	}
+	return '0';
+}

@@ -22,7 +22,7 @@ function servicetask210(attempt, message) {
       "CAIXAPOSTAL": hAPI.getCardValue("caixa_postal_fin"),
       "TIPORUA": hAPI.getCardValue("tipo_rua_fin"),
       "TIPOBAIRRO": hAPI.getCardValue("tipo_bairro_fin"),
-      "USUARIOCRIACAO": "suporte.totvs",
+      "USUARIOCRIACAO": getConstante('rm_usuario'),
       "IDPAIS": hAPI.getCardValue("id_pais_fin"),
       "NACIONALIDADE": hAPI.getCardValue("nacionalidade_fin"),
       "APOSENTADOOUPENSIONISTA": hAPI.getCardValue("aposen_pensionista_fin"),

@@ -26,8 +26,8 @@ function createDataset(fields, constraints, sortFields) {
 		}
 
 		/** Autenticação */
-		var user = "suporte.totvs";
-		var pass = "Suporte#5";
+		var user = getConstante('rm_usuario');
+		var pass = getConstante('rm_senha');
 		var context = "CodUsuario=suporte.totvs;CodSistema=F;CodColigada=" + String(primaryKey).split(";")[0];
 
 		var result = dcReadRecord(dataServer, context, user, pass, primaryKey);
@@ -273,4 +273,16 @@ function replaceValue(text, columnName, newValue) {
 
 function isEmpty(str) {
 	return (!str || 0 === str.length);
+}
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
+	for (var i = 0; i < oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, "id").trim() == param.trim()) {
+			return oConstantes.getValue(i, "Valor").trim();
+		}
+	}
+	return '0';
 }

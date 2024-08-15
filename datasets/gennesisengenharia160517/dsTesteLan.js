@@ -15,8 +15,8 @@ function callService(fields, constraints, sortFields) {
 	properties["disable.chunking"] = "false";
 	properties["use.ssl"] = "false";
 	properties["basic.authorization"] = "true";
-	properties["basic.authorization.username"] = "suporte.totvs";
-	properties["basic.authorization.password"] = "Suporte#5";
+	properties["basic.authorization.username"] = getConstante('rm_usuario');
+	properties["basic.authorization.password"] = getConstante('rm_senha');
 
 	verifyConstraints(serviceData.inputValues, constraints);
 
@@ -193,8 +193,8 @@ function data() {
     "disableChunking" : false,
     "useSSL" : false,
     "basicAuthentication" : true,
-    "basicAuthenticationUsername" : "suporte.totvs",
-    "basicAuthenticationPassword" : "Suporte#5",
+    "basicAuthenticationUsername" : getConstante('rm_usuario'),
+    "basicAuthenticationPassword" : getConstante('rm_senha'),
     "parseResult" : true,
     "headers" : [ ],
     "datasetkeys" : [ ],
@@ -206,3 +206,15 @@ function data() {
 }
 
  function stringToBoolean(param) { if(typeof(param) === 'boolean') {  return param;  }  if (param == null || param === 'null') {  return false;  }  switch(param.toLowerCase().trim()) {  case 'true': case 'yes': case '1': return true;  case 'false': case 'no': case '0': case null: return false;  default: return Boolean(param);  }  } 
+
+ function getConstante(param) {
+	 var aConstraint = [];
+	 aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
+	 var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
+	 for (var i = 0; i < oConstantes.rowsCount; i++) {
+		 if (oConstantes.getValue(i, "id").trim() == param.trim()) {
+			 return oConstantes.getValue(i, "Valor").trim();
+		 }
+	 }
+	 return '0';
+ }

@@ -4,7 +4,7 @@
       <companyId>1</companyId>
       <processId>G5-TESTE</processId>
     </processDefinitionPK>
-    <processDescription>TESTE - G5 - Pagamentos Avulsos</processDescription>
+    <processDescription>G5 - Pagamentos Avulsos</processDescription>
     <instruction></instruction>
     <active>true</active>
     <publicProcess>false</publicProcess>
@@ -28,11 +28,11 @@
   <ProcessDefinitionVersion>
     <processDefinitionVersionPK>
       <companyId>1</companyId>
-      <processId>TESTE - G5 - Pagamentos Avulsos</processId>
-      <version>24</version>
+      <processId>G5 - Pagamentos Avulsos</processId>
+      <version>5</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>60896</formId>
+    <formId>88477</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -790,7 +790,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1350</positionX>
+      <positionX>1357</positionX>
       <positionY>1415</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -1032,8 +1032,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -1084,8 +1084,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -1136,8 +1136,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -2159,7 +2159,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1340</positionX>
+      <positionX>1347</positionX>
       <positionY>1475</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -2453,7 +2453,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>1380</positionX>
-      <positionY>1617</positionY>
+      <positionY>1624</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -2729,7 +2729,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>24</version>
+        <version>5</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2741,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>24</version>
+        <version>5</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2753,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>3</expressionOrder>
-        <version>24</version>
+        <version>5</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2765,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>24</version>
+        <version>5</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2777,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>24</version>
+        <version>5</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2789,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>24</version>
+        <version>5</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2801,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>24</version>
+        <version>5</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4199,53 +4199,53 @@
         <processId>G5-TESTE</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function beforeCancelProcess(colleagueId, processId) {&#xd;
-    log.info(&quot;============= inicio afterTaskComplete 00-FLUIG &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);&#xd;
-    try {&#xd;
-        var parametros = new java.util.HashMap();&#xd;
-        parametros.put(&quot;ASSUNTO&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);&#xd;
-        parametros.put(&quot;subject&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);&#xd;
-        parametros.put(&quot;USUARIO&quot;, getValue(&quot;WKUser&quot;));&#xd;
-        parametros.put(&quot;TITULO_SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));&#xd;
-        parametros.put(&quot;ATENDENTE&quot;, &quot;Gestão&quot;);&#xd;
-        parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));&#xd;
-&#xd;
-        var destinatarios = new java.util.ArrayList();&#xd;
-        destinatarios.add(&quot;agcoimbra@gmail.com&quot;);&#xd;
-        destinatarios.add(&quot;desenvolvimento.fluig@grupodecio.com.br&quot;);&#xd;
-        destinatarios.add(&quot;evaldomaciel17@gmail.com&quot;);&#xd;
-&#xd;
-        notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);&#xd;
-&#xd;
-        /** Personalizado */&#xd;
-        var msg = &apos;&apos;;&#xd;
-        msg += &apos;&lt;html&gt;&apos;&#xd;
-        msg += &apos;	&lt;head&gt;&apos;&#xd;
-        msg += &apos;		&lt;meta&gt;&apos;&#xd;
-        msg += &apos;		&lt;meta&gt;&apos;&#xd;
-        msg += &apos;		&lt;meta&gt;&apos;&#xd;
-        msg += &apos;	&lt;/head&gt;&apos;&#xd;
-        msg += &apos;	&lt;body&gt;&apos;&#xd;
-        msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;&#xd;
-        msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))&#xd;
-        msg += &apos;	    foi cancelada!. &lt;/p&gt;&apos;&#xd;
-        msg += &apos;	&lt;/body&gt;&apos;&#xd;
-        msg += &apos;&lt;/html&gt;&apos;&#xd;
-        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
-&#xd;
-        var assunto = String(&apos;ENGPAC - G5 - Fluig &apos; + String(getValue(&quot;WKNumProces&quot;)));&#xd;
-        for (var index = 0; index &lt; destinatarios.size(); index++) {&#xd;
-            var destinatario = String(destinatarios.get(index));&#xd;
-            var envido = obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatario, msg, &quot;text/html&quot;);&#xd;
-            log.info(destinatario + &quot; - &quot; + assunto);&#xd;
-        }&#xd;
-    } catch (e) {&#xd;
-        log.error(&quot;dentro do catch&quot;);&#xd;
-        log.error(&quot;Linha do erro&quot; + e.lineNumber);&#xd;
-        log.error(String(e));&#xd;
-        throw new Error(e);&#xd;
-    }&#xd;
-    log.info(&quot;============= fim afterTaskComplete 00-FLUIG &quot; + String(getValue(&quot;WKNumProces&quot;)) + &quot;============= &quot;);&#xd;
+      <eventDescription>function beforeCancelProcess(colleagueId, processId) {
+    log.info(&quot;============= inicio afterTaskComplete 00-FLUIG &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);
+    try {
+        var parametros = new java.util.HashMap();
+        parametros.put(&quot;ASSUNTO&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
+        parametros.put(&quot;subject&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
+        parametros.put(&quot;USUARIO&quot;, getValue(&quot;WKUser&quot;));
+        parametros.put(&quot;TITULO_SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
+        parametros.put(&quot;ATENDENTE&quot;, &quot;Gestão&quot;);
+        parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
+
+        var destinatarios = new java.util.ArrayList();
+        destinatarios.add(&quot;agcoimbra@gmail.com&quot;);
+        destinatarios.add(&quot;desenvolvimento.fluig@grupodecio.com.br&quot;);
+        destinatarios.add(&quot;evaldomaciel17@gmail.com&quot;);
+
+        notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
+
+        /** Personalizado */
+        var msg = &apos;&apos;;
+        msg += &apos;&lt;html&gt;&apos;
+        msg += &apos;	&lt;head&gt;&apos;
+        msg += &apos;		&lt;meta&gt;&apos;
+        msg += &apos;		&lt;meta&gt;&apos;
+        msg += &apos;		&lt;meta&gt;&apos;
+        msg += &apos;	&lt;/head&gt;&apos;
+        msg += &apos;	&lt;body&gt;&apos;
+        msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;
+        msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))
+        msg += &apos;	    foi cancelada!. &lt;/p&gt;&apos;
+        msg += &apos;	&lt;/body&gt;&apos;
+        msg += &apos;&lt;/html&gt;&apos;
+        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+        var assunto = String(&apos;ENGPAC - G5 - Fluig &apos; + String(getValue(&quot;WKNumProces&quot;)));
+        for (var index = 0; index &lt; destinatarios.size(); index++) {
+            var destinatario = String(destinatarios.get(index));
+            var envido = obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatario, msg, &quot;text/html&quot;);
+            log.info(destinatario + &quot; - &quot; + assunto);
+        }
+    } catch (e) {
+        log.error(&quot;dentro do catch&quot;);
+        log.error(&quot;Linha do erro&quot; + e.lineNumber);
+        log.error(String(e));
+        throw new Error(e);
+    }
+    log.info(&quot;============= fim afterTaskComplete 00-FLUIG &quot; + String(getValue(&quot;WKNumProces&quot;)) + &quot;============= &quot;);
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4535,13 +4535,13 @@ function getAtribuicoes(atribuicao) {
         <processId>G5-TESTE</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function afterProcessCreate(processId){&#xd;
-        var pasta = &quot;/app/fluig/appserver/domain/servers/&quot;;&#xd;
-        var diretorio = new java.io.File(pasta);&#xd;
-        var arquivos = diretorio.listFiles();&#xd;
-        var linhaDeComando2 = String(arquivos[0]);&#xd;
-        var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + &quot;/log/server.log&quot;));&#xd;
-        var retorno4 = new java.nio.file.Files.writeString(pasta, &quot;&quot;);&#xd;
+      <eventDescription>function afterProcessCreate(processId){
+        var pasta = &quot;/app/fluig/appserver/domain/servers/&quot;;
+        var diretorio = new java.io.File(pasta);
+        var arquivos = diretorio.listFiles();
+        var linhaDeComando2 = String(arquivos[0]);
+        var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + &quot;/log/server.log&quot;));
+        var retorno4 = new java.nio.file.Files.writeString(pasta, &quot;&quot;);
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4575,7 +4575,7 @@ function getAtribuicoes(atribuicao) {
       &quot;CAIXAPOSTAL&quot;: hAPI.getCardValue(&quot;caixa_postal_fin&quot;),
       &quot;TIPORUA&quot;: hAPI.getCardValue(&quot;tipo_rua_fin&quot;),
       &quot;TIPOBAIRRO&quot;: hAPI.getCardValue(&quot;tipo_bairro_fin&quot;),
-      &quot;USUARIOCRIACAO&quot;: &quot;suporte.totvs&quot;,
+      &quot;USUARIOCRIACAO&quot;: getConstante(&apos;rm_usuario&apos;),
       &quot;IDPAIS&quot;: hAPI.getCardValue(&quot;id_pais_fin&quot;),
       &quot;NACIONALIDADE&quot;: hAPI.getCardValue(&quot;nacionalidade_fin&quot;),
       &quot;APOSENTADOOUPENSIONISTA&quot;: hAPI.getCardValue(&quot;aposen_pensionista_fin&quot;),
@@ -4701,7 +4701,7 @@ function getAtribuicoes(atribuicao) {
 	if (dtsAtribuicoes.rowsCount &gt; 0) {
 		return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;)
 	} else {
-		return &quot;&quot;
+		return &quot;Pool:Group:G5-APROVAR&quot;;
 	}
 }
 
@@ -4821,79 +4821,91 @@ function captaChavePix(tipo_chave) {
         <processId>G5-TESTE</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>/**&#xd;
- * Publica os anexos processo na pasta de destino definida&#xd;
- * @param {String|Number} pastaDeDestino código da pasta de destino &#xd;
- * @returns lista de anexos publicados&#xd;
- */&#xd;
-function publicarGED(pastaDeDestino) {&#xd;
-	var docsField = [];&#xd;
-	try {&#xd;
-		var workflowAttachments = hAPI.listAttachments();&#xd;
-		for (var i = 0; i &lt; workflowAttachments.size(); i++) {&#xd;
-			var docDto = workflowAttachments.get(i);&#xd;
-			/** Se o tipo do documento for diferente de 5 (formulário do fluig) */&#xd;
-			if (docDto.getDocumentType() != 5) {&#xd;
-				var attachments = getAttachments(docDto);&#xd;
-				log.dir({&#xd;
-					&quot;docDto.getDocumentType()&quot;: docDto.getDocumentType(),&#xd;
-					&quot;docDto.getDocumentId()&quot;: docDto.getDocumentId(),&#xd;
-				});&#xd;
-				docAPI.copyDocumentToUploadArea(docDto.getDocumentId(), docDto.getVersion());&#xd;
-				docDto.setParentDocumentId(pastaDeDestino);&#xd;
-				docDto.setInheritSecurity(true);&#xd;
-				docDto.setKeyWord(&apos;&apos;);&#xd;
-				docDto.setVersionDescription(&apos;Anexado via processo&apos;);&#xd;
-				docDto.setActiveVersion(true);&#xd;
-				docDto.setColleagueId(getValue(&quot;WKUser&quot;)); // Informar o usuário logado.&#xd;
-				docDto.setPublisherId(getValue(&quot;WKUser&quot;)); // Informar o publicador.&#xd;
-				var doc = docAPI.createDocument(docDto, attachments, null, null, null);&#xd;
-				docsField.push(doc.getDocumentId());&#xd;
-			}&#xd;
-		}&#xd;
-		return docsField;&#xd;
-	}&#xd;
-	catch (e) {&#xd;
-		log.dir({ &quot;message&quot;: e.message, &quot;lineNumber&quot;: e.lineNumber });&#xd;
-		throw &quot;Erro ao publicar o documento, por favor, contate o administrador.&lt;br/&gt;&lt;br/&gt; &quot; + e;&#xd;
-	}&#xd;
-}&#xd;
-&#xd;
-/**&#xd;
- * Obtém os detalhes dos anexos de acordo com o ID do documento informado&#xd;
- * @param {String|Number} docDto código do documento &#xd;
- * @returns array de informações sobre o documento solicitado&#xd;
- */&#xd;
-function getAttachments(docDto) {&#xd;
-	var attachmentArray = new java.util.ArrayList();&#xd;
-	var attachment = docAPI.newAttachment();&#xd;
-	attachment.setFileName(docDto.getPhisicalFile());&#xd;
-	attachment.setPrincipal(true);&#xd;
-	attachment.setAttach(false);&#xd;
-	attachmentArray.add(attachment);&#xd;
-	return attachmentArray;&#xd;
-}&#xd;
-&#xd;
-/**&#xd;
- * Cria uma nova pasta no GED&#xd;
- * @param {Number} pastaPai número da pasta pai &#xd;
- * @param {String} nome nome para a pasta&#xd;
- * @returns {String} o ID da pasta criada&#xd;
- */&#xd;
-function criaPasta(pastaPai, nome) {&#xd;
-	try {&#xd;
-		var dto = docAPI.newDocumentDto();&#xd;
-		dto.setDocumentDescription(nome);&#xd;
-		dto.setDocumentType(&quot;1&quot;);&#xd;
-		dto.setParentDocumentId(pastaPai);&#xd;
-		dto.setDocumentTypeId(&quot;&quot;);&#xd;
-&#xd;
-		var folder = docAPI.createFolder(dto, null, null);&#xd;
-		log.info(&quot;PASTA CRIADA COM O ID :&quot; + folder.getDocumentId());&#xd;
-		return parseInt(folder.getDocumentId());&#xd;
-	} catch (error) {&#xd;
-		throw new Error(&quot;Não foi possível criar a pasta! &quot; + String(error));&#xd;
-	}&#xd;
+      <eventDescription>/**
+ * Publica os anexos processo na pasta de destino definida
+ * @param {String|Number} pastaDeDestino código da pasta de destino 
+ * @returns lista de anexos publicados
+ */
+function publicarGED(pastaDeDestino) {
+	var docsField = [];
+	try {
+		var workflowAttachments = hAPI.listAttachments();
+		for (var i = 0; i &lt; workflowAttachments.size(); i++) {
+			var docDto = workflowAttachments.get(i);
+			/** Se o tipo do documento for diferente de 5 (formulário do fluig) */
+			if (docDto.getDocumentType() != 5) {
+				var attachments = getAttachments(docDto);
+				log.dir({
+					&quot;docDto.getDocumentType()&quot;: docDto.getDocumentType(),
+					&quot;docDto.getDocumentId()&quot;: docDto.getDocumentId(),
+				});
+				docAPI.copyDocumentToUploadArea(docDto.getDocumentId(), docDto.getVersion());
+				docDto.setParentDocumentId(pastaDeDestino);
+				docDto.setInheritSecurity(true);
+				docDto.setKeyWord(&apos;&apos;);
+				docDto.setVersionDescription(&apos;Anexado via processo&apos;);
+				docDto.setActiveVersion(true);
+				docDto.setColleagueId(getValue(&quot;WKUser&quot;)); // Informar o usuário logado.
+				docDto.setPublisherId(getValue(&quot;WKUser&quot;)); // Informar o publicador.
+				var doc = docAPI.createDocument(docDto, attachments, null, null, null);
+				docsField.push(doc.getDocumentId());
+			}
+		}
+		return docsField;
+	}
+	catch (e) {
+		log.dir({ &quot;message&quot;: e.message, &quot;lineNumber&quot;: e.lineNumber });
+		throw &quot;Erro ao publicar o documento, por favor, contate o administrador.&lt;br/&gt;&lt;br/&gt; &quot; + e;
+	}
+}
+
+/**
+ * Obtém os detalhes dos anexos de acordo com o ID do documento informado
+ * @param {String|Number} docDto código do documento 
+ * @returns array de informações sobre o documento solicitado
+ */
+function getAttachments(docDto) {
+	var attachmentArray = new java.util.ArrayList();
+	var attachment = docAPI.newAttachment();
+	attachment.setFileName(docDto.getPhisicalFile());
+	attachment.setPrincipal(true);
+	attachment.setAttach(false);
+	attachmentArray.add(attachment);
+	return attachmentArray;
+}
+
+/**
+ * Cria uma nova pasta no GED
+ * @param {Number} pastaPai número da pasta pai 
+ * @param {String} nome nome para a pasta
+ * @returns {String} o ID da pasta criada
+ */
+function criaPasta(pastaPai, nome) {
+	try {
+		var dto = docAPI.newDocumentDto();
+		dto.setDocumentDescription(nome);
+		dto.setDocumentType(&quot;1&quot;);
+		dto.setParentDocumentId(pastaPai);
+		dto.setDocumentTypeId(&quot;&quot;);
+
+		var folder = docAPI.createFolder(dto, null, null);
+		log.info(&quot;PASTA CRIADA COM O ID :&quot; + folder.getDocumentId());
+		return parseInt(folder.getDocumentId());
+	} catch (error) {
+		throw new Error(&quot;Não foi possível criar a pasta! &quot; + String(error));
+	}
+}
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
+	for (var i = 0; i &lt; oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, &quot;id&quot;).trim() == param.trim()) {
+			return oConstantes.getValue(i, &quot;Valor&quot;).trim();
+		}
+	}
+	return &apos;0&apos;;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4917,9 +4929,10 @@ function criaPasta(pastaPai, nome) {&#xd;
 
   try {
     var dataServerName = &apos;FinLanDataBR&apos;
-    var usuario = &apos;suporte.totvs&apos;
-    var senha = &apos;Suporte#5&apos;
+    var usuario = getConstante(&apos;rm_usuario&apos;)
+    var senha = getConstante(&apos;rm_senha&apos;)
     var authenticatedService = getWebService(usuario, senha, &quot;RMWsDataServer&quot;, &quot;com.totvs.WsDataServer&quot;, &quot;com.totvs.IwsDataServer&quot;);
+    log.dir({ &quot;getWebService&quot;: { &apos;usuario&apos;: usuario, &apos;senha&apos;: senha, &quot;serviceRM&quot;: &quot;RMWsDataServer&quot;, &quot;instance&quot;: &quot;com.totvs.WsDataServer&quot;, &quot;authClient&quot;: &quot;com.totvs.IwsDataServer&quot; } });
 
     var idLanModelo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : 28757;
     var idLanNovo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : &quot;-1&quot;;
@@ -4945,7 +4958,7 @@ function criaPasta(pastaPai, nome) {&#xd;
     text = replaceValue(text, &apos;HISTORICO&apos;, hAPI.getCardValue(&quot;historico_analise&quot;));
     text = replaceValue(text, &apos;DATAVENCIMENTO&apos;, dataVencimento);
     text = replaceValue(text, &apos;DATAEMISSAO&apos;, dataEmissao);
-    text = replaceValue(text, &apos;DATAPREVBAIXA&apos;, dataPrevBaixa);
+    text = replaceValue(text, &apos;DATAPREVBAIXA&apos;, dataVencimento); ///dataPrevBaixa);
     text = replaceValue(text, &apos;VALORORIGINAL&apos;, valorOriginal);
     text = replaceValue(text, &apos;VALORCAPBX&apos;, formatText2Float(hAPI.getCardValue(&quot;hidden_valor_cap&quot;)));
     text = replaceValue(text, &apos;VALORJUROS&apos;, formatText2Float(hAPI.getCardValue(&quot;hidden_valor_juros&quot;)));
@@ -5958,7 +5971,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>24</version>
+        <version>5</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5969,7 +5982,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>24</version>
+        <version>5</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5982,7 +5995,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>24</version>
+        <version>5</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6000,7 +6013,7 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>24</version>
+        <version>5</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -6019,7 +6032,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>24</version>
+        <version>5</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -6032,7 +6045,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>24</version>
+        <version>5</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -6049,7 +6062,7 @@ Informamos que sua solicitação: [Título da solicitação] foi paga. Segue aba
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>24</version>
+        <version>5</version>
         <stateSequence>287</stateSequence>
         <triggerSequence>4</triggerSequence>
       </processStateTriggerPK>
@@ -6128,7 +6141,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6138,7 +6151,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6152,7 +6165,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6162,7 +6175,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6172,7 +6185,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6182,7 +6195,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6192,7 +6205,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6206,7 +6219,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6216,7 +6229,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6226,7 +6239,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>24</processVersion>
+      <processVersion>5</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
