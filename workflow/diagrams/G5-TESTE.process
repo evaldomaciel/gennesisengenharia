@@ -678,7 +678,7 @@
       </children>
     </children>
     <children active="true" visible="true" xsi:type="pi:ContainerShape">
-      <graphicsAlgorithm filled="false" height="102" lineVisible="false" lineWidth="1" transparency="0.0" width="60" x="1380" xsi:type="al:Rectangle" y="1624">
+      <graphicsAlgorithm filled="false" height="116" lineVisible="false" lineWidth="1" transparency="0.0" width="60" x="1380" xsi:type="al:Rectangle" y="1624">
         <graphicsAlgorithmChildren filled="true" height="60" lineWidth="1" style="/0/@styles.62" transparency="0.0" width="60" xsi:type="al:Polygon">
           <points y="30"/>
           <points x="30"/>
@@ -698,7 +698,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="42" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.63" transparency="0.0" value="Gerar&#10;Lan&#231;ame&#10;ntos..." width="60" xsi:type="al:MultiText" y="60"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.63" transparency="0.0" value="Gerar&#10;Lan&#231;ame&#10;ntos...&#10;" width="60" xsi:type="al:MultiText" y="60"/>
       </children>
     </children>
     <children active="true" visible="true" xsi:type="pi:ContainerShape">
@@ -857,7 +857,7 @@
       </children>
     </children>
     <children active="true" visible="true" xsi:type="pi:ContainerShape">
-      <graphicsAlgorithm filled="false" height="102" lineVisible="false" lineWidth="1" transparency="0.0" width="60" x="183" xsi:type="al:Rectangle" y="1240">
+      <graphicsAlgorithm filled="false" height="116" lineVisible="false" lineWidth="1" transparency="0.0" width="60" x="183" xsi:type="al:Rectangle" y="1240">
         <graphicsAlgorithmChildren filled="true" height="60" lineWidth="1" style="/0/@styles.83" transparency="0.0" width="60" xsi:type="al:Polygon">
           <points y="30"/>
           <points x="30"/>
@@ -877,7 +877,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="42" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.84" transparency="0.0" value="Cadastro&#10;de&#10;Forn..." width="60" xsi:type="al:MultiText" y="60"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.84" transparency="0.0" value="Cadastro&#10;de&#10;Forn...&#10;" width="60" xsi:type="al:MultiText" y="60"/>
       </children>
     </children>
     <children active="true" visible="true" xsi:type="pi:ContainerShape">
@@ -1019,7 +1019,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Aprova&#231;&#227;o&#10;Gestor&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="69" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Aprova&#231;&#227;o&#10;Gestor&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
@@ -1038,7 +1038,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" lineVisible="false" lineWidth="1" transparency="0.0" value="Recebe de n&#227;o&#10;conforme&#10;Financeiro&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="69" lineVisible="false" lineWidth="1" transparency="0.0" value="Recebe de n&#227;o&#10;conforme&#10;Financeiro&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
@@ -1057,7 +1057,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" lineVisible="false" lineWidth="1" transparency="0.0" value="Recebe de&#10;Revisar&#10;Solicita&#231;&#227;o&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="69" lineVisible="false" lineWidth="1" transparency="0.0" value="Recebe de&#10;Revisar&#10;Solicita&#231;&#227;o&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
@@ -1076,7 +1076,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Revisar&#10;Solicita&#231;&#227;o&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="69" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Revisar&#10;Solicita&#231;&#227;o&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
@@ -1095,7 +1095,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Pagamento&#10;Parcial&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="69" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Pagamento&#10;Parcial&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
@@ -1114,7 +1114,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Pagamento&#10;Unico&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="69" lineVisible="false" lineWidth="1" transparency="0.0" value="Envia para&#10;Pagamento&#10;Unico&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
@@ -1133,7 +1133,7 @@
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="56" lineVisible="false" lineWidth="1" transparency="0.0" value="Enviar para&#10;Aguardando&#10;Vencimento&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="69" lineVisible="false" lineWidth="1" transparency="0.0" value="Enviar para&#10;Aguardando&#10;Vencimento&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
@@ -7369,7 +7369,7 @@
   <bpmn2:BpmnAnnotation id="annotationtask163" name="Pagamento Parcial" type="0"/>
   <bpmn2:BpmnAnnotation id="annotationtask166" name="Aguardando Vencimento" type="0"/>
   <bpmn2:BpmnAnnotation id="annotationtask169" name="Pago" type="0"/>
-  <bpmn2:BpmnProcess author="" cardIndex="88477" category="Financeiro" complementsLevel="1" expedient="Default" extendedFields="&lt;list/&gt;" formSource="server" id="G5-TESTE" instruction="" keyWord="" managerAssignmentController="&lt;org.eclipse.bpmn2.impl.AssignmentControllerGroup&gt;&#10;  &lt;groupId&gt;G5-GESTORES&lt;/groupId&gt;&#10;  &lt;mechanismName&gt;Grupo&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerGroup&gt;" managerMechanism="Grupo" name="G5 - Pagamentos Avulsos" notifyRequisitionerComplements="true" notifyResponsibleComplements="true" serverId="gennesisengenharia160516-PRD" version="5" volume="Default"/>
+  <bpmn2:BpmnProcess author="" cardIndex="60896" category="Financeiro" complementsLevel="1" expedient="Default" extendedFields="&lt;list/&gt;" formSource="server" id="G5-TESTE" instruction="" keyWord="" managerAssignmentController="&lt;org.eclipse.bpmn2.impl.AssignmentControllerGroup&gt;&#10;  &lt;groupId&gt;G5-GESTORES&lt;/groupId&gt;&#10;  &lt;mechanismName&gt;Grupo&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerGroup&gt;" managerMechanism="Grupo" name="G5 - Pagamentos Avulsos" notifyRequisitionerComplements="true" notifyResponsibleComplements="true" serverId="gennesisengenharia160517" version="26" volume="Default"/>
   <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow24" name="" sourceRef="startevent4" targetRef="servicetask176"/>
   <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow36" name="" sourceRef="task14" targetRef="task248"/>
   <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow75" name="" sourceRef="mailtask76" targetRef="endevent26"/>

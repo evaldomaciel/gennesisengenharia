@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>5</version>
+      <version>26</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>88477</formId>
+    <formId>60896</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -2729,7 +2729,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>5</version>
+        <version>26</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2741,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>5</version>
+        <version>26</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2753,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>3</expressionOrder>
-        <version>5</version>
+        <version>26</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2765,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>5</version>
+        <version>26</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2777,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>5</version>
+        <version>26</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2789,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>5</version>
+        <version>26</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2801,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>5</version>
+        <version>26</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4195,6 +4195,354 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
+        <eventId>afterTaskComplete</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskComplete(colleagueId, nextSequenceId, userList) {
+  log.info(&quot;afterTaskComplete =&gt; nextSequenceId =&gt; &quot; + nextSequenceId)
+  var activity = getValue(&quot;WKNumState&quot;);
+  var proxima = getValue(&quot;WKNextState&quot;);
+  var nSolicitacao = getValue(&quot;WKNumProces&quot;);
+  nSolicitacao = nSolicitacao.toString();
+
+  if (activity == 0 || activity == 76) {
+    log.info(&quot;inicio task 76&quot;);
+
+    log.info(&quot;inicio do try-catch&quot;);
+    try {
+      log.info(&quot;dentro do try&quot;);
+
+      var dataParamsEmail = {
+        usuario: getValue(&quot;WKUser&quot;),
+        assunto: &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;,
+        titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
+        atendente: &quot;Gestão&quot;,
+        num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
+      }
+
+      log.info(&quot;DADOS EMAILS&quot;)
+      log.dir(dataParamsEmail)
+
+      /// Get Dataset para uma variavel;
+      var parametros = new java.util.HashMap();
+
+      parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
+      parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
+      parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
+      parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
+      parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
+
+
+
+      var destinatarios = new java.util.ArrayList();
+      var email = &quot;soaresgui.dev@gmail.com&quot;;
+      destinatarios.add(email);
+
+      notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
+    } catch (e) {
+      log.info(&quot;dentro do catch&quot;);
+      log.info(e);
+    }
+    log.info(&quot;fim do try-catch&quot;);
+
+    log.info(&apos;## SIMPLES&apos;);
+
+    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+    for (var i in destinatario) {
+      obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
+    }
+
+  }
+  if (activity == 79) {
+    log.info(&quot;inicio task 79&quot;);
+
+    log.info(&quot;inicio do try-catch&quot;);
+    try {
+      log.info(&quot;dentro do try&quot;);
+
+      var dataParamsEmail = {
+        usuario: getValue(&quot;WKUser&quot;),
+        assunto: &quot;CANCELAMENTO - FASE APROV. DIRETORIA&quot;,
+        titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
+        atendente: &quot;Diretoria&quot;,
+        num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
+      }
+
+      log.info(&quot;DADOS EMAILS&quot;)
+      log.dir(dataParamsEmail)
+
+      /// Get Dataset para uma variavel;
+      var parametros = new java.util.HashMap();
+
+      parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
+      parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
+      parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
+      parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
+      parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
+
+
+      var destinatarios = new java.util.ArrayList();
+      var email = &quot;soaresgui.dev@gmail.com&quot;;
+      destinatarios.add(email);
+
+      notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
+    } catch (e) {
+      log.info(&quot;dentro do catch&quot;);
+      log.info(e);
+    }
+    log.info(&quot;fim do try-catch&quot;);
+
+    log.info(&apos;## SIMPLES&apos;);
+
+    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+    for (var i in destinatario) {
+      obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
+    }
+
+  }
+  if (activity == 119) {
+    log.info(&quot;inicio task 119&quot;);
+
+    log.info(&quot;inicio do try-catch&quot;);
+    try {
+      log.info(&quot;dentro do try&quot;);
+
+      var dataParamsEmail = {
+        usuario: getValue(&quot;WKUser&quot;),
+        assunto: &quot;PAGAMENTO REALIZADO - FASE ENVIAR COMPROVANTE&quot;,
+        titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
+        atendente: &quot;Departamento Financeiro&quot;,
+        num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
+      }
+
+      log.info(&quot;DADOS EMAILS&quot;)
+      log.dir(dataParamsEmail)
+
+      /// Get Dataset para uma variavel;
+      var parametros = new java.util.HashMap();
+
+      parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
+      parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
+      parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
+      parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
+      parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
+
+
+      var destinatarios = new java.util.ArrayList();
+      var email = &quot;soaresgui.dev@gmail.com&quot;;
+      destinatarios.add(email);
+
+      notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
+    } catch (e) {
+      log.info(&quot;dentro do catch&quot;);
+      log.info(e);
+    }
+    log.info(&quot;fim do try-catch&quot;);
+
+    log.info(&apos;## SIMPLES&apos;);
+
+    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+    for (var i in destinatario) {
+      obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
+    }
+
+  }
+  if (activity == 287) {
+    log.info(&quot;inicio task 287&quot;);
+
+    log.info(&quot;inicio do try-catch&quot;);
+    try {
+      log.info(&quot;dentro do try&quot;);
+
+      var dataParamsEmail = {
+        usuario: getValue(&quot;WKUser&quot;),
+        assunto: &quot;CANCELAMENTO - QUALQUER FASE DO FINANCEIRO&quot;,
+        titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
+        num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
+      }
+
+      log.info(&quot;DADOS EMAILS&quot;)
+      log.dir(dataParamsEmail)
+
+      /// Get Dataset para uma variavel;
+      var parametros = new java.util.HashMap();
+
+      parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
+      parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
+      parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
+      parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
+      parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
+
+      var destinatarios = new java.util.ArrayList();
+      var email = &quot;soaresgui.dev@gmail.com&quot;;
+      destinatarios.add(email);
+
+      notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
+    } catch (e) {
+      log.info(&quot;dentro do catch&quot;);
+      log.info(e);
+    }
+    log.info(&quot;fim do try-catch&quot;);
+
+    log.info(&apos;## SIMPLES&apos;);
+
+    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+    for (var i in destinatario) {
+      obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
+    }
+
+  }
+  if (nextSequenceId == 14) {
+    var rateioPF = clearPF(&quot;table_rateio_ccusto_fin&quot;);
+    var rateioInicial = hAPI.getCardData(getValue(&apos;WKNumProces&apos;));
+    if (rateioInicial) {
+      var keys = rateioInicial.keySet().toArray();
+      for (var key in keys) {
+        var field = keys[key];
+        if (field.indexOf(&quot;coluna_natureza___&quot;) &gt;= 0) {
+          isFromRM = true;
+          var rateioProv = new java.util.HashMap();
+          var idPF = field.replace(&quot;coluna_natureza___&quot;, &quot;&quot;);
+          rateioProv.put(&quot;coluna_natureza_fin&quot;, rateioInicial.get(String(&quot;coluna_natureza&quot; + &quot;___&quot; + idPF)));
+          rateioProv.put(&quot;coluna_ccusto_fin&quot;, rateioInicial.get(String(&quot;coluna_ccusto&quot; + &quot;___&quot; + idPF)));
+          rateioProv.put(&quot;coluna_valor_fin&quot;, rateioInicial.get(String(&quot;coluna_valor&quot; + &quot;___&quot; + idPF)));
+          rateioProv.put(&quot;coluna_percentual_fin&quot;, rateioInicial.get(String(&quot;coluna_percentual&quot; + &quot;___&quot; + idPF)));
+          hAPI.addCardChild(&quot;table_rateio_ccusto_fin&quot;, rateioProv);
+        }
+      }
+    }
+  }
+}
+
+function clearPF(tableName) {
+  var isCleared = false;
+  var tablePF = hAPI.getChildrenIndexes(tableName);
+  for (var interaction = tablePF.length - 1; interaction &gt;= 0; interaction--) {
+    hAPI.removeCardChild(tableName, tablePF[interaction]);
+    isCleared = true;
+  }
+  return isCleared;
+}
+
+function horaAtual() {
+  var data = new Date()
+  var dia = data.getDate() &lt; 10 ? &quot;0&quot; + data.getDate() : data.getDate()
+  var mes = data.getMonth() &lt; 10 ? &quot;0&quot; + (data.getMonth() + 1) : (data.getMonth() + 1)
+  var ano = data.getFullYear() &lt; 10 ? &quot;0&quot; + data.getFullYear() : data.getFullYear()
+  var hora = data.getHours() &lt; 10 ? &quot;0&quot; + data.getHours() : data.getHours()
+  var minutos = data.getMinutes() &lt; 10 ? &quot;0&quot; + data.getMinutes() : data.getMinutes()
+
+  data = dia + &apos;/&apos; + mes + &apos;/&apos; + ano + &quot; &quot; + hora + &quot;:&quot; + minutos
+
+  return data
+}
+
+function getAtribuicoes(atribuicao) {
+  var constraintAtribuicao = DatasetFactory.createConstraint(&quot;ID_ATV&quot;, atribuicao, atribuicao, ConstraintType.MUST)
+  var dtsAtribuicoes = DatasetFactory.getDataset(&quot;dts_consultaCadastroAtribuicoes&quot;, null, [constraintAtribuicao], null)
+  if (dtsAtribuicoes.rowsCount &gt; 0) {
+    return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;)
+  } else {
+    return &quot;&quot;
+  }
+}
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId) {
+
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask210</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask210(attempt, message) {
+
+  var valores = {
+    &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;),
+    &quot;NOMEFANTASIA&quot;: hAPI.getCardValue(&quot;nome_social_fin&quot;),
+    &quot;NOME&quot;: hAPI.getCardValue(&quot;nome_fin&quot;),
+    &quot;CGCCFO&quot;: capta_Cpf_Cnpj(hAPI.getCardValue(&quot;categoria_fin&quot;)),
+    &quot;PAGREC&quot;: hAPI.getCardValue(&quot;pagar_receber&quot;),
+    &quot;RUA&quot;: hAPI.getCardValue(&quot;rua_fin&quot;),
+    &quot;NUMERO&quot;: hAPI.getCardValue(&quot;numero_fin&quot;),
+    &quot;BAIRRO&quot;: hAPI.getCardValue(&quot;bairro_fin&quot;),
+    &quot;CODETD&quot;: hAPI.getCardValue(&quot;sigla_estado_fin&quot;),
+    &quot;CEP&quot;: hAPI.getCardValue(&quot;cep_fin&quot;),
+    &quot;TELEFONE&quot;: hAPI.getCardValue(&quot;hidden_telefone&quot;),
+    &quot;EMAIL&quot;: hAPI.getCardValue(&quot;email_fin&quot;),
+    &quot;CONTATO&quot;: hAPI.getCardValue(&quot;contato_fin&quot;),
+    &quot;ATIVO&quot;: hAPI.getCardValue(&quot;status_tipo_cliente_fin&quot;),
+    &quot;CODMUNICIPIO&quot;: hAPI.getCardValue(&quot;codigo_municipio_fin&quot;),
+    &quot;PESSOAFISOUJUR&quot;: hAPI.getCardValue(&quot;categoria_fin&quot;),
+    &quot;PAIS&quot;: hAPI.getCardValue(&quot;pais_fin&quot;),
+    &quot;NUMDEPENDENTES&quot;: hAPI.getCardValue(&quot;numero_dependentes_fin&quot;),
+    &quot;CAIXAPOSTAL&quot;: hAPI.getCardValue(&quot;caixa_postal_fin&quot;),
+    &quot;TIPORUA&quot;: hAPI.getCardValue(&quot;tipo_rua_fin&quot;),
+    &quot;TIPOBAIRRO&quot;: hAPI.getCardValue(&quot;tipo_bairro_fin&quot;),
+    &quot;USUARIOCRIACAO&quot;: getConstante(&apos;rm_usuario&apos;),
+    &quot;IDPAIS&quot;: hAPI.getCardValue(&quot;id_pais_fin&quot;),
+    &quot;NACIONALIDADE&quot;: hAPI.getCardValue(&quot;nacionalidade_fin&quot;),
+    &quot;APOSENTADOOUPENSIONISTA&quot;: hAPI.getCardValue(&quot;aposen_pensionista_fin&quot;),
+  };
+
+  log.info(&quot;VALORES --&gt; &quot;)
+  log.dir(valores)
+
+  var cst = []
+
+  for (var propriedade in valores) {
+    if (valores.hasOwnProperty(propriedade)) {
+      if (valores[propriedade] != &quot;&quot;) {
+        cst.push(DatasetFactory.createConstraint(propriedade, valores[propriedade], valores[propriedade], ConstraintType.MUST));
+      }
+    }
+  }
+
+  var dtsIntegracao = DatasetFactory.getDataset(&quot;ds_novoFornecedor&quot;, null, cst, null)
+
+  if (dtsIntegracao.rowsCount &gt; 0) {
+    if (dtsIntegracao.getValue(0, &quot;Retorno&quot;) == &quot;OK&quot;) {
+      var id = dtsIntegracao.getValue(0, &quot;Mensagem&quot;);
+      id = id.split(&quot;;&quot;)[1]
+      hAPI.setCardValue(&quot;hidden_codigo_cli_for&quot;, id);
+      return true
+    } else {
+      throw dtsIntegracao.getValue(0, &quot;Mensagem&quot;)
+    }
+  } else {
+    throw &quot;Não retornou resultado da integração&quot;
+  }
+}
+
+function capta_Cpf_Cnpj(tipo_pessoa) {
+  if (tipo_pessoa == &quot;F&quot;) {
+    return hAPI.getCardValue(&quot;CPF_fin&quot;);
+  }
+  if (tipo_pessoa == &quot;J&quot;) {
+    return hAPI.getCardValue(&quot;CNPJ_fin&quot;);
+  }
+}
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
         <eventId>beforeCancelProcess</eventId>
         <processId>G5-TESTE</processId>
         <version>1</version>
@@ -4251,479 +4599,44 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
-        <eventId>afterTaskComplete</eventId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function afterTaskComplete(colleagueId, nextSequenceId, userList) {
-    log.info(&quot;afterTaskComplete =&gt; nextSequenceId =&gt; &quot; + nextSequenceId)
-    var activity = getValue(&quot;WKNumState&quot;);
-    var proxima = getValue(&quot;WKNextState&quot;);
-    var nSolicitacao = getValue(&quot;WKNumProces&quot;);
-    nSolicitacao = nSolicitacao.toString();
-
-    if (activity == 0 || activity == 76) {
-        log.info(&quot;inicio task 76&quot;);
-
-        log.info(&quot;inicio do try-catch&quot;);
-        try {
-            log.info(&quot;dentro do try&quot;);
-
-            var dataParamsEmail = {
-                usuario: getValue(&quot;WKUser&quot;),
-                assunto: &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;,
-                titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
-                atendente: &quot;Gestão&quot;,
-                num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
-            }
-
-            log.info(&quot;DADOS EMAILS&quot;)
-            log.dir(dataParamsEmail)
-
-            /// Get Dataset para uma variavel;
-            var parametros = new java.util.HashMap();
-
-            parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
-            parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
-            parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
-            parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
-            parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
-
-
-
-            var destinatarios = new java.util.ArrayList();
-            var email = &quot;soaresgui.dev@gmail.com&quot;;
-            destinatarios.add(email);
-
-            notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
-        } catch (e) {
-            log.info(&quot;dentro do catch&quot;);
-            log.info(e);
-        }
-        log.info(&quot;fim do try-catch&quot;);
-
-        log.info(&apos;## SIMPLES&apos;);
-
-        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-        for (var i in destinatario) {
-            obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
-        }
-
-    }
-    if (activity == 79) {
-        log.info(&quot;inicio task 79&quot;);
-
-        log.info(&quot;inicio do try-catch&quot;);
-        try {
-            log.info(&quot;dentro do try&quot;);
-
-            var dataParamsEmail = {
-                usuario: getValue(&quot;WKUser&quot;),
-                assunto: &quot;CANCELAMENTO - FASE APROV. DIRETORIA&quot;,
-                titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
-                atendente: &quot;Diretoria&quot;,
-                num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
-            }
-
-            log.info(&quot;DADOS EMAILS&quot;)
-            log.dir(dataParamsEmail)
-
-            /// Get Dataset para uma variavel;
-            var parametros = new java.util.HashMap();
-
-            parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
-            parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
-            parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
-            parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
-            parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
-
-
-            var destinatarios = new java.util.ArrayList();
-            var email = &quot;soaresgui.dev@gmail.com&quot;;
-            destinatarios.add(email);
-
-            notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
-        } catch (e) {
-            log.info(&quot;dentro do catch&quot;);
-            log.info(e);
-        }
-        log.info(&quot;fim do try-catch&quot;);
-
-        log.info(&apos;## SIMPLES&apos;);
-
-        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-        for (var i in destinatario) {
-            obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
-        }
-
-    }
-    if (activity == 119) {
-        log.info(&quot;inicio task 119&quot;);
-
-        log.info(&quot;inicio do try-catch&quot;);
-        try {
-            log.info(&quot;dentro do try&quot;);
-
-            var dataParamsEmail = {
-                usuario: getValue(&quot;WKUser&quot;),
-                assunto: &quot;PAGAMENTO REALIZADO - FASE ENVIAR COMPROVANTE&quot;,
-                titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
-                atendente: &quot;Departamento Financeiro&quot;,
-                num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
-            }
-
-            log.info(&quot;DADOS EMAILS&quot;)
-            log.dir(dataParamsEmail)
-
-            /// Get Dataset para uma variavel;
-            var parametros = new java.util.HashMap();
-
-            parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
-            parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
-            parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
-            parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
-            parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
-
-
-            var destinatarios = new java.util.ArrayList();
-            var email = &quot;soaresgui.dev@gmail.com&quot;;
-            destinatarios.add(email);
-
-            notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
-        } catch (e) {
-            log.info(&quot;dentro do catch&quot;);
-            log.info(e);
-        }
-        log.info(&quot;fim do try-catch&quot;);
-
-        log.info(&apos;## SIMPLES&apos;);
-
-        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-        for (var i in destinatario) {
-            obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
-        }
-
-    }
-    if (activity == 287) {
-        log.info(&quot;inicio task 287&quot;);
-
-        log.info(&quot;inicio do try-catch&quot;);
-        try {
-            log.info(&quot;dentro do try&quot;);
-
-            var dataParamsEmail = {
-                usuario: getValue(&quot;WKUser&quot;),
-                assunto: &quot;CANCELAMENTO - QUALQUER FASE DO FINANCEIRO&quot;,
-                titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
-                num_solicitacao: hAPI.getCardValue(&quot;numero_solicitacao&quot;)
-            }
-
-            log.info(&quot;DADOS EMAILS&quot;)
-            log.dir(dataParamsEmail)
-
-            /// Get Dataset para uma variavel;
-            var parametros = new java.util.HashMap();
-
-            parametros.put(&quot;ASSUNTO&quot;, dataParamsEmail.assunto);
-            parametros.put(&quot;USUARIO&quot;, dataParamsEmail.usuario);
-            parametros.put(&quot;TITULO_SOLICITACAO&quot;, dataParamsEmail.titulo_solicitacao);
-            parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
-            parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
-
-            var destinatarios = new java.util.ArrayList();
-            var email = &quot;soaresgui.dev@gmail.com&quot;;
-            destinatarios.add(email);
-
-            notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
-        } catch (e) {
-            log.info(&quot;dentro do catch&quot;);
-            log.info(e);
-        }
-        log.info(&quot;fim do try-catch&quot;);
-
-        log.info(&apos;## SIMPLES&apos;);
-
-        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-        for (var i in destinatario) {
-            obj.simpleEmail(1, &apos;ENGPAC - G5&apos;, &quot;fluig&quot;, destinatario[i], &apos;&apos;, &quot;text/html&quot;);
-        }
-
-    }
-    if (nextSequenceId == 14) {
-        var rateioPF = clearPF(&quot;table_rateio_ccusto_fin&quot;);
-        var rateioInicial = hAPI.getCardData(getValue(&apos;WKNumProces&apos;));
-        if (rateioInicial) {
-            var keys = rateioInicial.keySet().toArray();
-            for (var key in keys) {
-                var field = keys[key];
-                if (field.indexOf(&quot;coluna_natureza___&quot;) &gt;= 0) {
-                    isFromRM = true;
-                    var rateioProv = new java.util.HashMap();
-                    var idPF = field.replace(&quot;coluna_natureza___&quot;, &quot;&quot;);
-                    rateioProv.put(&quot;coluna_natureza_fin&quot;, rateioInicial.get(String(&quot;coluna_natureza&quot; + &quot;___&quot; + idPF)));
-                    rateioProv.put(&quot;coluna_ccusto_fin&quot;, rateioInicial.get(String(&quot;coluna_ccusto&quot; + &quot;___&quot; + idPF)));
-                    rateioProv.put(&quot;coluna_valor_fin&quot;, rateioInicial.get(String(&quot;coluna_valor&quot; + &quot;___&quot; + idPF)));
-                    rateioProv.put(&quot;coluna_percentual_fin&quot;, rateioInicial.get(String(&quot;coluna_percentual&quot; + &quot;___&quot; + idPF)));
-                    hAPI.addCardChild(&quot;table_rateio_ccusto_fin&quot;, rateioProv);
-                }
-            }
-        }
-    }
-}
-
-function clearPF(tableName) {
-    var isCleared = false;
-    var tablePF = hAPI.getChildrenIndexes(tableName);
-    for (var interaction = tablePF.length - 1; interaction &gt;= 0; interaction--) {
-        hAPI.removeCardChild(tableName, tablePF[interaction]);
-        isCleared = true;
-    }
-    return isCleared;
-}
-
-function horaAtual() {
-    var data = new Date()
-    var dia = data.getDate() &lt; 10 ? &quot;0&quot; + data.getDate() : data.getDate()
-    var mes = data.getMonth() &lt; 10 ? &quot;0&quot; + (data.getMonth() + 1) : (data.getMonth() + 1)
-    var ano = data.getFullYear() &lt; 10 ? &quot;0&quot; + data.getFullYear() : data.getFullYear()
-    var hora = data.getHours() &lt; 10 ? &quot;0&quot; + data.getHours() : data.getHours()
-    var minutos = data.getMinutes() &lt; 10 ? &quot;0&quot; + data.getMinutes() : data.getMinutes()
-
-    data = dia + &apos;/&apos; + mes + &apos;/&apos; + ano + &quot; &quot; + hora + &quot;:&quot; + minutos
-
-    return data
-}
-
-function getAtribuicoes(atribuicao) {
-    var constraintAtribuicao = DatasetFactory.createConstraint(&quot;ID_ATV&quot;, atribuicao, atribuicao, ConstraintType.MUST)
-    var dtsAtribuicoes = DatasetFactory.getDataset(&quot;dts_consultaCadastroAtribuicoes&quot;, null, [constraintAtribuicao], null)
-    if (dtsAtribuicoes.rowsCount &gt; 0) {
-        return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;)
-    } else {
-        return &quot;&quot;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
-        <eventId>afterProcessCreate</eventId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function afterProcessCreate(processId){
-        var pasta = &quot;/app/fluig/appserver/domain/servers/&quot;;
-        var diretorio = new java.io.File(pasta);
-        var arquivos = diretorio.listFiles();
-        var linhaDeComando2 = String(arquivos[0]);
-        var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + &quot;/log/server.log&quot;));
-        var retorno4 = new java.nio.file.Files.writeString(pasta, &quot;&quot;);
-}</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
-        <eventId>servicetask210</eventId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function servicetask210(attempt, message) {
-
-  var valores = {
-      &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;),
-      &quot;NOMEFANTASIA&quot;: hAPI.getCardValue(&quot;nome_social_fin&quot;),
-      &quot;NOME&quot;: hAPI.getCardValue(&quot;nome_fin&quot;),
-      &quot;CGCCFO&quot;: capta_Cpf_Cnpj(hAPI.getCardValue(&quot;categoria_fin&quot;)),
-      &quot;PAGREC&quot;: hAPI.getCardValue(&quot;pagar_receber&quot;),
-      &quot;RUA&quot;: hAPI.getCardValue(&quot;rua_fin&quot;),
-      &quot;NUMERO&quot;: hAPI.getCardValue(&quot;numero_fin&quot;),
-      &quot;BAIRRO&quot;: hAPI.getCardValue(&quot;bairro_fin&quot;),
-      &quot;CODETD&quot;: hAPI.getCardValue(&quot;sigla_estado_fin&quot;),
-      &quot;CEP&quot;: hAPI.getCardValue(&quot;cep_fin&quot;),
-      &quot;TELEFONE&quot;: hAPI.getCardValue(&quot;hidden_telefone&quot;),
-      &quot;EMAIL&quot;: hAPI.getCardValue(&quot;email_fin&quot;),
-      &quot;CONTATO&quot;: hAPI.getCardValue(&quot;contato_fin&quot;),
-      &quot;ATIVO&quot;: hAPI.getCardValue(&quot;status_tipo_cliente_fin&quot;),
-      &quot;CODMUNICIPIO&quot;: hAPI.getCardValue(&quot;codigo_municipio_fin&quot;),
-      &quot;PESSOAFISOUJUR&quot;: hAPI.getCardValue(&quot;categoria_fin&quot;),
-      &quot;PAIS&quot;: hAPI.getCardValue(&quot;pais_fin&quot;),
-      &quot;NUMDEPENDENTES&quot;: hAPI.getCardValue(&quot;numero_dependentes_fin&quot;),
-      &quot;CAIXAPOSTAL&quot;: hAPI.getCardValue(&quot;caixa_postal_fin&quot;),
-      &quot;TIPORUA&quot;: hAPI.getCardValue(&quot;tipo_rua_fin&quot;),
-      &quot;TIPOBAIRRO&quot;: hAPI.getCardValue(&quot;tipo_bairro_fin&quot;),
-      &quot;USUARIOCRIACAO&quot;: getConstante(&apos;rm_usuario&apos;),
-      &quot;IDPAIS&quot;: hAPI.getCardValue(&quot;id_pais_fin&quot;),
-      &quot;NACIONALIDADE&quot;: hAPI.getCardValue(&quot;nacionalidade_fin&quot;),
-      &quot;APOSENTADOOUPENSIONISTA&quot;: hAPI.getCardValue(&quot;aposen_pensionista_fin&quot;),
-  };
-
-
-
-  log.info(&quot;VALORES --&gt; &quot;)
-  log.dir(valores)
-
-  var cst = []
-
-  for (var propriedade in valores) {
-      if (valores.hasOwnProperty(propriedade)) {
-          if (valores[propriedade] != &quot;&quot;) {
-              cst.push(DatasetFactory.createConstraint(propriedade, valores[propriedade], valores[propriedade], ConstraintType.MUST));
-          }
-      }
-  }
-
-
-  var dtsIntegracao = DatasetFactory.getDataset(&quot;ds_novoFornecedor&quot;, null, cst, null)
-
-  if (dtsIntegracao.rowsCount &gt; 0) {
-      if (dtsIntegracao.getValue(0, &quot;Retorno&quot;) == &quot;OK&quot;) {
-          var id = dtsIntegracao.getValue(0, &quot;Mensagem&quot;);
-          id = id.split(&quot;;&quot;)[1]
-          hAPI.setCardValue(&quot;hidden_codigo_cli_for&quot;, id);
-          return true
-      } else {
-          throw dtsIntegracao.getValue(0, &quot;Mensagem&quot;)
-      }
-  } else {
-      throw &quot;Não retornou resultado da integração&quot;
-  }
-}
-
-function capta_Cpf_Cnpj(tipo_pessoa) {
-  if (tipo_pessoa == &quot;F&quot;) {
-    return hAPI.getCardValue(&quot;CPF_fin&quot;);
-  }
-  if (tipo_pessoa == &quot;J&quot;) {
-    return hAPI.getCardValue(&quot;CNPJ_fin&quot;);
-  }
-}
-</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
         <eventId>servicetask176</eventId>
         <processId>G5-TESTE</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask176(attempt, message) {
-	var userId = getValue(&quot;WKUser&quot;);
-	var CODCCUSTO = hAPI.getCardValue(&apos;CODCCUSTO&apos;);
-	var SETOR_SOLICITANTE = String(hAPI.getCardValue(&apos;SETORSOLICITANTE&apos;)).toUpperCase();
-	var CODCOLIGADA = hAPI.getCardValue(&apos;CODCOLIGADA&apos;);
 
-	/** Aprovação do Gestor */
-	hAPI.setCardValue(&quot;cTask007&quot;, getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, &apos;Gestor&apos;));
+  /** Aprovação do Gestor */
+  hAPI.setCardValue(&apos;cTask007&apos;, getAtribuicoes(&apos;G5-007&apos;), &apos;aprovar&apos;);
 
-	/** Aprovação da diretoria */
-	hAPI.setCardValue(&quot;cTask012&quot;, getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, &apos;Diretor&apos;));
+  /** Aprovação da diretoria */
+  hAPI.setCardValue(&apos;cTask012&apos;, getAtribuicoes(&apos;G5-012&apos;), &apos;aprovar&apos;);
 
-	hAPI.setCardValue(&quot;cTask014&quot;, getAtribuicoes(&quot;G5-014&quot;));
-	hAPI.setCardValue(&quot;cTask034&quot;, userId);
-	hAPI.setCardValue(&quot;cTask097&quot;, getAtribuicoes(&quot;G5-097&quot;));
-	hAPI.setCardValue(&quot;cTask127&quot;, getAtribuicoes(&quot;G5-127&quot;));
-	hAPI.setCardValue(&quot;cTask128&quot;, getAtribuicoes(&quot;G5-128&quot;));
-	hAPI.setCardValue(&quot;cTask274&quot;, getAtribuicoes(&quot;G5-274&quot;));
+  hAPI.setCardValue(&apos;cTask034&apos;, getValue(&apos;WKUser&apos;));
 
-	var CampoSetor = String(hAPI.getCardValue(&apos;setor_solicitante&apos;));
-	var campoCentroCusto = String(hAPI.getCardValue(&apos;CODFILIAL&apos;));
-	/** Tratar erro */
-	var cTask221 = getAtribuicoes(&apos;G5-221-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-	hAPI.setCardValue(&quot;cTask221&quot;, getAtribuicoes(cTask221));
+  hAPI.setCardValue(&apos;cTask274&apos;, getAtribuicoes(&apos;G5-274-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
+  hAPI.setCardValue(&apos;cTask014&apos;, getAtribuicoes(&apos;G5-014-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
+  hAPI.setCardValue(&apos;cTask097&apos;, getAtribuicoes(&apos;G5-097-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
+  hAPI.setCardValue(&apos;cTask127&apos;, getAtribuicoes(&apos;G5-127-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
+  hAPI.setCardValue(&apos;cTask128&apos;, getAtribuicoes(&apos;G5-128-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
 
-	var cTask216 = getAtribuicoes(&apos;G5-216-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-	hAPI.setCardValue(&quot;cTask216&quot;, getAtribuicoes(cTask216));
+  /** Tratar erro */
+  hAPI.setCardValue(&apos;cTask221&apos;, getAtribuicoes(&apos;G5-221&apos;));
+  hAPI.setCardValue(&apos;cTask216&apos;, getAtribuicoes(&apos;G5-216-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
+  hAPI.setCardValue(&apos;cTask295&apos;, getAtribuicoes(&apos;G5-295-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
+  hAPI.setCardValue(&apos;cTask223&apos;, getAtribuicoes(&apos;G5-223-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
 
-	var cTask295 = getAtribuicoes(&apos;G5-295-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-	hAPI.setCardValue(&quot;cTask295&quot;, getAtribuicoes(cTask295));
-
-	var cTask223 = getAtribuicoes(&apos;G5-223-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-	hAPI.setCardValue(&quot;cTask223&quot;, getAtribuicoes(cTask223));
-
-	var cTask214 = getAtribuicoes(&apos;G5-214-&apos; + CampoSetor + &apos;-&apos; + campoCentroCusto);
-	hAPI.setCardValue(&quot;cTask214&quot;, getAtribuicoes(cTask214));
-	return true;
+  return true;
 }
 
-function getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, TIPO) {
-	var msgFalha = String(&quot;Não foi encontrado um aprovador no dataset &apos;ds_G5-Aprovar&apos; com os parâmetros: CODCCUSTO: &quot; + CODCCUSTO + &quot;, SETOR_SOLICITANTE: &quot; + SETOR_SOLICITANTE + &quot;, CODCOLIGADA: &quot; + CODCOLIGADA + &quot;, TIPO: &quot; + TIPO);
-	try {
-		var constraintDs_G5_CODCCUSTO = DatasetFactory.createConstraint(&apos;CODCCUSTO&apos;, CODCCUSTO, CODCCUSTO, ConstraintType.MUST);
-		var constraintDs_G5_SETOR_SOLICITANTE = DatasetFactory.createConstraint(&apos;SETOR_SOLICITANTE&apos;, SETOR_SOLICITANTE, SETOR_SOLICITANTE, ConstraintType.MUST);
-		var constraintDs_G5_CODCOLIGADA = DatasetFactory.createConstraint(&apos;CODCOLIGADA&apos;, CODCOLIGADA, CODCOLIGADA, ConstraintType.MUST);
-		var constraintDs_G5_TIPO = DatasetFactory.createConstraint(&apos;TIPO&apos;, TIPO, TIPO, ConstraintType.MUST);
-		constraintDs_G5_SETOR_SOLICITANTE.setLikeSearch(true);
-		constraintDs_G5_TIPO.setLikeSearch(true);
-		var constraints = new Array(constraintDs_G5_CODCCUSTO, constraintDs_G5_SETOR_SOLICITANTE, constraintDs_G5_CODCOLIGADA, constraintDs_G5_TIPO)
-		log.dir(constraints)
-		var datasetAprovador = DatasetFactory.getDataset(&apos;ds_G5-Aprovar&apos;, null, constraints, null);
-		if (datasetAprovador != null &amp;&amp; datasetAprovador != undefined &amp;&amp; datasetAprovador.rowsCount &gt; 0) {
-			return datasetAprovador.getValue(0, &apos;APROVADOR&apos;);
-		} else {
-			log.warn(msgFalha);
-			hAPI.setTaskComments(getValue(&quot;WKUser&quot;), getValue(&quot;WKNumProces&quot;), 0, msgFalha);
-			notificaFalha(msgFalha, &apos;evaldomaciel17@gmail.com&apos;)
-			notificaFalha(msgFalha, &apos;suportefluig@engpac.com.br&apos;)
-			return &quot;Pool:Group:G5-APROVAR&quot;;
-		}
-	} catch (error) {
-		throw new Error(error);
-	}
-}
-
-function getAtribuicoes(atribuicao) {
-	var constraintAtribuicao = DatasetFactory.createConstraint(&quot;ID_ATV&quot;, atribuicao, atribuicao, ConstraintType.MUST)
-	var dtsAtribuicoes = DatasetFactory.getDataset(&quot;dts_consultaCadastroAtribuicoes&quot;, null, [constraintAtribuicao], null)
-	if (dtsAtribuicoes.rowsCount &gt; 0) {
-		return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;)
-	} else {
-		return &quot;Pool:Group:G5-APROVAR&quot;;
-	}
-}
-
-function notificaFalha(textoMsg, destinatario) {
-	var msg = &apos;&apos;;
-	msg += &apos;&lt;html&gt;&apos;
-	msg += &apos;	&lt;head&gt;&apos;
-	msg += &apos;		&lt;meta&gt;&apos;
-	msg += &apos;		&lt;meta&gt;&apos;
-	msg += &apos;		&lt;meta&gt;&apos;
-	msg += &apos;	&lt;/head&gt;&apos;
-	msg += &apos;	&lt;body&gt;&apos;
-	msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;
-	msg += &apos;	&lt;p&gt; Ocorreu um erro na solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos;&lt;/p&gt;&apos;
-	msg += &apos;	&lt;p&gt;&apos; + textoMsg + &apos;&lt;/p&gt;&apos;
-	msg += &apos;	&lt;/body&gt;&apos;
-	msg += &apos;&lt;/html&gt;&apos;
-	var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-	var assunto = String(&apos;ENGPAC - G5 - Fluig &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; - Notificação de falha&apos;);
-	var envido = obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatario, msg, &quot;text/html&quot;);
-	return envido;
+function getAtribuicoes(atribuicao, tipoAtividade) {
+  var constraintAtribuicao = DatasetFactory.createConstraint(&apos;ID_ATV&apos;, atribuicao, atribuicao, ConstraintType.MUST)
+  var dtsAtribuicoes = DatasetFactory.getDataset(&apos;dts_consultaCadastroAtribuicoes&apos;, null, [constraintAtribuicao], null)
+  if (dtsAtribuicoes.rowsCount &gt; 0) {
+    return dtsAtribuicoes.getValue(0, &apos;hd_cod_user_atv&apos;)
+  } else {
+    if (tipoAtividade == &apos;aprovar&apos;) return &apos;Pool:Group:G5-APROVAR&apos;;
+    else return getValue(&apos;WKUser&apos;);
+  }
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4735,7 +4648,7 @@ function notificaFalha(textoMsg, destinatario) {
       </workflowProcessEventPK>
       <eventDescription>function servicetask292(attempt, message) {
   var valores = {
-     &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;),
+    &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;),
     &quot;CODCFO&quot;: hAPI.getCardValue(&quot;hidden_codigo_cli_for&quot;),
     &quot;CODCOLCFO&quot;: hAPI.getCardValue(&quot;hidden_coligada_cli_for&quot;),
     &quot;IDPGTO&quot;: hAPI.getCardValue(&quot;cad_referencia_fin&quot;),
@@ -4780,7 +4693,6 @@ function notificaFalha(textoMsg, destinatario) {
     throw &quot;Não retornou resultado da integração&quot;
   }
 }
-
 
 function capta_Cpf_Cnpj(tipo_pessoa) {
   if (tipo_pessoa == &quot;F&quot;) {
@@ -4934,13 +4846,8 @@ function getConstante(param) {
     var authenticatedService = getWebService(usuario, senha, &quot;RMWsDataServer&quot;, &quot;com.totvs.WsDataServer&quot;, &quot;com.totvs.IwsDataServer&quot;);
     log.dir({ &quot;getWebService&quot;: { &apos;usuario&apos;: usuario, &apos;senha&apos;: senha, &quot;serviceRM&quot;: &quot;RMWsDataServer&quot;, &quot;instance&quot;: &quot;com.totvs.WsDataServer&quot;, &quot;authClient&quot;: &quot;com.totvs.IwsDataServer&quot; } });
 
-    var idLanModelo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : 28757;
     var idLanNovo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : &quot;-1&quot;;
 
-    // var primaryKey = hAPI.getCardValue(&quot;coligada&quot;) + &quot;;&quot; + idLanModelo;
-    // var context = &quot;CodSistema=F;CodColigada=1&quot;;
-    // var text = String(authenticatedService.readRecord(dataServerName, primaryKey, context));
-    // if (!ChekExist(text)) text = GetXml();
     var text = GetXml();
 
     text = formatStringToXML(text);
@@ -5564,30 +5471,6 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
-        <eventId>servicetask189</eventId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function servicetask189(attempt, message) {
-}
-</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
-        <eventId>servicetask104</eventId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function servicetask104(attempt, message) {
-	
-	return false;
-	
-}</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
         <eventId>afterTaskCreate</eventId>
         <processId>G5-TESTE</processId>
         <version>1</version>
@@ -5604,24 +5487,24 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask114(attempt, message) {
-	/**
-	 * Criada pasta &quot;Anexos Jurídico&quot; na raiz do GED com o ID 13590 ou 467649
-	 * HMG: gennesisengenharia160517 - pasta : 61248
-	 * PRD: gennesisengenharia160516 - pasta : 88200
-	 */
+  /**
+   * Criada pasta &quot;Anexos Jurídico&quot; na raiz do GED com o ID 13590 ou 467649
+   * HMG: gennesisengenharia160517 - pasta : 61248
+   * PRD: gennesisengenharia160516 - pasta : 88200
+   */
 
-	try {
-		var pageService = fluigAPI.getPageService();
-		var urlDoServidor = String(pageService.getServerURL());
-		var pastaPai = urlDoServidor.indexOf(&apos;gennesisengenharia160516&apos;) &gt;= 0 ? 88200 : 61248;
-		var nomeSubPasta = &quot;G5-&quot; + String(getValue(&quot;WKNumProces&quot;));
-		var pastaCriada = criaPasta(pastaPai, nomeSubPasta);
-		var listaDeDocumento = publicarGED(pastaCriada);
-		hAPI.setCardValue(&quot;anexos&quot;, String(listaDeDocumento.join(&quot;,&quot;)))
-		return true;
-	} catch (error) {
+  try {
+    var pageService = fluigAPI.getPageService();
+    var urlDoServidor = String(pageService.getServerURL());
+    var pastaPai = urlDoServidor.indexOf(&apos;gennesisengenharia160516&apos;) &gt;= 0 ? 88200 : 61248;
+    var nomeSubPasta = &quot;G5-&quot; + String(getValue(&quot;WKNumProces&quot;));
+    var pastaCriada = criaPasta(pastaPai, nomeSubPasta);
+    var listaDeDocumento = publicarGED(pastaCriada);
+    hAPI.setCardValue(&quot;anexos&quot;, String(listaDeDocumento.join(&quot;,&quot;)))
+    return true;
+  } catch (error) {
 
-	}
+  }
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -5632,118 +5515,69 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask202(attempt, message) {
-var valores = {
-    // &quot;CODEXTERNO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
+  var valores = {
     &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;coligada&quot;),
     &quot;NOMEFANTASIA&quot;: hAPI.getCardValue(&quot;nome_social&quot;),
     &quot;NOME&quot;: hAPI.getCardValue(&quot;nome&quot;),
-    // &quot;CGCCFO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;PAGREC&quot;: hAPI.getCardValue(&quot;pagar_receber&quot;),
     &quot;RUA&quot;: hAPI.getCardValue(&quot;rua&quot;),
     &quot;NUMERO&quot;: hAPI.getCardValue(&quot;numero&quot;),
     &quot;BAIRRO&quot;: hAPI.getCardValue(&quot;bairro&quot;),
-    // &quot;CIDADE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;CODETD&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;CEP&quot;: hAPI.getCardValue(&quot;CEP&quot;),
     &quot;TELEFONE&quot;: hAPI.getCardValue(&quot;telefone&quot;),
     &quot;EMAIL&quot;: hAPI.getCardValue(&quot;email&quot;),
     &quot;CONTATO&quot;: hAPI.getCardValue(&quot;contato&quot;),
     &quot;ATIVO&quot;: hAPI.getCardValue(&quot;status_tipo_cliente&quot;),
-    // &quot;LIMITECREDITO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;DATAULTALTERACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;DATACRIACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;DATAULTMOVIMENTO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;VALOROP1&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;VALOROP2&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;VALOROP3&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;PATRIMONIO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;NUMFUNCIONARIOS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;CODMUNICIPIO&quot;: hAPI.getCardValue(&quot;codigo_municipio&quot;),
     &quot;PESSOAFISOUJUR&quot;: hAPI.getCardValue(&quot;categoria&quot;),
     &quot;PAIS&quot;: hAPI.getCardValue(&quot;pais&quot;),
-    // &quot;CONTRIBUINTE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;CFOIMOB&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;VALFRETE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;TPTOMADOR&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;CONTRIBUINTEISS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;NUMDEPENDENTES&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;USUARIOALTERACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;ORGAOPUBLICO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;CAIXAPOSTAL&quot;: hAPI.getCardValue(&quot;caixa_postal&quot;),
-    // &quot;CATEGORIAAUTONOMO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;IDCFO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;VROUTRASDEDUCOESIRRF&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;RAMOATIV&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;OPTANTEPELOSIMPLES&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;TIPORUA&quot;: hAPI.getCardValue(&quot;tipo_rua&quot;),
     &quot;TIPOBAIRRO&quot;: hAPI.getCardValue(&quot;tipo_bairro&quot;),
-    // &quot;REGIMEISS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;RETENCAOISS&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;USUARIOCRIACAO&quot;: hAPI.getCardValue(&quot;solicitante&quot;),
-    // &quot;PORTE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;TIPOOPCOMBUSTIVEL&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;IDPAIS&quot;: hAPI.getCardValue(&quot;id_pais&quot;),
     &quot;NACIONALIDADE&quot;: hAPI.getCardValue(&quot;nacionalidade&quot;),
-    // &quot;CALCULAAVP&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;CODUSUARIOACESSO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;RECCREATEDBY&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;RECCREATEDON&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;RECMODIFIEDBY&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;RECMODIFIEDON&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;TIPORENDIMENTO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;FORMATRIBUTACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;SITUACAONIF&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;ISTOTVSMESSAGE&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;INOVAR_AUTO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;APLICFORMULA&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;CODCFOCOLINTEGRACAO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;DIGVERIFICDEBAUTOMATICO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-    // &quot;ENTIDADEEXECUTORAPAA&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
     &quot;APOSENTADOOUPENSIONISTA&quot;: hAPI.getCardValue(&quot;aposentado_pensionista&quot;),
-    // &quot;SOCIOCOOPERADO&quot;: hAPI.getCardValue(&quot;idDoCampo&quot;),
-};
+  };
 
+  log.info(&quot;VALORES --&gt; &quot;)
+  log.dir(valores)
 
+  // Objeto para armazenar os valores não nulos
+  var valoresNaoNulos = {};
 
-log.info(&quot;VALORES --&gt; &quot;)
-log.dir(valores)
-
-// Objeto para armazenar os valores não nulos
-var valoresNaoNulos = {};
-
-// Itera sobre as chaves do objeto valores
-for (var key in valores) {
+  // Itera sobre as chaves do objeto valores
+  for (var key in valores) {
     if (valores.hasOwnProperty(key) &amp;&amp; valores[key] !== null) {
-        valoresNaoNulos[key] = valores[key]; // Adiciona ao objeto valoresNaoNulos se não for null
+      valoresNaoNulos[key] = valores[key]; // Adiciona ao objeto valoresNaoNulos se não for null
     }
-}
+  }
 
-// Agora valoresNaoNulos contém apenas os valores não nulos
-log.info(&quot;VALORES NAO NULOS --&gt;&quot;);
-log.dir(valoresNaoNulos)
+  // Agora valoresNaoNulos contém apenas os valores não nulos
+  log.info(&quot;VALORES NAO NULOS --&gt;&quot;);
+  log.dir(valoresNaoNulos)
 
-var cst = []
+  var cst = []
 
-for (var propriedade in valores) {
+  for (var propriedade in valores) {
     if (valores.hasOwnProperty(propriedade)) {
-        if (valores[propriedade] != &quot;&quot;) {
-            cst.push(DatasetFactory.createConstraint(propriedade, valores[propriedade], valores[propriedade], ConstraintType.MUST));
-        }
+      if (valores[propriedade] != &quot;&quot;) {
+        cst.push(DatasetFactory.createConstraint(propriedade, valores[propriedade], valores[propriedade], ConstraintType.MUST));
+      }
     }
-}
+  }
 
+  var dtsIntegracao = DatasetFactory.getDataset(&quot;ds_novoFornecedor&quot;, null, cst, null)
 
-var dtsIntegracao = DatasetFactory.getDataset(&quot;ds_novoFornecedor&quot;, null, cst, null)
-
-if (dtsIntegracao.rowsCount &gt; 0) {
+  if (dtsIntegracao.rowsCount &gt; 0) {
     if (dtsIntegracao.getValue(0, &quot;Retorno&quot;) == &quot;OK&quot;) {
-        return true
+      return true
     } else {
-        throw dtsIntegracao.getValue(0, &quot;Mensagem&quot;)
+      throw dtsIntegracao.getValue(0, &quot;Mensagem&quot;)
     }
-} else {
+  } else {
     throw &quot;Não retornou resultado da integração&quot;
-}
+  }
 }
 </eventDescription>
     </WorkflowProcessEvent>
@@ -5971,7 +5805,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>5</version>
+        <version>26</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5982,7 +5816,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>5</version>
+        <version>26</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5995,7 +5829,7 @@ if (dtsIntegracao.rowsCount &gt; 0) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>5</version>
+        <version>26</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6013,7 +5847,7 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>5</version>
+        <version>26</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -6032,7 +5866,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>5</version>
+        <version>26</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -6045,7 +5879,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>5</version>
+        <version>26</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -6062,7 +5896,7 @@ Informamos que sua solicitação: [Título da solicitação] foi paga. Segue aba
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>5</version>
+        <version>26</version>
         <stateSequence>287</stateSequence>
         <triggerSequence>4</triggerSequence>
       </processStateTriggerPK>
@@ -6141,7 +5975,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6151,7 +5985,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6165,7 +5999,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6175,7 +6009,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6185,7 +6019,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6195,7 +6029,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6205,7 +6039,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6219,7 +6053,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6229,7 +6063,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6239,7 +6073,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>5</processVersion>
+      <processVersion>26</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

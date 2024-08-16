@@ -17,13 +17,8 @@ function servicetask183(attempt, message) {
     var authenticatedService = getWebService(usuario, senha, "RMWsDataServer", "com.totvs.WsDataServer", "com.totvs.IwsDataServer");
     log.dir({ "getWebService": { 'usuario': usuario, 'senha': senha, "serviceRM": "RMWsDataServer", "instance": "com.totvs.WsDataServer", "authClient": "com.totvs.IwsDataServer" } });
 
-    var idLanModelo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : 28757;
     var idLanNovo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : "-1";
 
-    // var primaryKey = hAPI.getCardValue("coligada") + ";" + idLanModelo;
-    // var context = "CodSistema=F;CodColigada=1";
-    // var text = String(authenticatedService.readRecord(dataServerName, primaryKey, context));
-    // if (!ChekExist(text)) text = GetXml();
     var text = GetXml();
 
     text = formatStringToXML(text);

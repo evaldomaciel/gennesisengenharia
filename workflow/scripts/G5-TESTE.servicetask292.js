@@ -1,6 +1,6 @@
 function servicetask292(attempt, message) {
   var valores = {
-     "CODCOLIGADA": hAPI.getCardValue("hidden_coligada_cli_for"),
+    "CODCOLIGADA": hAPI.getCardValue("hidden_coligada_cli_for"),
     "CODCFO": hAPI.getCardValue("hidden_codigo_cli_for"),
     "CODCOLCFO": hAPI.getCardValue("hidden_coligada_cli_for"),
     "IDPGTO": hAPI.getCardValue("cad_referencia_fin"),
@@ -45,7 +45,6 @@ function servicetask292(attempt, message) {
     throw "Não retornou resultado da integração"
   }
 }
-
 
 function capta_Cpf_Cnpj(tipo_pessoa) {
   if (tipo_pessoa == "F") {

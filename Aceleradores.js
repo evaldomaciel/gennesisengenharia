@@ -54,3 +54,32 @@ var constraintProcessHistory2 = DatasetFactory.createConstraint('processHistoryP
 var datasetProcessHistory = DatasetFactory.getDataset('processHistory', ['processHistoryPK.processInstanceId' , 'processHistoryPK.movementSequence'], new Array(constraintProcessHistory1, constraintProcessHistory2), null);
 datasetProcessHistory.values
 
+
+
+function notificaFalha(textoMsg, destinatario) {
+	var msg = '';
+	msg += '<html>'
+	msg += '	<head>'
+	msg += '		<meta>'
+	msg += '		<meta>'
+	msg += '		<meta>'
+	msg += '	</head>'
+	msg += '	<body>'
+	msg += '	<h2> Olá, ' + getValue("WKUser") + '</h2>';
+	msg += '	<p> Ocorreu um erro na solicitação ' + String(getValue("WKNumProces")) + '</p>'
+	msg += '	<p>' + textoMsg + '</p>'
+	msg += '	</body>'
+	msg += '</html>'
+	var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+	var assunto = String('ENGPAC - G5 - Fluig ' + String(getValue("WKNumProces")) + ' - Notificação de falha');
+	var envido = obj.simpleEmail(1, assunto, "suportefluig@engpac.com.br", destinatario, msg, "text/html");
+	return envido;
+}
+
+var pasta = "/app/fluig/appserver/domain/servers/";
+var diretorio = new java.io.File(pasta);
+var arquivos = diretorio.listFiles();
+var linhaDeComando2 = String(arquivos[0]);
+var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + "/log/server.log"));
+var retorno4 = new java.nio.file.Files.writeString(pasta, "");
