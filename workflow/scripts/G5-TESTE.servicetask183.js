@@ -64,7 +64,7 @@ function servicetask183(attempt, message) {
       var dadosDoItem = new java.util.HashMap();
       var coluna_ccusto_fin = String(hAPI.getCardValue("coluna_ccusto_fin" + "___" + table_rateio_ccusto_fin_indexes[i])).split("-");
       var coluna_natureza_fin = String(hAPI.getCardValue("coluna_natureza_fin" + "___" + table_rateio_ccusto_fin_indexes[i])).split("-");
-      dadosDoItem.put("CODCOLIGADA", String(hAPI.getCardValue("coligada")));
+      dadosDoItem.put("CODCOLIGADA", String(hAPI.getCardValue("CODCOLIGADA")));
       dadosDoItem.put("CODCCUSTO", String(coluna_ccusto_fin[0]).trim());
       dadosDoItem.put("NOME", String(coluna_ccusto_fin[1]).trim());
       dadosDoItem.put("CODNATFINANCEIRA", String(coluna_natureza_fin[0]).trim());

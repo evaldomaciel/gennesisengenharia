@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>26</version>
+      <version>12</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>60896</formId>
+    <formId>88477</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -232,7 +232,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>620</positionX>
-      <positionY>1527</positionY>
+      <positionY>1511</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -283,8 +283,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1090</positionX>
-      <positionY>117</positionY>
+      <positionX>830</positionX>
+      <positionY>180</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -486,7 +486,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1940</positionX>
-      <positionY>1449</positionY>
+      <positionY>1368</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -639,7 +639,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1940</positionX>
-      <positionY>1544</positionY>
+      <positionY>1450</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -691,7 +691,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1940</positionX>
-      <positionY>1628</positionY>
+      <positionY>1530</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -778,10 +778,10 @@
       <agreementPercentage>0</agreementPercentage>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
@@ -828,10 +828,10 @@
       <agreementPercentage>0</agreementPercentage>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
@@ -841,7 +841,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>160</positionX>
-      <positionY>1520</positionY>
+      <positionY>1504</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1023,162 +1023,6 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <sequence>246</sequence>
-      </processStatePK>
-      <stateName>Aguardando Vencimento</stateName>
-      <stateDescription>Aguardando Vencimento</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>60</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Executor Atividade</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>860</positionX>
-      <positionY>1500</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>80</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <sequence>247</sequence>
-      </processStatePK>
-      <stateName>Pagamento Único</stateName>
-      <stateDescription>Pagamento Único</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>60</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Executor Atividade</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>860</positionX>
-      <positionY>1570</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>80</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <sequence>248</sequence>
-      </processStatePK>
-      <stateName>Pagamento Parcial</stateName>
-      <stateDescription>Pagamento Parcial</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>60</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Executor Atividade</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>860</positionX>
-      <positionY>1640</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>80</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
         <sequence>274</sequence>
       </processStatePK>
       <stateName>Cadastro de Fornecedor</stateName>
@@ -1231,56 +1075,6 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <sequence>287</sequence>
-      </processStatePK>
-      <stateName>Informa Solicitante</stateName>
-      <stateDescription>Informa Solicitante</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>0</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>2090</positionX>
-      <positionY>1369</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>84</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>0</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
         <sequence>292</sequence>
       </processStatePK>
       <stateName>Serviço Cadastro Dados Bancários</stateName>
@@ -1292,10 +1086,10 @@
       <agreementPercentage>0</agreementPercentage>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
@@ -1305,7 +1099,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>320</positionX>
-      <positionY>1513</positionY>
+      <positionY>1497</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1383,6 +1177,264 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
+        <sequence>287</sequence>
+      </processStatePK>
+      <stateName>Cancelar lançamento</stateName>
+      <stateDescription>Cancelar lançamento</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1940</positionX>
+      <positionY>1610</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <sequence>318</sequence>
+      </processStatePK>
+      <stateName>Tratamento de Erro</stateName>
+      <stateDescription>Tratamento de Erro</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;cTask223&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1940</positionX>
+      <positionY>1690</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <sequence>326</sequence>
+      </processStatePK>
+      <stateName>Aguardando Vencimento</stateName>
+      <stateDescription>Aguardando Vencimento</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>980</positionX>
+      <positionY>1511</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>2</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <sequence>327</sequence>
+      </processStatePK>
+      <stateName>Pagamento Parcial</stateName>
+      <stateDescription>Pagamento Parcial</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>980</positionX>
+      <positionY>1589</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>2</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <sequence>328</sequence>
+      </processStatePK>
+      <stateName>Pagamento Único</stateName>
+      <stateDescription>Pagamento Único</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>980</positionX>
+      <positionY>1670</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>2</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
         <sequence>81</sequence>
       </processStatePK>
       <stateName>Revisar Solicitação</stateName>
@@ -1407,8 +1459,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>971</positionX>
-      <positionY>135</positionY>
+      <positionX>711</positionX>
+      <positionY>198</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1501,8 +1553,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1278</positionX>
-      <positionY>135</positionY>
+      <positionX>1018</positionX>
+      <positionY>198</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1596,7 +1648,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1860</positionX>
-      <positionY>1645</positionY>
+      <positionY>1547</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1643,7 +1695,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1860</positionX>
-      <positionY>1561</positionY>
+      <positionY>1467</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1690,7 +1742,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1580</positionX>
-      <positionY>1570</positionY>
+      <positionY>1607</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1737,7 +1789,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1580</positionX>
-      <positionY>1664</positionY>
+      <positionY>1687</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1784,7 +1836,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1860</positionX>
-      <positionY>1466</positionY>
+      <positionY>1386</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1831,7 +1883,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1580</positionX>
-      <positionY>1474</positionY>
+      <positionY>1527</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1877,8 +1929,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2210</positionX>
-      <positionY>1466</positionY>
+      <positionX>2200</positionX>
+      <positionY>1370</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1924,8 +1976,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2210</positionX>
-      <positionY>1519</positionY>
+      <positionX>2200</positionX>
+      <positionY>1430</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1971,8 +2023,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2210</positionX>
-      <positionY>1645</positionY>
+      <positionX>2200</positionX>
+      <positionY>1547</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2018,8 +2070,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2210</positionX>
-      <positionY>1561</positionY>
+      <positionX>2200</positionX>
+      <positionY>1490</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2207,7 +2259,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>230</positionX>
-      <positionY>1580</positionY>
+      <positionY>1564</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2254,7 +2306,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>400</positionX>
-      <positionY>1583</positionY>
+      <positionY>1567</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2417,6 +2469,53 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
+        <sequence>317</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1940</positionX>
+      <positionY>1650</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>287</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
         <sequence>124</sequence>
       </processStatePK>
       <stateName>Enviar para etapa:</stateName>
@@ -2428,7 +2527,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>1490</positionX>
-      <positionY>1530</positionY>
+      <positionY>1566</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -2453,7 +2552,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>1380</positionX>
-      <positionY>1624</positionY>
+      <positionY>1566</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -2494,8 +2593,8 @@
         <version>1</version>
         <sequence>26</sequence>
       </processStatePK>
-      <stateName>Cancelar</stateName>
-      <stateDescription>Cancelar</stateDescription>
+      <stateName>Cancelado - Gestor</stateName>
+      <stateDescription>Cancelado - Gestor</stateDescription>
       <instruction>Atividade final do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -2635,8 +2734,8 @@
         <version>1</version>
         <sequence>244</sequence>
       </processStatePK>
-      <stateName>Cancelamento</stateName>
-      <stateDescription>Cancelamento</stateDescription>
+      <stateName>Cancelado - Provisionamento</stateName>
+      <stateDescription>Cancelado - Provisionamento</stateDescription>
       <instruction>Atividade final do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -2682,8 +2781,8 @@
         <version>1</version>
         <sequence>267</sequence>
       </processStatePK>
-      <stateName>Cancelar</stateName>
-      <stateDescription>Cancelar</stateDescription>
+      <stateName>Cancelado - Pagamento</stateName>
+      <stateDescription>Cancelado - Pagamento</stateDescription>
       <instruction>Atividade final do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -2704,8 +2803,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2220</positionX>
-      <positionY>1386</positionY>
+      <positionX>2103</positionX>
+      <positionY>1627</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2729,7 +2828,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>26</version>
+        <version>12</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2840,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>26</version>
+        <version>12</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2852,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>3</expressionOrder>
-        <version>26</version>
+        <version>12</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2864,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>26</version>
+        <version>12</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2876,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>26</version>
+        <version>12</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2888,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>1</expressionOrder>
-        <version>26</version>
+        <version>12</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2900,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <expressionOrder>2</expressionOrder>
-        <version>26</version>
+        <version>12</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2821,23 +2920,6 @@
       <returnPermited>false</returnPermited>
       <initialStateSequence>4</initialStateSequence>
       <finalStateSequence>176</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>36</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>14</initialStateSequence>
-      <finalStateSequence>248</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -3281,7 +3363,7 @@
       <initialStateSequence>97</initialStateSequence>
       <finalStateSequence>155</finalStateSequence>
       <returnLabel></returnLabel>
-      <name></name>
+      <name>Pagamento Unico</name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -3298,7 +3380,7 @@
       <initialStateSequence>97</initialStateSequence>
       <finalStateSequence>157</finalStateSequence>
       <returnLabel></returnLabel>
-      <name></name>
+      <name>Pagamento Parcial</name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -3315,7 +3397,7 @@
       <initialStateSequence>127</initialStateSequence>
       <finalStateSequence>168</finalStateSequence>
       <returnLabel></returnLabel>
-      <name></name>
+      <name>Pago</name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -3349,7 +3431,7 @@
       <initialStateSequence>128</initialStateSequence>
       <finalStateSequence>158</finalStateSequence>
       <returnLabel></returnLabel>
-      <name></name>
+      <name>Aguardando Vencimento</name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -3366,92 +3448,7 @@
       <initialStateSequence>128</initialStateSequence>
       <finalStateSequence>168</finalStateSequence>
       <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>268</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>97</initialStateSequence>
-      <finalStateSequence>287</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>269</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>127</initialStateSequence>
-      <finalStateSequence>287</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>270</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>128</initialStateSequence>
-      <finalStateSequence>287</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>271</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>14</initialStateSequence>
-      <finalStateSequence>247</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>272</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>14</initialStateSequence>
-      <finalStateSequence>246</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
+      <name>Pago</name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -3468,7 +3465,7 @@
       <initialStateSequence>14</initialStateSequence>
       <finalStateSequence>91</finalStateSequence>
       <returnLabel></returnLabel>
-      <name></name>
+      <name>Envia para Revisar Solicitação</name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -3529,57 +3526,6 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>282</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>248</initialStateSequence>
-      <finalStateSequence>191</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>283</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>247</initialStateSequence>
-      <finalStateSequence>191</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>284</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>246</initialStateSequence>
-      <finalStateSequence>191</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
         <linkSequence>285</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -3606,74 +3552,6 @@
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>288</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>287</initialStateSequence>
-      <finalStateSequence>267</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>289</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>128</initialStateSequence>
-      <finalStateSequence>287</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>290</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>127</initialStateSequence>
-      <finalStateSequence>287</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>291</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>97</initialStateSequence>
-      <finalStateSequence>287</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
@@ -3725,57 +3603,6 @@
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>298</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>248</initialStateSequence>
-      <finalStateSequence>191</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>299</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>247</initialStateSequence>
-      <finalStateSequence>191</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>1</version>
-        <linkSequence>300</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>246</initialStateSequence>
-      <finalStateSequence>191</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
@@ -3954,7 +3781,211 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>314</linkSequence>
+        <linkSequence>315</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>97</initialStateSequence>
+      <finalStateSequence>287</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>316</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>127</initialStateSequence>
+      <finalStateSequence>287</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>319</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>317</initialStateSequence>
+      <finalStateSequence>318</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>320</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>318</initialStateSequence>
+      <finalStateSequence>287</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>321</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>287</initialStateSequence>
+      <finalStateSequence>267</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>322</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>318</initialStateSequence>
+      <finalStateSequence>267</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>329</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>14</initialStateSequence>
+      <finalStateSequence>326</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>330</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>14</initialStateSequence>
+      <finalStateSequence>327</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>331</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>14</initialStateSequence>
+      <finalStateSequence>328</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>332</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>326</initialStateSequence>
+      <finalStateSequence>191</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>333</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>327</initialStateSequence>
+      <finalStateSequence>191</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>334</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>328</initialStateSequence>
+      <finalStateSequence>191</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+        <linkSequence>335</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3970,7 +4001,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>315</linkSequence>
+        <linkSequence>336</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3986,7 +4017,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>316</linkSequence>
+        <linkSequence>337</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4002,7 +4033,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>317</linkSequence>
+        <linkSequence>338</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4018,7 +4049,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>318</linkSequence>
+        <linkSequence>339</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4034,7 +4065,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>319</linkSequence>
+        <linkSequence>340</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4050,7 +4081,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>320</linkSequence>
+        <linkSequence>341</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4066,7 +4097,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>321</linkSequence>
+        <linkSequence>342</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4082,7 +4113,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>322</linkSequence>
+        <linkSequence>343</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4098,7 +4129,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>323</linkSequence>
+        <linkSequence>344</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4114,7 +4145,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>324</linkSequence>
+        <linkSequence>345</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4130,7 +4161,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>325</linkSequence>
+        <linkSequence>346</linkSequence>
       </processLinkPK>
       <actionLabel>Revisar solicitação</actionLabel>
       <returnPermited>false</returnPermited>
@@ -4146,7 +4177,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>326</linkSequence>
+        <linkSequence>347</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4162,7 +4193,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>327</linkSequence>
+        <linkSequence>348</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4178,7 +4209,7 @@
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
         <version>1</version>
-        <linkSequence>328</linkSequence>
+        <linkSequence>349</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4192,6 +4223,73 @@
   </list>
   <list/>
   <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>intermediateconditional326</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function intermediateconditional326() {
+
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeCancelProcess</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeCancelProcess(colleagueId, processId) {
+    log.info(&quot;============= inicio afterTaskComplete 00-FLUIG &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);
+    try {
+        var parametros = new java.util.HashMap();
+        parametros.put(&quot;ASSUNTO&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
+        parametros.put(&quot;subject&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
+        parametros.put(&quot;USUARIO&quot;, getValue(&quot;WKUser&quot;));
+        parametros.put(&quot;TITULO_SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
+        parametros.put(&quot;ATENDENTE&quot;, &quot;Gestão&quot;);
+        parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
+
+        var destinatarios = new java.util.ArrayList();
+        destinatarios.add(&quot;agcoimbra@gmail.com&quot;);
+        destinatarios.add(&quot;desenvolvimento.fluig@grupodecio.com.br&quot;);
+        destinatarios.add(&quot;evaldomaciel17@gmail.com&quot;);
+
+        notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
+
+        /** Personalizado */
+        var msg = &apos;&apos;;
+        msg += &apos;&lt;html&gt;&apos;
+        msg += &apos;	&lt;head&gt;&apos;
+        msg += &apos;		&lt;meta&gt;&apos;
+        msg += &apos;		&lt;meta&gt;&apos;
+        msg += &apos;		&lt;meta&gt;&apos;
+        msg += &apos;	&lt;/head&gt;&apos;
+        msg += &apos;	&lt;body&gt;&apos;
+        msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;
+        msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))
+        msg += &apos;	    foi cancelada!. &lt;/p&gt;&apos;
+        msg += &apos;	&lt;/body&gt;&apos;
+        msg += &apos;&lt;/html&gt;&apos;
+        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+        var assunto = String(&apos;ENGPAC - G5 - Fluig &apos; + String(getValue(&quot;WKNumProces&quot;)));
+        for (var index = 0; index &lt; destinatarios.size(); index++) {
+            var destinatario = String(destinatarios.get(index));
+            var envido = obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatario, msg, &quot;text/html&quot;);
+            log.info(destinatario + &quot; - &quot; + assunto);
+        }
+    } catch (e) {
+        log.error(&quot;dentro do catch&quot;);
+        log.error(&quot;Linha do erro&quot; + e.lineNumber);
+        log.error(String(e));
+        throw new Error(e);
+    }
+    log.info(&quot;============= fim afterTaskComplete 00-FLUIG &quot; + String(getValue(&quot;WKNumProces&quot;)) + &quot;============= &quot;);
+}</eventDescription>
+    </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
@@ -4543,57 +4641,205 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
-        <eventId>beforeCancelProcess</eventId>
+        <eventId>servicetask287</eventId>
         <processId>G5-TESTE</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function beforeCancelProcess(colleagueId, processId) {
-    log.info(&quot;============= inicio afterTaskComplete 00-FLUIG &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);
-    try {
-        var parametros = new java.util.HashMap();
-        parametros.put(&quot;ASSUNTO&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
-        parametros.put(&quot;subject&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
-        parametros.put(&quot;USUARIO&quot;, getValue(&quot;WKUser&quot;));
-        parametros.put(&quot;TITULO_SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
-        parametros.put(&quot;ATENDENTE&quot;, &quot;Gestão&quot;);
-        parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
+      <eventDescription>function servicetask287(attempt, message) {
+	var lancamento = cancelaLancamentoRM(
+		parseInt(hAPI.getCardValue(&apos;idLan&apos;)),
+		parseInt(hAPI.getCardValue(&apos;CODCOLIGADA&apos;)),
+		String(&apos;Cancelado na solicitação &apos; + getValue(&apos;WKNumProces&apos;) + &apos; do Fluig!&apos;)
+	);
+	return lancamento;
+}
 
-        var destinatarios = new java.util.ArrayList();
-        destinatarios.add(&quot;agcoimbra@gmail.com&quot;);
-        destinatarios.add(&quot;desenvolvimento.fluig@grupodecio.com.br&quot;);
-        destinatarios.add(&quot;evaldomaciel17@gmail.com&quot;);
 
-        notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
+function cancelaLancamentoRM(idLan, codColigada, motivo) {
+	try {
+		var properties = {};
+		properties[&apos;log.soap.messages&apos;] = &apos;false&apos;;
+		properties[&apos;disable.chunking&apos;] = &apos;true&apos;;
+		properties[&apos;use.ssl&apos;] = &apos;false&apos;;
+		properties[&apos;basic.authorization&apos;] = &apos;true&apos;;
+		properties[&apos;basic.authorization.username&apos;] = getConstante(&apos;rm_usuario&apos;)
+		properties[&apos;basic.authorization.password&apos;] = getConstante(&apos;rm_senha&apos;)
+		var idLanPr = codColigada + &apos; - &apos; + idLan;
 
-        /** Personalizado */
-        var msg = &apos;&apos;;
-        msg += &apos;&lt;html&gt;&apos;
-        msg += &apos;	&lt;head&gt;&apos;
-        msg += &apos;		&lt;meta&gt;&apos;
-        msg += &apos;		&lt;meta&gt;&apos;
-        msg += &apos;		&lt;meta&gt;&apos;
-        msg += &apos;	&lt;/head&gt;&apos;
-        msg += &apos;	&lt;body&gt;&apos;
-        msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;
-        msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))
-        msg += &apos;	    foi cancelada!. &lt;/p&gt;&apos;
-        msg += &apos;	&lt;/body&gt;&apos;
-        msg += &apos;&lt;/html&gt;&apos;
-        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+		var strXmlParams = String(&apos;&apos; +
+			&apos;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&apos; +
+			&apos;&lt;FinLanCancelamentoParamsProc z:Id=&quot;i1&quot; xmlns=&quot;http://www.totvs.com.br/RM/&quot; xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:z=&quot;http://schemas.microsoft.com/2003/10/Serialization/&quot;&gt;&apos; +
+			&apos;  &lt;ActionModule xmlns=&quot;http://www.totvs.com/&quot;&gt;F&lt;/ActionModule&gt;&apos; +
+			&apos;  &lt;ActionName xmlns=&quot;http://www.totvs.com/&quot;&gt;FinLanCancelamentoAction&lt;/ActionName&gt;&apos; +
+			&apos;  &lt;CanParallelize xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/CanParallelize&gt;&apos; +
+			&apos;  &lt;CanSendMail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/CanSendMail&gt;&apos; +
+			&apos;  &lt;CanWaitSchedule xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/CanWaitSchedule&gt;&apos; +
+			&apos;  &lt;CodUsuario xmlns=&quot;http://www.totvs.com/&quot;&gt;&apos; + properties[&apos;basic.authorization.username&apos;] + &apos;&lt;/CodUsuario&gt;&apos; +
+			&apos;  &lt;ConnectionId i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+			&apos;  &lt;ConnectionString i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+			&apos;  &lt;Context z:Id=&quot;i2&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://www.totvs.com.br/RM/&quot;&gt;&apos; +
+			&apos;	&lt;a:_params xmlns:b=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$EXERCICIOFISCAL&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODLOCPRT&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODTIPOCURSO&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$EDUTIPOUSR&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUNIDADEBIB&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODCOLIGADA&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + codColigada + &apos;&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$RHTIPOUSR&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODIGOEXTERNO&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODSISTEMA&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;F&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUSUARIOSERVICO&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot; /&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUSUARIO&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + properties[&apos;basic.authorization.username&apos;] + &apos;&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$IDPRJ&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CHAPAFUNCIONARIO&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	  &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;		&lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODFILIAL&lt;/b:Key&gt;&apos; +
+			&apos;		&lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;1&lt;/b:Value&gt;&apos; +
+			&apos;	  &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+			&apos;	&lt;/a:_params&gt;&apos; +
+			&apos;	&lt;a:Environment&gt;DotNet&lt;/a:Environment&gt;&apos; +
+			&apos;  &lt;/Context&gt;&apos; +
+			&apos;  &lt;DisableIsolateProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/DisableIsolateProcess&gt;&apos; +
+			&apos;  &lt;DriverType i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+			&apos;  &lt;FriendlyLogs i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+			&apos;  &lt;HideProgressDialog xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/HideProgressDialog&gt;&apos; +
+			&apos;  &lt;HostName xmlns=&quot;http://www.totvs.com/&quot;&gt;&apos; + properties[&apos;basic.authorization.username&apos;] + &apos;&lt;/HostName&gt;&apos; +
+			&apos;  &lt;Initialized xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/Initialized&gt;&apos; +
+			&apos;  &lt;IsolateProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/IsolateProcess&gt;&apos; +
+			&apos;  &lt;MasterActionName xmlns=&quot;http://www.totvs.com/&quot;&gt;FinLanAction&lt;/MasterActionName&gt;&apos; +
+			&apos;  &lt;MaximumQuantityOfPrimaryKeysPerProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;1000&lt;/MaximumQuantityOfPrimaryKeysPerProcess&gt;&apos; +
+			&apos;  &lt;MinimumQuantityOfPrimaryKeysPerProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;1&lt;/MinimumQuantityOfPrimaryKeysPerProcess&gt;&apos; +
+			&apos;  &lt;NetworkUser xmlns=&quot;http://www.totvs.com/&quot;&gt;&apos; + properties[&apos;basic.authorization.username&apos;] + &apos;&lt;/NetworkUser&gt;&apos; +
+			&apos;  &lt;NotifyEmail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/NotifyEmail&gt;&apos; +
+			&apos;  &lt;NotifyEmailList i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot; /&gt;&apos; +
+			&apos;  &lt;NotifyFluig xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/NotifyFluig&gt;&apos; +
+			&apos;  &lt;OnlineMode xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/OnlineMode&gt;&apos; +
+			&apos;  &lt;PrimaryKeyList xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+			&apos;	&lt;a:ArrayOfanyType&gt;&apos; +
+			&apos;	  &lt;a:anyType i:type=&quot;b:short&quot; xmlns:b=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + codColigada + &apos;&lt;/a:anyType&gt;&apos; +
+			&apos;	  &lt;a:anyType i:type=&quot;b:int&quot; xmlns:b=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + idLan + &apos;&lt;/a:anyType&gt;&apos; +
+			&apos;	&lt;/a:ArrayOfanyType&gt;&apos; +
+			&apos;  &lt;/PrimaryKeyList&gt;&apos; +
+			&apos;  &lt;PrimaryKeyNames xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+			&apos;	&lt;a:string&gt;CODCOLIGADA&lt;/a:string&gt;&apos; +
+			&apos;	&lt;a:string&gt;IDLAN&lt;/a:string&gt;&apos; +
+			&apos;  &lt;/PrimaryKeyNames&gt;&apos; +
+			&apos;  &lt;PrimaryKeyTableName xmlns=&quot;http://www.totvs.com/&quot;&gt;FLAN&lt;/PrimaryKeyTableName&gt;&apos; +
+			&apos;  &lt;ProcessName xmlns=&quot;http://www.totvs.com/&quot;&gt;Cancelar Lançamento&lt;/ProcessName&gt;&apos; +
+			&apos;  &lt;QuantityOfSplits xmlns=&quot;http://www.totvs.com/&quot;&gt;0&lt;/QuantityOfSplits&gt;&apos; +
+			&apos;  &lt;SaveLogInDatabase xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/SaveLogInDatabase&gt;&apos; +
+			&apos;  &lt;SaveParamsExecution xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SaveParamsExecution&gt;&apos; +
+			&apos;  &lt;ScheduleDateTime xmlns=&quot;http://www.totvs.com/&quot;&gt;&apos; + getFormattedDate() + &apos;&lt;/ScheduleDateTime&gt;&apos; +
+			&apos;  &lt;Scheduler xmlns=&quot;http://www.totvs.com/&quot;&gt;JobMonitor&lt;/Scheduler&gt;&apos; +
+			&apos;  &lt;SendMail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SendMail&gt;&apos; +
+			&apos;  &lt;ServerName xmlns=&quot;http://www.totvs.com/&quot;&gt;FinLanCancelamentoData&lt;/ServerName&gt;&apos; +
+			&apos;  &lt;ServiceInterface i:type=&quot;b:RuntimeType&quot; z:FactoryType=&quot;c:UnitySerializationHolder&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.datacontract.org/2004/07/System&quot; xmlns:b=&quot;-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.RuntimeType&quot; xmlns:c=&quot;-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.UnitySerializationHolder&quot;&gt;&apos; +
+			&apos;	&lt;Data i:type=&quot;d:string&quot; xmlns=&quot;&quot; xmlns:d=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;RM.Fin.Lan.IFinLanCancelamentoData&lt;/Data&gt;&apos; +
+			&apos;	&lt;UnityType i:type=&quot;d:int&quot; xmlns=&quot;&quot; xmlns:d=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;4&lt;/UnityType&gt;&apos; +
+			&apos;	&lt;AssemblyName i:type=&quot;d:string&quot; xmlns=&quot;&quot; xmlns:d=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;RM.Fin.Lan.Intf, Version=12.1.2402.139, Culture=neutral, PublicKeyToken=null&lt;/AssemblyName&gt;&apos; +
+			&apos;  &lt;/ServiceInterface&gt;&apos; +
+			&apos;  &lt;ShouldParallelize xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/ShouldParallelize&gt;&apos; +
+			&apos;  &lt;ShowReExecuteButton xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/ShowReExecuteButton&gt;&apos; +
+			&apos;  &lt;StatusMessage i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+			&apos;  &lt;SuccessMessage xmlns=&quot;http://www.totvs.com/&quot;&gt;Processo executado com sucesso&lt;/SuccessMessage&gt;&apos; +
+			&apos;  &lt;SyncExecution xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SyncExecution&gt;&apos; +
+			&apos;  &lt;UseJobMonitor xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/UseJobMonitor&gt;&apos; +
+			&apos;  &lt;UserName xmlns=&quot;http://www.totvs.com/&quot;&gt;&apos; + properties[&apos;basic.authorization.username&apos;] + &apos;&lt;/UserName&gt;&apos; +
+			&apos;  &lt;WaitSchedule xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/WaitSchedule&gt;&apos; +
+			&apos;  &lt;CodColigada&gt;&apos; + codColigada + &apos;&lt;/CodColigada&gt;&apos; +
+			&apos;  &lt;DataCancelamento&gt;&apos; + getFormattedDate() + &apos;&lt;/DataCancelamento&gt;&apos; +
+			&apos;  &lt;Historico&gt;&apos; + motivo + &apos;&lt;/Historico&gt;&apos; +
+			&apos;  &lt;ListaDeLancamentos xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+			&apos;	&lt;a:int&gt;&apos; + idLan + &apos;&lt;/a:int&gt;&apos; +
+			&apos;  &lt;/ListaDeLancamentos&gt;&apos; +
+			&apos;&lt;/FinLanCancelamentoParamsProc&gt;&apos;);
 
-        var assunto = String(&apos;ENGPAC - G5 - Fluig &apos; + String(getValue(&quot;WKNumProces&quot;)));
-        for (var index = 0; index &lt; destinatarios.size(); index++) {
-            var destinatario = String(destinatarios.get(index));
-            var envido = obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatario, msg, &quot;text/html&quot;);
-            log.info(destinatario + &quot; - &quot; + assunto);
-        }
-    } catch (e) {
-        log.error(&quot;dentro do catch&quot;);
-        log.error(&quot;Linha do erro&quot; + e.lineNumber);
-        log.error(String(e));
-        throw new Error(e);
-    }
-    log.info(&quot;============= fim afterTaskComplete 00-FLUIG &quot; + String(getValue(&quot;WKNumProces&quot;)) + &quot;============= &quot;);
+		log.info(strXmlParams);
+
+		var serviceHelper = ServiceManager.getService(&apos;wsProcess&apos;);
+		var serviceLocator = serviceHelper.instantiate(&apos;com.totvs.WsProcess&apos;);
+		var service = serviceLocator.getRMIwsProcess();
+		var customClient = serviceHelper.getCustomClient(service, properties, []);
+		var response = customClient.executeWithXmlParams(&apos;FinLanCancelamentoData&apos;, strXmlParams);
+
+		log.info(&apos;response &apos; + idLanPr + &apos; &gt;&gt;&gt;&gt;&gt;&gt; &apos; + String(response));
+		if (String(response) == &apos;1&apos; || String(response).indexOf(&apos;Pedido já recebido!&apos;) &gt;= 0) {
+			hAPI.setTaskComments(getValue(&apos;WKUser&apos;), getValue(&apos;WKNumProces&apos;), 0, &apos;Lançamento financeiro &apos; + idLanPr + &apos; cancelado com sucesso no Totvs RM.&apos;);
+			return true;
+		} else {
+			throw String(&apos;Verifique se o laçamento &apos; + idLanPr + &apos; esta com o status &quot;em aberto&quot;, pois somente nessa condição pode ser cancelado no RM. -&gt; Erro do RM: &apos; + response);
+		}
+
+	} catch (error) {
+		throw String(error);
+	}
+}
+
+function getFormattedDate() {
+	var date = new Date();
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	if (month &lt; 10) { month = &apos;0&apos; + month; }
+	if (day &lt; 10) { day = &apos;0&apos; + day; }
+	return year + &apos;-&apos; + month + &apos;-&apos; + day;
+}
+
+function notificaCancelamento(textoMsg, destinatario) {
+	var msg = &apos;&apos;;
+	msg += &apos;&lt;html&gt;&apos;
+	msg += &apos;	&lt;body&gt;&apos;
+	msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&apos;WKUser&apos;) + &apos;&lt;/h2&gt;&apos;;
+	msg += &apos;	&lt;p&gt; Ocorreu um erro na solicitação &apos; + String(getValue(&apos;WKNumProces&apos;)) + &apos;&lt;/p&gt;&apos;
+	msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&apos;WKNumProces&apos;)) + &apos;foi cancelada pelo departamento financeiro pelos seguintes motivos: [motivo do cancelamento].&apos;
+	msg += &apos;	&lt;p&gt;Atenciosamente,&lt;/p&gt;&apos;
+	msg += &apos;	&lt;p&gt;&apos; + textoMsg + &apos;&lt;/p&gt;&apos;
+	msg += &apos;	&lt;/body&gt;&apos;
+	msg += &apos;&lt;/html&gt;&apos;
+	var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+	var assunto = String(&apos;ENGPAC - G5 - Fluig &apos; + String(getValue(&apos;WKNumProces&apos;)) + &apos; - Notificação de falha&apos;);
+	var envido = obj.simpleEmail(1, assunto, &apos;suportefluig@engpac.com.br&apos;, destinatario, msg, &apos;text/html&apos;);
+	return envido;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4604,12 +4850,15 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask176(attempt, message) {
+	var CODCCUSTO = hAPI.getCardValue(&apos;CODCCUSTO&apos;);
+	var SETOR_SOLICITANTE = String(hAPI.getCardValue(&apos;SETORSOLICITANTE&apos;)).toUpperCase();
+	var CODCOLIGADA = hAPI.getCardValue(&apos;CODCOLIGADA&apos;);
 
-  /** Aprovação do Gestor */
-  hAPI.setCardValue(&apos;cTask007&apos;, getAtribuicoes(&apos;G5-007&apos;), &apos;aprovar&apos;);
+	/** Aprovação do Gestor */
+	hAPI.setCardValue(&quot;cTask007&quot;, getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, &apos;Gestor&apos;));
 
-  /** Aprovação da diretoria */
-  hAPI.setCardValue(&apos;cTask012&apos;, getAtribuicoes(&apos;G5-012&apos;), &apos;aprovar&apos;);
+	/** Aprovação da diretoria */
+	hAPI.setCardValue(&quot;cTask012&quot;, getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, &apos;Diretor&apos;));
 
   hAPI.setCardValue(&apos;cTask034&apos;, getValue(&apos;WKUser&apos;));
 
@@ -4626,6 +4875,30 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
   hAPI.setCardValue(&apos;cTask223&apos;, getAtribuicoes(&apos;G5-223-&apos; + hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
 
   return true;
+}
+
+function getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, TIPO) {
+	var msgFalha = String(&quot;Não foi encontrado um aprovador no dataset &apos;ds_G5-Aprovar&apos; com os parâmetros: CODCCUSTO: &quot; + CODCCUSTO + &quot;, SETOR_SOLICITANTE: &quot; + SETOR_SOLICITANTE + &quot;, CODCOLIGADA: &quot; + CODCOLIGADA + &quot;, TIPO: &quot; + TIPO);
+	try {
+		var constraintDs_G5_CODCCUSTO = DatasetFactory.createConstraint(&apos;CODCCUSTO&apos;, CODCCUSTO, CODCCUSTO, ConstraintType.MUST);
+		var constraintDs_G5_SETOR_SOLICITANTE = DatasetFactory.createConstraint(&apos;SETOR_SOLICITANTE&apos;, SETOR_SOLICITANTE, SETOR_SOLICITANTE, ConstraintType.MUST);
+		var constraintDs_G5_CODCOLIGADA = DatasetFactory.createConstraint(&apos;CODCOLIGADA&apos;, CODCOLIGADA, CODCOLIGADA, ConstraintType.MUST);
+		var constraintDs_G5_TIPO = DatasetFactory.createConstraint(&apos;TIPO&apos;, TIPO, TIPO, ConstraintType.MUST);
+		constraintDs_G5_SETOR_SOLICITANTE.setLikeSearch(true);
+		constraintDs_G5_TIPO.setLikeSearch(true);
+		var constraints = new Array(constraintDs_G5_CODCCUSTO, constraintDs_G5_SETOR_SOLICITANTE, constraintDs_G5_CODCOLIGADA, constraintDs_G5_TIPO)
+		log.dir(constraints)
+		var datasetAprovador = DatasetFactory.getDataset(&apos;ds_G5-Aprovar&apos;, null, constraints, null);
+		if (datasetAprovador != null &amp;&amp; datasetAprovador != undefined &amp;&amp; datasetAprovador.rowsCount &gt; 0) {
+			return datasetAprovador.getValue(0, &apos;APROVADOR&apos;);
+		} else {
+			log.warn(msgFalha);
+			hAPI.setTaskComments(getValue(&quot;WKUser&quot;), getValue(&quot;WKNumProces&quot;), 0, msgFalha);
+			return &quot;Pool:Group:G5-APROVAR&quot;;
+		}
+	} catch (error) {
+		throw new Error(error);
+	}
 }
 
 function getAtribuicoes(atribuicao, tipoAtividade) {
@@ -4893,7 +5166,7 @@ function getConstante(param) {
       var dadosDoItem = new java.util.HashMap();
       var coluna_ccusto_fin = String(hAPI.getCardValue(&quot;coluna_ccusto_fin&quot; + &quot;___&quot; + table_rateio_ccusto_fin_indexes[i])).split(&quot;-&quot;);
       var coluna_natureza_fin = String(hAPI.getCardValue(&quot;coluna_natureza_fin&quot; + &quot;___&quot; + table_rateio_ccusto_fin_indexes[i])).split(&quot;-&quot;);
-      dadosDoItem.put(&quot;CODCOLIGADA&quot;, String(hAPI.getCardValue(&quot;coligada&quot;)));
+      dadosDoItem.put(&quot;CODCOLIGADA&quot;, String(hAPI.getCardValue(&quot;CODCOLIGADA&quot;)));
       dadosDoItem.put(&quot;CODCCUSTO&quot;, String(coluna_ccusto_fin[0]).trim());
       dadosDoItem.put(&quot;NOME&quot;, String(coluna_ccusto_fin[1]).trim());
       dadosDoItem.put(&quot;CODNATFINANCEIRA&quot;, String(coluna_natureza_fin[0]).trim());
@@ -5136,6 +5409,44 @@ function formatStringToXML(params) {
   return text = text.trim();
 }
 </eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask326</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask326() {
+	hAPI.setCardValue(&apos;seleciona_fase_envio&apos;, &apos;aguardando_vencimento&apos;);
+	return true;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask328</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask328() {
+	hAPI.setCardValue(&apos;seleciona_fase_envio&apos;, &apos;pagamento_unico&apos;);
+	hAPI.setCardValue(&apos;pagamento_realizado_pu&apos;, &apos;Sim&apos;);
+	return true;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask327</eventId>
+        <processId>G5-TESTE</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask327() {
+	hAPI.setCardValue(&apos;seleciona_fase_envio&apos;, &apos;pagamento_parcial&apos;);
+	hAPI.setCardValue(&apos;pagamento_realizado_pu&apos;, &apos;Nao&apos;);
+	return true;
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -5516,7 +5827,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       </workflowProcessEventPK>
       <eventDescription>function servicetask202(attempt, message) {
   var valores = {
-    &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;coligada&quot;),
+    &quot;CODCOLIGADA&quot;: hAPI.getCardValue(&quot;CODCOLIGADA&quot;),
     &quot;NOMEFANTASIA&quot;: hAPI.getCardValue(&quot;nome_social&quot;),
     &quot;NOME&quot;: hAPI.getCardValue(&quot;nome&quot;),
     &quot;PAGREC&quot;: hAPI.getCardValue(&quot;pagar_receber&quot;),
@@ -5638,7 +5949,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <width>2881</width>
       <positionX>40</positionX>
       <positionY>884</positionY>
-      <stateName>DIRETOR</stateName>
+      <stateName>Cancelado - Diretor</stateName>
       <type>2</type>
       <parentSequence>1</parentSequence>
       <swimLanePK>
@@ -5668,8 +5979,8 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
   <list>
     <ProcessComponGraf>
       <componType>1</componType>
-      <positionX>1270</positionX>
-      <positionY>50</positionY>
+      <positionX>1010</positionX>
+      <positionY>113</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5680,8 +5991,8 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     </ProcessComponGraf>
     <ProcessComponGraf>
       <componType>1</componType>
-      <positionX>940</positionX>
-      <positionY>40</positionY>
+      <positionX>680</positionX>
+      <positionY>103</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5717,7 +6028,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>1620</positionX>
-      <positionY>1550</positionY>
+      <positionY>1590</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5729,7 +6040,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>1620</positionX>
-      <positionY>1644</positionY>
+      <positionY>1670</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5741,7 +6052,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>1620</positionX>
-      <positionY>1454</positionY>
+      <positionY>1510</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5753,7 +6064,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>2250</positionX>
-      <positionY>1439</positionY>
+      <positionY>1350</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5765,7 +6076,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>2250</positionX>
-      <positionY>1509</positionY>
+      <positionY>1420</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5777,7 +6088,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>2250</positionX>
-      <positionY>1639</positionY>
+      <positionY>1544</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5789,7 +6100,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>2250</positionX>
-      <positionY>1577</positionY>
+      <positionY>1480</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
@@ -5805,7 +6116,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>26</version>
+        <version>12</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5816,12 +6127,56 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>26</version>
+        <version>12</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
       <positionX>421</positionX>
       <positionY>1747</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>12</version>
+        <linkSequence>315</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1828</positionX>
+      <positionY>1462</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>12</version>
+        <linkSequence>315</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1828</positionX>
+      <positionY>1638</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>12</version>
+        <linkSequence>316</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1840</positionX>
+      <positionY>1557</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5-TESTE</processId>
+        <version>12</version>
+        <linkSequence>316</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1840</positionX>
+      <positionY>1638</positionY>
     </ProcessLinkBend>
   </list>
   <list>
@@ -5829,7 +6184,7 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>26</version>
+        <version>12</version>
         <stateSequence>76</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -5847,7 +6202,7 @@ Gestão.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>26</version>
+        <version>12</version>
         <stateSequence>79</stateSequence>
         <triggerSequence>1</triggerSequence>
       </processStateTriggerPK>
@@ -5866,7 +6221,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>26</version>
+        <version>12</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>2</triggerSequence>
       </processStateTriggerPK>
@@ -5879,7 +6234,7 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5-TESTE</processId>
-        <version>26</version>
+        <version>12</version>
         <stateSequence>119</stateSequence>
         <triggerSequence>3</triggerSequence>
       </processStateTriggerPK>
@@ -5890,23 +6245,6 @@ Diretoria.&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
 Informamos que sua solicitação: [Título da solicitação] foi paga. Segue abaixo comprovante de pagamento:
 
 [ ARQUIVO ANEXADO]&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
-      <frequencia>01</frequencia>
-    </ProcessStateTrigger>
-    <ProcessStateTrigger>
-      <processStateTriggerPK>
-        <companyId>1</companyId>
-        <processId>G5-TESTE</processId>
-        <version>26</version>
-        <stateSequence>287</stateSequence>
-        <triggerSequence>4</triggerSequence>
-      </processStateTriggerPK>
-      <runType>1</runType>
-      <type>0</type>
-      <value>&lt;BpmnMessageData&gt;&lt;Type&gt;2&lt;/Type&gt;&lt;Receiver&gt;email_solicitante&lt;/Receiver&gt;&lt;Subject&gt;Dados não conformes de acordo com Financeiro&lt;/Subject&gt;&lt;Content&gt;Olá, [ Nome do solicitante]
-
-Informamos que a solicitação  [ título da solicitação]    foi cancelada pelo departamento financeiro pelos seguintes motivos: [motivo do cancelamento].
-
-Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <frequencia>01</frequencia>
     </ProcessStateTrigger>
   </list>
@@ -5940,7 +6278,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processId>G5-TESTE</processId>
       <version>1</version>
       <sequence>183</sequence>
-      <attempts>0</attempts>
+      <attempts>3</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
       <serviceName></serviceName>
       <frequency>1</frequency>
@@ -5951,7 +6289,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processId>G5-TESTE</processId>
       <version>1</version>
       <sequence>210</sequence>
-      <attempts>0</attempts>
+      <attempts>3</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
       <serviceName></serviceName>
       <frequency>1</frequency>
@@ -5962,6 +6300,50 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <processId>G5-TESTE</processId>
       <version>1</version>
       <sequence>292</sequence>
+      <attempts>3</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>G5-TESTE</processId>
+      <version>1</version>
+      <sequence>287</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>G5-TESTE</processId>
+      <version>1</version>
+      <sequence>326</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>G5-TESTE</processId>
+      <version>1</version>
+      <sequence>327</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>G5-TESTE</processId>
+      <version>1</version>
+      <sequence>328</sequence>
       <attempts>0</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
       <serviceName></serviceName>
@@ -5975,7 +6357,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5985,7 +6367,7 @@ Atenciosamente,&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5999,7 +6381,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6009,7 +6391,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6019,7 +6401,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6029,7 +6411,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6039,7 +6421,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6053,7 +6435,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6063,7 +6445,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6073,7 +6455,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5-TESTE</processId>
-      <processVersion>26</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

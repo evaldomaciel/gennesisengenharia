@@ -1,6 +1,6 @@
 function servicetask202(attempt, message) {
   var valores = {
-    "CODCOLIGADA": hAPI.getCardValue("coligada"),
+    "CODCOLIGADA": hAPI.getCardValue("CODCOLIGADA"),
     "NOMEFANTASIA": hAPI.getCardValue("nome_social"),
     "NOME": hAPI.getCardValue("nome"),
     "PAGREC": hAPI.getCardValue("pagar_receber"),

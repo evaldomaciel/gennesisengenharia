@@ -46,7 +46,6 @@ function servicetask292(attempt, message) {
   }
 }
 
-
 function capta_Cpf_Cnpj(tipo_pessoa) {
   if (tipo_pessoa == "F") {
     return hAPI.getCardValue("CPF_fin");

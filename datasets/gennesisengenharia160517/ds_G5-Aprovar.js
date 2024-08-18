@@ -85,7 +85,7 @@ function getMatchValue(list, filter, position) {
     for (var a = 0; a < list.length; a++) {
         /**  Irá adicionar ao dataset somente as linhas que atenderem a condição
          * Por estarmos usando indexOf, vai função vai trabalhar como um '%like%' no banco de dados */
-        if (String(list[a][position]).toLocaleUpperCase().indexOf(String(filter).toLocaleUpperCase()) >= 0) {
+        if (String(list[a][position]).toUpperCase().indexOf(String(filter).toUpperCase()) >= 0) {
             ds.addRow(list[a]);
         }
     }

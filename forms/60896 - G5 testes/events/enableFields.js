@@ -581,7 +581,7 @@ function enableFields(form) {
 
     /** Tratar erro - Habilita todos os campos */
     if (activity == 223 || activity == 295 || activity == 216 || activity == 221) {
-      var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
+      var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(
         DatasetFactory.createConstraint('documentid', form.getDocumentId(), form.getDocumentId(), ConstraintType.MUST)
       ), null);
       var colunas = datasetDs_G5.getColumnsName();
@@ -590,7 +590,20 @@ function enableFields(form) {
         form.setEnabled(campo, true);
       }
     }
-
+    for (var index2 = 0; index2 < table_rateio_ccusto_indexes.length; index2++) {
+      var campoId = table_rateio_ccusto_indexes[index2];
+      form.setEnabled("coluna_natureza" + "___" + campoId, true);
+      form.setEnabled("coluna_ccusto" + "___" + campoId, true);
+      form.setEnabled("coluna_valor" + "___" + campoId, true);
+      form.setEnabled("coluna_percentual" + "___" + campoId, true);
+    }
+    for (var index3 = 0; index3 < table_rateio_ccusto_fin_indexes.length; index3++) {
+      var campoId = table_rateio_ccusto_fin_indexes[index3];
+      form.setEnabled("coluna_natureza_fin" + "___" + campoId, true);
+      form.setEnabled("coluna_ccusto_fin" + "___" + campoId, true);
+      form.setEnabled("coluna_valor_fin" + "___" + campoId, true);
+      form.setEnabled("coluna_percentual_fin" + "___" + campoId, true);
+    }
   } catch (error) {
     log.info("error");
   }

@@ -181,16 +181,11 @@ function displayFields(form, customHTML) {
 
     customAppend += "\n</script>";
     customHTML.append(customAppend);
-    // customHTML.append("\n <script> var algo = " + JSONUtil.toJSON(preencheFormAcelerador(form)) + " </script>")
-
-
 
     /** INICO DO PREENCHIMENTO AUTOMATICO PARA TESTE 
     if (user == '4ef20412-7687-40a4-b1c8-095c0a92503e' && (form.getFormMode() == "ADD") || activity == 14) {
-      var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
-        DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)
-      ), null);
-
+      // HMG       var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)), null);
+      // PRD       var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)), null);
       var colunas = datasetDs_G5.getColumnsName();
       customHTML.append("\n<script> var colunasSize = '" + colunas.length + "'; </script>");
       customHTML.append("\n<script> var colunas = '" + JSONUtil.toJSON(colunas) + "'; </script>");
@@ -202,6 +197,8 @@ function displayFields(form, customHTML) {
         customHTML.append("\n var ds_" + campo + " = '" + valor + "'");
       }
       customHTML.append("\n }");
+      form.setValue('idLan', '-1');
+
     }
     /** FIM DO PREENCHIMENTO AUTOMATICO */
 
@@ -273,9 +270,7 @@ function getExpediente() {
 /** Vamos acelerar o preenchimento do formulario na atividade inicial para testes */
 function preencheFormAcelerador(form) {
   if ((user == "fluig" || user == "4ef20412-7687-40a4-b1c8-095c0a92503e") && form.getFormMode() == "ADD") {
-    var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(
-      DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)
-    ), null);
+    var datasetDs_G5 = DatasetFactory.getDataset('ds_G52', null, new Array(DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)), null);
 
     var colunas = datasetDs_G5.getColumnsName();
     for (var index = 0; index < colunas.length; index++) {

@@ -15,14 +15,10 @@ function servicetask183(attempt, message) {
     var usuario = getConstante('rm_usuario')
     var senha = getConstante('rm_senha')
     var authenticatedService = getWebService(usuario, senha, "RMWsDataServer", "com.totvs.WsDataServer", "com.totvs.IwsDataServer");
+    log.dir({ "getWebService": { 'usuario': usuario, 'senha': senha, "serviceRM": "RMWsDataServer", "instance": "com.totvs.WsDataServer", "authClient": "com.totvs.IwsDataServer" } });
 
-    var idLanModelo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : 28757;
     var idLanNovo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : "-1";
 
-    // var primaryKey = hAPI.getCardValue("coligada") + ";" + idLanModelo;
-    // var context = "CodSistema=F;CodColigada=1";
-    // var text = String(authenticatedService.readRecord(dataServerName, primaryKey, context));
-    // if (!ChekExist(text)) text = GetXml();
     var text = GetXml();
 
     text = formatStringToXML(text);
@@ -40,7 +36,7 @@ function servicetask183(attempt, message) {
     text = replaceValue(text, 'HISTORICO', hAPI.getCardValue("historico_analise"));
     text = replaceValue(text, 'DATAVENCIMENTO', dataVencimento);
     text = replaceValue(text, 'DATAEMISSAO', dataEmissao);
-    text = replaceValue(text, 'DATAPREVBAIXA', dataPrevBaixa);
+    text = replaceValue(text, 'DATAPREVBAIXA', dataVencimento); ///dataPrevBaixa);
     text = replaceValue(text, 'VALORORIGINAL', valorOriginal);
     text = replaceValue(text, 'VALORCAPBX', formatText2Float(hAPI.getCardValue("hidden_valor_cap")));
     text = replaceValue(text, 'VALORJUROS', formatText2Float(hAPI.getCardValue("hidden_valor_juros")));
@@ -49,7 +45,7 @@ function servicetask183(attempt, message) {
     text = replaceValue(text, 'CAPMENSAL', hAPI.getCardValue("cap_mensal_analise"));
     text = replaceValue(text, 'CODCOLCFO', hAPI.getCardValue("hidden_coligada_cli_for"));
     text = replaceValue(text, 'CODCFO', hAPI.getCardValue("hidden_codigo_cli_for"));
-    text = replaceValue(text, 'CODCOLCXA', hAPI.getCardValue("coligada"));
+    text = replaceValue(text, 'CODCOLCXA', hAPI.getCardValue("CODCOLIGADA"));
     text = replaceValue(text, 'CODCXA', hAPI.getCardValue("conta_caixa_analise"));
     text = replaceValue(text, 'CODTDO', hAPI.getCardValue("CODTDO"));
     text = replaceValue(text, 'CODFILIAL', hAPI.getCardValue("filial_analise"));
@@ -68,7 +64,7 @@ function servicetask183(attempt, message) {
       var dadosDoItem = new java.util.HashMap();
       var coluna_ccusto_fin = String(hAPI.getCardValue("coluna_ccusto_fin" + "___" + table_rateio_ccusto_fin_indexes[i])).split("-");
       var coluna_natureza_fin = String(hAPI.getCardValue("coluna_natureza_fin" + "___" + table_rateio_ccusto_fin_indexes[i])).split("-");
-      dadosDoItem.put("CODCOLIGADA", String(hAPI.getCardValue("coligada")));
+      dadosDoItem.put("CODCOLIGADA", String(hAPI.getCardValue("CODCOLIGADA")));
       dadosDoItem.put("CODCCUSTO", String(coluna_ccusto_fin[0]).trim());
       dadosDoItem.put("NOME", String(coluna_ccusto_fin[1]).trim());
       dadosDoItem.put("CODNATFINANCEIRA", String(coluna_natureza_fin[0]).trim());
