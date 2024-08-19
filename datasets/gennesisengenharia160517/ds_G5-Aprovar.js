@@ -6,8 +6,8 @@ function defineStructure() {
     addColumn("SETOR_SOLICITANTE");
     addColumn("APROVADOR");
     addColumn("TODOS", DatasetFieldType.STRING);
-    setKey(["TODOS"]);
-    addIndex(["TODOS"]);
+    setKey(["CODCOLIGADA", "CODCCUSTO", "CENTRO_DE_CUSTO", "APROVADOR", "TIPO"]);
+    addIndex(["CODCOLIGADA", "CODCCUSTO", "CENTRO_DE_CUSTO", "APROVADOR", "TIPO"]);
 }
 
 function onSync(lastSyncDate) {
