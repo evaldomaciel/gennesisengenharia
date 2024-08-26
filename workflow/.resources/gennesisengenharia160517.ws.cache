@@ -1775,6 +1775,19 @@
        <int>1</int>
       </void>
       <void property="processDescription">
+       <string>G0-Envia-Anexo</string>
+      </void>
+      <void property="processId">
+       <string>G0-Envia-Anexo</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
        <string>G1 - Aprovação de Requisição de Materiais</string>
       </void>
       <void property="processId">
@@ -1840,7 +1853,7 @@
        <int>1</int>
       </void>
       <void property="processDescription">
-       <string>G5 - Pagamentos Avulsos</string>
+       <string>Teste - G5 - Pagamentos Avulsos</string>
       </void>
       <void property="processId">
        <string>G5-TESTE</string>
@@ -1857,6 +1870,24 @@
       </void>
       <void property="processId">
        <string>G6</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>mecanismoPapel</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>admin</string>
+      </void>
+      <void property="roleId">
+       <string>admin</string>
       </void>
      </object>
     </void>
