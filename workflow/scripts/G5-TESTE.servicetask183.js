@@ -26,6 +26,13 @@ function servicetask183(attempt, message) {
     text = removeNode(text, "FLANCOMPL");
     text = removeNode(text, "FLANRATCCU");
 
+    /** Validando se o pagamento é via boleto */
+    if (hAPI.getCardValue("dados_pagamento") != "BOLETO") {
+      text = removeNode(text, "IPTE");
+    } else {
+      text = replaceValue(text, 'IPTE', hAPI.getCardValue("cod_boleto"));
+    }
+
     text = replaceValue(text, 'CODCOLIGADA', hAPI.getCardValue("CODCOLIGADA"));
     text = replaceValue(text, 'CODCOLCONVENIO', hAPI.getCardValue("CODCOLIGADA"));
     text = replaceValue(text, 'CODCOLPGTO', hAPI.getCardValue("CODCOLIGADA"));
@@ -98,6 +105,7 @@ function GetXml() {
     "     <CODCOLIGADA>2</CODCOLIGADA>" +
     "     <IDLAN>-1</IDLAN>" +
     "     <NUMERODOCUMENTO>4549</NUMERODOCUMENTO>" +
+    "     <IPTE></IPTE>" +
     "     <NFOUDUP>0</NFOUDUP>" +
     "     <CLASSIFICACAO>0</CLASSIFICACAO>" +
     "     <PAGREC>2</PAGREC>" +

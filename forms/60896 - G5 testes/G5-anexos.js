@@ -20,6 +20,20 @@ function anexo(event) {
 		if (acao == "upload") {
 			console.log("TESTE 2");
 			console.log("------> " + inputFile + " -----> " + fileDescription);
+
+			// const id = $(event.target.parentElement.parentElement.parentElement).find('.inputAnexo')[0].id.split('___')[1]
+			// JSInterface.showCamera(`Anexo_pagamento_unico___${id}`);
+
+			// setTimeout(() => {
+            //     window.parent.$('#formTab').children()[0].click()
+            // }, 1000)
+            // setTimeout(() => {
+            //     $('html, body').animate({
+            //         scrollTop: $("#table_pagamento_unico").offset().top
+            //     }, 600);
+            // }, 2000)
+
+			// $(`#anexo_pu___${id}`).val(`Anexo_pagamento_unico___${id}`)
 			uploadFile(fileDescription, inputFile.id)
 		}
 		if (acao == "viewer") {
@@ -75,7 +89,16 @@ function uploadFile(fileDescription, idInput) {
 	}
 }
 
-
+function setNameFileInput(fileName){
+	Array.from($('[id*=anexo_pu]')).forEach((element, index) => {
+		if(index > 0){
+			if(element.value == ''){
+				element.value = fileName;
+				return
+			}
+		}
+	})
+}
 
 /**
  * Função executada após a escolha do arquivo a ser enviado para o Fluig.
@@ -88,6 +111,7 @@ $(function () {
 			const inputNameFile = this.getAttribute("data-inputNameFile");
 			const fileDescription = this.getAttribute("data-file-name-camera");
 			const filePhisical = this.files[0].name;
+			setNameFileInput(filePhisical)
 			if (fileDescription && fileDescription) {
 				/**
 				 * O trecho de código abaixo percorre os anexos do Fluig e caso já exista um anexo com a mesma descrição, ele será removido. 

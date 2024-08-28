@@ -5,105 +5,11 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
   var nSolicitacao = getValue("WKNumProces");
   nSolicitacao = nSolicitacao.toString();
 
-  if (activity == 0 || activity == 76) {
-    log.info("inicio task 76");
+  log.info("aftertaskcomplete_008 : "+activity);
+  
 
-    log.info("inicio do try-catch");
-    try {
-      log.info("dentro do try");
-
-      var dataParamsEmail = {
-        usuario: getValue("WKUser"),
-        assunto: "CANCELAMENTO - FASE APROV. GESTOR",
-        titulo_solicitacao: hAPI.getCardValue("titulo_solicitacao"),
-        atendente: "Gestão",
-        num_solicitacao: hAPI.getCardValue("numero_solicitacao")
-      }
-
-      log.info("DADOS EMAILS")
-      log.dir(dataParamsEmail)
-
-      /// Get Dataset para uma variavel;
-      var parametros = new java.util.HashMap();
-
-      parametros.put("ASSUNTO", dataParamsEmail.assunto);
-      parametros.put("USUARIO", dataParamsEmail.usuario);
-      parametros.put("TITULO_SOLICITACAO", dataParamsEmail.titulo_solicitacao);
-      parametros.put("ATENDENTE", dataParamsEmail.atendente);
-      parametros.put("SOLICITACAO", dataParamsEmail.num_solicitacao);
-
-
-
-      var destinatarios = new java.util.ArrayList();
-      var email = "soaresgui.dev@gmail.com";
-      destinatarios.add(email);
-
-      notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
-    } catch (e) {
-      log.info("dentro do catch");
-      log.info(e);
-    }
-    log.info("fim do try-catch");
-
-    log.info('## SIMPLES');
-
-    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-    for (var i in destinatario) {
-      obj.simpleEmail(1, 'ENGPAC - G5', "fluig", destinatario[i], '', "text/html");
-    }
-
-  }
-  if (activity == 79) {
-    log.info("inicio task 79");
-
-    log.info("inicio do try-catch");
-    try {
-      log.info("dentro do try");
-
-      var dataParamsEmail = {
-        usuario: getValue("WKUser"),
-        assunto: "CANCELAMENTO - FASE APROV. DIRETORIA",
-        titulo_solicitacao: hAPI.getCardValue("titulo_solicitacao"),
-        atendente: "Diretoria",
-        num_solicitacao: hAPI.getCardValue("numero_solicitacao")
-      }
-
-      log.info("DADOS EMAILS")
-      log.dir(dataParamsEmail)
-
-      /// Get Dataset para uma variavel;
-      var parametros = new java.util.HashMap();
-
-      parametros.put("ASSUNTO", dataParamsEmail.assunto);
-      parametros.put("USUARIO", dataParamsEmail.usuario);
-      parametros.put("TITULO_SOLICITACAO", dataParamsEmail.titulo_solicitacao);
-      parametros.put("ATENDENTE", dataParamsEmail.atendente);
-      parametros.put("SOLICITACAO", dataParamsEmail.num_solicitacao);
-
-
-      var destinatarios = new java.util.ArrayList();
-      var email = "soaresgui.dev@gmail.com";
-      destinatarios.add(email);
-
-      notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
-    } catch (e) {
-      log.info("dentro do catch");
-      log.info(e);
-    }
-    log.info("fim do try-catch");
-
-    log.info('## SIMPLES');
-
-    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-    for (var i in destinatario) {
-      obj.simpleEmail(1, 'ENGPAC - G5', "fluig", destinatario[i], '', "text/html");
-    }
-
-  }
-  if (activity == 119) {
-    log.info("inicio task 119");
+  if (activity == 114) {
+    log.info("inicio task 114");
 
     log.info("inicio do try-catch");
     try {
@@ -150,52 +56,7 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
     }
 
   }
-  if (activity == 287) {
-    log.info("inicio task 287");
-
-    log.info("inicio do try-catch");
-    try {
-      log.info("dentro do try");
-
-      var dataParamsEmail = {
-        usuario: getValue("WKUser"),
-        assunto: "CANCELAMENTO - QUALQUER FASE DO FINANCEIRO",
-        titulo_solicitacao: hAPI.getCardValue("titulo_solicitacao"),
-        num_solicitacao: hAPI.getCardValue("numero_solicitacao")
-      }
-
-      log.info("DADOS EMAILS")
-      log.dir(dataParamsEmail)
-
-      /// Get Dataset para uma variavel;
-      var parametros = new java.util.HashMap();
-
-      parametros.put("ASSUNTO", dataParamsEmail.assunto);
-      parametros.put("USUARIO", dataParamsEmail.usuario);
-      parametros.put("TITULO_SOLICITACAO", dataParamsEmail.titulo_solicitacao);
-      parametros.put("ATENDENTE", dataParamsEmail.atendente);
-      parametros.put("SOLICITACAO", dataParamsEmail.num_solicitacao);
-
-      var destinatarios = new java.util.ArrayList();
-      var email = "soaresgui.dev@gmail.com";
-      destinatarios.add(email);
-
-      notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
-    } catch (e) {
-      log.info("dentro do catch");
-      log.info(e);
-    }
-    log.info("fim do try-catch");
-
-    log.info('## SIMPLES');
-
-    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
-    for (var i in destinatario) {
-      obj.simpleEmail(1, 'ENGPAC - G5', "fluig", destinatario[i], '', "text/html");
-    }
-
-  }
+  
   if (nextSequenceId == 14) {
     var rateioPF = clearPF("table_rateio_ccusto_fin");
     var rateioInicial = hAPI.getCardData(getValue('WKNumProces'));

@@ -10,11 +10,21 @@ function beforeCancelProcess(colleagueId, processId) {
         parametros.put("SOLICITACAO", String(getValue("WKNumProces")));
 
         var destinatarios = new java.util.ArrayList();
-        destinatarios.add("agcoimbra@gmail.com");
-        destinatarios.add("desenvolvimento.fluig@grupodecio.com.br");
-        destinatarios.add("evaldomaciel17@gmail.com");
 
-        notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
+        
+        var Email1 = hAPI.getCardValue("email_solicitante");
+        var Email2 = hAPI.getCardValue("copia_email_solicitante");
+        if ( Email1 != "" && Email1 != null)
+        {
+            destinatarios.add(Email1);
+        }
+        if ( Email2 != "" && Email2 != null)
+        {
+            destinatarios.add(Email2);
+        }
+        
+        
+        ///notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
 
         /** Personalizado */
         var msg = '';
@@ -27,7 +37,7 @@ function beforeCancelProcess(colleagueId, processId) {
         msg += '	<body>'
         msg += '	<h2> Olá, ' + getValue("WKUser") + '</h2>';
         msg += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces"))
-        msg += '	    foi cancelada!. </p>'
+        msg += '	    foi cancelada!.</p>'
         msg += '	</body>'
         msg += '</html>'
         var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
