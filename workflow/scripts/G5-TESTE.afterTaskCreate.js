@@ -1,2 +1,0 @@
-function afterTaskCreate(colleagueId){
-}

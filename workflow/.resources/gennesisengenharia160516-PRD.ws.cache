@@ -845,40 +845,200 @@
     <void method="add">
      <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
       <void property="groupDescription">
-       <string>G5 - FINANCEIRO ENGPAC - CONTAS A PAGAR</string>
-      </void>
-      <void property="groupId">
-       <string>G5-FINANCEIROENGPAC-CONTASAPAGAR</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
-      <void property="groupDescription">
-       <string>G5 - FINANCEIRO ECONTECX - CONTAS A PAGAR</string>
-      </void>
-      <void property="groupId">
-       <string>G5-FINANCEIROECONTECX-CONTASAPAGAR</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
-      <void property="groupDescription">
-       <string>G5 - FINANCEIRO GENNESIS - CONTAS A PAGAR</string>
-      </void>
-      <void property="groupId">
-       <string>G5-FINANCEIROGENNESIS-CONTASAPAGAR</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
-      <void property="groupDescription">
        <string>Usuários com papel de gestão no processo G5-Pagamentos Avulsos</string>
       </void>
       <void property="groupId">
        <string>G5-GESTORES</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Almoxarifado Maringá</string>
+      </void>
+      <void property="groupId">
+       <string>AlmoxarifadoMaringa</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Almoxarifado Londrina</string>
+      </void>
+      <void property="groupId">
+       <string>AlmoxarifadoLondrina</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Almoxarifado Campo Mourao</string>
+      </void>
+      <void property="groupId">
+       <string>AlmoxarifadoCampoMourao</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Logistica Maringá</string>
+      </void>
+      <void property="groupId">
+       <string>LogisticaMaringa</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>ADMINISTRAÇÃO MARINGA</string>
+      </void>
+      <void property="groupId">
+       <string>ADM_MARINGA</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>ADMINISTRAÇÃO CAMPO MOURAO</string>
+      </void>
+      <void property="groupId">
+       <string>ADM_CAMPO_MOURAO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>ADMINISTRAÇÃO LONDRINA</string>
+      </void>
+      <void property="groupId">
+       <string>ADM_LONDRINA</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Logística Campo Mourao</string>
+      </void>
+      <void property="groupId">
+       <string>LogisticaCampoMourao</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Logística Londrina</string>
+      </void>
+      <void property="groupId">
+       <string>LogisticaLondrina</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Aprovadores para os processos G5 sem cadastros de atrivbuição</string>
+      </void>
+      <void property="groupId">
+       <string>G5-APROVAR</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO ENGPAC - AGUARDANDO VENCIMENTO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROENGPAC-AGUARDANDOVENCIMENTO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO ENGPAC - PROVISIONADO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROENGPAC-PROVISIONADO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO ENGPAC - PAGAMENTO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROENGPAC-PAGAMENTO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO GENNESIS - AGUARDANDO VENCIMENTO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROGENNESIS-AGUARDANDOVENCIMENTO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO ECONTECX - AGUARDANDO VENCIMENTO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROECONTECX-AGUARDANDOVENCIMENTO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO GENNESIS - PROVISIONADO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROGENNESIS-PROVISIONADO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO ECONTECX - PROVISIONADO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROECONTECX-PROVISIONADO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO GENNESIS - PAGAMENTO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROGENNESIS-PAGAMENTO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>G5 - FINANCEIRO ECONTECX - PAGAMENTO</string>
+      </void>
+      <void property="groupId">
+       <string>G5-FINANCEIROECONTECX-PAGAMENTO</string>
       </void>
      </object>
     </void>
@@ -1974,132 +2134,6 @@
      </array>
     </void>
    </array>
-  </void>
-  <void method="put">
-   <string>forms</string>
-   <object class="java.util.LinkedList">
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>FLUIGADHOCPROCESS</string>
-      </void>
-      <void property="documentDescription">
-       <string>FLUIGADHOCPROCESS</string>
-      </void>
-      <void property="documentId">
-       <int>4</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>DSG3</string>
-      </void>
-      <void property="documentDescription">
-       <string>G3</string>
-      </void>
-      <void property="documentId">
-       <int>45</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>DSG2</string>
-      </void>
-      <void property="documentDescription">
-       <string>G2</string>
-      </void>
-      <void property="documentId">
-       <int>1367</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>DSG1</string>
-      </void>
-      <void property="documentDescription">
-       <string>G1</string>
-      </void>
-      <void property="documentId">
-       <int>1844</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>DSG4</string>
-      </void>
-      <void property="documentDescription">
-       <string>G4</string>
-      </void>
-      <void property="documentId">
-       <int>11400</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>ds_consultaCadastroAtribuicoes</string>
-      </void>
-      <void property="documentDescription">
-       <string>Cadastro de Atribuições</string>
-      </void>
-      <void property="documentId">
-       <int>20352</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>ds_00-FLUIG</string>
-      </void>
-      <void property="documentDescription">
-       <string>00-FLUIG</string>
-      </void>
-      <void property="documentId">
-       <int>21706</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>testeGGG</string>
-      </void>
-      <void property="documentDescription">
-       <string>testeGGG</string>
-      </void>
-      <void property="documentId">
-       <int>67412</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="datasetName">
-       <string>ds_G5</string>
-      </void>
-      <void property="documentDescription">
-       <string>G5</string>
-      </void>
-      <void property="documentId">
-       <int>88477</int>
-      </void>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void method="put">
-   <string>camposFormulario, documentoId = 60896</string>
-   <array class="java.lang.String" length="0"/>
   </void>
  </object>
 </java>
