@@ -18,7 +18,7 @@ function enableFields(form) {
 
     /** Negações */
 
-    if (activity != 4 && activity != 0) {
+    if (activity != 4 && activity != 0 && activity != 34) {
 
       form.setEnabled("viewport", false);
       form.setEnabled("createFormComponents", false);
@@ -124,6 +124,7 @@ function enableFields(form) {
 
     if (activity != 14) {
       form.setEnabled("dados_conformidade", false);
+      form.setEnabled("mensagem_solicitacao_ajustes", false);
 
       for (var index = 0; index < table_rateio_ccusto_fin_indexes.length; index++) {
         var pos = table_rateio_ccusto_fin_indexes[index];

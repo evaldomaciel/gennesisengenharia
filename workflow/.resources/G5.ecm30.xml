@@ -32,7 +32,7 @@
       <version>24</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
-    <formId>88477</formId>
+    <formId>0</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -1155,7 +1155,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>980</positionX>
-      <positionY>1511</positionY>
+      <positionY>1518</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -5018,6 +5018,7 @@ function getConstante(param) {
     text = replaceValue(text, &apos;CODCOLCXA&apos;, hAPI.getCardValue(&quot;CODCOLIGADA&quot;));
     text = replaceValue(text, &apos;CODCXA&apos;, hAPI.getCardValue(&quot;conta_caixa_analise&quot;));
     text = replaceValue(text, &apos;CODTDO&apos;, hAPI.getCardValue(&quot;CODTDO&quot;));
+    text = replaceValue(text, &apos;IDPGTO&apos;, hAPI.getCardValue(&quot;cad_referencia_fin&quot;));
     text = replaceValue(text, &apos;CODFILIAL&apos;, hAPI.getCardValue(&quot;filial_analise&quot;));
     text = replaceValue(text, &apos;CNABBANCO&apos;, &quot;341&quot;);
     text = replaceValue(text, &apos;REEMBOLSAVEL&apos;, &quot;0&quot;);
@@ -5416,9 +5417,6 @@ function dadosCadastroFornecedor() {
     var inscricao_municipal = hAPI.getCardValue(&quot;inscricao_municipal&quot;);
     hAPI.setCardValue(&quot;inscricao_municipal_fin&quot;, inscricao_municipal);
 
-    // var z_tipo_cliente_fornecedor = hAPI.getCardValue(&quot;tipo_cliente_fornecedor&quot;);
-    // hAPI.setCardValue(&quot;tipo_cliente_forn_fin&quot;, z_tipo_cliente_fornecedor);
-
     var nome_cliente_forn = hAPI.getCardValue(&quot;nome_cliente_forn&quot;);
     hAPI.setCardValue(&quot;nome_cliente_forn_fin&quot;, nome_cliente_forn);
 
@@ -5523,9 +5521,6 @@ function dadosCadastroBancario() {
 
     var descricao = hAPI.getCardValue(&quot;descricao&quot;);
     hAPI.setCardValue(&quot;descricao_fin&quot;, descricao);
-
-    // var z_filial_d_bancarios = hAPI.getCardValue(&quot;filial_d_bancarios&quot;);
-    // hAPI.setCardValue(&quot;filial_d_bancarios_fin&quot;, z_filial_d_bancarios);
 
     var nome_filial_d_banc = hAPI.getCardValue(&quot;nome_filial_d_banc&quot;);
     hAPI.setCardValue(&quot;nome_filial_d_banc_fin&quot;, nome_filial_d_banc);
@@ -6082,7 +6077,7 @@ function getAttchment(description){
       </processStateTriggerPK>
       <runType>1</runType>
       <type>0</type>
-      <value>&lt;BpmnMessageData&gt;&lt;Type&gt;1&lt;/Type&gt;&lt;Receiver&gt;&lt;/Receiver&gt;&lt;Subject&gt;&lt;/Subject&gt;&lt;Content&gt;&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
+      <value>&lt;BpmnMessageData&gt;&lt;Type&gt;1&lt;/Type&gt;&lt;Receiver&gt;teste@testes.com&lt;/Receiver&gt;&lt;Subject&gt;Envia para Revisar Solicitação&lt;/Subject&gt;&lt;Content&gt;Envia para Revisar Solicitação&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <frequencia>01</frequencia>
     </ProcessStateTrigger>
   </list>
@@ -6092,19 +6087,46 @@ function getAttchment(description){
       <processFormFieldPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <fieldId>centro_de_custo</fieldId>
+        <fieldId>empresa</fieldId>
       </processFormFieldPK>
-      <fieldDescription>Centro de Custo</fieldDescription>
+      <fieldDescription>Empresa</fieldDescription>
       <slotId>1</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <fieldId>CODCCUSTO</fieldId>
+        <fieldId>centro_de_custo</fieldId>
       </processFormFieldPK>
-      <fieldDescription>Código do centro de custo</fieldDescription>
+      <fieldDescription>Centro de Custo</fieldDescription>
       <slotId>2</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <fieldId>setor_solicitante</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Setor Solicitante</fieldDescription>
+      <slotId>3</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <fieldId>urgencia_solicitacao</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Urgência da Solicitação</fieldDescription>
+      <slotId>4</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <fieldId>titulo_solicitacao</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Descrição da Solicitação</fieldDescription>
+      <slotId>5</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6113,33 +6135,6 @@ function getAttchment(description){
         <fieldId>data_vencimento</fieldId>
       </processFormFieldPK>
       <fieldDescription>Vencimento</fieldDescription>
-      <slotId>3</slotId>
-    </ProcessFormField>
-    <ProcessFormField>
-      <processFormFieldPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <fieldId>empresa</fieldId>
-      </processFormFieldPK>
-      <fieldDescription>Empresa</fieldDescription>
-      <slotId>4</slotId>
-    </ProcessFormField>
-    <ProcessFormField>
-      <processFormFieldPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <fieldId>forma_pagamento</fieldId>
-      </processFormFieldPK>
-      <fieldDescription>Forma de Pagamento</fieldDescription>
-      <slotId>5</slotId>
-    </ProcessFormField>
-    <ProcessFormField>
-      <processFormFieldPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <fieldId>nome_cli_fornecedor_analise</fieldId>
-      </processFormFieldPK>
-      <fieldDescription>Nome do Cliente/Fornecedor</fieldDescription>
       <slotId>6</slotId>
     </ProcessFormField>
     <ProcessFormField>
@@ -6155,36 +6150,36 @@ function getAttchment(description){
       <processFormFieldPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <fieldId>setor_solicitante</fieldId>
+        <fieldId>Valor</fieldId>
       </processFormFieldPK>
-      <fieldDescription>Setor Solicitante</fieldDescription>
+      <fieldDescription>Valor</fieldDescription>
       <slotId>8</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <fieldId>titulo_solicitacao</fieldId>
+        <fieldId>forma_pagamento</fieldId>
       </processFormFieldPK>
-      <fieldDescription>Descrição da Solicitação</fieldDescription>
+      <fieldDescription>Forma de Pagamento</fieldDescription>
       <slotId>9</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <fieldId>urgencia_solicitacao</fieldId>
+        <fieldId>nome_cli_fornecedor_analise</fieldId>
       </processFormFieldPK>
-      <fieldDescription>Urgência da Solicitação</fieldDescription>
+      <fieldDescription>Nome do Cliente/Fornecedor</fieldDescription>
       <slotId>10</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <fieldId>Valor</fieldId>
+        <fieldId>CODCCUSTO</fieldId>
       </processFormFieldPK>
-      <fieldDescription>Valor</fieldDescription>
+      <fieldDescription>Código do centro de custo</fieldDescription>
       <slotId>11</slotId>
     </ProcessFormField>
   </list>

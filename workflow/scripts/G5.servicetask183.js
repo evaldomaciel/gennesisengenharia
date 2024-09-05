@@ -55,6 +55,7 @@ function servicetask183(attempt, message) {
     text = replaceValue(text, 'CODCOLCXA', hAPI.getCardValue("CODCOLIGADA"));
     text = replaceValue(text, 'CODCXA', hAPI.getCardValue("conta_caixa_analise"));
     text = replaceValue(text, 'CODTDO', hAPI.getCardValue("CODTDO"));
+    text = replaceValue(text, 'IDPGTO', hAPI.getCardValue("cad_referencia_fin"));
     text = replaceValue(text, 'CODFILIAL', hAPI.getCardValue("filial_analise"));
     text = replaceValue(text, 'CNABBANCO', "341");
     text = replaceValue(text, 'REEMBOLSAVEL', "0");

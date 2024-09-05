@@ -13,23 +13,20 @@
  */
 function anexo(event) {
 	try {
-		console.log("TESTE");
 		const acao = event.currentTarget.getAttribute("data-acao");
 		const inputFile = $(event.currentTarget).parent().parent().find(".inputAnexo")[0]
 		const fileDescription = $(event.currentTarget).parent().parent().find(".descAnexo").val()
 		if (acao == "upload") {
-			console.log("TESTE 2");
-			console.log("------> " + inputFile + " -----> " + fileDescription);
-			uploadFile(fileDescription, inputFile.id)
+			uploadFile(fileDescription, inputFile.name)
 		}
 		if (acao == "viewer") {
 			viewerFile(fileDescription)
 		}
 		if (acao == "download") {
-			downloadFile(fileDescription, inputFile.id)
+			downloadFile(fileDescription, inputFile.name)
 		}
 		if (acao == "delete") {
-			removeFileConfirm(fileDescription, inputFile.id)
+			removeFileConfirm(fileDescription, inputFile.name)
 		}
 	} catch (e) {
 		console.error("Houve um erro inesperado na função anexo")
@@ -58,14 +55,16 @@ function uploadFile(fileDescription, idInput) {
 				$(parent.document).on("keyup", this.actionKeyup)
 			} else {
 				var element = parent.document.getElementById("ecm-navigation-inputFile-clone");
-				if (element && document.createEvent) {
+				if (element && document.createEvent != undefined) {
 					element.setAttribute("data-on-camera", "true");
-					if (fileDescription && idInput) {
-						element.setAttribute("data-file-name-camera", fileDescription)
-						element.setAttribute("data-inputNameFile", idInput)
-					}
 					//Realiza o click no botão "Carregar arquivos" que tem na aba de anexos
 					element.click();
+					setTimeout(() => {
+						if (idInput) {
+							element.setAttribute("data-file-name-camera", fileDescription)
+							element.setAttribute("data-inputNameFile", idInput)
+						}
+					}, 100);
 				}
 			}
 		}
@@ -88,7 +87,8 @@ $(function () {
 			const inputNameFile = this.getAttribute("data-inputNameFile");
 			const fileDescription = this.getAttribute("data-file-name-camera");
 			const filePhisical = this.files[0].name;
-			if (fileDescription && fileDescription) {
+			let novoNome = $('.description-column', parent.document).text();
+			if (novoNome) {
 				/**
 				 * O trecho de código abaixo percorre os anexos do Fluig e caso já exista um anexo com a mesma descrição, ele será removido. 
 				 * Em seguida limpa o campo onde é armazenado o nome fisico do arquivo
@@ -100,7 +100,9 @@ $(function () {
 						setFilePhisicalName(inputNameFile, "");
 					}
 				});
-				setFilePhisicalName(inputNameFile, filePhisical)
+				setTimeout(() => {
+					setFilePhisicalName(inputNameFile, filePhisical)
+				}, 100);
 				if (getMode() == "ADD") {
 					btnState(inputNameFile, 'delete', 'download');
 				}
@@ -259,10 +261,8 @@ function btnState(idInput, acao, btn) {
 		let btnViewerFile = $(`#${idInput}`).parent().parent().find(".btnViewerFile");
 		if (acao == "delete") {
 			btnUpFile.removeClass("btn-success").addClass("btn-danger");
-			btnUpFile.attr('data-acao', acao);
-			//btnUpFile.find("i").removeClass("flaticon-upload").addClass("flaticon-trash");
-			btnUpFile.find("i").removeClass("flaticon-paperclip").addClass("flaticon-trash");
-			btnUpFile.find("span").text("").text(" Remover");
+			btnUpFile.attr({ 'data-acao': acao, 'title': 'Excluir' });
+			btnUpFile.find("i").removeClass("fluigicon-file-upload").addClass("fluigicon-trash");
 			if (btn == "download") {
 				btnDownloadFile.prop("disabled", false);
 				btnDownloadFile.show()
@@ -274,21 +274,13 @@ function btnState(idInput, acao, btn) {
 		}
 		if (acao == "upload") {
 			btnUpFile.removeClass("btn-danger").addClass("btn-success");
-			btnUpFile.attr('data-acao', acao);
-			//btnUpFile.find("i").removeClass("flaticon-trash").addClass("flaticon-upload");
-			btnUpFile.find("i").removeClass("flaticon-trash").addClass("flaticon-paperclip");
-			btnUpFile.find("span").text("").text(" Anexar");
+			btnUpFile.attr({ 'data-acao': acao, 'title': 'Selecionar' });
+			btnUpFile.find("i").removeClass("fluigicon-trash").addClass("fluigicon-file-upload");
 			btnDownloadFile.prop("disabled", true);
 			btnDownloadFile.hide()
 			btnViewerFile.prop("disabled", true);
 			btnViewerFile.hide()
 		}
-		if (acao == "") {
-			btnUpFile.hide()
-			btnDownloadFile.prop("disabled", false);
-			btnDownloadFile.show()
-		}
-		
 	} catch (e) {
 		console.error("Houve um erro inesperado na função btnState")
 		console.error(e)
@@ -317,18 +309,7 @@ function displayBtnFiles() {
 				}
 			}
 			if (getMode() == "MOD" && inputFile.val() != "") {
-				btnState(inputFile[0].id, "")
-				// btnState(inputFile[0].id, "delete", "viewer")
-				// let state = getWKNumState()
-				
-				
-				// if([12, 16, 22].indexOf(state)){
-				// 	if(["fnMapaTipoDemanda"].indexOf(inputFile[0].id) > -1){
-				// 		btnState(inputFile[0].id, "")
-				// 	} 
-				// }
-
-				
+				btnState(inputFile[0].id, "delete", "viewer")
 			}
 		});
 	} catch (e) {
@@ -357,11 +338,11 @@ function invisibleBtnUpload(inputFile) {
 		}
 		if ($(`#_${inputFile}`).length) {
 			if ($(`#_${inputFile}`).val() == "") {
-				$(`#_${inputFile}`).attr({ placeholder: "Nenhuma anexo encontrado" });
+				$(`#_${inputFile}`).attr({ placeholder: "Nenhum anexo selecionado" });
 			}
 		} else {
 			if ($(`#${inputFile}`).val() == "") {
-				$(`#${inputFile}`).attr({ placeholder: "Nenhuma anexo encontrado" });
+				$(`#${inputFile}`).attr({ placeholder: "Nenhum anexo selecionado" });
 			}
 		}
 	} catch (e) {
@@ -370,13 +351,39 @@ function invisibleBtnUpload(inputFile) {
 	}
 }
 
+/**
+ * Verifica se o campo do anexo de uma tabela pai e filho esta preenchido, 
+ * caso esteja, ele verifica se o anexo esta presente na aba de anexos do Fluig
+ * @param {String} tablename Parâmetro obrigatório, tablename da tabela pai e filho.
+ * @param {String} idInput Parâmetro obrigatório, Id do campo de anexo que deseja verificar
+ * @return {String} - Retorna string de erros caso apresente erros
+ * @author Sérgio Machado
+ */
+function invalidFilesTable(tablename, idInput) {
+	try {
+		let errors = "";
+		const countRows = $(`[tablename='${tablename}']`).find('tbody tr').not(':first');
+		for (let i = 0; i < countRows.length; i++) {
+			let indice = getIndice(countRows.eq(i).find("input")[0].id);
+			let inputNameFile = $(`#_${idInput}___${indice}`).length ? $(`#_${idInput}___${indice}`) : $(`#${idInput}___${indice}`)
+			let fileDescription = inputNameFile.parent().find(".descAnexo").val()
+			if (inputNameFile.val() && !hasFileFluig(fileDescription)) {
+				errors += `<li style='margin-bottom: 5px;'>O anexo <b>${inputNameFile.val()}</b> da linha <b>${i + 1}</b> não foi encontrado</li>`
+			}
+		}
+		return errors
+	} catch (e) {
+		console.error('Houve um erro inesperado na função invalidFileTable')
+		console.error(e)
+	}
+}
 
-/*COMPONENTES DE ANEXO*/
 
 /**
  * Verifica se o campo do anexo esta preenchido, caso esteja, ele verifica se o anexo esta válido
  * @param {String} idInput Parâmetro obrigatório, Id do campo em que o nome do arquivo fisico é gravado
  * @return {Boolean}
+ * @author Sérgio Machado
  */
 function invalidFile(idInput) {
 	try {
@@ -393,15 +400,17 @@ function invalidFile(idInput) {
 			return false
 		}
 	} catch (e) {
-		console.error('Houve um erro inesperado na função validFile')
+		console.error('Houve um erro inesperado na função invalidFile')
 		console.error(e)
 	}
 }
+
 
 /**
  * Verifica se o anexo existe na aba de anexos do Fluig
  * @param {String} fileDescription Parâmetro obrigatório, Descrição do arquivo
  * @return {Boolean} - Retorna verdadeiro caso o arquivo exista
+ * @author Sérgio Machado
  */
 function hasFileFluig(fileDescription) {
 	try {
@@ -414,31 +423,7 @@ function hasFileFluig(fileDescription) {
 		}
 		return false
 	} catch (e) {
-		console.error('Houve um erro inesperado na função validarAnexo')
+		console.error('Houve um erro inesperado na função hasFileFluig')
 		console.error(e)
 	}
 }
-
-var beforeSendValidate = function(numState, nextState) {
-
-
-    let attachments = parent.ECM.attachmentTable.getData()
-    let hasAttachment = attachments.length > 0 ? true : false;    
-	
-	let hasPictures = $('input[id*="fnRelatorioFotografico___"]').length > 0 ? true : false;
-
-	if($('input[id*="fnRelatorioFotografico___"]').length > 0){
-		$('input[id*="fnRelatorioFotografico___"]').map( (index, el) => {
-			if(el.value == ""){
-				hasPictures = false
-			}
-		}) 
-	}
-
-    if (numState == 22 && nextState == 16) {
-        if(!hasAttachment && !hasPictures) {
-            throw ('<br><b><font color="red">Registro fotográfico de materiais exige anexos de imagens!</font> </b>');
-        }
-    }
-    return true;
-  }

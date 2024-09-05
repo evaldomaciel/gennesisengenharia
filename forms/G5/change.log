@@ -19,3 +19,15 @@
 			Iniciado o desenvolvido do script para cancelar o lançamento financeiro!
 
 2024-08-18 Vamos começar o trabalho para cancelar o lançamento financeiro
+
+2024-09-05 Ajustes solicitados
+1 - Os dados do pagamento que estão sempre sendo enviados para a integração o mesmo dados (sempre o primeiro) mesmo que o usuário escolha outro
+- Realizado ajuste para obter o código de referencia para o pagamento do dataset "dsRMFinDADOSPGTODataBR".
+2 - O formulário, quando na etapa do Financeiro (Provisionamento), se o usuário escolher outro fornecedor, o campo nome Cliente/Fornecedor e o CNPJ continua exibindo o que foi escolhido na etapa inicial, a integração está correta, mas a tela do FLUIG fica errada
+- Realizade ajustes no banco zoom para capturar os dados e preencher corretamente as informações do provisionamento.
+3 - O Link enviado no email Comprovante de pagamento o usuário que recebe, mesmo fazendo parte da solicitação não consegue ver o anexo
+- Realizado ajustes nas permissões de pasta. HMG pasta 61248 - PRD pasta 88200
+4 - Na atividade Pagamento quando o usuário anexa o comprovante de pagamento o campo não fica com o nome do anexo, como é o padrão dos outros anexos do processo.
+- Realizado ajuste na função que pega o nome do anexo e atribui ao campo.
+5 - Quando o financeiro devolve a solicitação para o solicitante fazer "Revisão" todos os campos está disabled então o solicitante não consegue revisar nada pois está tudo bloqueado
+- Realizado ajuste no enableFields para liberar os campos. 

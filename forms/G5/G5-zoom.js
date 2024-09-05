@@ -1,5 +1,5 @@
 function validaZoom(nomeDoCampo) {
-  console.log({ "validaZoom": nomeDoCampo });
+  // console.log({ "validaZoom": nomeDoCampo });
   if ($(`[name='${nomeDoCampo}']`).attr("type") == "zoom") return true;
   return false;
 }
@@ -70,11 +70,17 @@ function setSelectedZoomItem(selectedItem) {
     $("#hidden_dados_pgmt").val(selectedItem["DESCRICAO"]);
     $("#descricao").val(selectedItem["DESCRICAO"]);
     $("#descricao_fin").val(selectedItem["DESCRICAO"]);
+    $("#cad_referencia").val(selectedItem["IDPGTO"]);
+    $("#cad_referencia_fin").val(selectedItem["IDPGTO"]);
+    $("#dados_bancarios_ativo").prop('checked', selectedItem["ATIVO"] == "1" || selectedItem["ATIVO"] == 1 ? true : false);
     preencheDadosPagamento(selectedItem['CODCOLIGADA'], selectedItem['CODCOLCFO'], selectedItem['CODCFO'], selectedItem['IDPGTO']);
     toggleCampoDadosPgmt(selectedItem["DESCRICAO"], selectedItem["TIPOPIX"], selectedItem["CHAVE"]);
   }
   if (FIELD == "dados_pagamento_analise") {
     $("#hidden_dados_pgmt").val(selectedItem["DESCRICAO"]);
+    $("#descricao_fin").val(selectedItem["DESCRICAO"]);
+    $("#cad_referencia_fin").val(selectedItem["IDPGTO"]);
+    $("#dados_bancarios_ativo_fin").prop('checked', selectedItem["ATIVO"] == "1" || selectedItem["ATIVO"] == 1 ? true : false);
     tipoDaChavePixDadosPagamentoFin(selectedItem["TIPOPIX"], selectedItem["CHAVE"]);
     toggleCodBoleto(selectedItem["DESCRICAO"]);
   }
@@ -128,16 +134,53 @@ function setSelectedZoomItem(selectedItem) {
     let valorDoCampo = campo[0];
     window["vincular_fornecedor_analise"].setValue(valorDoCampo);
     $("#nome_forn").text(selectedItem["NOME"]);
-    $("#nome_cli_fornecedor_analise").val(selectedItem["NOME"]);
     $("#cnpj_forn").text(selectedItem["CGCCFO"]);
+    $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
+    $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
+    $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
+    $("#nome_social").val(selectedItem["NOMEFANTASIA"]);
+    $("#nome").val(selectedItem["NOME"]);
+    $("#CNPJ").val(selectedItem["CGCCFO"]);
+    $("#tipo_rua").val(selectedItem["TIPORUA"]);
+    $("#rua").val(selectedItem["RUA"]);
+    $("#numero").val(selectedItem["NUMERO"]);
+    $("#tipo_bairro").val(selectedItem["TIPOBAIRRO"]);
+    $("#bairro").val(selectedItem["BAIRRO"]);
+    $("#municipio").val(selectedItem["CIDADE"]);
+    $("#sigla_estado").val(selectedItem["CODETD"]);
+    $("#CEP").val(selectedItem["CEP"]);
+    $("#telefone").val(selectedItem["TELEFONE"]);
+    $("#email").val(selectedItem["EMAIL"]);
+    $("#contato").val(selectedItem["CONTATO"]);
+    $("#status_tipo_cliente").val(selectedItem["ATIVO"]);
+    $("#id_pais").val(selectedItem["IDPAIS"]);
+    $("#pais").val(selectedItem["PAIS"]);
+    preencheNomeDoUFFin(selectedItem["CODETD"]);
+    if (selectedItem["PESSOAFISOUJUR"] == "F") {
+      $('input[name="categoria"][value="F"]').prop('checked', true);
+    } else {
+      $('input[name="categoria"][value="J"]').prop('checked', true);
+    }
+  }
+  if (FIELD == "vincular_fornecedor_analise") {
+    if (selectedItem["CODCOLIGADA"] != $("[name='CODCOLIGADA']").val() && selectedItem["CODCOLIGADA"] != 0) {
+      exibeMsg("Atenção!", "O fornecedor que você selecionou não é um cadastro global (0) e/ou não pertence a mesma coligada selecionada no início do formulário. Verifique o código da coligada antes de selecionar o fornecedor ou altere a coligada onde será feito o lançamento", "danger");
+      window['vincular_fornecedor'].clear()
+      return;
+    }
+
+    $("#CGCCFO_analise").val(selectedItem["CGCCFO"]);
+    $("#nome_forn_analise").text(selectedItem["NOME"]);
+    $("#nome_cli_fornecedor_analise").val(selectedItem["NOME"]);
+    $("#cnpj_forn_analise").text(selectedItem["CGCCFO"]);
     $("#CpfCnpj_analise").text(selectedItem["CGCCFO"]);
+    $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
     $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
     $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
     $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
     $("#nome_social_fin").val(selectedItem["NOMEFANTASIA"]);
     $("#nome_fin").val(selectedItem["NOME"]);
     $("#CNPJ_fin").val(selectedItem["CGCCFO"]);
-    $("#CpfCnpj_analise").val(selectedItem["CGCCFO"]);
     $("#tipo_rua_fin").val(selectedItem["TIPORUA"]);
     $("#rua_fin").val(selectedItem["RUA"]);
     $("#numero_fin").val(selectedItem["NUMERO"]);
@@ -150,30 +193,15 @@ function setSelectedZoomItem(selectedItem) {
     $("#email_fin").val(selectedItem["EMAIL"]);
     $("#contato_fin").val(selectedItem["CONTATO"]);
     $("#status_tipo_cliente_fin").val(selectedItem["ATIVO"]);
-    $("#codigo_municipio_fin").val(selectedItem["CODMUNICIPIO"]);
     $("#id_pais_fin").val(selectedItem["IDPAIS"]);
     $("#pais_fin").val(selectedItem["PAIS"]);
-    $("#nacionalidade_fin").val(selectedItem["NACIONALIDADE"]);
-    $("#numero_dependentes_fin").val(selectedItem["NUMDEPENDENTES"]);
-    $("#caixa_postal_fin").val(selectedItem["CAIXAPOSTAL"]);
-    $("#cad_referencia_fin").val(selectedItem["IDCFO"]); // Ref.
-    $("#aposen_pensionista_fin").val(selectedItem["APOSENTADOOUPENSIONISTA"]);
     preencheNomeDoUFFin(selectedItem["CODETD"]);
     if (selectedItem["PESSOAFISOUJUR"] == "F") {
       $('input[name="categoria_fin"][value="F"]').prop('checked', true);
     } else {
       $('input[name="categoria_fin"][value="J"]').prop('checked', true);
     }
-  }
-  if (FIELD == "vincular_fornecedor_analise") {
-    $("#CGCCFO_analise").val(selectedItem["CGCCFO"]);
-    $("#nome_cli_fornecedor_analise").text(selectedItem["NOME"]);
-    $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
-    $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
-    $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
-    $("#nome_forn_analise").text(selectedItem["NOME"]);
-    $("#cnpj_forn_analise").text(selectedItem["CGCCFO"]);
-    $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
+
   }
 
   /** Refaz os filtros de todos os campos zoom */
@@ -223,6 +251,9 @@ function removedZoomItem(removedItem) {
   }
   if (removedItem.inputId == "vincular_fornecedor_analise") {
     $("#hidden_codigo_cli_for").val("");
+    $('#dados_pagamento_analise').text("");
+    $('#dados_pagamento_analise').val("");
+    window['dados_pagamento_analise'].clear();
   }
   if (removedItem.inputId == "centro_de_custo") {
     $("#hidden_filial_cc").val("");

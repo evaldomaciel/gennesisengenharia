@@ -6,8 +6,8 @@ function defineStructure() {
     addColumn("SETOR_SOLICITANTE");
     addColumn("APROVADOR");
     addColumn("TODOS", DatasetFieldType.STRING);
-    setKey(["CODCOLIGADA", "CODCCUSTO", "CENTRO_DE_CUSTO", "APROVADOR", "TIPO"]);
-    addIndex(["CODCOLIGADA", "CODCCUSTO", "CENTRO_DE_CUSTO", "APROVADOR", "TIPO"]);
+    setKey(["CODCOLIGADA", "CODCCUSTO", "CENTRO_DE_CUSTO", "APROVADOR", "SETOR_SOLICITANTE", "TIPO"]);
+    addIndex(["CODCOLIGADA", "CODCCUSTO", "CENTRO_DE_CUSTO", "APROVADOR",, "SETOR_SOLICITANTE", "TIPO"]);
 }
 
 function onSync(lastSyncDate) {
@@ -219,6 +219,7 @@ function getDefaultValues() {
         ['Gestor', '2', '02.06.01.04.003', 'FUNDEPAR - LOTE 45', 'ENGENHARIA', 'd6c58cbc-15cd-4d69-8fa4-ba7c15f63db1', 'Gestor - 2 - 02.06.01.04.003 - FUNDEPAR - LOTE 45 - tainara.dantas'],
         ['Gestor', '2', '02.06.01.04.004', 'FUNDEPAR - LOTE 46', 'ENGENHARIA', 'd6c58cbc-15cd-4d69-8fa4-ba7c15f63db1', 'Gestor - 2 - 02.06.01.04.004 - FUNDEPAR - LOTE 46 - tainara.dantas'],
         ['Gestor', '1', '02.01.01.01.002', 'UNB - CMI', 'ADMINISTRATIVO', '824e10c5-21a8-4a7e-baa0-7bbcf43f4f4f', 'Gestor - 1 - 02.01.01.01.002 - UNB - CMI - cristiana.carvalho'],
+        ['Diretor', '1', '02.01.01.01.002', 'UNB - CMI', 'ADMINISTRATIVO', '824e10c5-21a8-4a7e-baa0-7bbcf43f4f4f', 'Diretor - 1 - 02.01.01.01.002 - UNB - CMI - cristiana.carvalho'],
         ['Gestor', '1', '02.01.01.01.003', 'UNB - CMP', 'ADMINISTRATIVO', '824e10c5-21a8-4a7e-baa0-7bbcf43f4f4f', 'Gestor - 1 - 02.01.01.01.003 - UNB - CMP - cristiana.carvalho'],
         ['Gestor', '1', '02.01.01.01.004', 'UNB - CAR', 'ADMINISTRATIVO', '824e10c5-21a8-4a7e-baa0-7bbcf43f4f4f', 'Gestor - 1 - 02.01.01.01.004 - UNB - CAR - cristiana.carvalho'],
         ['Gestor', '1', '02.01.01.01.005', 'UNB - SB', 'ADMINISTRATIVO', '824e10c5-21a8-4a7e-baa0-7bbcf43f4f4f', 'Gestor - 1 - 02.01.01.01.005 - UNB - SB - cristiana.carvalho'],
@@ -503,6 +504,7 @@ function getDefaultValues() {
         ['Gestor', '2', '02.06.01.03.001', 'ADM REGIONAL CAMPO MOURÃO', 'ASSISTÊNCIA A DIRETORIA', '314d7f72-ab98-4118-b1e2-b88dc1eebba1', 'Gestor - 2 - 02.06.01.03.001 - ADM REGIONAL CAMPO MOURÃO - Angelica.sousa'],
         ['Gestor', '3', '01.01.01.01.001', 'ADMINISTRACAO CENTRAL', 'ASSISTÊNCIA A DIRETORIA', '314d7f72-ab98-4118-b1e2-b88dc1eebba1', 'Gestor - 3 - 01.01.01.01.001 - ADMINISTRACAO CENTRAL - Angelica.sousa'],
         ['Gestor', '1', '02.01.01.01.002', 'UNB - CMI', 'COMPRAS', '9a552b63-6841-4f9a-a201-52e393201b63', 'Gestor - 1 - 02.01.01.01.002 - UNB - CMI - marcio.viana'],
+        ['Diretor', '1', '02.01.01.01.002', 'UNB - CMI', 'COMPRAS', '9a552b63-6841-4f9a-a201-52e393201b63', 'Diretor - 1 - 02.01.01.01.002 - UNB - CMI - marcio.viana'],
         ['Gestor', '1', '02.01.01.01.003', 'UNB - CMP', 'COMPRAS', '9a552b63-6841-4f9a-a201-52e393201b63', 'Gestor - 1 - 02.01.01.01.003 - UNB - CMP - marcio.viana'],
         ['Gestor', '1', '02.01.01.01.004', 'UNB - CAR', 'COMPRAS', '9a552b63-6841-4f9a-a201-52e393201b63', 'Gestor - 1 - 02.01.01.01.004 - UNB - CAR - marcio.viana'],
         ['Gestor', '1', '02.01.01.01.005', 'UNB - SB', 'COMPRAS', '9a552b63-6841-4f9a-a201-52e393201b63', 'Gestor - 1 - 02.01.01.01.005 - UNB - SB - marcio.viana'],

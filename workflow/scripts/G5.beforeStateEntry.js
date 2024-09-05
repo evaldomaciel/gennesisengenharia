@@ -90,9 +90,6 @@ function dadosCadastroFornecedor() {
     var inscricao_municipal = hAPI.getCardValue("inscricao_municipal");
     hAPI.setCardValue("inscricao_municipal_fin", inscricao_municipal);
 
-    // var z_tipo_cliente_fornecedor = hAPI.getCardValue("tipo_cliente_fornecedor");
-    // hAPI.setCardValue("tipo_cliente_forn_fin", z_tipo_cliente_fornecedor);
-
     var nome_cliente_forn = hAPI.getCardValue("nome_cliente_forn");
     hAPI.setCardValue("nome_cliente_forn_fin", nome_cliente_forn);
 
@@ -197,9 +194,6 @@ function dadosCadastroBancario() {
 
     var descricao = hAPI.getCardValue("descricao");
     hAPI.setCardValue("descricao_fin", descricao);
-
-    // var z_filial_d_bancarios = hAPI.getCardValue("filial_d_bancarios");
-    // hAPI.setCardValue("filial_d_bancarios_fin", z_filial_d_bancarios);
 
     var nome_filial_d_banc = hAPI.getCardValue("nome_filial_d_banc");
     hAPI.setCardValue("nome_filial_d_banc_fin", nome_filial_d_banc);
