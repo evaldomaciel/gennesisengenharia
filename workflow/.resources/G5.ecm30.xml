@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>19</version>
+      <version>23</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>88477</formId>
@@ -2729,7 +2729,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>19</version>
+        <version>23</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2741,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>19</version>
+        <version>23</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2753,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>19</version>
+        <version>23</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2765,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>19</version>
+        <version>23</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2777,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>19</version>
+        <version>23</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2789,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>19</version>
+        <version>23</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2801,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>19</version>
+        <version>23</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -6053,10 +6053,19 @@ function getAttchment(description){
       <processFormFieldPK>
         <companyId>1</companyId>
         <processId>G5</processId>
+        <fieldId>CODCCUSTO</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Código do centro de custo</fieldDescription>
+      <slotId>2</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
         <fieldId>empresa</fieldId>
       </processFormFieldPK>
       <fieldDescription>Empresa</fieldDescription>
-      <slotId>2</slotId>
+      <slotId>3</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6065,7 +6074,7 @@ function getAttchment(description){
         <fieldId>forma_pagamento</fieldId>
       </processFormFieldPK>
       <fieldDescription>Forma de Pagamento</fieldDescription>
-      <slotId>3</slotId>
+      <slotId>4</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6074,7 +6083,7 @@ function getAttchment(description){
         <fieldId>nome_cli_fornecedor_analise</fieldId>
       </processFormFieldPK>
       <fieldDescription>Nome do Cliente/Fornecedor</fieldDescription>
-      <slotId>4</slotId>
+      <slotId>5</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6083,7 +6092,7 @@ function getAttchment(description){
         <fieldId>responsavel_solicitacao</fieldId>
       </processFormFieldPK>
       <fieldDescription>Responsável pela solicitação</fieldDescription>
-      <slotId>5</slotId>
+      <slotId>6</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6092,7 +6101,7 @@ function getAttchment(description){
         <fieldId>setor_solicitante</fieldId>
       </processFormFieldPK>
       <fieldDescription>Setor Solicitante</fieldDescription>
-      <slotId>6</slotId>
+      <slotId>7</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6101,7 +6110,7 @@ function getAttchment(description){
         <fieldId>titulo_solicitacao</fieldId>
       </processFormFieldPK>
       <fieldDescription>Descrição da Solicitação</fieldDescription>
-      <slotId>7</slotId>
+      <slotId>8</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6110,7 +6119,7 @@ function getAttchment(description){
         <fieldId>urgencia_solicitacao</fieldId>
       </processFormFieldPK>
       <fieldDescription>Urgência da Solicitação</fieldDescription>
-      <slotId>8</slotId>
+      <slotId>9</slotId>
     </ProcessFormField>
     <ProcessFormField>
       <processFormFieldPK>
@@ -6119,7 +6128,7 @@ function getAttchment(description){
         <fieldId>Valor</fieldId>
       </processFormFieldPK>
       <fieldDescription>Valor</fieldDescription>
-      <slotId>9</slotId>
+      <slotId>10</slotId>
     </ProcessFormField>
   </list>
   <list>
@@ -6230,7 +6239,7 @@ function getAttchment(description){
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6240,7 +6249,7 @@ function getAttchment(description){
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6254,7 +6263,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6264,7 +6273,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6274,7 +6283,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6284,7 +6293,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6294,7 +6303,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6308,7 +6317,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6318,7 +6327,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6328,7 +6337,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>19</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
