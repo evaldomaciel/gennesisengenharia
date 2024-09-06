@@ -90,6 +90,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_pagamento_parcial", false);
       form.setVisibleById("div_confirma_integracao", false);
       form.setVisibleById("div_provisionamento_revisao", false);
+      form.setValue("dados_pagamento_analise", "");
     }
 
 
@@ -183,9 +184,9 @@ function displayFields(form, customHTML) {
     customAppend += "\n</script>";
     customHTML.append(customAppend);
 
-    /** INICO DO PREENCHIMENTO AUTOMATICO PARA TESTE */
+    /** INICO DO PREENCHIMENTO AUTOMATICO PARA TESTE
     if (user == '4ef20412-7687-40a4-b1c8-095c0a92503e' && (form.getFormMode() == "ADD") || activity == 14) {
-      /* HMG */       var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '61292', '61292', ConstraintType.MUST)), null);
+      /* HMG      var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '61292', '61292', ConstraintType.MUST)), null);
       // PRD       var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)), null);
       var colunas = datasetDs_G5.getColumnsName();
       customHTML.append("\n<script> var colunasSize = '" + colunas.length + "'; </script>");
