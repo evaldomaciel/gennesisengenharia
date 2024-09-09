@@ -31,3 +31,50 @@
 - Realizado ajuste na função que pega o nome do anexo e atribui ao campo.
 5 - Quando o financeiro devolve a solicitação para o solicitante fazer "Revisão" todos os campos está disabled então o solicitante não consegue revisar nada pois está tudo bloqueado
 - Realizado ajuste no enableFields para liberar os campos. 
+
+2024-09-08 Ajustes solicitados
+- BUG no calculo do valor do rateio
+	"Realizado ajuste para converter os valores dos campos do formulario para float no evento de formulário validateFields e garantir a correta comparação de valores." 
+
+- Ajuste validação formulário: 
+	etapa de provisionamento, ao enviar para fase de provisionado não está validando o campo de vinculo de fornecedor 
+	e dados bancários, caso ele apague o fornecedor, ou o dado bancário, ou venha da etapa de cadastro de fornecedor, 
+	ou seja o campo esteja vazio, ele não está validando, cria o lançamento no totvs, porém com fornecedor aleatório;
+	
+	Ação: Colocar como obrigatorio no provisionamento os dados necessários para integração, do fornecedor e dados de
+	pagamento
+	"Campos de 'Vincular Fornecedor' e 'Dados de Pagamento' definidos como obrigatórios na atividade de proviosionamento"
+	
+- Ajuste verificação de finalização da atividade (envio para fase de informar solicitante), 
+	está dando erro, pedindo para contatar o adm, do usuário fluig consigo realizar o feedback, 
+	porém, ao tentar realizar com o usuário do financeiro está dado bugzinho.
+	
+	Ação : Verificar as permissões do usuário ao anexar arquivos, com o usuário admin o processo se realiza, 
+	porem quando o usuário é usuário normal deu msg de erro
+	"Criado um usuário comum, 'teste', para validar o anexos, após verificar o erro, foi alterada as permissões de pasta de forma a não dar mais erro ao criar a pasta no GED para os documentos do processo"
+	
+- Ajuste template de e-mail, realizar ajuste de matrícula do usuário para nome do usuário e 
+	adicionar título da solicitação, 
+	(havíamos mapeado durante a validação, mas colocamos para ajuste durante o processo de MVP).
+	
+	Ação:Colocar no email, em vez da matricula o nome do usuário
+	"Incluída função para pegar o nome do usário no script 'G5.servicetask344' de forma a enviar o nome e não o código no template do e-mail "	
+- Ajuste integração ação de renomear lançamento ao ser cancelado 
+	(verificamos que um lançamento realizado no sistema, ao ser cancelada a tarefa no fluig, 
+	aquele lançamento está sendo renomeado perdendo o título da solicitação, havíamos mapeado 
+	durante o processo de validação, e iriámos ajustar durante o MVP)
+	
+	Ação: Ao cancelar o lançamento no RM, manter o histórioco acrescentando somente o termo "Cancelado"
+	"Realizadas alteração no script G5.servicetask287 para atender a solicitação, mantendo o histórico e incluíndo apenas o texto 'Cancaledo na frente'"
+	
+- Ajuste nome do lançamento no RM, 
+	adicionar também junto ao o histórico o número da solicitação, para facilitar o rateio 
+	(validamos na antes do MVP, mas colocamos para ajuste agora pois não era prioridade para rodar o processo).
+	
+	Ação : Acrescentar no historico do lançamento RM o numero da solicitação FLUIG Ex:Sol : 9858757
+	"Ajustado o script 'G5.servicetask183.js' para incluír o número da solicitação no histórico do lançamento"	
+	
+- Ajuste integração dados bancários do fornecedor, ao gerar um lançamento, 
+	está puxado fixo o dado bancário de referencia 1, do cadastro daquele fornecedor, e não seguindo aquela regra de seleção que o usuário realizou.
+	
+	Ação : Já realizado

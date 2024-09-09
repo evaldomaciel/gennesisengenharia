@@ -2,230 +2,198 @@ function validateForm(form) {
     var activity = getValue("WKNumState");
     var proxima = getValue("WKNextState");
     var msg = "";
-
+    var valor_total_rateio = formatText2Float(form.getValue("valor_total_rateio"));
+    var Valor = formatText2Float(form.getValue("Valor"));
     var table_pagamento_parcial = form.getChildrenIndexes("table_pagamento_parcial");
     var table_pagamento_unico = form.getChildrenIndexes("table_pagamento_unico");
 
-    /* ETAPA 000 | 004 - INICIO */
-    if (activity == 4 || activity == 0) {
-        if (form.getValue("empresa") == "" || form.getValue("empresa") == null) { msg += '<br><b>O campo <font color="red">Empresa</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("filial") == "" || form.getValue("filial") == null) { msg += '<br><b>O campo <font color="red">Filial</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("coligada") == "" || form.getValue("coligada") == null) { msg += '<br><b>O campo <font color="red">Coligada</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("centro_de_custo") == "" || form.getValue("centro_de_custo") == null) { msg += '<br><b>O campo <font color="red">Centro de Custos</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("setor_solicitante") == "" || form.getValue("setor_solicitante") == null) { msg += '<br><b>O campo <font color="red">Setor Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("urgencia_solicitacao") == "" || form.getValue("urgencia_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Urgência da Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("titulo_solicitacao") == "" || form.getValue("titulo_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Título da Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("descricao_solicitacao") == "" || form.getValue("descricao_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Descrição da Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("data_vencimento") == "" || form.getValue("data_vencimento") == null) { msg += '<br><b>O campo <font color="red">Data de Vencimento</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("responsavel_solicitacao") == "" || form.getValue("responsavel_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Responsável pela Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("email_solicitante") == "" || form.getValue("email_solicitante") == null) { msg += '<br><b>O campo <font color="red">E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        ///if (form.getValue("copia_email_solicitante") == "" || form.getValue("copia_email_solicitante") == null) { msg += '<br><b>O campo <font color="red">Cópia do E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("teve_juros") == "" || form.getValue("teve_juros") == null) { msg += '<br><b>O campo <font color="red">Houve juros no pagamento?</font> \u00E9 obrigat\u00F3rio!</b>'; }
+    /* ETAPA 000 | 004 - INICIO | 034 REVISÃO */
+    if (activity == 4 || activity == 0 || activity == 34) {
+        if (campoVazio(form, "empresa")) msg += getMsgObg('Empresa');
+        if (campoVazio(form, "filial")) msg += getMsgObg('Filial');
+        if (campoVazio(form, "coligada")) msg += getMsgObg('Coligada');
+        if (campoVazio(form, "centro_de_custo")) msg += getMsgObg('Centro de Custos');
+        if (campoVazio(form, "setor_solicitante")) msg += getMsgObg('Setor Solicitante');
+        if (campoVazio(form, "urgencia_solicitacao")) msg += getMsgObg('Urgência da Solicitação');
+        if (campoVazio(form, "titulo_solicitacao")) msg += getMsgObg('Título da Solicitação');
+        if (campoVazio(form, "descricao_solicitacao")) msg += getMsgObg('Descrição da Solicitação');
+        if (campoVazio(form, "data_vencimento")) msg += getMsgObg('Data de Vencimento');
+        if (campoVazio(form, "responsavel_solicitacao")) msg += getMsgObg('Responsável pela Solicitação');
+        if (campoVazio(form, "email_solicitante")) msg += getMsgObg('E-mail do Solicitante');
+        if (campoVazio(form, "teve_juros")) msg += getMsgObg('Houve juros no pagamento?');
         if (form.getValue("teve_juros") == "Sim") {
-            if (form.getValue("valor_original") == "" || form.getValue("valor_original") == null) { msg += '<br><b>O campo <font color="red">Valor Original</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("valor_juros") == "" || form.getValue("valor_juros") == null) { msg += '<br><b>O campo <font color="red">Valor do juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
+            if (campoVazio(form, "valor_original")) msg += getMsgObg('Valor Original');
+            if (campoVazio(form, "valor_juros")) msg += getMsgObg('Valor do juros');
         }
-        if (form.getValue("Valor") == "" || form.getValue("Valor") == null) { msg += '<br><b>O campo <font color="red">Valor total a ser pago</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("fornecedor_cadastrado") == "" || form.getValue("fornecedor_cadastrado") == null) { msg += '<br><b>O campo <font color="red">Fornecedor Cadastrado</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("fornecedor_cadastrado") == "Sim") { if (form.getValue("vincular_fornecedor") == "" || form.getValue("vincular_fornecedor") == null) { msg += '<br><b>O campo <font color="red">Vincular Fornecedor</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-        /* VALIDAÇÃO CADASTRO DE FORNECEDOR */
-        if (form.getValue("fornecedor_cadastrado") == "Não") {
-            if (form.getValue("nome_social") == "" || form.getValue("nome_social") == null) { msg += '<br><b>O campo <font color="red">Nome Fantasia/Social</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("nome") == "" || form.getValue("nome") == null) { msg += '<br><b>O campo <font color="red">Nome</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("classificacao") == "" || form.getValue("classificacao") == null) { msg += '<br><b>O campo <font color="red">Classifica\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("categoria") == "" || form.getValue("categoria") == null) { msg += '<br><b>O campo <font color="red">Categoria</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("categoria") == "F") { if (form.getValue("CPF") == "" || form.getValue("CPF") == null) { msg += '<br><b>O campo <font color="red">CPF</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-            if (form.getValue("categoria") == "J") { if (form.getValue("CNPJ") == "" || form.getValue("CNPJ") == null) { msg += '<br><b>O campo <font color="red">CNPJ</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-            if (form.getValue("CEP") == "" || form.getValue("CEP") == null) { msg += '<br><b>O campo <font color="red">CEP</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("status_tipo_cliente") == "" || form.getValue("status_tipo_cliente") == null) { msg += '<br><b>O campo <font color="red">Status do Cliente (Ativo ou Bloqueado)</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("tipo_rua") == "" || form.getValue("tipo_rua") == null) { msg += '<br><b>O campo <font color="red">Tipo Rua</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("rua") == "" || form.getValue("rua") == null) { msg += '<br><b>O campo <font color="red">Rua</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("numero") == "" || form.getValue("numero") == null) { msg += '<br><b>O campo <font color="red">Numero</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("tipo_bairro") == "" || form.getValue("tipo_bairro") == null) { msg += '<br><b>O campo <font color="red">Bairro</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("bairro") == "" || form.getValue("bairro") == null) { msg += '<br><b>O campo <font color="red">Bairro</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("id_pais") == "" || form.getValue("id_pais") == null) { msg += '<br><b>O campo <font color="red">ID do País</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("pais") == "" || form.getValue("pais") == null) { msg += '<br><b>O campo <font color="red">País</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("telefone") == "" || form.getValue("telefone") == null) { msg += '<br><b>O campo <font color="red">Telefone</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("email") == "" || form.getValue("email") == null) { msg += '<br><b>O campo <font color="red">E-mail</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("contato") == "" || form.getValue("contato") == null) { msg += '<br><b>O campo <font color="red">Contato</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido")) { msg += '<br><b>O campo <font color="red">CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!</b>'; }
+        if (campoVazio(form, "fornecedor_cadastrado")) msg += getMsgObg('Fornecedor Cadastrado');
+        if (form.getValue("fornecedor_cadastrado") == "Sim") {
+            if (campoVazio(form, "vincular_fornecedor")) msg += getMsgObg('Vincular Fornecedor');
+        } else if (form.getValue("fornecedor_cadastrado") == "Não") {
+            if (campoVazio(form, "nome_social")) msg += getMsgObg('Nome Fantasia/Social');
+            if (campoVazio(form, "nome")) msg += getMsgObg('Nome');
+            if (campoVazio(form, "classificacao")) msg += getMsgObg('Classificação');
+            if (campoVazio(form, "categoria")) msg += getMsgObg('Categoria');
+            if (form.getValue("categoria") == "F" && campoVazio(form, "CPF")) msg += getMsgObg('CPF');
+            if (form.getValue("categoria") == "J" && campoVazio(form, "CNPJ")) msg += getMsgObg('CNPJ');
+            if (campoVazio(form, "CEP")) msg += getMsgObg('CEP');
+            if (campoVazio(form, "status_tipo_cliente")) msg += getMsgObg('Status do Cliente (Ativo ou Bloqueado)');
+            if (campoVazio(form, "tipo_rua")) msg += getMsgObg('Tipo Rua');
+            if (campoVazio(form, "rua")) msg += getMsgObg('Rua');
+            if (campoVazio(form, "numero")) msg += getMsgObg('Numero');
+            if (campoVazio(form, "tipo_bairro")) msg += getMsgObg('Bairro');
+            if (campoVazio(form, "bairro")) msg += getMsgObg('Bairro');
+            if (campoVazio(form, "id_pais")) msg += getMsgObg('ID do País');
+            if (campoVazio(form, "pais")) msg += getMsgObg('País');
+            if (campoVazio(form, "telefone")) msg += getMsgObg('Telefone');
+            if (campoVazio(form, "email")) msg += getMsgObg('E-mail');
+            if (campoVazio(form, "contato")) msg += getMsgObg('Contato');
+            if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido")) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!');
         }
+        if (campoVazio(form, "valor_total_rateio")) msg += getMsgObg('Valor total a ser pago');
+
         /* VALIDAÇÃO DO ANEXO */
         var anexoSolicitacao = form.getChildrenIndexes("table_anexo_solicitacao");
         if (anexoSolicitacao.length == 0) { msg += '<br><b>A tabela <font color="red">Anexo</font> necessita de pelo menos uma entrada!</b>'; }
 
         /* VALIDAÇÃO DA TABELA RATEIO POR CENTRO DE CUSTO */
         var rateioCentroDeCustos = form.getChildrenIndexes("table_rateio_ccusto");
-        if (rateioCentroDeCustos.length == 0) { msg += '<br><b>A tabela <font color="red">Rateio por centro de custo </font> necessita de pelo menos uma entrada!</b>'; }
-        for (var i = 0; i < rateioCentroDeCustos.length; i++) {
-            if (form.getValue("coluna_natureza___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_natureza___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Natureza Orçamentária Financeira ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-            if (form.getValue("coluna_ccusto___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_ccusto___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Centro de Custo ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-            if (form.getValue("coluna_valor___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_valor___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Valor ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-            if (form.getValue("coluna_percentual___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_percentual___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Percentual ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-        }
-        if (form.getValue("valor_total_rateio") > form.getValue("Valor")) { msg += '<br><b>O <font color="red"> Valor total </font> do rateio supera o valor total a ser pago!</b>'; }
-        if (form.getValue("valor_total_rateio") < form.getValue("Valor")) { msg += '<br><b>O <font color="red"> Valor total </font> do rateio é inferior ao valor total a ser pago!</b>'; }
-        /* ETAPA 014 - PROVISIONAMENTO */
-    } else if (activity == 14) {
-        if (form.getValue("dados_conformidade") == "" || form.getValue("dados_conformidade") == null) { msg += '<br><b>O campo <font color="red">Dados Solicitados em Conformidade?</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("dados_conformidade") == "Nao" || form.getValue("dados_conformidade") == "Cancelar") { if (form.getValue("mensagem_solicitacao_ajustes") == "" || form.getValue("mensagem_solicitacao_ajustes") == null) { msg += '<br><b>O campo <font color="red">Motivo da Solicitação de Ajustes</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-        if (form.getValue("dados_conformidade") == "Sim") {
-            if (form.getValue("referencia_analise") == "" || form.getValue("referencia_analise") == null) { msg += '<br><b>O campo <font color="red">Ref</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("pagar_receber") == "" || form.getValue("pagar_receber") == null) { msg += '<br><b>O campo <font color="red">Pagar ou Receber</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("filial_analise") == "" || form.getValue("filial_analise") == null) { msg += '<br><b>O campo <font color="red">Filial</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("nome_filial_analise") == "" || form.getValue("nome_filial_analise") == null) { msg += '<br><b>O campo <font color="red">Nome da Filial</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("nome_cli_fornecedor_analise") == "" || form.getValue("nome_cli_fornecedor_analise") == null) { msg += '<br><b>O campo <font color="red">Nome do Cliente/Fornecedor</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("CpfCnpj_analise") == "" || form.getValue("CpfCnpj_analise") == null) { msg += '<br><b>O campo <font color="red">CPF/CNPJ</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("tipo_documento_analise") == "" || form.getValue("tipo_documento_analise") == null) { msg += '<br><b>O campo <font color="red">Tipo de documento</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("nome_tipo_documento") == "" || form.getValue("nome_tipo_documento") == null) { msg += '<br><b>O campo <font color="red">Nome tipo de documento</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("numero_documento_analise") == "" || form.getValue("numero_documento_analise") == null) { msg += '<br><b>O campo <font color="red">Núm. Documento</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("data_emissao_analise") == "" || form.getValue("data_emissao_analise") == null) { msg += '<br><b>O campo <font color="red">Data de Emissão</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("data_vencimento_analise") == "" || form.getValue("data_vencimento_analise") == null) { msg += '<br><b>O campo <font color="red">Data de Vencimento</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("data_previa_baixa_analise") == "" || form.getValue("data_previa_baixa_analise") == null) { msg += '<br><b>O campo <font color="red">Data Prev. Baixa</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("historico_analise") == "" || form.getValue("historico_analise") == null) { msg += '<br><b>O campo <font color="red">Histórico</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("serie_documento_analise") == "" || form.getValue("serie_documento_analise") == null) { msg += '<br><b>O campo <font color="red">Série do Documento</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("valor_original_analise") == "" || form.getValue("valor_original_analise") == null) { msg += '<br><b>O campo <font color="red">Valor Original</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("tipo_moeda") == "" || form.getValue("tipo_moeda") == null) { msg += '<br><b>O campo <font color="red">Moeda</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("desconto_analise") == "" || form.getValue("desconto_analise") == null) { msg += '<br><b>O campo <font color="red">Desconto</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("percentual_desc_analise") == "" || form.getValue("percentual_desc_analise") == null) { msg += '<br><b>O campo <font color="red">% Desconto</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("juros_analise") == "" || form.getValue("juros_analise") == null) { msg += '<br><b>O campo <font color="red">Juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("percentual_juros_analise") == "" || form.getValue("percentual_juros_analise") == null) { msg += '<br><b>O campo <font color="red">% Juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("juros_dia_analise") == "" || form.getValue("juros_dia_analise") == null) { msg += '<br><b>O campo <font color="red">Juros ao Dia</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            ///if (form.getValue("data_valor_liquido") == "" || form.getValue("data_valor_liquido") == null) { msg += '<br><b>O campo <font color="red">Data Valor Líquido</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("carencia_juros_analise") == "" || form.getValue("carencia_juros_analise") == null) { msg += '<br><b>O campo <font color="red">Carência Juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("multa_analise") == "" || form.getValue("multa_analise") == null) { msg += '<br><b>O campo <font color="red">Multa</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("percentual_multa_analise") == "" || form.getValue("percentual_multa_analise") == null) { msg += '<br><b>O campo <font color="red">% Multa</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("multa_dia_analise") == "" || form.getValue("multa_dia_analise") == null) { msg += '<br><b>O campo <font color="red">Multa ao dia (%)</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("capitalizacao_analise") == "" || form.getValue("capitalizacao_analise") == null) { msg += '<br><b>O campo <font color="red">Capitalização</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("percentual_cap_analise") == "" || form.getValue("percentual_cap_analise") == null) { msg += '<br><b>O campo <font color="red">% Capitalização</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("cap_mensal_analise") == "" || form.getValue("cap_mensal_analise") == null) { msg += '<br><b>O campo <font color="red">Cap. Mensal (%)</font> \u00E9 obrigat\u00F3rio!</b>'; }
+        if (rateioCentroDeCustos.length == 0) { msg += '<br><b>A tabela <font color="red">Rateio por centro de custo</font> necessita de pelo menos uma entrada!</b>'; }
 
-            if (form.getValue("fornecedor_cadastrado") == "" || form.getValue("fornecedor_cadastrado") == null) { msg += '<br><b>O campo <font color="red">Fornecedor Cadastrado?</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("fornecedor_cadastrado") == "Sim") { if (form.getValue("vincular_fornecedor_analise") == "" || form.getValue("vincular_fornecedor_analise") == null) { msg += '<br><b>O campo <font color="red">Vincular Fornecedor</font> \u00E9 obrigat\u00F3rio!</b>'; } }
+        for (var i = 0; i < rateioCentroDeCustos.length; i++) {
+            if (campoVazio(form, "coluna_natureza___" + rateioCentroDeCustos[i])) { msg += getMsgObg('Natureza Orçamentária Financeira ' + (i + 1) + '') }
+            if (campoVazio(form, "coluna_ccusto___" + rateioCentroDeCustos[i])) { msg += getMsgObg('Centro de Custo ' + (i + 1) + '') }
+            if (campoVazio(form, "coluna_valor___" + rateioCentroDeCustos[i])) { msg += getMsgObg('Valor ' + (i + 1) + '') }
+            if (campoVazio(form, "coluna_percentual___" + rateioCentroDeCustos[i])) { msg += getMsgObg('Percentual ' + (i + 1) + '') }
+        }
+
+        if (valor_total_rateio > Valor) {
+            msg += '<br><b>O <font color="red">Valor total</font> do rateio supera o valor total a ser pago!</b> [' + valor_total_rateio + ' - ' + Valor + ']';
+        }
+        if (valor_total_rateio < Valor) {
+            msg += '<br><b>O <font color="red">Valor total</font> do rateio é inferior ao valor total a ser pago!</b> [' + valor_total_rateio + ' - ' + Valor + ']';
+        }
+    }
+    else if (activity == 14) {
+        /* ETAPA 014 - PROVISIONAMENTO */
+        if (campoVazio(form, "dados_conformidade")) msg += getMsgObg('Dados Solicitados em Conformidade?');
+        if (form.getValue("dados_conformidade") == "Nao" || form.getValue("dados_conformidade") == "Cancelar") {
+            if (campoVazio(form, "mensagem_solicitacao_ajustes")) { msg += getMsgObg('Motivo da Solicitação de Ajustes') }
+        }
+        if (form.getValue("dados_conformidade") == "Sim") {
+            if (campoVazio(form, "referencia_analise")) msg += getMsgObg('Ref');
+            if (campoVazio(form, "pagar_receber")) msg += getMsgObg('Pagar ou Receber');
+            if (campoVazio(form, "filial_analise")) msg += getMsgObg('Filial');
+            if (campoVazio(form, "nome_filial_analise")) msg += getMsgObg('Nome da Filial');
+            if (campoVazio(form, "nome_cli_fornecedor_analise")) msg += getMsgObg('Nome do Cliente/Fornecedor');
+            if (campoVazio(form, "dados_pagamento_analise")) msg += getMsgObg('Dados de Pagamento');
+            if (campoVazio(form, "CpfCnpj_analise")) msg += getMsgObg('CPF/CNPJ');
+            if (campoVazio(form, "tipo_documento_analise")) msg += getMsgObg('Tipo de documento');
+            if (campoVazio(form, "nome_tipo_documento")) msg += getMsgObg('Nome tipo de documento');
+            if (campoVazio(form, "numero_documento_analise")) msg += getMsgObg('Núm. Documento');
+            if (campoVazio(form, "data_emissao_analise")) msg += getMsgObg('Data de Emissão');
+            if (campoVazio(form, "data_vencimento_analise")) msg += getMsgObg('Data de Vencimento');
+            if (campoVazio(form, "data_previa_baixa_analise")) msg += getMsgObg('Data Prev. Baixa');
+            if (campoVazio(form, "historico_analise")) msg += getMsgObg('Histórico');
+            if (campoVazio(form, "serie_documento_analise")) msg += getMsgObg('Série do Documento');
+            if (campoVazio(form, "valor_original_analise")) msg += getMsgObg('Valor Original');
+            if (campoVazio(form, "conta_caixa_analise")) msg += getMsgObg('Conta/Caixa');
+            if (campoVazio(form, "tipo_moeda")) msg += getMsgObg('Moeda');
+            if (campoVazio(form, "desconto_analise")) msg += getMsgObg('Desconto');
+            if (campoVazio(form, "percentual_desc_analise")) msg += getMsgObg('% Desconto');
+            if (campoVazio(form, "juros_analise")) msg += getMsgObg('Juros');
+            if (campoVazio(form, "percentual_juros_analise")) msg += getMsgObg('% Juros');
+            if (campoVazio(form, "juros_dia_analise")) msg += getMsgObg('Juros ao Dia');
+            if (campoVazio(form, "carencia_juros_analise")) msg += getMsgObg('Carência Juros');
+            if (campoVazio(form, "multa_analise")) msg += getMsgObg('Multa');
+            if (campoVazio(form, "percentual_multa_analise")) msg += getMsgObg('% Multa');
+            if (campoVazio(form, "multa_dia_analise")) msg += getMsgObg('Multa ao dia (%)');
+            if (campoVazio(form, "capitalizacao_analise")) msg += getMsgObg('Capitalização');
+            if (campoVazio(form, "percentual_cap_analise")) msg += getMsgObg('% Capitalização');
+            if (campoVazio(form, "cap_mensal_analise")) msg += getMsgObg('Cap. Mensal (%)');
+            if (campoVazio(form, "fornecedor_cadastrado")) msg += getMsgObg('Fornecedor Cadastrado?');
+            if (form.getValue("fornecedor_cadastrado") == "Sim" && campoVazio(form, "vincular_fornecedor_analise")) msg += getMsgObg('Vincular Fornecedor');
             /* VALIDAÇÃO CADASTRO DE FORNECEDOR */
             if (form.getValue("fornecedor_cadastrado") == "Não") {
-                if (form.getValue("nome_social") == "" || form.getValue("nome_social") == null) { msg += '<br><b>O campo <font color="red">Nome Fantasia/Social</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("nome") == "" || form.getValue("nome") == null) { msg += '<br><b>O campo <font color="red">Nome</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("classificacao") == "" || form.getValue("classificacao") == null) { msg += '<br><b>O campo <font color="red">Classifica\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("categoria") == "" || form.getValue("categoria") == null) { msg += '<br><b>O campo <font color="red">Categoria</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("categoria") == "F") {
-                    if (form.getValue("CPF") == "" || form.getValue("CPF") == null) { msg += '<br><b>O campo <font color="red">CPF</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                }
-                if (form.getValue("categoria") == "J") { if (form.getValue("CNPJ") == "" || form.getValue("CNPJ") == null) { msg += '<br><b>O campo <font color="red">CNPJ</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-
-                if (form.getValue("CEP") == "" || form.getValue("CEP") == null) { msg += '<br><b>O campo <font color="red">CEP</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("status_tipo_cliente") == "" || form.getValue("status_tipo_cliente") == null) { msg += '<br><b>O campo <font color="red">Status do Cliente (Ativo ou Bloqueado)</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("tipo_rua") == "" || form.getValue("tipo_rua") == null) { msg += '<br><b>O campo <font color="red">Tipo Rua</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("rua") == "" || form.getValue("rua") == null) { msg += '<br><b>O campo <font color="red">Rua</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("numero") == "" || form.getValue("numero") == null) { msg += '<br><b>O campo <font color="red">Numero</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("tipo_bairro") == "" || form.getValue("tipo_bairro") == null) { msg += '<br><b>O campo <font color="red">Tipo de Bairro</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("bairro") == "" || form.getValue("bairro") == null) { msg += '<br><b>O campo <font color="red">Bairro</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("id_pais") == "" || form.getValue("id_pais") == null) { msg += '<br><b>O campo <font color="red">ID do País</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("pais") == "" || form.getValue("pais") == null) { msg += '<br><b>O campo <font color="red">País</font> \u00E9 obrigat\u00F3rio!</b>'; }
-
-                if (form.getValue("telefone") == "" || form.getValue("telefone") == null) { msg += '<br><b>O campo <font color="red">Telefone</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("email") == "" || form.getValue("email") == null) { msg += '<br><b>O campo <font color="red">E-mail</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("contato") == "" || form.getValue("contato") == null) { msg += '<br><b>O campo <font color="red">Contato</font> \u00E9 obrigat\u00F3rio!</b>'; }
+                if (campoVazio(form, "nome_social")) msg += getMsgObg('Nome Fantasia/Social');
+                if (campoVazio(form, "nome")) msg += getMsgObg('Nome');
+                if (campoVazio(form, "classificacao")) msg += getMsgObg('Classifica\u00e7\u00e3o');
+                if (campoVazio(form, "categoria")) msg += getMsgObg('Categoria');
+                if (form.getValue("categoria") == "F" && campoVazio(form, "CPF")) msg += getMsgObg('CPF');
+                if (form.getValue("categoria") == "J" && campoVazio(form, "CNPJ")) msg += getMsgObg('CNPJ');
+                if (campoVazio(form, "CEP")) msg += getMsgObg('CEP');
+                if (campoVazio(form, "status_tipo_cliente")) msg += getMsgObg('Status do Cliente (Ativo ou Bloqueado)');
+                if (campoVazio(form, "tipo_rua")) msg += getMsgObg('Tipo Rua');
+                if (campoVazio(form, "rua")) msg += getMsgObg('Rua');
+                if (campoVazio(form, "numero")) msg += getMsgObg('Numero');
+                if (campoVazio(form, "tipo_bairro")) msg += getMsgObg('Tipo de Bairro');
+                if (campoVazio(form, "bairro")) msg += getMsgObg('Bairro');
+                if (campoVazio(form, "id_pais")) msg += getMsgObg('ID do País');
+                if (campoVazio(form, "pais")) msg += getMsgObg('País');
+                if (campoVazio(form, "telefone")) msg += getMsgObg('Telefone');
+                if (campoVazio(form, "email")) msg += getMsgObg('E-mail');
+                if (campoVazio(form, "contato")) msg += getMsgObg('Contato');
             }
-            if (form.getValue("fornecedor_cadastrado") == "Sim") { if (form.getValue("vincular_fornecedor_analise") == "" || form.getValue("vincular_fornecedor_analise") == null) { msg += '<br><b>O campo <font color="red">Vincular Fornecedor</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-            if (form.getValue("tipo_contabil") == "" || form.getValue("tipo_contabil") == null) { msg += '<br><b>O campo <font color="red">Tipo Contábil</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("solicitacao_mult_analise") == "" || form.getValue("solicitacao_mult_analise") == null) { msg += '<br><b>O campo <font color="red">Solicita\u00e7\u00e3o M\u00faltipla ou Individual</font> \u00E9 obrigat\u00F3rio!</b>'; }
+            if (form.getValue("fornecedor_cadastrado") == "Sim" && campoVazio(form, "vincular_fornecedor_analise")) msg += getMsgObg('Vincular Fornecedor');
+            if (campoVazio(form, "tipo_contabil")) msg += getMsgObg('Tipo Contábil');
+            if (campoVazio(form, "solicitacao_mult_analise")) msg += getMsgObg('Solicita\u00e7\u00e3o M\u00faltipla ou Individual');
         }
-    } else if (activity == 34) {
-        /* ETAPA 034 - REVISAR SOLICITAÇÃO */
-        if (form.getValue("empresa") == "" || form.getValue("empresa") == null) { msg += '<br><b>O campo <font color="red">Empresa</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("filial") == "" || form.getValue("filial") == null) { msg += '<br><b>O campo <font color="red">Filial</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("coligada") == "" || form.getValue("coligada") == null) { msg += '<br><b>O campo <font color="red">Coligada</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("centro_de_custo") == "" || form.getValue("centro_de_custo") == null) { msg += '<br><b>O campo <font color="red">Centro de Custos</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("setor_solicitante") == "" || form.getValue("setor_solicitante") == null) { msg += '<br><b>O campo <font color="red">Setor Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("urgencia_solicitacao") == "" || form.getValue("urgencia_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Urgência da Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("titulo_solicitacao") == "" || form.getValue("titulo_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Título da Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("descricao_solicitacao") == "" || form.getValue("descricao_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Descrição da Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("data_vencimento") == "" || form.getValue("data_vencimento") == null) { msg += '<br><b>O campo <font color="red">Data de Vencimento</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("responsavel_solicitacao") == "" || form.getValue("responsavel_solicitacao") == null) { msg += '<br><b>O campo <font color="red">Responsável pela Solicita\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("email_solicitante") == "" || form.getValue("email_solicitante") == null) { msg += '<br><b>O campo <font color="red">E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        ///if (form.getValue("copia_email_solicitante") == "" || form.getValue("copia_email_solicitante") == null) { msg += '<br><b>O campo <font color="red">Cópia do E-mail do Solicitante</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("teve_juros") == "" || form.getValue("teve_juros") == null) { msg += '<br><b>O campo <font color="red">Houve juros no pagamento?</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("teve_juros") == "Sim") {
-            if (form.getValue("valor_original") == "" || form.getValue("valor_original") == null) { msg += '<br><b>O campo <font color="red">Valor Original</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("valor_juros") == "" || form.getValue("valor_juros") == null) { msg += '<br><b>O campo <font color="red">Valor do juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        }
-        if (form.getValue("Valor") == "" || form.getValue("Valor") == null) { msg += '<br><b>O campo <font color="red">Valor total a ser pago</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("fornecedor_cadastrado") == "" || form.getValue("fornecedor_cadastrado") == null) { msg += '<br><b>O campo <font color="red">Fornecedor Cadastrado</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        if (form.getValue("fornecedor_cadastrado") == "Sim") { if (form.getValue("vincular_fornecedor") == "" || form.getValue("vincular_fornecedor") == null) { msg += '<br><b>O campo <font color="red">Vincular Fornecedor</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-        if (form.getValue("fornecedor_cadastrado") == "Não") {
-            if (form.getValue("nome_social") == "" || form.getValue("nome_social") == null) { msg += '<br><b>O campo <font color="red">Nome Fantasia/Social</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("nome") == "" || form.getValue("nome") == null) { msg += '<br><b>O campo <font color="red">Nome</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("classificacao") == "" || form.getValue("classificacao") == null) { msg += '<br><b>O campo <font color="red">Classifica\u00e7\u00e3o</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("categoria") == "" || form.getValue("categoria") == null) { msg += '<br><b>O campo <font color="red">Categoria</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("categoria") == "F") { if (form.getValue("CPF") == "" || form.getValue("CPF") == null) { msg += '<br><b>O campo <font color="red">CPF</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-            if (form.getValue("categoria") == "J") { if (form.getValue("CNPJ") == "" || form.getValue("CNPJ") == null) { msg += '<br><b>O campo <font color="red">CNPJ</font> \u00E9 obrigat\u00F3rio!</b>'; } }
-            if (form.getValue("CEP") == "" || form.getValue("CEP") == null) { msg += '<br><b>O campo <font color="red">CEP</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("status_tipo_cliente") == "" || form.getValue("status_tipo_cliente") == null) { msg += '<br><b>O campo <font color="red">Status do Cliente (Ativo ou Bloqueado)</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("tipo_rua") == "" || form.getValue("tipo_rua") == null) { msg += '<br><b>O campo <font color="red">Tipo Rua</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("rua") == "" || form.getValue("rua") == null) { msg += '<br><b>O campo <font color="red">Rua</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("numero") == "" || form.getValue("numero") == null) { msg += '<br><b>O campo <font color="red">Numero</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("tipo_bairro") == "" || form.getValue("tipo_bairro") == null) { msg += '<br><b>O campo <font color="red">Bairro</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("bairro") == "" || form.getValue("bairro") == null) { msg += '<br><b>O campo <font color="red">Bairro</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("id_pais") == "" || form.getValue("id_pais") == null) { msg += '<br><b>O campo <font color="red">ID do País</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("pais") == "" || form.getValue("pais") == null) { msg += '<br><b>O campo <font color="red">País</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("telefone") == "" || form.getValue("telefone") == null) { msg += '<br><b>O campo <font color="red">Telefone</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("email") == "" || form.getValue("email") == null) { msg += '<br><b>O campo <font color="red">E-mail</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("contato") == "" || form.getValue("contato") == null) { msg += '<br><b>O campo <font color="red">Contato</font> \u00E9 obrigat\u00F3rio!</b>'; }
-        }
-
-        /* VALIDAÇÃO DO ANEXO */
-        var anexoSolicitacao = form.getChildrenIndexes("table_anexo_solicitacao");
-        if (anexoSolicitacao.length == 0) { msg += '<br><b>A tabela <font color="red">Anexo</font> necessita de pelo menos uma entrada!</b>'; }
-        /* VALIDAÇÃO DA TABELA RATEIO POR CENTRO DE CUSTO */
-        var rateioCentroDeCustos = form.getChildrenIndexes("table_rateio_ccusto");
-        if (rateioCentroDeCustos.length == 0) { msg += '<br><b>A tabela <font color="red">Rateio por centro de custo </font> necessita de pelo menos uma entrada!</b>'; }
-        for (var i = 0; i < rateioCentroDeCustos.length; i++) {
-            if (form.getValue("coluna_natureza___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_natureza___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Natureza Orçamentária Financeira ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-            if (form.getValue("coluna_ccusto___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_ccusto___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Centro de Custo ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-            if (form.getValue("coluna_valor___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_valor___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Valor ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-            if (form.getValue("coluna_percentual___" + rateioCentroDeCustos[i]) == "" || form.getValue("coluna_percentual___" + rateioCentroDeCustos[i]) == null) { msg += '<br><b>O campo <font color="red">Percentual ' + (i + 1) + '</font> \u00E9  obrigat\u00F3rio!</b>'; }
-        }
-        if (form.getValue("valor_total_rateio") > form.getValue("Valor")) { msg += '<br><b>O <font color="red"> Valor total </font> do rateio supera o valor total a ser pago!</b>'; }
-        if (form.getValue("valor_total_rateio") < form.getValue("Valor")) { msg += '<br><b>O <font color="red"> Valor total </font> do rateio é inferior ao valor total a ser pago!</b>'; }
-
     } else if (activity == 127) {
         /* ETAPA 127 - PAGAMENTO ÚNICO */
-        if (form.getValue("pagamento_realizado_pu") == "" || form.getValue("pagamento_realizado_pu") == null) { msg += '<br><b>O campo <font color="red">Pagamento Realizado</font> \u00E9 obrigat\u00F3rio!</b>'; }
+        if (campoVazio(form, "pagamento_realizado_pu")) msg += getMsgObg('Pagamento Realizado');
         if (form.getValue("pagamento_realizado_pu") == "Sim") {
-            if (form.getValue("teve_juros_pu") == "" || form.getValue("teve_juros_pu") == null) { msg += '<br><b>O campo <font color="red">Houve juros no pagamento</font> \u00E9 obrigat\u00F3rio!</b>'; }
+            if (campoVazio(form, "teve_juros_pu")) msg += getMsgObg('Houve juros no pagamento');
             if (form.getValue("teve_juros_pu") == "Sim") {
-                if (form.getValue("valor_original_pu") == "" || form.getValue("valor_original_pu") == null) { msg += '<br><b>O campo <font color="red">Valor Original</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("valor_juros_pu") == "" || form.getValue("valor_juros_pu") == null) { msg += '<br><b>O campo <font color="red">Valor do juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
+                if (campoVazio(form, "valor_original_pu")) msg += getMsgObg('Valor Original');
+                if (campoVazio(form, "valor_juros_pu")) msg += getMsgObg('Valor do juros');
             }
-            if (form.getValue("valor_pu") == "" || form.getValue("valor_pu") == null) { msg += '<br><b>O campo <font color="red">Valor total a ser pago</font> \u00E9 obrigat\u00F3rio!</b>'; }
+            if (campoVazio(form, "valor_pu")) msg += getMsgObg('Valor total a ser pago');
         }
         for (var index = 0; index < table_pagamento_unico.length; index++) {
             var idCampo = table_pagamento_unico[index];
-            if (form.getValue("data_vencimento_pu___" + idCampo) == "") { msg += '<br><b>O campo <font color="red">Data do vencimento</font> é \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("data_pagamento_pu___" + idCampo) == "") { msg += '<br><b>O campo <font color="red">Data do pagamento</font> é \u00E9 obrigat\u00F3rio!</b>'; }
+            if (campoVazio(form, "data_vencimento_pu___" + idCampo)) msg += getMsgObg('Data do vencimento');
+            if (campoVazio(form, "data_pagamento_pu___" + idCampo)) msg += getMsgObg('Data do pagamento');
         }
-        /* ETAPA 128 - PAGAMENTO PARCIAL */
     } else if (activity == 128) {
+        /* ETAPA 128 - PAGAMENTO PARCIAL */
         if (form.getValue("pagamento_realizado_pp") == "Sim") {
-            if (form.getValue("teve_juros_pp") == "" || form.getValue("teve_juros_pp") == null) { msg += '<br><b>O campo <font color="red">Houve juros no pagamento</font> \u00E9 obrigat\u00F3rio!</b>'; }
+            if (campoVazio(form, "teve_juros_pp")) { msg += getMsgObg('Houve juros no pagamento') }
             if (form.getValue("teve_juros_pp") == "Sim") {
-                if (form.getValue("valor_original_pp") == "" || form.getValue("valor_original_pp") == null) { msg += '<br><b>O campo <font color="red">Valor Original</font> \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("valor_juros_pp") == "" || form.getValue("valor_juros_pp") == null) { msg += '<br><b>O campo <font color="red">Valor do juros</font> \u00E9 obrigat\u00F3rio!</b>'; }
+                if (campoVazio(form, "valor_original_pp")) { msg += getMsgObg('Valor Original') }
+                if (campoVazio(form, "valor_juros_pp")) { msg += getMsgObg('Valor do juros') }
             }
-            if (form.getValue("valor_inicial_pp") == "" || form.getValue("valor_inicial_pp") == null) { msg += '<br><b>O campo <font color="red">Valor total a ser pago inicial</font> \u00E9 obrigat\u00F3rio!</b>'; }
-            if (form.getValue("valor_final_pp") == "" || form.getValue("valor_final_pp") == null) { msg += '<br><b>O campo <font color="red">Valor total pago final (R$)</font> \u00E9 obrigat\u00F3rio!</b>'; }
+            if (campoVazio(form, "valor_inicial_pp")) { msg += getMsgObg('Valor total a ser pago inicial') }
+            if (campoVazio(form, "valor_final_pp")) { msg += getMsgObg('Valor total pago final (R$)') }
             for (var index = 0; index < table_pagamento_parcial.length; index++) {
                 var idCampo = table_pagamento_parcial[index];
-                if (form.getValue("data_vencimento_pp___" + idCampo) == "") { msg += '<br><b>O campo <font color="red">Data do vencimento</font> é \u00E9 obrigat\u00F3rio!</b>'; }
-                if (form.getValue("data_pagamento_pp___" + idCampo) == "") { msg += '<br><b>O campo <font color="red">Data do pagamento</font> é \u00E9 obrigat\u00F3rio!</b>'; }
+                if (campoVazio(form, "data_vencimento_pp___" + idCampo)) { msg += getMsgObg('Data do vencimento') }
+                if (campoVazio(form, "data_pagamento_pp___" + idCampo)) { msg += getMsgObg('Data do pagamento') }
             }
         }
-    } else if (activity == 274) { if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido_fin")) { msg += '<br><b>O campo <font color="red">CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!</b>'; } }
+    } else if (activity == 274) {
+        if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido_fin")) { msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!') }
+    }
+    /** Retorna mensagem de erro se alguns dos campos não atender as regras */
     if (msg != "") {
         throw (
             "<h2 style='color:red' align='center'><b></b> Pendências:<br></b></h2>" +
             msg
         );
     }
+}
+
+function campoVazio(form, campo) {
+    if (form.getValue(campo) == "" || form.getValue(campo) == null) return true;
+    return false;
+}
+
+function getMsgObg(descCampo) {
+    return '<br><b>O campo <font color="red">"' + descCampo + '"</font> \u00E9 obrigat\u00F3rio!</b>'
+}
+
+function formatText2Float(params) {
+    params = String(params);
+    var regexExpression = RegExp("\\.", "g");
+    params = params.replace(regexExpression, "");
+    params = params.replace(",", ".");
+    return parseFloat(params);
 }

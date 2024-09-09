@@ -5,8 +5,7 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
   var nSolicitacao = getValue("WKNumProces");
   nSolicitacao = nSolicitacao.toString();
 
-  log.info("aftertaskcomplete_008 : "+activity);
-  
+  log.info("aftertaskcomplete_008 : " + activity);
 
   if (activity == 114) {
     log.info("inicio task 114");
@@ -16,7 +15,7 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
       log.info("dentro do try");
 
       var dataParamsEmail = {
-        usuario: getValue("WKUser"),
+        usuario: getColleagueName(getValue("WKUser")),
         assunto: "PAGAMENTO REALIZADO - FASE ENVIAR COMPROVANTE",
         titulo_solicitacao: hAPI.getCardValue("titulo_solicitacao"),
         atendente: "Departamento Financeiro",
@@ -56,7 +55,7 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
     }
 
   }
-  
+
   if (nextSequenceId == 14) {
     var rateioPF = clearPF("table_rateio_ccusto_fin");
     var rateioInicial = hAPI.getCardData(getValue('WKNumProces'));

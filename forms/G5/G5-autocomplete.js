@@ -275,18 +275,20 @@ function autocompleteBanco(NUMEROBANCO) {
 		return;
 	}
 
-	var myAutocomplete = FLUIGC.autocomplete('.banco', {
-		source: substringMatcher(listaDeBancos),
-		name: 'banco',
-		displayKey: 'description',
-		tagClass: 'tag-gray',
-		type: 'autocomplete'
-	});
-	// myAutocomplete.val($("#banco").val());
-	myAutocomplete.on("change", e => {
-		var selecionado = encontrarChavePorValor(listaDeBancos, $(e.target).val());
-		$("[name='NUMEROBANCO']").val(formatarNumero(selecionado));
-	})
+	if (FORM_MODE != 'VIEW') {
+		var myAutocomplete = FLUIGC.autocomplete('.banco', {
+			source: substringMatcher(listaDeBancos),
+			name: 'banco',
+			displayKey: 'description',
+			tagClass: 'tag-gray',
+			type: 'autocomplete'
+		});
+		// myAutocomplete.val($("#banco").val());
+		myAutocomplete.on("change", e => {
+			var selecionado = encontrarChavePorValor(listaDeBancos, $(e.target).val());
+			$("[name='NUMEROBANCO']").val(formatarNumero(selecionado));
+		})
+	}
 }
 
 /* Function used to filter the data */

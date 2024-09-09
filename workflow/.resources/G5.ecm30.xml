@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>24</version>
+      <version>12</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>0</formId>
@@ -1924,7 +1924,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2210</positionX>
+      <positionX>2200</positionX>
       <positionY>1537</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -2729,7 +2729,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>24</version>
+        <version>12</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2741,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>24</version>
+        <version>12</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2753,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>24</version>
+        <version>12</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2765,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>24</version>
+        <version>12</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2777,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>24</version>
+        <version>12</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2789,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>24</version>
+        <version>12</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2801,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>24</version>
+        <version>12</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4131,40 +4131,29 @@
         var parametros = new java.util.HashMap();
         parametros.put(&quot;ASSUNTO&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
         parametros.put(&quot;subject&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
-        parametros.put(&quot;USUARIO&quot;, getValue(&quot;WKUser&quot;));
+        parametros.put(&quot;USUARIO&quot;, getColleagueName(getValue(&quot;WKUser&quot;)));
         parametros.put(&quot;TITULO_SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
         parametros.put(&quot;ATENDENTE&quot;, &quot;Gestão&quot;);
         parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
-
         var destinatarios = new java.util.ArrayList();
 
-        
         var Email1 = hAPI.getCardValue(&quot;email_solicitante&quot;);
         var Email2 = hAPI.getCardValue(&quot;copia_email_solicitante&quot;);
-        if ( Email1 != &quot;&quot; &amp;&amp; Email1 != null)
-        {
+        if (Email1 != &quot;&quot; &amp;&amp; Email1 != null) {
             destinatarios.add(Email1);
         }
-        if ( Email2 != &quot;&quot; &amp;&amp; Email2 != null)
-        {
+        if (Email2 != &quot;&quot; &amp;&amp; Email2 != null) {
             destinatarios.add(Email2);
         }
-        
-        
+
         ///notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
 
         /** Personalizado */
         var msg = &apos;&apos;;
         msg += &apos;&lt;html&gt;&apos;
-        msg += &apos;	&lt;head&gt;&apos;
-        msg += &apos;		&lt;meta&gt;&apos;
-        msg += &apos;		&lt;meta&gt;&apos;
-        msg += &apos;		&lt;meta&gt;&apos;
-        msg += &apos;	&lt;/head&gt;&apos;
         msg += &apos;	&lt;body&gt;&apos;
-        msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;
-        msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))
-        msg += &apos;	    foi cancelada!.&lt;/p&gt;&apos;
+        msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;
+        msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; foi cancelada!.&lt;/p&gt;&apos;
         msg += &apos;	&lt;/body&gt;&apos;
         msg += &apos;&lt;/html&gt;&apos;
         var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
@@ -4198,7 +4187,7 @@
 		var parametros = new java.util.HashMap();&#xd;
 		parametros.put(&quot;ASSUNTO&quot;, &quot;FinaL do processo&quot;);&#xd;
 		parametros.put(&quot;subject&quot;, &quot;FinaL do processo&quot;);&#xd;
-		parametros.put(&quot;USUARIO&quot;, getValue(&quot;WKUser&quot;));&#xd;
+		parametros.put(&quot;USUARIO&quot;, getColleagueName(getValue(&quot;WKUser&quot;)));&#xd;
 		parametros.put(&quot;TITULO_SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));&#xd;
 		parametros.put(&quot;ATENDENTE&quot;, &quot;Gestão&quot;);&#xd;
 		parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));&#xd;
@@ -4227,7 +4216,7 @@
 		msg += &apos;		&lt;meta&gt;&apos;&#xd;
 		msg += &apos;	&lt;/head&gt;&apos;&#xd;
 		msg += &apos;	&lt;body&gt;&apos;&#xd;
-		msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;&#xd;
+		msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;&#xd;
 		msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))&#xd;
 		msg += &apos;	    foi Finalizada!.&lt;/p&gt;&apos;&#xd;
 		msg += &apos;	&lt;/body&gt;&apos;&#xd;
@@ -4263,8 +4252,7 @@
   var nSolicitacao = getValue(&quot;WKNumProces&quot;);
   nSolicitacao = nSolicitacao.toString();
 
-  log.info(&quot;aftertaskcomplete_008 : &quot;+activity);
-  
+  log.info(&quot;aftertaskcomplete_008 : &quot; + activity);
 
   if (activity == 114) {
     log.info(&quot;inicio task 114&quot;);
@@ -4274,7 +4262,7 @@
       log.info(&quot;dentro do try&quot;);
 
       var dataParamsEmail = {
-        usuario: getValue(&quot;WKUser&quot;),
+        usuario: getColleagueName(getValue(&quot;WKUser&quot;)),
         assunto: &quot;PAGAMENTO REALIZADO - FASE ENVIAR COMPROVANTE&quot;,
         titulo_solicitacao: hAPI.getCardValue(&quot;titulo_solicitacao&quot;),
         atendente: &quot;Departamento Financeiro&quot;,
@@ -4314,7 +4302,7 @@
     }
 
   }
-  
+
   if (nextSequenceId == 14) {
     var rateioPF = clearPF(&quot;table_rateio_ccusto_fin&quot;);
     var rateioInicial = hAPI.getCardData(getValue(&apos;WKNumProces&apos;));
@@ -4378,42 +4366,28 @@ function getAtribuicoes(atribuicao) {
         <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function afterProcessCreate(processId) 
-{
+      <eventDescription>function afterProcessCreate(processId) {
     log.info(&quot;============= inicio afterProcessCreate G5 &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);
     try {
-        var parametros = new java.util.HashMap();
-        parametros.put(&quot;ASSUNTO&quot;, &quot;Inicio&quot;);
-        parametros.put(&quot;subject&quot;, &quot;Inicio&quot;);
-        parametros.put(&quot;USUARIO&quot;, getValue(&quot;WKUser&quot;));
-        parametros.put(&quot;TITULO_SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
-        parametros.put(&quot;ATENDENTE&quot;, &quot;Gestão&quot;);
-        parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));
+        var destinatarios = new Array();
 
-        var destinatarios = new java.util.ArrayList();
+        if (hAPI.getCardValue(&quot;email_solicitante&quot;) != &quot;&quot; &amp;&amp; hAPI.getCardValue(&quot;email_solicitante&quot;) != null) destinatarios.push(hAPI.getCardValue(&quot;email_solicitante&quot;));
+        if (hAPI.getCardValue(&quot;copia_email_solicitante&quot;) != &quot;&quot; &amp;&amp; hAPI.getCardValue(&quot;copia_email_solicitante&quot;) != null) destinatarios.push(hAPI.getCardValue(&quot;copia_email_solicitante&quot;));
 
-        
-        var Email1 = hAPI.getCardValue(&quot;email_solicitante&quot;);
-        var Email2 = hAPI.getCardValue(&quot;copia_email_solicitante&quot;);
-        if ( Email1 != &quot;&quot; &amp;&amp; Email1 != null)
-        {
-            destinatarios.add(Email1);
+        var msg = &apos;&apos;;
+        msg += &apos;&lt;html&gt;&apos;
+        msg += &apos;	&lt;body&gt;&apos;
+        msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;
+        msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&apos;WKNumProces&apos;)) + &apos; foi iniciada no Fluig.&apos;
+        msg += &apos;	&lt;p&gt;Atenciosamente, Gestão&lt;/p&gt;&apos;
+        msg += &apos;	&lt;/body&gt;&apos;
+        msg += &apos;&lt;/html&gt;&apos;
+        var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
+
+        for (var x = 0; x &lt; destinatarios.length; x++) {
+            var envido = obj.simpleEmail(1, &apos;Início - Solicitação: &apos; + String(getValue(&quot;WKNumProces&quot;)), &quot;suportefluig@engpac.com.br&quot;, destinatarios[x], msg, &quot;text/html&quot;);
         }
-        if ( Email2 != &quot;&quot; &amp;&amp; Email2 != null)
-        {
-            destinatarios.add(Email2);
-        }
-        
-        destinatarios.add(&apos;agcoimbra@gmail.com&apos;);
-        log.info(&quot;afterProcessCreate g5 028&quot;)
-        log.dir(parametros)
-        log.info(&quot;afterProcessCreate g5 030&quot;)
-        log.dir(destinatarios)
-        notifier.notify(getValue(&quot;WKUser&quot;), &quot;template_email_engpac&quot;, parametros, destinatarios, &quot;text/html&quot;);
-        log.info(&quot;afterProcessCreate g5 033&quot;)
-        
-        
-        
+
     } catch (e) {
         log.error(&quot;dentro do catch&quot;);
         log.error(&quot;Linha do erro&quot; + e.lineNumber);
@@ -4507,10 +4481,11 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask287(attempt, message) {
+	var historico_analise = String(hAPI.getCardValue(&quot;historico_analise&quot;));
 	var lancamento = cancelaLancamentoRM(
 		parseInt(hAPI.getCardValue(&apos;idLan&apos;)),
 		parseInt(hAPI.getCardValue(&apos;CODCOLIGADA&apos;)),
-		String(&apos;Cancelado na solicitação &apos; + getValue(&apos;WKNumProces&apos;) + &apos; do Fluig!&apos;)
+		String(historico_analise + &apos; - Cancelado!&apos;)
 	);
 	return lancamento;
 }
@@ -4689,7 +4664,7 @@ function notificaCancelamento(textoMsg, destinatario) {
 	var msg = &apos;&apos;;
 	msg += &apos;&lt;html&gt;&apos;
 	msg += &apos;	&lt;body&gt;&apos;
-	msg += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&apos;WKUser&apos;) + &apos;&lt;/h2&gt;&apos;;
+	msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;
 	msg += &apos;	&lt;p&gt; Ocorreu um erro na solicitação &apos; + String(getValue(&apos;WKNumProces&apos;)) + &apos;&lt;/p&gt;&apos;
 	msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&apos;WKNumProces&apos;)) + &apos;foi cancelada pelo departamento financeiro pelos seguintes motivos: [motivo do cancelamento].&apos;
 	msg += &apos;	&lt;p&gt;Atenciosamente,&lt;/p&gt;&apos;
@@ -4952,6 +4927,13 @@ function getConstante(param) {
 		}
 	}
 	return &apos;0&apos;;
+}
+
+function getColleagueName(user) {
+    var const1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, user, user, ConstraintType.MUST);
+    var datasetAttachment = DatasetFactory.getDataset(&quot;colleague&quot;, null, [const1], null);
+    if (datasetAttachment.rowsCount &gt; 0) return datasetAttachment.getValue(0, &quot;colleagueName&quot;);
+    return user;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4982,6 +4964,9 @@ function getConstante(param) {
 
     var idLanNovo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : &quot;-1&quot;;
 
+    var historico_analise = String(hAPI.getCardValue(&quot;historico_analise&quot;)) + &apos; - Solicitação do Fluig número &apos; + getValue(&apos;WKNumProces&apos;);
+    hAPI.setCardValue(&quot;historico_analise&quot;, historico_analise);
+
     var text = GetXml();
 
     text = formatStringToXML(text);
@@ -5003,7 +4988,7 @@ function getConstante(param) {
     text = replaceValue(text, &apos;NUMERODOCUMENTO&apos;, hAPI.getCardValue(&quot;numero_documento_analise&quot;));
     text = replaceValue(text, &apos;PAGREC&apos;, hAPI.getCardValue(&quot;pagar_receber&quot;));
     text = replaceValue(text, &apos;CODCCUSTO&apos;, codCCusto);
-    text = replaceValue(text, &apos;HISTORICO&apos;, hAPI.getCardValue(&quot;historico_analise&quot;));
+    text = replaceValue(text, &apos;HISTORICO&apos;, historico_analise);
     text = replaceValue(text, &apos;DATAVENCIMENTO&apos;, dataVencimento);
     text = replaceValue(text, &apos;DATAEMISSAO&apos;, dataEmissao);
     text = replaceValue(text, &apos;DATAPREVBAIXA&apos;, dataVencimento); ///dataPrevBaixa);
@@ -5068,12 +5053,12 @@ function GetXml() {
     &quot;  &lt;FLAN&gt;&quot; +
     &quot;     &lt;CODCOLIGADA&gt;2&lt;/CODCOLIGADA&gt;&quot; +
     &quot;     &lt;IDLAN&gt;-1&lt;/IDLAN&gt;&quot; +
-    &quot;     &lt;NUMERODOCUMENTO&gt;4549&lt;/NUMERODOCUMENTO&gt;&quot; +
+    &quot;     &lt;NUMERODOCUMENTO&gt;0&lt;/NUMERODOCUMENTO&gt;&quot; +
     &quot;     &lt;IPTE&gt;&lt;/IPTE&gt;&quot; +
     &quot;     &lt;NFOUDUP&gt;0&lt;/NFOUDUP&gt;&quot; +
     &quot;     &lt;CLASSIFICACAO&gt;0&lt;/CLASSIFICACAO&gt;&quot; +
-    &quot;     &lt;PAGREC&gt;2&lt;/PAGREC&gt;&quot; +
-    &quot;     &lt;CNABBANCO&gt;2&lt;/CNABBANCO&gt;&quot; +
+    &quot;     &lt;PAGREC&gt;0&lt;/PAGREC&gt;&quot; +
+    &quot;     &lt;CNABBANCO&gt;341&lt;/CNABBANCO&gt;&quot; +
     &quot;     &lt;REEMBOLSAVEL&gt;0&lt;/REEMBOLSAVEL&gt;&quot; +
     &quot;     &lt;CARENCIAJUROS&gt;0&lt;/CARENCIAJUROS&gt;&quot; +
     &quot;     &lt;MULTADIA&gt;0&lt;/MULTADIA&gt;&quot; +
@@ -5083,14 +5068,14 @@ function GetXml() {
     &quot;     &lt;PERCCAP&gt;0&lt;/PERCCAP&gt;&quot; +
     &quot;     &lt;STATUSLAN&gt;0&lt;/STATUSLAN&gt;&quot; +
     &quot;     &lt;CODAPLICACAO&gt;F&lt;/CODAPLICACAO&gt;&quot; +
-    &quot;     &lt;CODCCUSTO&gt;01.01.01.01.001&lt;/CODCCUSTO&gt;&quot; +
-    &quot;     &lt;HISTORICO&gt;teste&lt;/HISTORICO&gt;&quot; +
-    &quot;     &lt;DATACRIACAO&gt;2024-07-31T00:00:00&lt;/DATACRIACAO&gt;&quot; +
-    &quot;     &lt;DATAVENCIMENTO&gt;2024-08-05T00:00:00.000&lt;/DATAVENCIMENTO&gt;&quot; +
-    &quot;     &lt;DATAEMISSAO&gt;2024-08-05T00:00:00.000&lt;/DATAEMISSAO&gt;&quot; +
-    &quot;     &lt;DATAPREVBAIXA&gt;2024-08-05T00:00:00.000&lt;/DATAPREVBAIXA&gt;&quot; +
-    &quot;     &lt;MESDECOMPETENCIA&gt;2024-09-14T00:00:00&lt;/MESDECOMPETENCIA&gt;&quot; +
-    &quot;     &lt;VALORORIGINAL&gt;1500,00&lt;/VALORORIGINAL&gt;&quot; +
+    &quot;     &lt;CODCCUSTO&gt;01&lt;/CODCCUSTO&gt;&quot; +
+    &quot;     &lt;HISTORICO&gt;Inserido Pelo Fluig&lt;/HISTORICO&gt;&quot; +
+    &quot;     &lt;DATACRIACAO&gt;2050-01-01T00:00:00&lt;/DATACRIACAO&gt;&quot; +
+    &quot;     &lt;DATAVENCIMENTO&gt;2050-01-01T00:00:00.000&lt;/DATAVENCIMENTO&gt;&quot; +
+    &quot;     &lt;DATAEMISSAO&gt;2050-01-01T00:00:00.000&lt;/DATAEMISSAO&gt;&quot; +
+    &quot;     &lt;DATAPREVBAIXA&gt;2050-01-01T00:00:00.000&lt;/DATAPREVBAIXA&gt;&quot; +
+    &quot;     &lt;MESDECOMPETENCIA&gt;2050-01-01T00:00:00&lt;/MESDECOMPETENCIA&gt;&quot; +
+    &quot;     &lt;VALORORIGINAL&gt;0&lt;/VALORORIGINAL&gt;&quot; +
     &quot;     &lt;VALORBAIXADO&gt;0&lt;/VALORBAIXADO&gt;&quot; +
     &quot;     &lt;VALORCAP&gt;0&lt;/VALORCAP&gt;&quot; +
     &quot;     &lt;VALORCAPBX&gt;0&lt;/VALORCAPBX&gt;&quot; +
@@ -5104,8 +5089,8 @@ function GetXml() {
     &quot;     &lt;VALOROP5&gt;0&lt;/VALOROP5&gt;&quot; +
     &quot;     &lt;VALOROP6&gt;0&lt;/VALOROP6&gt;&quot; +
     &quot;     &lt;VALORMULTA&gt;0&lt;/VALORMULTA&gt;&quot; +
-    &quot;     &lt;VALORAUXILIAR&gt;1&lt;/VALORAUXILIAR&gt;&quot; +
-    &quot;     &lt;VALORBASEIRRF&gt;100&lt;/VALORBASEIRRF&gt;&quot; +
+    &quot;     &lt;VALORAUXILIAR&gt;0&lt;/VALORAUXILIAR&gt;&quot; +
+    &quot;     &lt;VALORBASEIRRF&gt;0&lt;/VALORBASEIRRF&gt;&quot; +
     &quot;     &lt;VALORIRRF&gt;0&lt;/VALORIRRF&gt;&quot; +
     &quot;     &lt;VALORREPASSE&gt;0&lt;/VALORREPASSE&gt;&quot; +
     &quot;     &lt;VALORVENCIMENTOANTECIP&gt;0&lt;/VALORVENCIMENTOANTECIP&gt;&quot; +
@@ -5116,15 +5101,15 @@ function GetXml() {
     &quot;     &lt;CAPMENSAL&gt;0&lt;/CAPMENSAL&gt;&quot; +
     &quot;     &lt;TAXASVENDOR&gt;0&lt;/TAXASVENDOR&gt;&quot; +
     &quot;     &lt;JUROSVENDOR&gt;0&lt;/JUROSVENDOR&gt;&quot; +
-    &quot;     &lt;CODCOLCFO&gt;2&lt;/CODCOLCFO&gt;&quot; +
-    &quot;     &lt;CODCFO&gt;000006288&lt;/CODCFO&gt;&quot; +
-    &quot;     &lt;CODCOLCXA&gt;2&lt;/CODCOLCXA&gt;&quot; +
+    &quot;     &lt;CODCOLCFO&gt;&lt;/CODCOLCFO&gt;&quot; +
+    &quot;     &lt;CODCFO&gt;&lt;/CODCFO&gt;&quot; +
+    &quot;     &lt;CODCOLCXA&gt;&lt;/CODCOLCXA&gt;&quot; +
     &quot;     &lt;CODCXA&gt;IMPL&lt;/CODCXA&gt;&quot; +
-    &quot;     &lt;IDPGTO&gt;1&lt;/IDPGTO&gt;&quot; +
-    &quot;     &lt;CODTDO&gt;FATURA&lt;/CODTDO&gt;&quot; +
-    &quot;     &lt;CODFILIAL&gt;1&lt;/CODFILIAL&gt;&quot; +
+    &quot;     &lt;IDPGTO&gt;&lt;/IDPGTO&gt;&quot; +
+    &quot;     &lt;CODTDO&gt;&lt;/CODTDO&gt;&quot; +
+    &quot;     &lt;CODFILIAL&gt;&lt;/CODFILIAL&gt;&quot; +
     &quot;     &lt;SERIEDOCUMENTO&gt;@@@&lt;/SERIEDOCUMENTO&gt;&quot; +
-    &quot;     &lt;CODCOLPGTO&gt;2&lt;/CODCOLPGTO&gt;&quot; +
+    &quot;     &lt;CODCOLPGTO&gt;-1&lt;/CODCOLPGTO&gt;&quot; +
     &quot;     &lt;NUMLOTECONTABIL&gt;0&lt;/NUMLOTECONTABIL&gt;&quot; +
     &quot;     &lt;TIPOCONTABILLAN&gt;0&lt;/TIPOCONTABILLAN&gt;&quot; +
     &quot;     &lt;MODELOCONTABILIZACAO&gt;0&lt;/MODELOCONTABILIZACAO&gt;&quot; +
@@ -5656,48 +5641,43 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
 
     var emails = [hAPI.getCardValue(&apos;email_solicitante&apos;), hAPI.getCardValue(&apos;copia_email_solicitante&apos;)];
     var contentEmail = &apos;&apos;;
-	contentEmail += &apos;&lt;html&gt;&apos;
-	contentEmail += &apos;	&lt;head&gt;&apos;
-	contentEmail += &apos;		&lt;meta&gt;&apos;
-	contentEmail += &apos;		&lt;meta&gt;&apos;
-	contentEmail += &apos;		&lt;meta&gt;&apos;
-	contentEmail += &apos;	&lt;/head&gt;&apos;
-	contentEmail += &apos;	&lt;body&gt;&apos;
-	contentEmail += &apos;	&lt;h2&gt; Olá, &apos; + getValue(&quot;WKUser&quot;) + &apos;&lt;/h2&gt;&apos;;
-	contentEmail += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))
-	contentEmail += &apos;	    foi paga e finalizada !&lt;/p&gt;&apos;
+    contentEmail += &apos;&lt;html&gt;&apos;
+    contentEmail += &apos;	&lt;body&gt;&apos;
+    contentEmail += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;
+    contentEmail += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; foi paga e finalizada !&lt;/p&gt;&apos;
     contentEmail += &apos;&lt;br&gt;&lt;p&gt;Seguem os comprovantes de pagamento:&lt;/p&gt;&lt;br&gt;&apos;
-	
+
     var indexes = hAPI.getChildrenIndexes(&quot;table_pagamento_unico&quot;)
 
-    for (var i = 0; i &lt; indexes.length; i++){ 
-        var attachmentLink = getAttchment(hAPI.getCardValue(&apos;anexo_pu___&apos;+indexes[i]))
-        if(attachmentLink){
-          contentEmail += attachmentLink
+    for (var i = 0; i &lt; indexes.length; i++) {
+        var attachmentLink = getAttchment(hAPI.getCardValue(&apos;anexo_pu___&apos; + indexes[i]))
+        if (attachmentLink) {
+            contentEmail += attachmentLink
         }
     }
 
     contentEmail += &apos;	&lt;/body&gt;&apos;
-	contentEmail += &apos;&lt;/html&gt;&apos;
+    contentEmail += &apos;&lt;/html&gt;&apos;
 
     var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
 
-    for(var x = 0; x &lt; emails.length; x++){
-        obj.simpleEmail(1, &apos;Comprovantes do pagamento - Solicitação :&apos; + String(getValue(&quot;WKNumProces&quot;)), &quot;suportefluig@engpac.com.br&quot;, emails[x], contentEmail, &quot;text/html&quot;);
+    for (var x = 0; x &lt; emails.length; x++) {
+        obj.simpleEmail(1, &apos;Comprovantes do pagamento - Solicitação: &apos; + String(getValue(&quot;WKNumProces&quot;)), &quot;suportefluig@engpac.com.br&quot;, emails[x], contentEmail, &quot;text/html&quot;);
     }
 }
-  
-function getAttchment(description){
+
+function getAttchment(description) {
     var pageService = fluigAPI.getPageService();
-	var urlFluig = pageService.getServerURL();
-	var attachments = hAPI.listAttachments();
-	for (var i = 0; i &lt; attachments.size(); i++) {
-	  var attachment = attachments.get(i);
-	  if (attachment.getPhisicalFile() == description) {
-          return &apos;&lt;p&gt;&lt;a href=&quot;&apos; + urlFluig + &apos;/portal/p/1/ecmnavigation?app_ecm_navigation_doc=&apos; + attachment.getDocumentId() + &apos;&quot;&gt;&apos; + attachment.getDocumentDescription() + &apos;&lt;/a&gt;&lt;/p&gt;&lt;br&gt;&apos;
-	  }
-	}
-}</eventDescription>
+    var urlFluig = pageService.getServerURL();
+    var attachments = hAPI.listAttachments();
+    for (var i = 0; i &lt; attachments.size(); i++) {
+        var attachment = attachments.get(i);
+        if (attachment.getPhisicalFile() == description) {
+            return &apos;&lt;p&gt;&lt;a href=&quot;&apos; + urlFluig + &apos;/portal/p/1/ecmnavigation?app_ecm_navigation_doc=&apos; + attachment.getDocumentId() + &apos;&quot;&gt;&apos; + attachment.getDocumentDescription() + &apos;&lt;/a&gt;&lt;/p&gt;&lt;br&gt;&apos;
+        }
+    }
+}
+</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -6036,7 +6016,29 @@ function getAttchment(description){
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>24</version>
+        <version>12</version>
+        <linkSequence>301</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>312</positionX>
+      <positionY>1747</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>12</version>
+        <linkSequence>301</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>450</positionX>
+      <positionY>1747</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>12</version>
         <linkSequence>315</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6047,7 +6049,7 @@ function getAttchment(description){
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>24</version>
+        <version>12</version>
         <linkSequence>315</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6058,7 +6060,7 @@ function getAttchment(description){
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>24</version>
+        <version>12</version>
         <linkSequence>316</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6071,7 +6073,7 @@ function getAttchment(description){
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>24</version>
+        <version>12</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6291,7 +6293,7 @@ function getAttchment(description){
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6301,7 +6303,7 @@ function getAttchment(description){
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6315,7 +6317,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6325,7 +6327,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6335,7 +6337,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6345,7 +6347,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6355,7 +6357,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6369,7 +6371,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6379,7 +6381,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6389,7 +6391,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>24</processVersion>
+      <processVersion>12</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

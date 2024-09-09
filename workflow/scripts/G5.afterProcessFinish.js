@@ -5,7 +5,7 @@ function afterProcessFinish(processId)
 		var parametros = new java.util.HashMap();
 		parametros.put("ASSUNTO", "FinaL do processo");
 		parametros.put("subject", "FinaL do processo");
-		parametros.put("USUARIO", getValue("WKUser"));
+		parametros.put("USUARIO", getColleagueName(getValue("WKUser")));
 		parametros.put("TITULO_SOLICITACAO", String(getValue("WKNumProces")));
 		parametros.put("ATENDENTE", "Gestão");
 		parametros.put("SOLICITACAO", String(getValue("WKNumProces")));
@@ -34,7 +34,7 @@ function afterProcessFinish(processId)
 		msg += '		<meta>'
 		msg += '	</head>'
 		msg += '	<body>'
-		msg += '	<h2> Olá, ' + getValue("WKUser") + '</h2>';
+		msg += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
 		msg += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces"))
 		msg += '	    foi Finalizada!.</p>'
 		msg += '	</body>'

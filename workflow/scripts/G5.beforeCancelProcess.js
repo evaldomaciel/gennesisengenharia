@@ -4,40 +4,29 @@ function beforeCancelProcess(colleagueId, processId) {
         var parametros = new java.util.HashMap();
         parametros.put("ASSUNTO", "CANCELAMENTO - FASE APROV. GESTOR");
         parametros.put("subject", "CANCELAMENTO - FASE APROV. GESTOR");
-        parametros.put("USUARIO", getValue("WKUser"));
+        parametros.put("USUARIO", getColleagueName(getValue("WKUser")));
         parametros.put("TITULO_SOLICITACAO", String(getValue("WKNumProces")));
         parametros.put("ATENDENTE", "Gestão");
         parametros.put("SOLICITACAO", String(getValue("WKNumProces")));
-
         var destinatarios = new java.util.ArrayList();
 
-        
         var Email1 = hAPI.getCardValue("email_solicitante");
         var Email2 = hAPI.getCardValue("copia_email_solicitante");
-        if ( Email1 != "" && Email1 != null)
-        {
+        if (Email1 != "" && Email1 != null) {
             destinatarios.add(Email1);
         }
-        if ( Email2 != "" && Email2 != null)
-        {
+        if (Email2 != "" && Email2 != null) {
             destinatarios.add(Email2);
         }
-        
-        
+
         ///notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
 
         /** Personalizado */
         var msg = '';
         msg += '<html>'
-        msg += '	<head>'
-        msg += '		<meta>'
-        msg += '		<meta>'
-        msg += '		<meta>'
-        msg += '	</head>'
         msg += '	<body>'
-        msg += '	<h2> Olá, ' + getValue("WKUser") + '</h2>';
-        msg += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces"))
-        msg += '	    foi cancelada!.</p>'
+        msg += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
+        msg += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces")) + ' foi cancelada!.</p>'
         msg += '	</body>'
         msg += '</html>'
         var obj = new com.fluig.foundation.mail.service.EMailServiceBean();

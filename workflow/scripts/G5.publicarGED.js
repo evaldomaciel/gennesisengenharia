@@ -84,3 +84,10 @@ function getConstante(param) {
 	}
 	return '0';
 }
+
+function getColleagueName(user) {
+    var const1 = DatasetFactory.createConstraint("colleaguePK.colleagueId", user, user, ConstraintType.MUST);
+    var datasetAttachment = DatasetFactory.getDataset("colleague", null, [const1], null);
+    if (datasetAttachment.rowsCount > 0) return datasetAttachment.getValue(0, "colleagueName");
+    return user;
+}

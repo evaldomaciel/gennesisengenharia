@@ -1,6 +1,7 @@
 /* FUNÇÕES GLOBAIS */
 $(document).ready(function () {
   autocompleteBanco();
+  displayBtnFiles();
 
   $.each($("[data-date]"), function (i, o) {
     var id = $(o).attr("id");

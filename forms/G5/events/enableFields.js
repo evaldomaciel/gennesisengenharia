@@ -19,7 +19,6 @@ function enableFields(form) {
     /** Negações */
 
     if (activity != 4 && activity != 0 && activity != 34) {
-
       form.setEnabled("viewport", false);
       form.setEnabled("createFormComponents", false);
       form.setEnabled("numero_solicitacao", false);
@@ -98,16 +97,12 @@ function enableFields(form) {
       form.setEnabled("chave_email", false);
       form.setEnabled("chave_celular", false);
       form.setEnabled("chave_aleatoria", false);
-      form.setEnabled("coluna_natureza", false);
-      form.setEnabled("coluna_ccusto", false);
-      form.setEnabled("coluna_valor", false);
-      form.setEnabled("coluna_percentual", false);
       for (var index = 0; index < table_rateio_ccusto_indexes.length; index++) {
         var pos = table_rateio_ccusto_indexes[index];
-        form.setEnabled("coluna_natureza" + "___" + pos, false);
-        form.setEnabled("coluna_ccusto" + "___" + pos, false);
-        form.setEnabled("coluna_valor" + "___" + pos, false);
-        form.setEnabled("coluna_percentual" + "___" + pos, false);
+        form.setEnabled("coluna_natureza___" + pos, false);
+        form.setEnabled("coluna_ccusto___" + pos, false);
+        form.setEnabled("coluna_valor___" + pos, false);
+        form.setEnabled("coluna_percentual___" + pos, false);
       }
       form.setEnabled("valor_total_rateio", false);
     }
@@ -341,14 +336,6 @@ function enableFields(form) {
       form.setEnabled("chave_email", false);
       form.setEnabled("chave_celular", false);
       form.setEnabled("chave_aleatoria", false);
-      form.setEnabled("coluna_natureza", false);
-      form.setEnabled("coluna_ccusto", false);
-      form.setEnabled("coluna_valor", false);
-      form.setEnabled("coluna_percentual", false);
-      form.setEnabled("coluna_natureza___1", false);
-      form.setEnabled("coluna_ccusto___1", false);
-      form.setEnabled("coluna_valor___1", false);
-      form.setEnabled("coluna_percentual___1", false);
       form.setEnabled("valor_total_rateio", false);
 
       form.setEnabled("aprovacao_gestor", false);
@@ -590,20 +577,20 @@ function enableFields(form) {
         var campo = colunas[index];
         form.setEnabled(campo, true);
       }
-    }
-    for (var index2 = 0; index2 < table_rateio_ccusto_indexes.length; index2++) {
-      var campoId = table_rateio_ccusto_indexes[index2];
-      form.setEnabled("coluna_natureza" + "___" + campoId, true);
-      form.setEnabled("coluna_ccusto" + "___" + campoId, true);
-      form.setEnabled("coluna_valor" + "___" + campoId, true);
-      form.setEnabled("coluna_percentual" + "___" + campoId, true);
-    }
-    for (var index3 = 0; index3 < table_rateio_ccusto_fin_indexes.length; index3++) {
-      var campoId = table_rateio_ccusto_fin_indexes[index3];
-      form.setEnabled("coluna_natureza_fin" + "___" + campoId, true);
-      form.setEnabled("coluna_ccusto_fin" + "___" + campoId, true);
-      form.setEnabled("coluna_valor_fin" + "___" + campoId, true);
-      form.setEnabled("coluna_percentual_fin" + "___" + campoId, true);
+      for (var index2 = 0; index2 < table_rateio_ccusto_indexes.length; index2++) {
+        var campoId = table_rateio_ccusto_indexes[index2];
+        form.setEnabled("coluna_natureza" + "___" + campoId, true);
+        form.setEnabled("coluna_ccusto" + "___" + campoId, true);
+        form.setEnabled("coluna_valor" + "___" + campoId, true);
+        form.setEnabled("coluna_percentual" + "___" + campoId, true);
+      }
+      for (var index3 = 0; index3 < table_rateio_ccusto_fin_indexes.length; index3++) {
+        var campoId = table_rateio_ccusto_fin_indexes[index3];
+        form.setEnabled("coluna_natureza_fin" + "___" + campoId, true);
+        form.setEnabled("coluna_ccusto_fin" + "___" + campoId, true);
+        form.setEnabled("coluna_valor_fin" + "___" + campoId, true);
+        form.setEnabled("coluna_percentual_fin" + "___" + campoId, true);
+      }
     }
   } catch (error) {
     log.info("error");

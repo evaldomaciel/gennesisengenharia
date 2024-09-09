@@ -16,17 +16,20 @@ function anexo(event) {
 		const acao = event.currentTarget.getAttribute("data-acao");
 		const inputFile = $(event.currentTarget).parent().parent().find(".inputAnexo")[0]
 		const fileDescription = $('.description-column', parent.document).text(); // $(event.currentTarget).parent().parent().find(".descAnexo").val()
+		const fileDescriptionAction = $(event.currentTarget).parent().parent().find(".descAnexo").val()
+		console.log(fileDescriptionAction)
 		if (acao == "upload") {
+			console.log(fileDescription);
 			uploadFile(fileDescription, inputFile.name)
 		}
 		if (acao == "viewer") {
-			viewerFile(fileDescription)
+			viewerFile(fileDescriptionAction)
 		}
 		if (acao == "download") {
-			downloadFile(fileDescription, inputFile.name)
+			downloadFile(fileDescriptionAction, inputFile.name)
 		}
 		if (acao == "delete") {
-			removeFileConfirm(fileDescription, inputFile.name)
+			removeFileConfirm(fileDescriptionAction, inputFile.name)
 		}
 	} catch (e) {
 		console.error("Houve um erro inesperado na função anexo")
@@ -236,9 +239,13 @@ function removeFile(fileDescription) {
 function setFilePhisicalName(idInput, filePhisical) {
 	try {
 		if (idInput.indexOf("_") == 0) {
-			$("#" + idInput.substring(1)).val(filePhisical);
+			$(`#${idInput.substring(1)}`).val(filePhisical);
 		}
-		$("#" + idInput).val(filePhisical);
+		$(`#${idInput}`).val(filePhisical);
+		let campo = $(`#${idInput}`).parent().parent().find(".descAnexo");
+		if (campo.length > 0) {
+			campo[0].value = filePhisical;
+		}
 	} catch (e) {
 		console.error("Houve um erro inesperado na função setFilePhisicalName")
 		console.error(e)
@@ -303,7 +310,8 @@ function displayBtnFiles() {
 			let btnViewerFile = $(element).find(".btnViewerFile");
 			if (getMode() == "VIEW") {
 				btnUpFile.remove();
-				if (inputFile.val() != "") {
+				let valorCampo = inputFile.prop("nodeName") == "SPAN" ? inputFile.text() : inputFile.val();
+				if (valorCampo != "") {
 					btnViewerFile.prop("disabled", false);
 					btnViewerFile.show()
 				}

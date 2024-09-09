@@ -19,6 +19,9 @@ function servicetask183(attempt, message) {
 
     var idLanNovo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : "-1";
 
+    var historico_analise = String(hAPI.getCardValue("historico_analise")) + ' - Solicitação do Fluig número ' + getValue('WKNumProces');
+    hAPI.setCardValue("historico_analise", historico_analise);
+
     var text = GetXml();
 
     text = formatStringToXML(text);
@@ -40,7 +43,7 @@ function servicetask183(attempt, message) {
     text = replaceValue(text, 'NUMERODOCUMENTO', hAPI.getCardValue("numero_documento_analise"));
     text = replaceValue(text, 'PAGREC', hAPI.getCardValue("pagar_receber"));
     text = replaceValue(text, 'CODCCUSTO', codCCusto);
-    text = replaceValue(text, 'HISTORICO', hAPI.getCardValue("historico_analise"));
+    text = replaceValue(text, 'HISTORICO', historico_analise);
     text = replaceValue(text, 'DATAVENCIMENTO', dataVencimento);
     text = replaceValue(text, 'DATAEMISSAO', dataEmissao);
     text = replaceValue(text, 'DATAPREVBAIXA', dataVencimento); ///dataPrevBaixa);
@@ -105,12 +108,12 @@ function GetXml() {
     "  <FLAN>" +
     "     <CODCOLIGADA>2</CODCOLIGADA>" +
     "     <IDLAN>-1</IDLAN>" +
-    "     <NUMERODOCUMENTO>4549</NUMERODOCUMENTO>" +
+    "     <NUMERODOCUMENTO>0</NUMERODOCUMENTO>" +
     "     <IPTE></IPTE>" +
     "     <NFOUDUP>0</NFOUDUP>" +
     "     <CLASSIFICACAO>0</CLASSIFICACAO>" +
-    "     <PAGREC>2</PAGREC>" +
-    "     <CNABBANCO>2</CNABBANCO>" +
+    "     <PAGREC>0</PAGREC>" +
+    "     <CNABBANCO>341</CNABBANCO>" +
     "     <REEMBOLSAVEL>0</REEMBOLSAVEL>" +
     "     <CARENCIAJUROS>0</CARENCIAJUROS>" +
     "     <MULTADIA>0</MULTADIA>" +
@@ -120,14 +123,14 @@ function GetXml() {
     "     <PERCCAP>0</PERCCAP>" +
     "     <STATUSLAN>0</STATUSLAN>" +
     "     <CODAPLICACAO>F</CODAPLICACAO>" +
-    "     <CODCCUSTO>01.01.01.01.001</CODCCUSTO>" +
-    "     <HISTORICO>teste</HISTORICO>" +
-    "     <DATACRIACAO>2024-07-31T00:00:00</DATACRIACAO>" +
-    "     <DATAVENCIMENTO>2024-08-05T00:00:00.000</DATAVENCIMENTO>" +
-    "     <DATAEMISSAO>2024-08-05T00:00:00.000</DATAEMISSAO>" +
-    "     <DATAPREVBAIXA>2024-08-05T00:00:00.000</DATAPREVBAIXA>" +
-    "     <MESDECOMPETENCIA>2024-09-14T00:00:00</MESDECOMPETENCIA>" +
-    "     <VALORORIGINAL>1500,00</VALORORIGINAL>" +
+    "     <CODCCUSTO>01</CODCCUSTO>" +
+    "     <HISTORICO>Inserido Pelo Fluig</HISTORICO>" +
+    "     <DATACRIACAO>2050-01-01T00:00:00</DATACRIACAO>" +
+    "     <DATAVENCIMENTO>2050-01-01T00:00:00.000</DATAVENCIMENTO>" +
+    "     <DATAEMISSAO>2050-01-01T00:00:00.000</DATAEMISSAO>" +
+    "     <DATAPREVBAIXA>2050-01-01T00:00:00.000</DATAPREVBAIXA>" +
+    "     <MESDECOMPETENCIA>2050-01-01T00:00:00</MESDECOMPETENCIA>" +
+    "     <VALORORIGINAL>0</VALORORIGINAL>" +
     "     <VALORBAIXADO>0</VALORBAIXADO>" +
     "     <VALORCAP>0</VALORCAP>" +
     "     <VALORCAPBX>0</VALORCAPBX>" +
@@ -141,8 +144,8 @@ function GetXml() {
     "     <VALOROP5>0</VALOROP5>" +
     "     <VALOROP6>0</VALOROP6>" +
     "     <VALORMULTA>0</VALORMULTA>" +
-    "     <VALORAUXILIAR>1</VALORAUXILIAR>" +
-    "     <VALORBASEIRRF>100</VALORBASEIRRF>" +
+    "     <VALORAUXILIAR>0</VALORAUXILIAR>" +
+    "     <VALORBASEIRRF>0</VALORBASEIRRF>" +
     "     <VALORIRRF>0</VALORIRRF>" +
     "     <VALORREPASSE>0</VALORREPASSE>" +
     "     <VALORVENCIMENTOANTECIP>0</VALORVENCIMENTOANTECIP>" +
@@ -153,15 +156,15 @@ function GetXml() {
     "     <CAPMENSAL>0</CAPMENSAL>" +
     "     <TAXASVENDOR>0</TAXASVENDOR>" +
     "     <JUROSVENDOR>0</JUROSVENDOR>" +
-    "     <CODCOLCFO>2</CODCOLCFO>" +
-    "     <CODCFO>000006288</CODCFO>" +
-    "     <CODCOLCXA>2</CODCOLCXA>" +
+    "     <CODCOLCFO></CODCOLCFO>" +
+    "     <CODCFO></CODCFO>" +
+    "     <CODCOLCXA></CODCOLCXA>" +
     "     <CODCXA>IMPL</CODCXA>" +
-    "     <IDPGTO>1</IDPGTO>" +
-    "     <CODTDO>FATURA</CODTDO>" +
-    "     <CODFILIAL>1</CODFILIAL>" +
+    "     <IDPGTO></IDPGTO>" +
+    "     <CODTDO></CODTDO>" +
+    "     <CODFILIAL></CODFILIAL>" +
     "     <SERIEDOCUMENTO>@@@</SERIEDOCUMENTO>" +
-    "     <CODCOLPGTO>2</CODCOLPGTO>" +
+    "     <CODCOLPGTO>-1</CODCOLPGTO>" +
     "     <NUMLOTECONTABIL>0</NUMLOTECONTABIL>" +
     "     <TIPOCONTABILLAN>0</TIPOCONTABILLAN>" +
     "     <MODELOCONTABILIZACAO>0</MODELOCONTABILIZACAO>" +

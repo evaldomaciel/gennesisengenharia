@@ -1,8 +1,9 @@
 function servicetask287(attempt, message) {
+	var historico_analise = String(hAPI.getCardValue("historico_analise"));
 	var lancamento = cancelaLancamentoRM(
 		parseInt(hAPI.getCardValue('idLan')),
 		parseInt(hAPI.getCardValue('CODCOLIGADA')),
-		String('Cancelado na solicitação ' + getValue('WKNumProces') + ' do Fluig!')
+		String(historico_analise + ' - Cancelado!')
 	);
 	return lancamento;
 }
@@ -181,7 +182,7 @@ function notificaCancelamento(textoMsg, destinatario) {
 	var msg = '';
 	msg += '<html>'
 	msg += '	<body>'
-	msg += '	<h2> Olá, ' + getValue('WKUser') + '</h2>';
+	msg += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
 	msg += '	<p> Ocorreu um erro na solicitação ' + String(getValue('WKNumProces')) + '</p>'
 	msg += '	<p> Informamos que a solicitação ' + String(getValue('WKNumProces')) + 'foi cancelada pelo departamento financeiro pelos seguintes motivos: [motivo do cancelamento].'
 	msg += '	<p>Atenciosamente,</p>'

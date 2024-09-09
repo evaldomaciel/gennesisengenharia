@@ -82,6 +82,7 @@ function setSelectedZoomItem(selectedItem) {
     $("#cad_referencia_fin").val(selectedItem["IDPGTO"]);
     $("#dados_bancarios_ativo_fin").prop('checked', selectedItem["ATIVO"] == "1" || selectedItem["ATIVO"] == 1 ? true : false);
     tipoDaChavePixDadosPagamentoFin(selectedItem["TIPOPIX"], selectedItem["CHAVE"]);
+    preencheDadosPagamento(selectedItem['CODCOLIGADA'], selectedItem['CODCOLCFO'], selectedItem['CODCFO'], selectedItem['IDPGTO']);
     toggleCodBoleto(selectedItem["DESCRICAO"]);
   }
   if (FIELD.indexOf("coluna_ccusto") > -1) {
@@ -115,7 +116,7 @@ function setSelectedZoomItem(selectedItem) {
   }
   if (FIELD == "tipo_cliente_forn") {
     $("#nome_cliente_forn").val(selectedItem["Nome"]);
-    window["tipo_cliente_forn_fin"].setValue(selectedItem["Tipo"]);
+    $("#tipo_cliente_forn_fin").val(selectedItem["Tipo"]);
     $("#nome_cliente_forn_fin").val(selectedItem["Nome"]);
   }
   if (FIELD == "tipo_documento_analise") {
@@ -135,9 +136,6 @@ function setSelectedZoomItem(selectedItem) {
     window["vincular_fornecedor_analise"].setValue(valorDoCampo);
     $("#nome_forn").text(selectedItem["NOME"]);
     $("#cnpj_forn").text(selectedItem["CGCCFO"]);
-    $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
-    $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
-    $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
     $("#nome_social").val(selectedItem["NOMEFANTASIA"]);
     $("#nome").val(selectedItem["NOME"]);
     $("#CNPJ").val(selectedItem["CGCCFO"]);
@@ -161,6 +159,41 @@ function setSelectedZoomItem(selectedItem) {
     } else {
       $('input[name="categoria"][value="J"]').prop('checked', true);
     }
+
+    /** Vamos a seção dados do fornecedor */
+    $("#nome_social_fin").val(selectedItem["NOMEFANTASIA"]);
+    $("#nome_fin").text(selectedItem["NOME"]);
+    $("#CPF_fin").val(selectedItem["CGCCFO"]);
+    $("#CNPJ_fin").val(selectedItem["CGCCFO"]);
+    $("#CpfCnpj_analise").val(selectedItem["CGCCFO"]);
+    $("#nome_cliente_forn_fin").text(selectedItem["NOME"]);
+    $("#status_tipo_cliente_fin").val(selectedItem["ATIVO"]);
+    $("#CEP_fin").val(selectedItem["CEP"]);
+    $("#tipo_rua_fin").val(selectedItem["TIPORUA"]);
+    $("#rua_fin").val(selectedItem["RUA"]);
+    $("#numero_fin").val(selectedItem["NUMERO"]);
+    $("#tipo_bairro_fin").val(selectedItem["TIPOBAIRRO"]);
+    $("#bairro_fin").val(selectedItem["BAIRRO"]);
+    $("#id_pais_fin").val(selectedItem["IDPAIS"]);
+    $("#pais_fin").val(selectedItem["PAIS"]);
+    $("#sigla_estado_fin").val(selectedItem["CODETD"]);
+    preencheNomeDoUFFin(selectedItem["CODETD"]);
+    $("#municipio_fin").val(selectedItem["CIDADE"]);
+    $("#telefone_fin").val(selectedItem["TELEFONE"]);
+    $("#email_fin").val(selectedItem["EMAIL"]);
+    $("#contato_fin").val(selectedItem["CONTATO"]);
+    if (selectedItem["PESSOAFISOUJUR"] == "F") {
+      $('input[name="categoria_fin"][value="F"]').prop('checked', true);
+    } else {
+      $('input[name="categoria_fin"][value="J"]').prop('checked', true);
+    }
+
+    /** Campos de integração */
+    $("#cnpj_forn").text(selectedItem["CGCCFO"]);
+    $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
+    $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
+    $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
+
   }
   if (FIELD == "vincular_fornecedor_analise") {
     if (selectedItem["CODCOLIGADA"] != $("[name='CODCOLIGADA']").val() && selectedItem["CODCOLIGADA"] != 0) {
@@ -173,11 +206,8 @@ function setSelectedZoomItem(selectedItem) {
     $("#nome_forn_analise").text(selectedItem["NOME"]);
     $("#nome_cli_fornecedor_analise").val(selectedItem["NOME"]);
     $("#cnpj_forn_analise").text(selectedItem["CGCCFO"]);
-    $("#CpfCnpj_analise").text(selectedItem["CGCCFO"]);
+    $("#CpfCnpj_analise").val(selectedItem["CGCCFO"]);
     $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
-    $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
-    $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
-    $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
     $("#nome_social_fin").val(selectedItem["NOMEFANTASIA"]);
     $("#nome_fin").val(selectedItem["NOME"]);
     $("#CNPJ_fin").val(selectedItem["CGCCFO"]);
@@ -201,6 +231,9 @@ function setSelectedZoomItem(selectedItem) {
     } else {
       $('input[name="categoria_fin"][value="J"]').prop('checked', true);
     }
+    $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
+    $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
+    $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
 
   }
 
@@ -291,7 +324,7 @@ function reloadZoomAfterLoad(loaded, count) {
   console.log(`loaded: ${loaded} - count: ${count} `);
   let CODCOLIGADA = String($("#CODCOLIGADA").val())
   if (loaded == true) {
-    if (count >= 500) {
+    if (count >= 50) {
       console.log("Nenhum zoom foi carregado");
     }
     else if (empresa.close != undefined || coligada.close != undefined || vincular_fornecedor.close != undefined || forma_pagamento.close != undefined || zTask007.close != undefined) {
