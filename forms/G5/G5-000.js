@@ -172,22 +172,16 @@ $(document).ready(function () {
   });
 
   function applyMask(field) {
-    var value = field.val().replace(/\D/g, '');
-    console.log(String(value).length)
-    let tamanho = String(value).length;
-    if (tamanho > 11 || tamanho == 0) {
-      field.mask('00.000.000/0000-00');
-    } else {
-      field.mask('000.000.000-009');
-    }
+    let value = field.val().replace(/\D/g, '');
+    let formattedValue = '';
+    console.log(field.attr('name'), value.length);
+    if (value.length > 11) formattedValue = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+    else formattedValue = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+    field.val(formattedValue);
   }
 
-  $('.cpfCnpj').each(function () {
-    var field = $(this);
-    applyMask(field);
-    field.on('blur focus', function (e) {
-      applyMask($(e.target));
-    });
+  $('.cpfCnpj').on('blur focus', function (e) {
+    applyMask($(e.target));
   });
 
   $("#sigla_estado_fin").on("change", function () {

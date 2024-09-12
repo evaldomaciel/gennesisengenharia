@@ -1,14 +1,16 @@
 function servicetask344(attempt, message) {
     //Disparo de email
     log.info('servicetask344 344 rodando...')
+    var titulo_solicitacao = hAPI.getCardValue("titulo_solicitacao");
 
     var emails = [hAPI.getCardValue('email_solicitante'), hAPI.getCardValue('copia_email_solicitante')];
     var contentEmail = '';
     contentEmail += '<html>'
     contentEmail += '	<body>'
     contentEmail += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
-    contentEmail += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces")) + ' foi paga e finalizada !</p>'
-    contentEmail += '<br><p>Seguem os comprovantes de pagamento:</p><br>'
+    contentEmail += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces")) + ' foi paga e finalizada !</p>';
+    contentEmail += '   <p> Título : ' + titulo_solicitacao + '</p>';
+    contentEmail += '<br><p>Seguem os comprovantes de pagamento:</p><br>';
 
     var indexes = hAPI.getChildrenIndexes("table_pagamento_unico")
 

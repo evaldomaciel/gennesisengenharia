@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>12</version>
+      <version>17</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>0</formId>
@@ -2729,7 +2729,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>12</version>
+        <version>17</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2741,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>12</version>
+        <version>17</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2753,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>12</version>
+        <version>17</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2765,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>12</version>
+        <version>17</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2777,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>12</version>
+        <version>17</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2789,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>12</version>
+        <version>17</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2801,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>12</version>
+        <version>17</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4128,6 +4128,7 @@
       <eventDescription>function beforeCancelProcess(colleagueId, processId) {
     log.info(&quot;============= inicio afterTaskComplete 00-FLUIG &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);
     try {
+        var titulo_solicitacao = hAPI.getCardValue(&quot;titulo_solicitacao&quot;);
         var parametros = new java.util.HashMap();
         parametros.put(&quot;ASSUNTO&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
         parametros.put(&quot;subject&quot;, &quot;CANCELAMENTO - FASE APROV. GESTOR&quot;);
@@ -4154,6 +4155,7 @@
         msg += &apos;	&lt;body&gt;&apos;
         msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;
         msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; foi cancelada!.&lt;/p&gt;&apos;
+        msg += &apos;    &lt;p&gt; Título : &apos; + titulo_solicitacao + &apos;&lt;/p&gt;&apos;;
         msg += &apos;	&lt;/body&gt;&apos;
         msg += &apos;&lt;/html&gt;&apos;
         var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
@@ -4180,8 +4182,7 @@
         <processId>G5</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function afterProcessFinish(processId)&#xd;
-{&#xd;
+      <eventDescription>function afterProcessFinish(processId) {&#xd;
 	log.info(&quot;============= inicio afterProcessFinish 00-FLUIG &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);&#xd;
 	try {&#xd;
 		var parametros = new java.util.HashMap();&#xd;
@@ -4193,20 +4194,18 @@
 		parametros.put(&quot;SOLICITACAO&quot;, String(getValue(&quot;WKNumProces&quot;)));&#xd;
 &#xd;
 		var destinatarios = new java.util.ArrayList();&#xd;
+		titulo_solicitacao = hAPI.getCardValue(&quot;titulo_solicitacao&quot;);&#xd;
 &#xd;
-		&#xd;
 		var Email1 = hAPI.getCardValue(&quot;email_solicitante&quot;);&#xd;
 		var Email2 = hAPI.getCardValue(&quot;copia_email_solicitante&quot;);&#xd;
-		if ( Email1 != &quot;&quot; &amp;&amp; Email1 != null)&#xd;
-		{&#xd;
+		if (Email1 != &quot;&quot; &amp;&amp; Email1 != null) {&#xd;
 			destinatarios.add(Email1);&#xd;
 		}&#xd;
-		if ( Email2 != &quot;&quot; &amp;&amp; Email2 != null)&#xd;
-		{&#xd;
+		if (Email2 != &quot;&quot; &amp;&amp; Email2 != null) {&#xd;
 			destinatarios.add(Email2);&#xd;
 		}&#xd;
-		&#xd;
-		&#xd;
+&#xd;
+&#xd;
 		/** Personalizado */&#xd;
 		var msg = &apos;&apos;;&#xd;
 		msg += &apos;&lt;html&gt;&apos;&#xd;
@@ -4217,8 +4216,8 @@
 		msg += &apos;	&lt;/head&gt;&apos;&#xd;
 		msg += &apos;	&lt;body&gt;&apos;&#xd;
 		msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;&#xd;
-		msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;))&#xd;
-		msg += &apos;	    foi Finalizada!.&lt;/p&gt;&apos;&#xd;
+		msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; foi Finalizada!.&lt;/p&gt;&apos;&#xd;
+		msg += &apos;   	&lt;p&gt; Título : &apos; + titulo_solicitacao + &apos;&lt;/p&gt;&apos;;&#xd;
 		msg += &apos;	&lt;/body&gt;&apos;&#xd;
 		msg += &apos;&lt;/html&gt;&apos;&#xd;
 		var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
@@ -4662,6 +4661,7 @@ function getFormattedDate() {
 
 function notificaCancelamento(textoMsg, destinatario) {
 	var msg = &apos;&apos;;
+	var titulo_solicitacao = hAPI.getCardValue(&quot;titulo_solicitacao&quot;);
 	msg += &apos;&lt;html&gt;&apos;
 	msg += &apos;	&lt;body&gt;&apos;
 	msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;
@@ -4669,6 +4669,7 @@ function notificaCancelamento(textoMsg, destinatario) {
 	msg += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&apos;WKNumProces&apos;)) + &apos;foi cancelada pelo departamento financeiro pelos seguintes motivos: [motivo do cancelamento].&apos;
 	msg += &apos;	&lt;p&gt;Atenciosamente,&lt;/p&gt;&apos;
 	msg += &apos;	&lt;p&gt;&apos; + textoMsg + &apos;&lt;/p&gt;&apos;
+	msg += &apos;  &lt;p&gt; Título : &apos; + titulo_solicitacao + &apos;&lt;/p&gt;&apos;;
 	msg += &apos;	&lt;/body&gt;&apos;
 	msg += &apos;&lt;/html&gt;&apos;
 	var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
@@ -5364,228 +5365,85 @@ function dadosDoFornecedor() {
 }
 
 function dadosCadastroFornecedor() {
-  if (hAPI.getCardValue(&quot;fornecedor_cadastrado&quot;) == &quot;Não&quot;) {
-    /* CADASTRO DE FORNECEDOR */
-    var cliente_global = hAPI.getCardValue(&quot;cliente_global&quot;);
-    hAPI.setCardValue(&quot;cliente_global_fin&quot;, cliente_global);
+  /* CADASTRO DE FORNECEDOR */
+  hAPI.setCardValue(&quot;cliente_global_fin&quot;, hAPI.getCardValue(&quot;cliente_global&quot;));
+  hAPI.setCardValue(&quot;data_nascimento_fin&quot;, hAPI.getCardValue(&quot;data_nascimento&quot;));
+  hAPI.setCardValue(&quot;estado_civil_fin&quot;, hAPI.getCardValue(&quot;estado_civil&quot;));
+  hAPI.setCardValue(&quot;nome_fin&quot;, hAPI.getCardValue(&quot;nome&quot;));
+  hAPI.setCardValue(&quot;nome_cli_fornecedor_analise&quot;, hAPI.getCardValue(&quot;nome&quot;));
+  hAPI.setCardValue(&quot;nome_social_fin&quot;, hAPI.getCardValue(&quot;nome_social&quot;));
+  hAPI.setCardValue(&quot;classificacao_fin&quot;, hAPI.getCardValue(&quot;classificacao&quot;));
+  hAPI.setCardValue(&quot;categoria_fin&quot;, hAPI.getCardValue(&quot;categoria&quot;));
+  hAPI.setCardValue(&quot;CPF_fin&quot;, hAPI.getCardValue(&quot;CPF&quot;));
+  hAPI.setCardValue(&quot;CNPJ_fin&quot;, hAPI.getCardValue(&quot;CNPJ&quot;));
+  hAPI.setCardValue(&quot;CpfCnpj_analise&quot;, capta_Cpf_Cnpj(hAPI.getCardValue(&quot;categoria_fin&quot;)));
+  hAPI.setCardValue(&quot;inscricao_estadual_fin&quot;, hAPI.getCardValue(&quot;inscricao_estadual&quot;));
+  hAPI.setCardValue(&quot;inscricao_municipal_fin&quot;, hAPI.getCardValue(&quot;inscricao_municipal&quot;));
+  hAPI.setCardValue(&quot;nome_cliente_forn_fin&quot;, hAPI.getCardValue(&quot;nome_cliente_forn&quot;));
+  hAPI.setCardValue(&quot;status_tipo_cliente_fin&quot;, hAPI.getCardValue(&quot;status_tipo_cliente&quot;));
 
-    var data_nascimento = hAPI.getCardValue(&quot;data_nascimento&quot;);
-    hAPI.setCardValue(&quot;data_nascimento_fin&quot;, data_nascimento);
+  /* IDENTIDADE */
+  hAPI.setCardValue(&quot;identidade_fin&quot;, hAPI.getCardValue(&quot;identidade&quot;));
+  hAPI.setCardValue(&quot;orgao_emissor_fin&quot;, hAPI.getCardValue(&quot;orgao_emissor&quot;));
+  hAPI.setCardValue(&quot;estado_emissor_fin&quot;, hAPI.getCardValue(&quot;estado_emissor&quot;));
+  hAPI.setCardValue(&quot;numero_dependentes_fin&quot;, hAPI.getCardValue(&quot;numero_dependentes&quot;));
+  hAPI.setCardValue(&quot;aposen_pensionista_fin&quot;, hAPI.getCardValue(&quot;aposen_pensionista&quot;));
+  hAPI.setCardValue(&quot;nacionalidade_fin&quot;, hAPI.getCardValue(&quot;nacionalidade&quot;));
+  hAPI.setCardValue(&quot;CEP_fin&quot;, hAPI.getCardValue(&quot;CEP&quot;));
+  hAPI.setCardValue(&quot;tipo_rua_fin&quot;, hAPI.getCardValue(&quot;tipo_rua&quot;));
+  hAPI.setCardValue(&quot;rua_fin&quot;, hAPI.getCardValue(&quot;rua&quot;));
+  hAPI.setCardValue(&quot;numero_fin&quot;, hAPI.getCardValue(&quot;numero&quot;));
+  hAPI.setCardValue(&quot;complemento_fin&quot;, hAPI.getCardValue(&quot;complemento&quot;));
+  hAPI.setCardValue(&quot;tipo_bairro_fin&quot;, hAPI.getCardValue(&quot;tipo_bairro&quot;));
+  hAPI.setCardValue(&quot;bairro_fin&quot;, hAPI.getCardValue(&quot;bairro&quot;));
+  hAPI.setCardValue(&quot;id_pais_fin&quot;, hAPI.getCardValue(&quot;id_pais&quot;));
+  hAPI.setCardValue(&quot;pais_fin&quot;, hAPI.getCardValue(&quot;pais&quot;));
+  hAPI.setCardValue(&quot;sigla_estado_fin&quot;, hAPI.getCardValue(&quot;sigla_estado&quot;));
+  hAPI.setCardValue(&quot;nome_estado_fin&quot;, hAPI.getCardValue(&quot;nome_estado&quot;));
+  hAPI.setCardValue(&quot;codigo_municipio_fin&quot;, hAPI.getCardValue(&quot;codigo_municipio&quot;));
+  hAPI.setCardValue(&quot;nome_municipio_fin&quot;, hAPI.getCardValue(&quot;nome_municipio&quot;));
+  hAPI.setCardValue(&quot;caixa_postal_fin&quot;, hAPI.getCardValue(&quot;caixa_postal&quot;));
+  hAPI.setCardValue(&quot;cep_caixa_postal_fin&quot;, hAPI.getCardValue(&quot;cep_caixa_postal&quot;));
+  hAPI.setCardValue(&quot;telefone_fin&quot;, hAPI.getCardValue(&quot;telefone&quot;));
+  hAPI.setCardValue(&quot;celular_fin&quot;, hAPI.getCardValue(&quot;celular&quot;));
+  hAPI.setCardValue(&quot;telefone_comercial&quot;, hAPI.getCardValue(&quot;telefone_comercial&quot;));
+  hAPI.setCardValue(&quot;fax_fin&quot;, hAPI.getCardValue(&quot;fax&quot;));
+  hAPI.setCardValue(&quot;fax_dedicado_fin&quot;, hAPI.getCardValue(&quot;fax_dedicado&quot;));
+  hAPI.setCardValue(&quot;email_fin&quot;, hAPI.getCardValue(&quot;email&quot;));
+  hAPI.setCardValue(&quot;contato_fin&quot;, hAPI.getCardValue(&quot;contato&quot;));
+  hAPI.setCardValue(&apos;vincular_fornecedor_analise&apos;, hAPI.getCardValue(&apos;vincular_fornecedor&apos;));
 
-    var estado_civil = hAPI.getCardValue(&quot;estado_civil&quot;);
-    hAPI.setCardValue(&quot;estado_civil_fin&quot;, estado_civil);
-
-    var nome = hAPI.getCardValue(&quot;nome&quot;);
-    hAPI.setCardValue(&quot;nome_fin&quot;, nome);
-    hAPI.setCardValue(&quot;nome_cli_fornecedor_analise&quot;, nome);
-
-    var nome_social = hAPI.getCardValue(&quot;nome_social&quot;);
-    hAPI.setCardValue(&quot;nome_social_fin&quot;, nome_social);
-
-    var classificacao = hAPI.getCardValue(&quot;classificacao&quot;);
-    hAPI.setCardValue(&quot;classificacao_fin&quot;, classificacao);
-
-    var categoria = hAPI.getCardValue(&quot;categoria&quot;);
-    hAPI.setCardValue(&quot;categoria_fin&quot;, categoria);
-
-    var cpf = hAPI.getCardValue(&quot;CPF&quot;);
-    hAPI.setCardValue(&quot;CPF_fin&quot;, cpf);
-
-    var cnpj = hAPI.getCardValue(&quot;CNPJ&quot;);
-    hAPI.setCardValue(&quot;CNPJ_fin&quot;, cnpj);
-
-    hAPI.setCardValue(&quot;CpfCnpj_analise&quot;, capta_Cpf_Cnpj(hAPI.getCardValue(&quot;categoria_fin&quot;)));
-
-    var inscricao_estadual = hAPI.getCardValue(&quot;inscricao_estadual&quot;);
-    hAPI.setCardValue(&quot;inscricao_estadual_fin&quot;, inscricao_estadual);
-
-    var inscricao_municipal = hAPI.getCardValue(&quot;inscricao_municipal&quot;);
-    hAPI.setCardValue(&quot;inscricao_municipal_fin&quot;, inscricao_municipal);
-
-    var nome_cliente_forn = hAPI.getCardValue(&quot;nome_cliente_forn&quot;);
-    hAPI.setCardValue(&quot;nome_cliente_forn_fin&quot;, nome_cliente_forn);
-
-    var status_tipo_cliente = hAPI.getCardValue(&quot;status_tipo_cliente&quot;);
-    hAPI.setCardValue(&quot;status_tipo_cliente_fin&quot;, status_tipo_cliente);
-
-    /* IDENTIDADE */
-    var identidade = hAPI.getCardValue(&quot;identidade&quot;);
-    hAPI.setCardValue(&quot;identidade_fin&quot;, identidade);
-
-    var orgao_emissor = hAPI.getCardValue(&quot;orgao_emissor&quot;);
-    hAPI.setCardValue(&quot;orgao_emissor_fin&quot;, orgao_emissor);
-
-    var estado_emissor = hAPI.getCardValue(&quot;estado_emissor&quot;);
-    hAPI.setCardValue(&quot;estado_emissor_fin&quot;, estado_emissor);
-
-    var numero_dependentes = hAPI.getCardValue(&quot;numero_dependentes&quot;);
-    hAPI.setCardValue(&quot;numero_dependentes_fin&quot;, numero_dependentes);
-
-    var aposentado_pensionista = hAPI.getCardValue(&quot;aposen_pensionista&quot;);
-    hAPI.setCardValue(&quot;aposen_pensionista_fin&quot;, aposentado_pensionista);
-
-    var nacionalidade = hAPI.getCardValue(&quot;nacionalidade&quot;);
-    hAPI.setCardValue(&quot;nacionalidade_fin&quot;, nacionalidade);
-
-    var cep = hAPI.getCardValue(&quot;CEP&quot;);
-    hAPI.setCardValue(&quot;CEP_fin&quot;, cep);
-
-    var tipo_rua = hAPI.getCardValue(&quot;tipo_rua&quot;);
-    hAPI.setCardValue(&quot;tipo_rua_fin&quot;, tipo_rua);
-
-    var rua = hAPI.getCardValue(&quot;rua&quot;);
-    hAPI.setCardValue(&quot;rua_fin&quot;, rua);
-
-    var numero = hAPI.getCardValue(&quot;numero&quot;);
-    hAPI.setCardValue(&quot;numero_fin&quot;, numero);
-
-    var complemento = hAPI.getCardValue(&quot;complemento&quot;);
-    hAPI.setCardValue(&quot;complemento_fin&quot;, complemento);
-
-    var tipo_bairro = hAPI.getCardValue(&quot;tipo_bairro&quot;);
-    hAPI.setCardValue(&quot;tipo_bairro_fin&quot;, tipo_bairro);
-
-    var bairro = hAPI.getCardValue(&quot;bairro&quot;);
-    hAPI.setCardValue(&quot;bairro_fin&quot;, bairro);
-
-    var id_pais = hAPI.getCardValue(&quot;id_pais&quot;);
-    hAPI.setCardValue(&quot;id_pais_fin&quot;, id_pais);
-
-    var pais = hAPI.getCardValue(&quot;pais&quot;);
-    hAPI.setCardValue(&quot;pais_fin&quot;, pais);
-
-    var sigla_estado = hAPI.getCardValue(&quot;sigla_estado&quot;);
-    hAPI.setCardValue(&quot;sigla_estado_fin&quot;, sigla_estado);
-
-    var nome_estado = hAPI.getCardValue(&quot;nome_estado&quot;);
-    hAPI.setCardValue(&quot;nome_estado_fin&quot;, nome_estado);
-
-    var codigo_municipio = hAPI.getCardValue(&quot;codigo_municipio&quot;);
-    hAPI.setCardValue(&quot;codigo_municipio_fin&quot;, codigo_municipio);
-
-    var nome_municipio = hAPI.getCardValue(&quot;nome_municipio&quot;);
-    hAPI.setCardValue(&quot;nome_municipio_fin&quot;, nome_municipio);
-
-    var caixa_postal = hAPI.getCardValue(&quot;caixa_postal&quot;);
-    hAPI.setCardValue(&quot;caixa_postal_fin&quot;, caixa_postal);
-
-    var cep_caixa_postal = hAPI.getCardValue(&quot;cep_caixa_postal&quot;);
-    hAPI.setCardValue(&quot;cep_caixa_postal_fin&quot;, cep_caixa_postal);
-
-    var telefone = hAPI.getCardValue(&quot;telefone&quot;);
-    hAPI.setCardValue(&quot;telefone_fin&quot;, telefone);
-
-    var celular = hAPI.getCardValue(&quot;celular&quot;);
-    hAPI.setCardValue(&quot;celular_fin&quot;, celular);
-
-    var telefone_comercial = hAPI.getCardValue(&quot;telefone_comercial&quot;);
-    hAPI.setCardValue(&quot;telefone_comercial&quot;, telefone_comercial);
-
-    var fax = hAPI.getCardValue(&quot;fax&quot;);
-    hAPI.setCardValue(&quot;fax_fin&quot;, fax);
-
-    var fax_dedicado = hAPI.getCardValue(&quot;fax_dedicado&quot;);
-    hAPI.setCardValue(&quot;fax_dedicado_fin&quot;, fax_dedicado);
-
-    var email = hAPI.getCardValue(&quot;email&quot;);
-    hAPI.setCardValue(&quot;email_fin&quot;, email);
-
-    var contato = hAPI.getCardValue(&quot;contato&quot;);
-    hAPI.setCardValue(&quot;contato_fin&quot;, contato);
-  }
 }
 
 function dadosCadastroBancario() {
-  /* CADASTRO DADOS BANCARIOS */
+  /* Campos comuns */
+  hAPI.setCardValue(&quot;cad_referencia_fin&quot;, hAPI.getCardValue(&quot;cad_referencia&quot;));
+  hAPI.setCardValue(&quot;referencia_analise&quot;, hAPI.getCardValue(&quot;cad_referencia&quot;));
+  hAPI.setCardValue(&quot;descricao_fin&quot;, hAPI.getCardValue(&quot;descricao&quot;));
+  hAPI.setCardValue(&quot;nome_filial_d_banc_fin&quot;, hAPI.getCardValue(&quot;nome_filial_d_banc&quot;));
+  hAPI.setCardValue(&quot;forma_pagamento_fin&quot;, hAPI.getCardValue(&quot;forma_pagamento&quot;));
+  hAPI.setCardValue(&quot;banco_fin&quot;, hAPI.getCardValue(&quot;banco&quot;));
+  hAPI.setCardValue(&quot;agencia_fin&quot;, hAPI.getCardValue(&quot;agencia&quot;));
+  hAPI.setCardValue(&quot;digito_fin&quot;, hAPI.getCardValue(&quot;digito&quot;));
+  hAPI.setCardValue(&quot;nome_agencia_fin&quot;, hAPI.getCardValue(&quot;nome_agencia&quot;));
+  hAPI.setCardValue(&quot;conta_corrente_fin&quot;, hAPI.getCardValue(&quot;conta_corrente&quot;));
+  hAPI.setCardValue(&quot;digito_conta_corrente_fin&quot;, hAPI.getCardValue(&quot;digito_conta_corrente&quot;));
+  hAPI.setCardValue(&quot;tipo_conta_fin&quot;, hAPI.getCardValue(&quot;tipo_conta&quot;));
+  hAPI.setCardValue(&quot;camara_comp_fin&quot;, hAPI.getCardValue(&quot;camara_comp&quot;));
+  hAPI.setCardValue(&quot;favorecido_fin&quot;, hAPI.getCardValue(&quot;favorecido&quot;));
+  hAPI.setCardValue(&quot;CpfCnpj_favorecido_fin&quot;, hAPI.getCardValue(&quot;CpfCnpj_favorecido&quot;));
+  hAPI.setCardValue(&quot;tipo_chave_pix_fin&quot;, hAPI.getCardValue(&quot;tipo_chave_pix&quot;));
+  hAPI.setCardValue(&quot;chave_CPF_fin&quot;, hAPI.getCardValue(&quot;chave_CPF&quot;));
+  hAPI.setCardValue(&quot;chave_CNPJ_fin&quot;, hAPI.getCardValue(&quot;chave_CNPJ&quot;));
+  hAPI.setCardValue(&quot;chave_email_fin&quot;, hAPI.getCardValue(&quot;chave_email&quot;));
+  hAPI.setCardValue(&quot;chave_celular_fin&quot;, hAPI.getCardValue(&quot;chave_celular&quot;));
+  hAPI.setCardValue(&quot;chave_aleatoria_fin&quot;, hAPI.getCardValue(&quot;chave_aleatoria&quot;));
+
+  /* Condicionais */
   if (hAPI.getCardValue(&quot;fornecedor_cadastrado&quot;) == &quot;Não&quot;) {
-    var dados_bancarios = hAPI.getCardValue(&quot;dados_bancarios_ativo&quot;);
-    hAPI.setCardValue(&quot;dados_bancarios_fin&quot;, dados_bancarios);
-
-    var cad_referencia = hAPI.getCardValue(&quot;cad_referencia&quot;);
-    hAPI.setCardValue(&quot;cad_referencia_fin&quot;, cad_referencia);
-
-    var descricao = hAPI.getCardValue(&quot;descricao&quot;);
-    hAPI.setCardValue(&quot;descricao_fin&quot;, descricao);
-
-    var nome_filial_d_banc = hAPI.getCardValue(&quot;nome_filial_d_banc&quot;);
-    hAPI.setCardValue(&quot;nome_filial_d_banc_fin&quot;, nome_filial_d_banc);
-
-    var forma_pagamento = hAPI.getCardValue(&quot;forma_pagamento&quot;);
-    hAPI.setCardValue(&quot;forma_pagamento_fin&quot;, forma_pagamento);
-
-    var banco = hAPI.getCardValue(&quot;banco&quot;);
-    hAPI.setCardValue(&quot;banco_fin&quot;, banco);
-
-    var agencia = hAPI.getCardValue(&quot;agencia&quot;);
-    hAPI.setCardValue(&quot;agencia_fin&quot;, agencia);
-
-    var digito = hAPI.getCardValue(&quot;digito&quot;);
-    hAPI.setCardValue(&quot;digito_fin&quot;, digito);
-
-    var nome_agencia = hAPI.getCardValue(&quot;nome_agencia&quot;);
-    hAPI.setCardValue(&quot;nome_agencia_fin&quot;, nome_agencia);
-
-    var conta_corrente = hAPI.getCardValue(&quot;conta_corrente&quot;);
-    hAPI.setCardValue(&quot;conta_corrente_fin&quot;, conta_corrente);
-
-    var digito_conta_corrente = hAPI.getCardValue(&quot;digito_conta_corrente&quot;);
-    hAPI.setCardValue(&quot;digito_conta_corrente_fin&quot;, digito_conta_corrente);
-
-    var tipo_conta = hAPI.getCardValue(&quot;tipo_conta&quot;);
-    hAPI.setCardValue(&quot;tipo_conta_fin&quot;, tipo_conta);
-
-    var camara_comp = hAPI.getCardValue(&quot;camara_comp&quot;);
-    hAPI.setCardValue(&quot;camara_comp_fin&quot;, camara_comp);
-
-    var favorecido = hAPI.getCardValue(&quot;favorecido&quot;);
-    hAPI.setCardValue(&quot;favorecido_fin&quot;, favorecido);
-
-    var CpfCnpj_favorecido = hAPI.getCardValue(&quot;CpfCnpj_favorecido&quot;);
-    hAPI.setCardValue(&quot;CpfCnpj_favorecido_fin&quot;, CpfCnpj_favorecido);
-
-    var tipo_chave_pix = hAPI.getCardValue(&quot;tipo_chave_pix&quot;);
-    hAPI.setCardValue(&quot;tipo_chave_pix_fin&quot;, tipo_chave_pix);
-
-    var chave_CPF = hAPI.getCardValue(&quot;chave_CPF&quot;);
-    hAPI.setCardValue(&quot;chave_CPF_fin&quot;, chave_CPF);
-
-    var chave_CNPJ = hAPI.getCardValue(&quot;chave_CNPJ&quot;);
-    hAPI.setCardValue(&quot;chave_CNPJ_fin&quot;, chave_CNPJ);
-
-    var chave_email = hAPI.getCardValue(&quot;chave_email&quot;);
-    hAPI.setCardValue(&quot;chave_email_fin&quot;, chave_email);
-
-    var chave_celular = hAPI.getCardValue(&quot;chave_celular&quot;);
-    hAPI.setCardValue(&quot;chave_celular_fin&quot;, chave_celular);
-
-    var chave_aleatoria = hAPI.getCardValue(&quot;chave_aleatoria&quot;);
-    hAPI.setCardValue(&quot;chave_aleatoria_fin&quot;, chave_aleatoria);
-
-    /* DADOS COMPLEMENTARES */
-    var tipo_doc = hAPI.getCardValue(&quot;tipo_doc&quot;);
-    hAPI.setCardValue(&quot;tipo_doc_fin&quot;, tipo_doc);
-
-    var cod_finalidade = hAPI.getCardValue(&quot;cod_finalidade&quot;);
-    hAPI.setCardValue(&quot;cod_finalidade_fin&quot;, cod_finalidade);
-
-    /* DEFAULT DADOS BANCÁRIOS */
-    var classificacao_default = hAPI.getCardValue(&quot;classificacao_default&quot;);
-    hAPI.setCardValue(&quot;classificacao_default_fin&quot;, classificacao_default);
-
-    var nome_cli_fornecedor_default = hAPI.getCardValue(&quot;nome_cli_fornecedor_default&quot;);
-    hAPI.setCardValue(&quot;nome_cli_forn_default_fin&quot;, nome_cli_fornecedor_default);
-
-    var filial_default = hAPI.getCardValue(&quot;filial_default&quot;);
-    hAPI.setCardValue(&quot;filial_default_fin&quot;, filial_default);
-
-    var nome_filial_default = hAPI.getCardValue(&quot;nome_filial_default&quot;);
-    hAPI.setCardValue(&quot;nome_filial_default_fin&quot;, nome_filial_default);
-
-    var dados_banc_default = hAPI.getCardValue(&quot;dados_banc_default&quot;);
-    hAPI.setCardValue(&quot;dados_banc_default_fin&quot;, dados_banc_default);
-
-    var nome_dados_banc_default = hAPI.getCardValue(&quot;nome_dados_banc_default&quot;);
-    hAPI.setCardValue(&quot;nome_dados_banc_default_fin&quot;, nome_dados_banc_default);
+    hAPI.setCardValue(&quot;dados_bancarios_fin&quot;, hAPI.getCardValue(&quot;dados_bancarios_ativo&quot;));
+  } else {
+    hAPI.setCardValue(&quot;dados_pagamento_analise&quot;, hAPI.getCardValue(&quot;dados_pagamento&quot;));
   }
 }
 
@@ -5638,14 +5496,16 @@ function capta_Cpf_Cnpj(tipo_pessoa) {
       <eventDescription>function servicetask344(attempt, message) {
     //Disparo de email
     log.info(&apos;servicetask344 344 rodando...&apos;)
+    var titulo_solicitacao = hAPI.getCardValue(&quot;titulo_solicitacao&quot;);
 
     var emails = [hAPI.getCardValue(&apos;email_solicitante&apos;), hAPI.getCardValue(&apos;copia_email_solicitante&apos;)];
     var contentEmail = &apos;&apos;;
     contentEmail += &apos;&lt;html&gt;&apos;
     contentEmail += &apos;	&lt;body&gt;&apos;
     contentEmail += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;
-    contentEmail += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; foi paga e finalizada !&lt;/p&gt;&apos;
-    contentEmail += &apos;&lt;br&gt;&lt;p&gt;Seguem os comprovantes de pagamento:&lt;/p&gt;&lt;br&gt;&apos;
+    contentEmail += &apos;	&lt;p&gt; Informamos que a solicitação &apos; + String(getValue(&quot;WKNumProces&quot;)) + &apos; foi paga e finalizada !&lt;/p&gt;&apos;;
+    contentEmail += &apos;   &lt;p&gt; Título : &apos; + titulo_solicitacao + &apos;&lt;/p&gt;&apos;;
+    contentEmail += &apos;&lt;br&gt;&lt;p&gt;Seguem os comprovantes de pagamento:&lt;/p&gt;&lt;br&gt;&apos;;
 
     var indexes = hAPI.getChildrenIndexes(&quot;table_pagamento_unico&quot;)
 
@@ -6016,7 +5876,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>12</version>
+        <version>17</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6027,7 +5887,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>12</version>
+        <version>17</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6038,7 +5898,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>12</version>
+        <version>17</version>
         <linkSequence>315</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6049,7 +5909,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>12</version>
+        <version>17</version>
         <linkSequence>315</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6060,7 +5920,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>12</version>
+        <version>17</version>
         <linkSequence>316</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6073,7 +5933,7 @@ function getAttchment(description) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>12</version>
+        <version>17</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6293,7 +6153,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6303,7 +6163,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6317,7 +6177,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6327,7 +6187,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6337,7 +6197,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6347,7 +6207,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6357,7 +6217,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6371,7 +6231,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6381,7 +6241,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6391,7 +6251,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>12</processVersion>
+      <processVersion>17</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

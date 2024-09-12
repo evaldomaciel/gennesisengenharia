@@ -20,7 +20,7 @@
 
 2024-08-18 Vamos começar o trabalho para cancelar o lançamento financeiro
 
-2024-09-05 Ajustes solicitados
+2024-09-05 Ajustes solicitados 4h
 1 - Os dados do pagamento que estão sempre sendo enviados para a integração o mesmo dados (sempre o primeiro) mesmo que o usuário escolha outro
 - Realizado ajuste para obter o código de referencia para o pagamento do dataset "dsRMFinDADOSPGTODataBR".
 2 - O formulário, quando na etapa do Financeiro (Provisionamento), se o usuário escolher outro fornecedor, o campo nome Cliente/Fornecedor e o CNPJ continua exibindo o que foi escolhido na etapa inicial, a integração está correta, mas a tela do FLUIG fica errada
@@ -32,7 +32,7 @@
 5 - Quando o financeiro devolve a solicitação para o solicitante fazer "Revisão" todos os campos está disabled então o solicitante não consegue revisar nada pois está tudo bloqueado
 - Realizado ajuste no enableFields para liberar os campos. 
 
-2024-09-08 Ajustes solicitados
+2024-09-08 Ajustes solicitados 7h
 - BUG no calculo do valor do rateio
 	"Realizado ajuste para converter os valores dos campos do formulario para float no evento de formulário validateFields e garantir a correta comparação de valores." 
 
@@ -78,3 +78,9 @@
 	está puxado fixo o dado bancário de referencia 1, do cadastro daquele fornecedor, e não seguindo aquela regra de seleção que o usuário realizou.
 	
 	Ação : Já realizado
+
+2024-09-12 Ajustes solicitados
+
+O pior aqui é testar 
+
+

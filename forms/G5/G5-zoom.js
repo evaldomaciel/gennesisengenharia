@@ -131,10 +131,9 @@ function setSelectedZoomItem(selectedItem) {
     }
 
     $("#CGCCFO").val(selectedItem["CGCCFO"]);
-    let campo = $("#vincular_fornecedor").val();
-    let valorDoCampo = campo[0];
-    window["vincular_fornecedor_analise"].setValue(valorDoCampo);
     $("#nome_forn").text(selectedItem["NOME"]);
+    $("#nome").val(selectedItem["NOME"]);
+    $("#nome_cli_fornecedor_analise").val(selectedItem["NOME"]);
     $("#cnpj_forn").text(selectedItem["CGCCFO"]);
     $("#nome_social").val(selectedItem["NOMEFANTASIA"]);
     $("#nome").val(selectedItem["NOME"]);
@@ -162,7 +161,7 @@ function setSelectedZoomItem(selectedItem) {
 
     /** Vamos a seção dados do fornecedor */
     $("#nome_social_fin").val(selectedItem["NOMEFANTASIA"]);
-    $("#nome_fin").text(selectedItem["NOME"]);
+    $("#nome_fin").val(selectedItem["NOME"]);
     $("#CPF_fin").val(selectedItem["CGCCFO"]);
     $("#CNPJ_fin").val(selectedItem["CGCCFO"]);
     $("#CpfCnpj_analise").val(selectedItem["CGCCFO"]);
@@ -193,6 +192,9 @@ function setSelectedZoomItem(selectedItem) {
     $("#hidden_cnpj_fornecedor").val(selectedItem["CGCCFO"]);
     $("#hidden_coligada_cli_for").val(selectedItem["CODCOLIGADA"]);
     $("#hidden_codigo_cli_for").val(selectedItem["CODCFO"]);
+    let campo = String($("#vincular_fornecedor").val());
+    if (window["vincular_fornecedor_analise"].setValue) window["vincular_fornecedor_analise"].setValue(campo);
+    else $("#vincular_fornecedor_analise").val(campo);
 
   }
   if (FIELD == "vincular_fornecedor_analise") {

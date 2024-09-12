@@ -7,6 +7,10 @@ function validateForm(form) {
     var table_pagamento_parcial = form.getChildrenIndexes("table_pagamento_parcial");
     var table_pagamento_unico = form.getChildrenIndexes("table_pagamento_unico");
 
+
+    /*** Cancelamento */
+    if (proxima == 287) return;
+
     /* ETAPA 000 | 004 - INICIO | 034 REVISÃO */
     if (activity == 4 || activity == 0 || activity == 34) {
         if (campoVazio(form, "empresa")) msg += getMsgObg('Empresa');
@@ -27,7 +31,8 @@ function validateForm(form) {
         }
         if (campoVazio(form, "fornecedor_cadastrado")) msg += getMsgObg('Fornecedor Cadastrado');
         if (form.getValue("fornecedor_cadastrado") == "Sim") {
-            if (campoVazio(form, "vincular_fornecedor")) msg += getMsgObg('Vincular Fornecedor');
+            if (campoVazio(form, "vincular_fornecedor_analise")) msg += getMsgObg('Vincular Fornecedor');
+            if (campoVazio(form, "dados_pagamento")) msg += getMsgObg('Dados de Pagamento');
         } else if (form.getValue("fornecedor_cadastrado") == "Não") {
             if (campoVazio(form, "nome_social")) msg += getMsgObg('Nome Fantasia/Social');
             if (campoVazio(form, "nome")) msg += getMsgObg('Nome');
@@ -110,9 +115,13 @@ function validateForm(form) {
             if (campoVazio(form, "capitalizacao_analise")) msg += getMsgObg('Capitalização');
             if (campoVazio(form, "percentual_cap_analise")) msg += getMsgObg('% Capitalização');
             if (campoVazio(form, "cap_mensal_analise")) msg += getMsgObg('Cap. Mensal (%)');
-            if (campoVazio(form, "fornecedor_cadastrado")) msg += getMsgObg('Fornecedor Cadastrado?');
-            if (form.getValue("fornecedor_cadastrado") == "Sim" && campoVazio(form, "vincular_fornecedor_analise")) msg += getMsgObg('Vincular Fornecedor');
+
             /* VALIDAÇÃO CADASTRO DE FORNECEDOR */
+            if (campoVazio(form, "fornecedor_cadastrado")) msg += getMsgObg('Fornecedor Cadastrado?');
+            if (form.getValue("fornecedor_cadastrado") == "Sim") {
+                if (campoVazio(form, "vincular_fornecedor_analise")) msg += getMsgObg('Vincular Fornecedor');
+                if (campoVazio(form, "dados_pagamento")) msg += getMsgObg('Dados de Pagamento');
+            }
             if (form.getValue("fornecedor_cadastrado") == "Não") {
                 if (campoVazio(form, "nome_social")) msg += getMsgObg('Nome Fantasia/Social');
                 if (campoVazio(form, "nome")) msg += getMsgObg('Nome');

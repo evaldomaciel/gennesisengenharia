@@ -90,8 +90,6 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_pagamento_parcial", false);
       form.setVisibleById("div_confirma_integracao", false);
       form.setVisibleById("div_provisionamento_revisao", false);
-      form.setValue("vincular_fornecedor_analise", "");
-      form.setValue("dados_pagamento_analise", "");
     }
 
 
