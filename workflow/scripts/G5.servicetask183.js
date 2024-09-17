@@ -33,7 +33,7 @@ function servicetask183(attempt, message) {
     if (hAPI.getCardValue("dados_pagamento") != "BOLETO") {
       text = removeNode(text, "IPTE");
     } else {
-      text = replaceValue(text, 'IPTE', hAPI.getCardValue("cod_boleto"));
+      text = replaceValue(text, 'IPTE', hAPI.getCardValue("cod_boleto_analise"));
     }
 
     text = replaceValue(text, 'CODCOLIGADA', hAPI.getCardValue("CODCOLIGADA"));

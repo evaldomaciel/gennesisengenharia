@@ -38,7 +38,7 @@ function valores() {
         { 'id': 'Cor_Fundo_Ativa', 'Valor': '#98E1BD', 'descrição': 'Cor de Fundo Divisão ativa do HTML' },
         { 'id': 'Cor_Fundo_Inativa', 'Valor': '#DBDBDB', 'descrição': 'Cor de Fundo Divisão Inativa do HTML' },
         { 'id': 'Cor_Fundo_Consulta', 'Valor': '#87CEFA', 'descrição': 'Cor de Fundo Divisão Encerrada' },
-        { 'id': 'rm_usuario', 'Valor': 'suporte.totvs', 'descrição': 'Dados de usuário para integração com RM' },
-        { 'id': 'rm_senha', 'Valor': 'Suporte#5', 'descrição': 'Dados de usuário para integração com RM' },
+        { 'id': 'rm_usuario', 'Valor': 'fluig', 'descrição': 'Dados de usuário para integração com RM' },
+        { 'id': 'rm_senha', 'Valor': 'QFRvdHZzMTIzNDU2', 'descrição': 'Dados de usuário para integração com RM' },
     ]
 }

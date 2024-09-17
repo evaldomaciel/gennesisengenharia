@@ -208,6 +208,15 @@ $(document).ready(function () {
   toggleMotivoPedidoAjustes(formGetValue('dados_conformidade'))
   toggleCampoChavePix(formGetValue('tipo_chave_pix'))
   toggleCampoChavePixFin(formGetValue('tipo_chave_pix'))
+
+
+  /** Preenche o valor das labels de "vincula fornecedor" */
+  if ($("[name='nome']").val() != "") $("[id='nome_forn_analise']").text($("[name='nome']").val()); 
+  if ($("[name='hidden_codigo_cli_for']").val() != "") $("[id='cfo_forn_analise']").text($("[name='hidden_codigo_cli_for']").val());
+  if ($("[name='hidden_cnpj_fornecedor']").val() != "") {
+    $("[id='cnpj_forn_analise']").text($("[name='hidden_cnpj_fornecedor']").val());
+    $("[id='CpfCnpj_analise']").val($("[name='hidden_cnpj_fornecedor']").val());
+  }
 });
 
 /** Aqui acaba o ready */

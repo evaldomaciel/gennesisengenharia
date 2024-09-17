@@ -209,7 +209,7 @@ function setSelectedZoomItem(selectedItem) {
     $("#nome_cli_fornecedor_analise").val(selectedItem["NOME"]);
     $("#cnpj_forn_analise").text(selectedItem["CGCCFO"]);
     $("#CpfCnpj_analise").val(selectedItem["CGCCFO"]);
-    $("#cfo_forn_analise").text($("#hidden_codigo_cli_for").val());
+    $("#cfo_forn_analise").text(selectedItem["CODCFO"]);
     $("#nome_social_fin").val(selectedItem["NOMEFANTASIA"]);
     $("#nome_fin").val(selectedItem["NOME"]);
     $("#CNPJ_fin").val(selectedItem["CGCCFO"]);

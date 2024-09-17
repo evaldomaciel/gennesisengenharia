@@ -180,7 +180,6 @@ function getFormattedDate() {
 
 function notificaCancelamento(textoMsg, destinatario) {
 	var msg = '';
-	var titulo_solicitacao = hAPI.getCardValue("titulo_solicitacao");
 	msg += '<html>'
 	msg += '	<body>'
 	msg += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
@@ -188,7 +187,7 @@ function notificaCancelamento(textoMsg, destinatario) {
 	msg += '	<p> Informamos que a solicitação ' + String(getValue('WKNumProces')) + 'foi cancelada pelo departamento financeiro pelos seguintes motivos: [motivo do cancelamento].'
 	msg += '	<p>Atenciosamente,</p>'
 	msg += '	<p>' + textoMsg + '</p>'
-	msg += '  <p> Título : ' + titulo_solicitacao + '</p>';
+	msg += '  <p> Título : ' + hAPI.getCardValue("titulo_solicitacao") + '</p>';
 	msg += '	</body>'
 	msg += '</html>'
 	var obj = new com.fluig.foundation.mail.service.EMailServiceBean();

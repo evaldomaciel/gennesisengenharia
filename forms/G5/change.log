@@ -81,6 +81,31 @@
 
 2024-09-12 Ajustes solicitados
 
-O pior aqui é testar 
+- Ajustes de formulário e processo
+
+2024-06-16
+	CHECKLIST
+		Ajuste template de e-mail, realizar ajuste de matrícula do usuário para nome do usuário e adicionar título da solicitação, (havíamos mapeado durante a validação, mas colocamos para ajuste durante o processo de MVP).
+
+	ANDRE: No email de abertura está indo o texto referente ao campo “Titulo da solicitação” (After ProcessCreate)
+
+	Aqui não entendi. O que há de errado com o e-mail? 
+	O título notei que não está indo, mas o nome de usuário esta ok. 
+	R: É justamente  para inserir o Titulo que está faltando
+	"Título inserido no afterProcessCreate"
+
+		Se o código de barras do boleto (código do boleto) na etapa de provisionamento for preenchido apenas pelo financeiro, não gera o lançamento automático, apenas se o solicitante colocar no formulário também.
+	Foi verificado que numa solicitação que a forma de pagamento for boleto, caso o solicitante não preencha no campo inicial do formulário (imagem 1), e na hora do provisionamento, na parte do formulário competente a eles (imagem 2), preencherem neste local, o código inserido no formulário não é repassado
+	ANDRE: Verificar se a integração está sendo feita com qual dos campos que recebe o número do boleto, parece que se o usuário altera algum dado na etapa provisionamento o campo n° boleto está sendo limpo, deixar o campo  do boleto na fase do provisionamento com os dados vindos do cadastro inicial e de forma que só seja alterado por ação do usuário na etapa Provisionamento se ele assim desejar. Deixar a exibição do campo Código do boleto Fixa, independentemente do tipo escolhido em dados do pagamento
+	"Copiado valor do campo 'cod_boleto' para o campo 'cod_boleto_anilise' e na integração o script foi alterado para utilizar o campo 'cod_boleto_anilise'". 
+
+		Na análise de vínculo do fornecedor no provisionamento, o financeiro está tendo que desvincular e vincular de novo o fornecedor, pois senão o campo do "cliente/fornecedor" não vincula:	
+	Ao chegar na fase de provisionamento, o fornecedor da qual foi vinculado no formulário pelo solicitante, está bugando na parte do formulário de “Análise do vínculo do fornecedor”, está ficando vazio, ou, as vezes vem ele selecionado, porém, o campo lateral onde confirma aquele fornecedor está em branco, o mesmo também acontece para os “dados de pagamento” e “nome do cliente/fornecedor”. Exemplo: Servidor homolog solicitação 46093
+	"Feito ajuste no script do formulário para obter o texto das labels de campos ocultos e caregar automáticamente com o carregamento do formulário".
+
+		Verificar a questão dos anexos que não estão salvando a aba de "anexos" ;
+ANDRÉ, Identifiquei que na abertura , a obrigatoriedade dos anexos está vinculada a abertura de linha na table de anexos, porém se o usuário inserir uma linha e deixar sem preenchimento o processo avança sem anexo, temos que validar se o usuário anexou , ou seja se alinha tem preenchimento 
+
+
 
 

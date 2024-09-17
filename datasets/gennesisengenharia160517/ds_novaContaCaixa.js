@@ -13,8 +13,10 @@ function createDataset(fields, constraints, sortFields) {
         var service = serviceLocator.getRMIwsDataServer();
         var serviceHelper = wsUpdate_RM.getBean();
         var dataServerName = 'FinCxaDataBR'
+        var usuario = getConstante('rm_usuario')
+        var senha = getConstante('rm_senha')
 
-        
+
         var XML = "<FCXA> " +
             ("CODCOLIGADA" in valores ? "<CODCOLIGADA>" + valores.CODCOLIGADA + "</CODCOLIGADA>" : "") +
             ("CODCXA" in valores ? "<CODCXA>" + valores.CODCXA + "</CODCXA>" : "") +
@@ -36,7 +38,7 @@ function createDataset(fields, constraints, sortFields) {
 
         log.info('XML========= \n' + XML + "\n")
         log.info("======================INSTANCIANDO")
-        var authenticatedService = serviceHelper.getBasicAuthenticatedClient(service, "com.totvs.IwsDataServer", 'suporte.totvs', 'Suporte#5');
+        var authenticatedService = serviceHelper.getBasicAuthenticatedClient(service, "com.totvs.IwsDataServer", usuario, senha);
         log.info('AUTH +++ ' + authenticatedService.toString())
         var result = authenticatedService.saveRecord(dataServerName.toString(), XML.toString(), "CODCOLIGADA=0");
 
@@ -71,4 +73,16 @@ function getConstraints(constraints) {
     }
 
     return objRetorno;
+}
+
+function getConstante(param) {
+    var aConstraint = [];
+    aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
+    var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
+    for (var i = 0; i < oConstantes.rowsCount; i++) {
+        if (oConstantes.getValue(i, "id").trim() == param.trim()) {
+            return oConstantes.getValue(i, "Valor").trim();
+        }
+    }
+    return '0';
 }

@@ -130,9 +130,7 @@ function processErrorResult(error, constraints) {
 	var dataServerName = isPrimitive(params.dataServerName) ? params.dataServerName : JSONUtil.toJSON(params.dataServerName);
 	var filtro = isPrimitive(params.filtro) ? params.filtro : JSONUtil.toJSON(params.filtro);
 	var contexto = isPrimitive(params.contexto) ? params.contexto : JSONUtil.toJSON(params.contexto);
-
 	dataset.addRow([error.message, dataServerName, filtro, contexto]);
-
 	return dataset;
 }
 

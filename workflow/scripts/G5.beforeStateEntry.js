@@ -105,6 +105,7 @@ function dadosCadastroFornecedor() {
 function dadosCadastroBancario() {
   /* Campos comuns */
   hAPI.setCardValue("cad_referencia_fin", hAPI.getCardValue("cad_referencia"));
+  hAPI.setCardValue("cod_boleto_analise", hAPI.getCardValue("cod_boleto"));
   hAPI.setCardValue("referencia_analise", hAPI.getCardValue("cad_referencia"));
   hAPI.setCardValue("descricao_fin", hAPI.getCardValue("descricao"));
   hAPI.setCardValue("nome_filial_d_banc_fin", hAPI.getCardValue("nome_filial_d_banc"));

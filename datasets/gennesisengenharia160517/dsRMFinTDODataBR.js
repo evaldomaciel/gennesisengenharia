@@ -162,9 +162,6 @@ function getObjectFactory(serviceHelper) {
 
 function getSOAPHeaders(serviceHelper, headers) {
 	var soapHeaders = [];
-
-
-
 	return soapHeaders;
 }
 

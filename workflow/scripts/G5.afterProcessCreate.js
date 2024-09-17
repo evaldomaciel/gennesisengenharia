@@ -10,7 +10,8 @@ function afterProcessCreate(processId) {
         msg += '<html>'
         msg += '	<body>'
         msg += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
-        msg += '	<p> Informamos que a solicitação ' + String(getValue('WKNumProces')) + ' foi iniciada no Fluig.'
+        msg += '	<p> Informamos que a solicitação ' + String(getValue('WKNumProces')) + ' foi iniciada no Fluig.';
+        msg += '   	<p> Título : ' + hAPI.getCardValue("titulo_solicitacao") + '</p>';
         msg += '	<p>Atenciosamente, Gestão</p>'
         msg += '	</body>'
         msg += '</html>'

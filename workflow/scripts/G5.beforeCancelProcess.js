@@ -1,7 +1,6 @@
 function beforeCancelProcess(colleagueId, processId) {
     log.info("============= inicio afterTaskComplete 00-FLUIG " + getValue("WKNumProces") + "============= ");
     try {
-        var titulo_solicitacao = hAPI.getCardValue("titulo_solicitacao");
         var parametros = new java.util.HashMap();
         parametros.put("ASSUNTO", "CANCELAMENTO - FASE APROV. GESTOR");
         parametros.put("subject", "CANCELAMENTO - FASE APROV. GESTOR");
@@ -28,7 +27,7 @@ function beforeCancelProcess(colleagueId, processId) {
         msg += '	<body>'
         msg += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
         msg += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces")) + ' foi cancelada!.</p>'
-        msg += '    <p> Título : ' + titulo_solicitacao + '</p>';
+        msg += '    <p> Título : ' + hAPI.getCardValue("titulo_solicitacao"); + '</p>';
         msg += '	</body>'
         msg += '</html>'
         var obj = new com.fluig.foundation.mail.service.EMailServiceBean();

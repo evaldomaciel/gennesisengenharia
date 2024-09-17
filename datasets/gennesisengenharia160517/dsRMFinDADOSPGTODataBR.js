@@ -28,7 +28,7 @@ function callService(fields, constraints, sortFields) {
 	var response = customClient.readView(getParamValue(params.dataServerName, assigns.dataServerName), getParamValue(params.filtro, assigns.filtro),
 		getParamValue(params.contexto, assigns.contexto));
 	log.info("================ contexto ================ ")
-log.info(String(params.contexto))
+	log.info(String(params.contexto))
 	return response;
 }
 
@@ -66,7 +66,7 @@ function onSync(lastSyncDate) {
 
 function verifyConstraints(params, constraints) {
 	var filtro = new Array();
-	var contexto = "CODCOLIGADA=1";
+	var contexto = new Array();
 	filtro.push("1=1");
 	if (constraints != null) {
 		for (var i = 0; i < constraints.length; i++) {
@@ -74,7 +74,10 @@ function verifyConstraints(params, constraints) {
 				if (String(constraints[i].fieldName).toUpperCase() != "SQLLIMIT") filtro.push([constraints[i].fieldName] + " = '" + constraints[i].initialValue + "'")
 				if (String(constraints[i].fieldName).toUpperCase() == "CODCOLIGADA") {
 					filtro.push([constraints[i].fieldName] + " = '" + constraints[i].initialValue + "'");
-					contexto = "CODCOLIGADA=" + constraints[i].initialValue;
+					contexto.push("CODCOLIGADA=" + constraints[i].initialValue)
+				}
+				if (String(constraints[i].fieldName).toUpperCase() == "CODUSUARIO") {
+					contexto.push("CODUSUARIO=" + constraints[i].initialValue)
 				}
 			} catch (e) {
 				params[constraints[i].fieldName] = constraints[i].initialValue;
@@ -82,7 +85,7 @@ function verifyConstraints(params, constraints) {
 		}
 	}
 	params.filtro = filtro.join(" AND ");
-	params.contexto = contexto;
+	params.contexto = contexto.join(";");
 }
 
 function processResult(result) {
@@ -215,7 +218,7 @@ function data() {
 	}
 }
 
-function stringToBoolean(param) { if (typeof (param) === 'boolean') { return param; } if (param == null || param === 'null') { return false; } switch (param.toLowerCase().trim()) { case 'true': case 'yes': case '1': return true; case 'false': case 'no': case '0': case null: return false; default: return Boolean(param); } } 
+function stringToBoolean(param) { if (typeof (param) === 'boolean') { return param; } if (param == null || param === 'null') { return false; } switch (param.toLowerCase().trim()) { case 'true': case 'yes': case '1': return true; case 'false': case 'no': case '0': case null: return false; default: return Boolean(param); } }
 
 function getConstante(param) {
 	var aConstraint = [];

@@ -5,12 +5,11 @@ function afterProcessFinish(processId) {
 		parametros.put("ASSUNTO", "FinaL do processo");
 		parametros.put("subject", "FinaL do processo");
 		parametros.put("USUARIO", getColleagueName(getValue("WKUser")));
-		parametros.put("TITULO_SOLICITACAO", String(getValue("WKNumProces")));
+		parametros.put("TITULO_SOLICITACAO", hAPI.getCardValue("titulo_solicitacao"));
 		parametros.put("ATENDENTE", "Gestão");
 		parametros.put("SOLICITACAO", String(getValue("WKNumProces")));
 
 		var destinatarios = new java.util.ArrayList();
-		titulo_solicitacao = hAPI.getCardValue("titulo_solicitacao");
 
 		var Email1 = hAPI.getCardValue("email_solicitante");
 		var Email2 = hAPI.getCardValue("copia_email_solicitante");
@@ -33,7 +32,7 @@ function afterProcessFinish(processId) {
 		msg += '	<body>'
 		msg += '	<h2> Olá, ' + getColleagueName(getValue("WKUser")) + '</h2>';
 		msg += '	<p> Informamos que a solicitação ' + String(getValue("WKNumProces")) + ' foi Finalizada!.</p>'
-		msg += '   	<p> Título : ' + titulo_solicitacao + '</p>';
+		msg += '   	<p> Título : ' + hAPI.getCardValue("titulo_solicitacao") + '</p>';
 		msg += '	</body>'
 		msg += '</html>'
 		var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
