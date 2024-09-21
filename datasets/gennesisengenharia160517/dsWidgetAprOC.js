@@ -1,17 +1,8 @@
 function createDataset(fields, constraints, sortFields) {
-    return;
-	var pasta = "/app/fluig/appserver/domain/servers/";
-	var diretorio = new java.io.File(pasta);
-	var arquivos = diretorio.listFiles();
-	var linhaDeComando2 = String(arquivos[0]);
-	var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + "/log/server.log"));
-	var retorno4 = new java.nio.file.Files.writeString(pasta, "");
-
-
 	newDataset = DatasetBuilder.newDataset();
 	try {
 		var minhaQuery = "\n";
-		var sqlLimit = 10;
+		var sqlLimit = 100;
 		var NUM_PROCES;
 		var STATUS;
 		var CC;
@@ -25,6 +16,8 @@ function createDataset(fields, constraints, sortFields) {
 		var DATA_EMISSAO_FIM;
 		var DATA_ENTREGA_INI;
 		var DATA_ENTREGA_FIM;
+		var START_DATE_INI = getDateSQL(-1);
+		var START_DATE_FIM = getDateSQL();
 		var PRODUTO;
 		var NUM_SEQ_ESTADO;
 
@@ -41,10 +34,14 @@ function createDataset(fields, constraints, sortFields) {
 					CENTRO_CUSTO = element.fieldName == 'CENTROCUSTO' ? element.initialValue : CENTRO_CUSTO;
 					NUMOS = element.fieldName == 'NUMOS' ? element.initialValue : NUMOS;
 					TIPO_DE_MANDA = element.fieldName == 'TIPODEMANDA' ? element.initialValue : TIPO_DE_MANDA;
+					VENCIMENTO_INI = element.fieldName == 'dataVencimento' ? element.initialValue : VENCIMENTO_INI;
+					VENCIMENTO_FIM = element.fieldName == 'dataVencimento' ? element.finalValue : VENCIMENTO_FIM;
 					VENCIMENTO_INI = element.fieldName == 'VENCIMENTOINI' ? element.initialValue : VENCIMENTO_INI;
 					VENCIMENTO_FIM = element.fieldName == 'VENCIMENTOFIM' ? element.initialValue : VENCIMENTO_FIM;
-					DATA_ENTREGA_INI = element.fieldName == 'DATAENTREGAINI' ? element.initialValue : DATA_ENTREGA_INI;
+					START_DATE_INI = element.fieldName == 'START_DATE' ? element.initialValue : START_DATE_INI;
+					START_DATE_FIM = element.fieldName == 'START_DATE' ? element.finalValue : START_DATE_FIM;
 					DATA_ENTREGA_FIM = element.fieldName == 'DATAENTREGAFIM' ? element.initialValue : DATA_ENTREGA_FIM;
+					DATA_ENTREGA_FIM = element.fieldName == 'DATAENTREGA' ? element.finalValue : DATA_ENTREGA_FIM;
 					PRODUTO = element.fieldName == 'PRODUTO' ? element.initialValue : PRODUTO;
 					NUM_SEQ_ESTADO = element.fieldName == 'NUM_SEQ_ESTADO' ? element.initialValue : NUM_SEQ_ESTADO;
 				}
@@ -53,6 +50,7 @@ function createDataset(fields, constraints, sortFields) {
 
 		minhaQuery += "SELECT ";
 		minhaQuery += "\n G3.NUM_PROCES, ";
+		minhaQuery += "\n DSG3.IdentificadorFluigAnexo, ";
 		minhaQuery += "\n CAST(DSG3.IdentificadorFluig AS CHAR) AS 'DSG3IdentificadorFluig', ";
 		minhaQuery += "\n CAST(DSG4.IdentificadorFluig AS CHAR) AS 'DSG4IdentificadorFluig', ";
 		minhaQuery += "\n CAST(DSG3.StatusFluig AS CHAR) AS 'DSG3StatusFluig', ";
@@ -101,19 +99,16 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += "\n FROM PROCES_WORKFLOW 			G3 ";
 		minhaQuery += "\n INNER JOIN DOCUMENTO 			DOC_G3 		ON DOC_G3.COD_EMPRESA = G3.COD_EMPRESA and DOC_G3.NR_DOCUMENTO = G3.NR_DOCUMENTO_CARD AND DOC_G3.VERSAO_ATIVA = true  ";
 		minhaQuery += "\n INNER JOIN ML001008 			DSG3		ON DSG3.companyid = G3.COD_EMPRESA and DSG3.documentid = G3.NR_DOCUMENTO_CARD AND DSG3.version = DOC_G3.NR_VERSAO  ";
-		
+
 		minhaQuery += "\n INNER JOIN def_proces 		DP 			ON DP.COD_DEF_PROCES = G3.COD_DEF_PROCES AND DP.COD_EMPRESA = G3.COD_EMPRESA  ";
 		minhaQuery += "\n INNER JOIN fdn_usertenant 	UT 			ON UT.USER_CODE = G3.COD_MATR_REQUISIT AND UT.TENANT_ID = 1  ";
 		minhaQuery += "\n INNER JOIN fdn_user 			UU 			ON UU.USER_ID = UT.USER_ID ";
 		minhaQuery += "\n INNER JOIN histor_proces 		HP 			ON HP.COD_EMPRESA = G3.COD_EMPRESA AND HP.NUM_PROCES = G3.NUM_PROCES AND HP.NUM_SEQ_MOVTO = (SELECT MAX(NUM_SEQ_MOVTO) FROM histor_proces WHERE NUM_PROCES = HP.NUM_PROCES AND COD_EMPRESA = HP.COD_EMPRESA LIMIT 1) ";
 		minhaQuery += "\n INNER JOIN estado_proces 		EP	 		ON EP.COD_DEF_PROCES = DP.COD_DEF_PROCES and EP.NUM_VERS = G3.NUM_VERS AND EP.NUM_SEQ = HP.NUM_SEQ_ESTADO AND EP.COD_EMPRESA = 1  ";
 
-
-		minhaQuery += "\n LEFT JOIN PROCES_WORKFLOW 	G4 			ON G3.END_DATE >= G4.START_DATE AND G3.END_DATE <= G4.START_DATE + INTERVAL 1 SECOND AND G4.COD_EMPRESA = G3.COD_EMPRESA AND G4.NUM_PROCES = DSG3.IdentificadorFluigAnexo AND   G4.COD_DEF_PROCES = 'G4' ";
+		minhaQuery += "\n LEFT JOIN PROCES_WORKFLOW 	G4 			ON G4.COD_EMPRESA = G3.COD_EMPRESA AND G4.NUM_PROCES = DSG3.IdentificadorFluigAnexo AND G4.COD_DEF_PROCES = 'G4' ";
 		minhaQuery += "\n LEFT JOIN DOCUMENTO 			DOC_G4 		ON DOC_G4.COD_EMPRESA = G4.COD_EMPRESA and DOC_G4.NR_DOCUMENTO = G4.NR_DOCUMENTO_CARD AND DOC_G4.VERSAO_ATIVA = true  ";
 		minhaQuery += "\n LEFT JOIN ML001017 			DSG4		ON DSG4.companyid = G4.COD_EMPRESA and DSG4.documentid = G4.NR_DOCUMENTO_CARD AND DSG4.version = DOC_G4.NR_VERSAO AND DSG4.idMov = DSG3.idMov AND DSG4.IdentificadorFluig = DSG3.IdentificadorFluigAnexo ";
-
-
 
 		// minhaQuery += "\n LEFT JOIN ML001009 			RATEIOS 	ON RATEIOS.companyid = DSG3.companyid and RATEIOS.documentid = DSG3.documentid AND RATEIOS.version = DSG3.version  ";
 		minhaQuery += "\n LEFT JOIN ML001020 			BOLETO 		ON BOLETO.companyid = DSG4.companyid and BOLETO.documentid = DSG4.documentid AND BOLETO.version = DSG4.version  ";
@@ -131,14 +126,15 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += "\n AND DSG3.IdMov is not null AND DSG3.IdMov <> ''  ";
 		// minhaQuery += "\n AND RATEIOS.centroCusto is not null AND RATEIOS.centroCusto <> ''  ";
 		// minhaQuery += "\n AND DSG3.StatusFluig IS NOT NULL  ";
-		minhaQuery += STATUS != undefined ? "\n AND G3.STATUS = '" + STATUS + "'" : "";
+		minhaQuery += STATUS != undefined ? "\n AND G3.STATUS = '" + STATUS + "'" : "\n AND G3.STATUS <> 1 ";
 		minhaQuery += NUM_SEQ_ESTADO != undefined ? "\n AND EP.NUM_SEQ = '" + NUM_SEQ_ESTADO + "'" : "";
 		minhaQuery += NUM_PROCES != undefined ? "\n AND G3.NUM_PROCES = '" + NUM_PROCES + "'" : "";
 		minhaQuery += IDMOV != undefined ? "\n AND DSG3.IdMov = '" + IDMOV + "'" : "";
-//		minhaQuery += CENTRO_CUSTO != undefined ? "\n AND DSG3.CC like '%" + CENTRO_CUSTO + "%'" : "";
+		//		minhaQuery += CENTRO_CUSTO != undefined ? "\n AND DSG3.CC like '%" + CENTRO_CUSTO + "%'" : "";
 		minhaQuery += CENTRO_CUSTO != undefined ? "\n AND DSG3.CC in ('" + CENTRO_CUSTO.replace(",", "','") + "')" : "";
 		// minhaQuery += CENTRO_CUSTO != undefined ? "\n AND RATEIOS.centroCusto like '%" + CENTRO_CUSTO + "%'" : "";
 		minhaQuery += NUMOS != undefined ? "\n AND DSG3.NUMOS in ('" + NUMOS.replace(",", "','") + "')" : "";
+		minhaQuery += START_DATE_INI != undefined && START_DATE_FIM != undefined ? "\n AND G3.START_DATE BETWEEN '" + START_DATE_INI + "' AND '" + START_DATE_FIM + "'" : "";
 		minhaQuery += VENCIMENTO_INI != undefined && VENCIMENTO_FIM != undefined ? "\n AND STR_TO_DATE(BOLETO.dataVencimento, '%d/%m/%Y') BETWEEN '" + VENCIMENTO_INI + "' AND '" + VENCIMENTO_FIM + "'" : "";
 		minhaQuery += DATA_ENTREGA_INI != undefined && DATA_ENTREGA_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEntrega, '%d/%m/%Y') BETWEEN '" + DATA_ENTREGA_INI + "' AND '" + DATA_ENTREGA_FIM + "'" : "";
 		minhaQuery += DATA_EMISSAO_INI != undefined && DATA_EMISSAO_FIM != undefined ? "\n AND STR_TO_DATE(DSG3.dataEmissao, '%d/%m/%Y') BETWEEN '" + DATA_EMISSAO_INI + "' AND '" + DATA_EMISSAO_FIM + "'" : "";
@@ -149,7 +145,7 @@ function createDataset(fields, constraints, sortFields) {
 
 		minhaQuery += sqlLimit != undefined ? "\n LIMIT " + sqlLimit : "";
 
-		log.info(minhaQuery)
+		log.info(minhaQuery);
 
 		var dataSource = "/jdbc/AppDS";
 
@@ -223,4 +219,17 @@ function TESTS() {
 			DatasetFactory.createConstraint('activeVersion', 'true', 'true', ConstraintType.MUST)
 		), null);
 	datasetDocument.values
+}
+
+function getDateSQL(addMonths) {
+	addMonths = addMonths ? addMonths : 0;
+	var date = new Date();
+	date.setMonth(date.getMonth() + addMonths);
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	if (month < 10) { month = '0' + month; }
+	if (day < 10) { day = '0' + day; }
+	// return String(day) + "/" + String(month) + "/" + String(year);
+	return String(year) + String(month) + String(day);
 }

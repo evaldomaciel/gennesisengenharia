@@ -52,7 +52,9 @@ function validateForm(form) {
             if (campoVazio(form, "telefone")) msg += getMsgObg('Telefone');
             if (campoVazio(form, "email")) msg += getMsgObg('E-mail');
             if (campoVazio(form, "contato")) msg += getMsgObg('Contato');
-            if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido")) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!');
+            var cpf2 = form.getValue("CpfCnpj_favorecido").replace('.', '');
+            cpf2 = cpf2.replace('-','');
+            if (form.getValue("CGCCFO") !=  cpf2 ) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor! : ');
         }
         if (campoVazio(form, "valor_total_rateio")) msg += getMsgObg('Valor total a ser pago');
 
@@ -179,7 +181,10 @@ function validateForm(form) {
             }
         }
     } else if (activity == 274) {
-        if (form.getValue("CGCCFO") != form.getValue("CpfCnpj_favorecido_fin")) { msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!') }
+        var cpf2 = form.getValue("CpfCnpj_favorecido").replace('.', '');
+        cpf2 = cpf2.replace('-','');
+    
+        if (form.getValue("CGCCFO") != cpf2 ) { msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!') }
     }
     /** Retorna mensagem de erro se alguns dos campos não atender as regras */
     if (msg != "") {
