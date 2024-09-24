@@ -229,7 +229,7 @@
             </div>
           </div>
           <div class="row" id="div_email_solicitante">
-            <div class="col-sm-6" id="div_email">
+            <div class="col-sm-6" id="div_email_solicitante">
               <div class="form-field" data-type="textbox" data-show-properties data-field-name="email_solicitante">
                 <div class="form-input">
                   <div class="form-group">
@@ -557,7 +557,7 @@
 ]
 }">
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8" id="div_nome_cliente_forn">
                           <input type="text" class="form-control" data_id="nome_cliente_forn" name="nome_cliente_forn" id="nome_cliente_forn" />
                         </div>
                       </div>
@@ -576,13 +576,13 @@
                 </div>
               </div>
             </div>
-            <h3>Endereço</h3>
+            <h3 id="div_endereco_titulo">Endereço</h3>
             <div class="row">
-              <div class="col-sm-2 form-field" id="div_cep" data-type="textbox" data-show-properties data-field-name="CEP">
+              <div class="col-sm-2 form-field" id="div_cep_1" data-type="textbox" data-show-properties data-field-name="CEP">
                 <div class="form-input">
                   <div class="form-group">
                     <label for="CEP" class="required">CEP</label>
-                    <input type="text" class="form-control" id="CEP" name="CEP" data-size="big" mask="00000-000" maxlength="9" data-only-numbers="true">
+                    <input type="text" class="form-control" id="CEP" name="CEP" data-size="big" mask="00000-000" maxlength="9" data-only-numbers="true" />
                   </div>
                 </div>
               </div>
@@ -590,7 +590,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label for="tipo_rua">Tipo de Rua</label>
-                    <input type="text" class="form-control" name="tipo_rua" id="tipo_rua" value="1">
+                    <input type="text" class="form-control" name="tipo_rua" id="tipo_rua" value="1" />
                   </div>
                 </div>
               </div>
@@ -598,7 +598,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label for="rua" class="required">Rua</label>
-                    <input type="text" class="form-control" name="rua" id="rua">
+                    <input type="text" class="form-control" name="rua" id="rua" />
                   </div>
                 </div>
               </div>
@@ -606,7 +606,7 @@
                 <div class="form-input">
                   <div class="form-group">
                     <label for="numero" class="required">Número</label>
-                    <input type="text" class="form-control" name="numero" data-size="big" maxlength="8">
+                    <input type="text" class="form-control" name="numero" data-size="big" maxlength="8" />
                   </div>
                 </div>
               </div>
@@ -656,7 +656,7 @@
                 </div>
               </div>
             </div>
-            <h3>Estado</h3>
+            <h3 id="div_estado_titulo">Estado</h3>
             <div class="row">
               <div class="col-sm-1" id="div_sigla_estado">
                 <div class="form-field" data-type="textarea" data-show-properties data-field-name="sigla_estado">
@@ -695,7 +695,7 @@
                   </span>
                 </div>
               </div>
-              <div class="col-sm-3 form-field" id="div_estado" data-type="textbox" data-show-properties data-field-name="nome_estado">
+              <div class="col-sm-3 form-field" id="div_nome_estado" data-type="textbox" data-show-properties data-field-name="nome_estado">
                 <div class="form-input">
                   <div class="form-group">
                     <label for="nome_estado" class="required">Nome</label>
@@ -712,7 +712,7 @@
                 </div>
               </div>
             </div>
-            <h3>Contato</h3>
+            <h3 id="div_contato_titulo">Contato</h3>
             <div class="row">
               <div class="col-sm-2 form-field" id="div_telefone" data-type="textbox" data-show-properties data-field-name="telefone">
                 <div class="form-input">
@@ -1386,7 +1386,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label for="CEP_fin" class="required">CEP</label>
-                  <input type="text" class="form-control" id="CEP_fin" name="CEP_fin" data-size="big" mask="00000-000" maxlength="9" data-only-numbers="true">
+                  <input type="text" class="form-control" id="CEP_fin" name="CEP_fin" data-size="big" mask="00000-000" maxlength="9" data-only-numbers="true" />
                 </div>
               </div>
             </div>
@@ -1394,7 +1394,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label for="tipo_rua_fin" class="required">Tipo de Rua</label>
-                  <input type="text" class="form-control" name="tipo_rua_fin" id="tipo_rua_fin" value="1">
+                  <input type="text" class="form-control" name="tipo_rua_fin" id="tipo_rua_fin" value="1" />
                 </div>
               </div>
             </div>
@@ -1402,7 +1402,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label for="rua_fin" class="required">Rua</label>
-                  <input type="text" class="form-control" name="rua_fin" id="rua_fin">
+                  <input type="text" class="form-control" name="rua_fin" id="rua_fin" />
                 </div>
               </div>
             </div>
@@ -1410,7 +1410,7 @@
               <div class="form-input">
                 <div class="form-group">
                   <label for="numero_fin" class="required">Número</label>
-                  <input type="text" class="form-control" name="numero_fin" data-size="big" maxlength="8">
+                  <input type="text" class="form-control" name="numero_fin" data-size="big" maxlength="8" />
                 </div>
               </div>
             </div>
@@ -2303,7 +2303,7 @@
               <div class="col-sm-2 form-group" id="div_juros_dia_analise">
                 <label class="required" for="juros_dia_analise" class="form-label">Juros ao Dia</label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="juros_dia_analise" id="taxa_juros_dia_analise" value="Taxa">
+                  <input class="form-check-input" type="radio" name="juros_dia_analise" id="taxa_juros_dia_analise" value="Taxa" checked="true">
                   <label class="form-check-label" for="taxa_juros_dia_analise">Taxa</label>
                 </div>
                 <div class="form-check">
@@ -2607,25 +2607,25 @@
                         <th style="min-width: 300px;" class="tableColumn required">
                           <label for="data_vencimento_av">Data de Vencimento</label>
                         </th>
-                        <th style="min-width: 300px;" class="tableColumn required">
+                        <th style="min-width: 300px;" class="tableColumn required aguardandoVencimentoAtv">
                           <label for="data_pagamento_av">Data de Pagamento</label>
                         </th>
-                        <th style="min-width: 150px;" class="tableColumn required">Anexo</th>
+                        <th style="min-width: 150px;" class="tableColumn required aguardandoVencimentoAtv">Anexo</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr class="tableBodyRow" id="tableBodyRow">
                         <td class="fs-v-align-middle">
                           <div class="form-input">
-                            <input id="data_vencimento_av" type="date" class="form-control" name="data_vencimento_av" data-date>
+                            <input id="data_vencimento_av" type="text" class="form-control" name="data_vencimento_av" data-date>
                           </div>
                         </td>
-                        <td class="fs-v-align-middle">
+                        <td class="fs-v-align-middle aguardandoVencimentoAtv">
                           <div class="form-input">
-                            <input id="data_pagamento_av" type="date" class="form-control" name="data_pagamento_av" data-date>
+                            <input id="data_pagamento_av" type="text" class="form-control" name="data_pagamento_av" data-date>
                           </div>
                         </td>
-                        <td style="padding-top: 25px;">
+                        <td style="padding-top: 25px;" class="aguardandoVencimentoAtv">
                           <div class="form-group">
                             <div class="input-group componentAnexo">
                               <input type="hidden" class="descAnexo" name="anexo_av" id="anexo_av" value="Value" />
@@ -2653,8 +2653,7 @@
                     </tbody>
                   </table>
                 </div>
-                <button type="button" class="btn btn-primary" id="btn_add_linha_av" onclick="wdkAddChild('table_aguardando_vencimento')">Novo
-                  Registro</button>
+                <button type="button" class="btn btn-primary" id="btn_add_linha_av" onclick="wdkAddChild('table_aguardando_vencimento')">Novo Registro</button>
               </div>
             </div>
           </div>
@@ -2718,10 +2717,10 @@
                         <th style="min-width: 300px;" class="tableColumn">
                           <label for="data_vencimento_pu" class="required">Data de Vencimento</label>
                         </th>
-                        <th style="min-width: 300px;" class="tableColumn">
+                        <th style="min-width: 300px;" class="tableColumn oculta-pagamento-pu">
                           <label for="data_pagamento_pu" class="required">Data de Pagamento</label>
                         </th>
-                        <th style="min-width: 150px;" class="tableColumn">
+                        <th style="min-width: 150px;" class="tableColumn oculta-pagamento-pu">
                           <label for="fnInsertAnexoPu" class="required">Anexo</label>
                         </th>
                       </tr>
@@ -2730,17 +2729,17 @@
                       <tr class="tableBodyRow" id="tableBodyRow">
                         <td class="fs-v-align-middle">
                           <div class="form-input">
-                            <input id="data_vencimento_pu" type="date" class="form-control" name="data_vencimento_pu" data-date>
+                            <input id="data_vencimento_pu" type="text" class="form-control" name="data_vencimento_pu" data-date>
                           </div>
                         </td>
                         <td class="fs-v-align-middle">
                           <div class="form-input">
-                            <input id="data_pagamento_pu" type="date" class="form-control" name="data_pagamento_pu" data-date>
+                            <input id="data_pagamento_pu" type="text" class="form-control oculta-pagamento-pu" name="data_pagamento_pu" data-date>
                           </div>
                         </td>
                         <td style="padding-top: 25px;">
                           <div class="form-group">
-                            <div class="input-group componentAnexo">
+                            <div class="input-group componentAnexo oculta-pagamento-pu">
                               <input type="hidden" class="descAnexo" name="anexo_pu" id="anexo_pu" value="Value" />
                               <input name="fnInsertAnexoPu" id="fnInsertAnexoPu" class="form-control inputAnexo" type="text" placeholder="Selecione um arquivo" readonly />
                               <span class="input-group-btn">
@@ -2843,12 +2842,12 @@
                       <tr class="tableBodyRow" id="tableBodyRow">
                         <td class="fs-v-align-middle">
                           <div class="form-input">
-                            <input id="data_vencimento_pp" type="date" class="form-control" name="data_vencimento_pp" data-date>
+                            <input id="data_vencimento_pp" type="text" class="form-control" name="data_vencimento_pp" data-date>
                           </div>
                         </td>
                         <td class="fs-v-align-middle">
                           <div class="form-input">
-                            <input id="data_pagamento_pp" type="date" class="form-control" name="data_pagamento_pp" data-date>
+                            <input id="data_pagamento_pp" type="text" class="form-control" name="data_pagamento_pp" data-date>
                           </div>
                         </td>
                         <td style="padding-top: 25px;">
@@ -2996,7 +2995,7 @@
             </div>
             <div class="col-sm-3 col-xs-2">
               <label for="DATA_INICIO">Data inicio:</label>
-              <input type="date" name="DATA_INICIO" id="DATA_INICIO" class="form-control" readonly />
+              <input type="text" name="DATA_INICIO" id="DATA_INICIO" class="form-control" readonly />
             </div>
             <div class="col-sm-3 col-xs-2">
               <label for="NUM_HORA_INIC_PERIOD">Hora inicio:</label>
@@ -3004,7 +3003,7 @@
             </div>
             <div class="col-sm-3 col-xs-2">
               <label for="DATA_FIM">Data fim:</label>
-              <input type="date" name="DATA_FIM" id="DATA_FIM" class="form-control" readonly />
+              <input type="text" name="DATA_FIM" id="DATA_FIM" class="form-control" readonly />
             </div>
             <div class="col-sm-3 col-xs-2">
               <label for="NUM_HORA_FIM_PERIOD">Hora fim:</label>
@@ -3061,6 +3060,14 @@
             <div class="col-sm-3 col-xs-3">
               <label for="chave_pix_padrao">Chave PIX Padrão</label>
               <input type="text" name="chave_pix_padrao" id="chave_pix_padrao" class="form-control" readonly />
+            </div>
+            <div class="col-sm-3 col-xs-3">
+              <label for="numAtividadeAtual">Atividade Atual</label>
+              <input type="text" id="numAtividadeAtual" name="numAtividadeAtual" readonly />
+            </div>
+            <div class="col-sm-3 col-xs-3">
+              <label for="numAtividadeAnterior">Atividade anterior</label>
+              <input type="text" id="numAtividadeAnterior" name="numAtividadeAnterior" readonly />
             </div>
           </div>
       </section>
@@ -3471,7 +3478,7 @@
         $this.val($this.val().replace(/[^0-9\.]/g, ''));
       }, 5);
     });
-    $('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]', function () {
+    $('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="text"], textarea[required="required"]', function () {
       validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
     });
     $('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function () {
@@ -3492,10 +3499,6 @@
         }
       }
     }
-    $.each($("[data-date]"), function (i, o) {
-      var id = $(o).attr("id");
-      FLUIGC.calendar("#" + id);
-    });
   </script>
 </body>
 

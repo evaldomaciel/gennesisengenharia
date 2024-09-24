@@ -79,6 +79,7 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_pagamento_unico", false);
       form.setVisibleById("div_pagamento_parcial", false);
       form.setVisibleById("div_confirma_integracao", false);
+      fornecedorPadrao(form);
     }
 
     else if (activity == 14) {
@@ -104,27 +105,36 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_provisionamento_revisao", true);
     }
 
-    else if (activity == 128 || activity == 248) {
-      /** Pagamento parcial */
-      cor_div_pagamento_parcial = corDeFundoAtiva;
-      form.setVisibleById("div_aguardando_vencimento", false);
-      form.setVisibleById("div_pagamento_unico", false);
-      form.setVisibleById("div_confirma_integracao", false);
-      form.setVisibleById("div_provisionamento_revisao", false);
-    }
-
-
-    else if (activity == 127 || activity == 247) {
-      /** Pagamento unico */
+    else if (activity == 127 || activity == 247 || activity == 128 || activity == 248) {
+      /** Pagamento unico (127) - Aguardando Vencimento (128) */
       cor_div_pagamento_unico = corDeFundoAtiva;
       form.setVisibleById("div_aguardando_vencimento", false);
       form.setVisibleById("div_pagamento_parcial", false);
       form.setVisibleById("div_confirma_integracao", false);
       form.setVisibleById("div_provisionamento_revisao", false);
+      if (activity == 128) {
+        form.setValue('teve_juros_pu', '')
+        form.setValue('pagamento_realizado_pu', '')
+        form.setVisibleById("div_pagamento_realizado", false)
+        form.setVisibleById("div_teve_juros_pu", false);
+        form.setVisibleById("valor_pu", false);
+        form.setVisibleById("div_valor_pu", false);
+        customAppend += "\n $('.oculta-pagamento-pu').hide(); ";
+
+      }
+      else if (activity == 127) {
+        if (form.getValue('teve_juros') != 'Sim') {
+          form.setValue('teve_juros_pu', 'Não')
+          form.setVisibleById("div_valor_original_pu", false);
+          form.setVisibleById("div_valor_juros_pu", false);
+        } else {
+          form.setValue('teve_juros_pu', 'Sim')
+        }
+      }
     }
 
     else if (activity == 97 || activity == 246) {
-      /** aguardando vencimento */
+      /** Provisionado */
       cor_div_aguardando_vencimento = corDeFundoAtiva;
       form.setVisibleById("div_pagamento_unico", false);
       form.setVisibleById("div_pagamento_parcial", false);
@@ -154,6 +164,9 @@ function displayFields(form, customHTML) {
     if (String(form.getValue("mensagem_solicitacao_ajustes")) == "") {
       form.setVisibleById("div_provisionamento_revisao", false);
     }
+
+    fornecedorPadrao(form);
+
 
     /** Negações */
     // if (adminUser == false) {
@@ -282,4 +295,54 @@ function preencheFormAcelerador(form) {
     }
   }
   return colunas;
+}
+
+function fornecedorPadrao(form) {
+  form.setValue('tipo_cliente_forn', 'Tipo A');
+  form.setValue('nome_cliente_forn', 'NOME DO CLIENTE A');
+  form.setValue('status_tipo_cliente', '1');
+  form.setValue('CEP', '59.065-600');
+  form.setValue('tipo_rua', '1');
+  form.setValue('rua', 'Avenida do Sol');
+  form.setValue('numero', '3449');
+  form.setValue('complemento', '');
+  form.setValue('tipo_bairro', '1');
+  form.setValue('bairro', 'Candelária');
+  form.setValue('id_pais', '1');
+  form.setValue('pais', 'Brasil');
+  form.setValue('sigla_estado', 'RN');
+  form.setValue('nome_estado', 'Rio Grande do Norte');
+  form.setValue('municipio', 'Natal');
+  form.setValue('telefone', '99-999999999');
+  form.setValue('celular', '99-999999999');
+  form.setValue('telefone_comercial', '99-999999999');
+  form.setValue('fax', '99-999999999');
+  form.setValue('email', 'teste@engpac.com.br');
+  form.setValue('contato', 'contato');
+
+  form.setVisibleById('div_endereco_titulo', false);
+  form.setVisibleById('div_estado_titulo', false);
+  form.setVisibleById('div_contato_titulo', false);
+  form.setVisibleById('div_tipo_cliente_forn', false);
+  form.setVisibleById('div_nome_cliente_forn', false);
+  form.setVisibleById('div_status_tipo_cliente', false);
+  form.setVisibleById('div_cep_1', false);
+  form.setVisibleById('div_tipo_rua', false);
+  form.setVisibleById('div_rua', false);
+  form.setVisibleById('div_numero', false);
+  form.setVisibleById('div_complemento', false);
+  form.setVisibleById('div_tipo_bairro', false);
+  form.setVisibleById('div_bairro', false);
+  form.setVisibleById('div_id_pais', false);
+  form.setVisibleById('div_pais', false);
+  form.setVisibleById('div_sigla_estado', false);
+  form.setVisibleById('div_nome_estado', false);
+  form.setVisibleById('div_municipio', false);
+  form.setVisibleById('div_telefone', false);
+  form.setVisibleById('div_celular', false);
+  form.setVisibleById('div_telefone_comercial', false);
+  form.setVisibleById('div_fax', false);
+  form.setVisibleById('div_fax_dedicado', false);
+  form.setVisibleById('div_email', false);
+  form.setVisibleById('div_contato', false);
 }

@@ -105,7 +105,7 @@ function toggleCampoDadosPgmt(desc, tipoPix, chave) {
 }
 
 function toggleMotivoPedidoAjustes(respostaProvisionamento) {
-  if (respostaProvisionamento == "Sim" || respostaProvisionamento == "" || respostaProvisionamento == null ) {
+  if (respostaProvisionamento == "Sim" || respostaProvisionamento == "" || respostaProvisionamento == null) {
     $("#div_provisionamento_revisao").hide(400);
     $("#div_analise_vinculo_fornecedor").show(400);
   } else {
@@ -204,9 +204,9 @@ function toggleCampoChavePixFin(tipoChavePix) {
   }
 }
 
-function toggleCamposDePagamentoPu(pagamentoRealizado) {
-  console.log("toggleCamposDePagamentoPu -> " + pagamentoRealizado)
-  if (pagamentoRealizado == "Sim") {
+function toggleCamposDePagamentoPu(pagamentoRealizado, atividade) {
+  console.log("toggleCamposDePagamentoPu -> " + pagamentoRealizado + " -> " + atividade)
+  if (pagamentoRealizado == "Sim" && (atividade != 127 && atividade != "127")) {
     $("#div_teve_juros_pu").show(400);
     $("#div_valor_pu").show(400);
     $("#div_data_pagamento").show(400);

@@ -1,5 +1,10 @@
 function afterTaskComplete(colleagueId, nextSequenceId, userList) {
-  log.info("afterTaskComplete => nextSequenceId => " + nextSequenceId)
+  log.dir({
+    'afterTaskComplete': 'inicio',
+    'WKNumProces': getValue("WKNumProces"),
+    'WKNumState': getValue("WKNumState"),
+    'WKNextState': getValue("WKNextState")
+  })
   var activity = getValue("WKNumState");
   var proxima = getValue("WKNextState");
   var nSolicitacao = getValue("WKNumProces");
@@ -34,7 +39,6 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
       parametros.put("ATENDENTE", dataParamsEmail.atendente);
       parametros.put("SOLICITACAO", dataParamsEmail.num_solicitacao);
 
-
       var destinatarios = new java.util.ArrayList();
       var email = "soaresgui.dev@gmail.com";
       destinatarios.add(email);
@@ -57,6 +61,7 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
   }
 
   if (nextSequenceId == 14) {
+    log.info("nextSequenceId == 14")
     var rateioPF = clearPF("table_rateio_ccusto_fin");
     var rateioInicial = hAPI.getCardData(getValue('WKNumProces'));
     if (rateioInicial) {
@@ -64,7 +69,6 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
       for (var key in keys) {
         var field = keys[key];
         if (field.indexOf("coluna_natureza___") >= 0) {
-          isFromRM = true;
           var rateioProv = new java.util.HashMap();
           var idPF = field.replace("coluna_natureza___", "");
           rateioProv.put("coluna_natureza_fin", rateioInicial.get(String("coluna_natureza" + "___" + idPF)));
@@ -75,7 +79,14 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
         }
       }
     }
+    log.info("nextSequenceId == 14 - fim")
   }
+  log.dir({
+    'afterTaskComplete': 'FIM',
+    'WKNumProces': getValue("WKNumProces"),
+    'WKNumState': getValue("WKNumState"),
+    'WKNextState': getValue("WKNextState")
+  })
 }
 
 function clearPF(tableName) {
@@ -95,18 +106,6 @@ function horaAtual() {
   var ano = data.getFullYear() < 10 ? "0" + data.getFullYear() : data.getFullYear()
   var hora = data.getHours() < 10 ? "0" + data.getHours() : data.getHours()
   var minutos = data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes()
-
   data = dia + '/' + mes + '/' + ano + " " + hora + ":" + minutos
-
   return data
-}
-
-function getAtribuicoes(atribuicao) {
-  var constraintAtribuicao = DatasetFactory.createConstraint("ID_ATV", atribuicao, atribuicao, ConstraintType.MUST)
-  var dtsAtribuicoes = DatasetFactory.getDataset("dts_consultaCadastroAtribuicoes", null, [constraintAtribuicao], null)
-  if (dtsAtribuicoes.rowsCount > 0) {
-    return dtsAtribuicoes.getValue(0, "hd_cod_user_atv")
-  } else {
-    return ""
-  }
 }

@@ -107,5 +107,19 @@
 ANDRÉ, Identifiquei que na abertura , a obrigatoriedade dos anexos está vinculada a abertura de linha na table de anexos, porém se o usuário inserir uma linha e deixar sem preenchimento o processo avança sem anexo, temos que validar se o usuário anexou , ou seja se alinha tem preenchimento 
 
 
+2024-09-21 
+	Vamos corrigir primeiro a questão dos anexos. 
+	- Varios testes feitos, não deu erro comigo, mesmo copiando exatamente o mesmo nome de anexo. 
 
+	Solicitação: “Criação de movimentação entre etapa de cadastro de fornecedor e provisionamento (para não precisar passar pelo mecanismo automatizado de gerar cadastro do fornecedor no Totvs.”
+	"Incluída linha de 'Cadastro do fornecedor' para 'Provisionamento'. Também foram incluídos campos no formulário para identificar qual a atividade atual e anterior e limpar o campo se a atividade anterior for 'Cadastro do fornecedor' e a próxima 'Provisionamento'. Campos limpos serão 'Vincular Fornecedor' e 'Dados de Pagamento' "
 
+	Solicitação: “Liberar alguns campos da etapa de cadastro de fornecedor, e deixar outros obrigatórios (inclusive, imagino que existe a necessidade de haver uma validação conforme o tipo de pagamento, pois em casos de boleto e/ou fatura, os campos obrigatórios dos dados bancários precisam ser alterados, pois as vezes não se tem os dados bancários como conta, agência etc. para o pagamento via boleto e fatura.”
+	"Incluída valores para os campos e ocultados conforme o solcitado". 
+
+	Habilitar enviar da fase "Aguardando vencimento" para fase de "Pagamento"
+	"Link entre as atividades definido".
+
+	
+2024-09-23	
+	"Vamos corrigir a dataset de vencimento"

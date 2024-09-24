@@ -6,7 +6,8 @@ function validateForm(form) {
     var Valor = formatText2Float(form.getValue("Valor"));
     var table_pagamento_parcial = form.getChildrenIndexes("table_pagamento_parcial");
     var table_pagamento_unico = form.getChildrenIndexes("table_pagamento_unico");
-
+    var favorecidoCGC = form.getValue("CpfCnpj_favorecido").toString().replaceAll("[^0-9]", "");
+    var CGCCFO = form.getValue("CGCCFO").toString().replaceAll("[^0-9]", "");
 
     /*** Cancelamento */
     if (proxima == 287) return;
@@ -52,9 +53,7 @@ function validateForm(form) {
             if (campoVazio(form, "telefone")) msg += getMsgObg('Telefone');
             if (campoVazio(form, "email")) msg += getMsgObg('E-mail');
             if (campoVazio(form, "contato")) msg += getMsgObg('Contato');
-            var cpf2 = form.getValue("CpfCnpj_favorecido").replace('.', '');
-            cpf2 = cpf2.replace('-','');
-            if (form.getValue("CGCCFO") !=  cpf2 ) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor! : ');
+            if (CGCCFO != favorecidoCGC) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor! [FAV: ' + favorecidoCGC + ' | Cad: [' + CGCCFO + '] ');
         }
         if (campoVazio(form, "valor_total_rateio")) msg += getMsgObg('Valor total a ser pago');
 
@@ -148,43 +147,28 @@ function validateForm(form) {
             if (campoVazio(form, "tipo_contabil")) msg += getMsgObg('Tipo Contábil');
             if (campoVazio(form, "solicitacao_mult_analise")) msg += getMsgObg('Solicita\u00e7\u00e3o M\u00faltipla ou Individual');
         }
-    } else if (activity == 127) {
-        /* ETAPA 127 - PAGAMENTO ÚNICO */
-        if (campoVazio(form, "pagamento_realizado_pu")) msg += getMsgObg('Pagamento Realizado');
-        if (form.getValue("pagamento_realizado_pu") == "Sim") {
-            if (campoVazio(form, "teve_juros_pu")) msg += getMsgObg('Houve juros no pagamento');
-            if (form.getValue("teve_juros_pu") == "Sim") {
-                if (campoVazio(form, "valor_original_pu")) msg += getMsgObg('Valor Original');
-                if (campoVazio(form, "valor_juros_pu")) msg += getMsgObg('Valor do juros');
-            }
-            if (campoVazio(form, "valor_pu")) msg += getMsgObg('Valor total a ser pago');
-        }
+    } else if (activity == 127 || activity == 128) {
+        /* ETAPA 127 - PAGAMENTO ÚNICO */  /* ETAPA 128 - Aguardando Vencimento */
+        if (table_pagamento_unico.length == 0) { msg += '<br><b>A tabela <font color="red">com a datas de vencimento, pagamento de pagamento e anexo</font> necessita de pelo menos uma entrada!</b>'; }
         for (var index = 0; index < table_pagamento_unico.length; index++) {
             var idCampo = table_pagamento_unico[index];
             if (campoVazio(form, "data_vencimento_pu___" + idCampo)) msg += getMsgObg('Data do vencimento');
-            if (campoVazio(form, "data_pagamento_pu___" + idCampo)) msg += getMsgObg('Data do pagamento');
+            if (activity == 127 && form.getValue("pagamento_realizado_pu") == "Sim") {
+                if (form.getValue("pagamento_realizado_pu") == "Sim") {
+                    if (campoVazio(form, "data_pagamento_pu___" + idCampo)) { msg += getMsgObg('Data do pagamento') }
+                    if (campoVazio(form, "fnInsertAnexoPu___" + idCampo)) msg += getMsgObg('Anexo');
+                }
+            }
         }
-    } else if (activity == 128) {
-        /* ETAPA 128 - PAGAMENTO PARCIAL */
-        if (form.getValue("pagamento_realizado_pp") == "Sim") {
-            if (campoVazio(form, "teve_juros_pp")) { msg += getMsgObg('Houve juros no pagamento') }
-            if (form.getValue("teve_juros_pp") == "Sim") {
-                if (campoVazio(form, "valor_original_pp")) { msg += getMsgObg('Valor Original') }
-                if (campoVazio(form, "valor_juros_pp")) { msg += getMsgObg('Valor do juros') }
+        if (activity == 127 && form.getValue("pagamento_realizado_pu") == "Sim") {
+            if (form.getValue("teve_juros_pu") == "Sim") {
+                if (campoVazio(form, "valor_original_pu")) { msg += getMsgObg('Valor Original') }
+                if (campoVazio(form, "valor_juros_pu")) { msg += getMsgObg('Valor do juros') }
             }
-            if (campoVazio(form, "valor_inicial_pp")) { msg += getMsgObg('Valor total a ser pago inicial') }
-            if (campoVazio(form, "valor_final_pp")) { msg += getMsgObg('Valor total pago final (R$)') }
-            for (var index = 0; index < table_pagamento_parcial.length; index++) {
-                var idCampo = table_pagamento_parcial[index];
-                if (campoVazio(form, "data_vencimento_pp___" + idCampo)) { msg += getMsgObg('Data do vencimento') }
-                if (campoVazio(form, "data_pagamento_pp___" + idCampo)) { msg += getMsgObg('Data do pagamento') }
-            }
+            if (campoVazio(form, "valor_pu")) { msg += getMsgObg('Valor total a ser pago (R$)') }
         }
     } else if (activity == 274) {
-        var cpf2 = form.getValue("CpfCnpj_favorecido").replace('.', '');
-        cpf2 = cpf2.replace('-','');
-    
-        if (form.getValue("CGCCFO") != cpf2 ) { msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!') }
+        if (CGCCFO != favorecidoCGC) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor! [FAV: ' + favorecidoCGC + ' | Cad: [' + CGCCFO + '] ');
     }
     /** Retorna mensagem de erro se alguns dos campos não atender as regras */
     if (msg != "") {

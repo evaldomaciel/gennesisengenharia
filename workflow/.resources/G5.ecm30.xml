@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>26</version>
+      <version>32</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>0</formId>
@@ -984,6 +984,7 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>false</notifyAuthorityDelay>
@@ -1259,7 +1260,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>980</positionX>
-      <positionY>1670</positionY>
+      <positionY>1680</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2729,7 +2730,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>26</version>
+        <version>32</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2741,7 +2742,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>26</version>
+        <version>32</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2753,7 +2754,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>26</version>
+        <version>32</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2765,7 +2766,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>26</version>
+        <version>32</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2777,7 +2778,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>26</version>
+        <version>32</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2789,7 +2790,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>26</version>
+        <version>32</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2801,7 +2802,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>26</version>
+        <version>32</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -3873,6 +3874,40 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
+      <initialStateSequence>274</initialStateSequence>
+      <finalStateSequence>14</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>351</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>128</initialStateSequence>
+      <finalStateSequence>127</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>352</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
       <initialStateSequence>85</initialStateSequence>
       <finalStateSequence>87</finalStateSequence>
       <returnLabel></returnLabel>
@@ -3885,7 +3920,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>351</linkSequence>
+        <linkSequence>353</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3901,7 +3936,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>352</linkSequence>
+        <linkSequence>354</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3917,7 +3952,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>353</linkSequence>
+        <linkSequence>355</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3933,7 +3968,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>354</linkSequence>
+        <linkSequence>356</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3949,7 +3984,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>355</linkSequence>
+        <linkSequence>357</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3965,7 +4000,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>356</linkSequence>
+        <linkSequence>358</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3981,44 +4016,12 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>357</linkSequence>
+        <linkSequence>359</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>168</initialStateSequence>
       <finalStateSequence>174</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
-        <linkSequence>358</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>158</initialStateSequence>
-      <finalStateSequence>144</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
-        <linkSequence>359</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>158</initialStateSequence>
-      <finalStateSequence>144</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -4033,6 +4036,38 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
+      <initialStateSequence>158</initialStateSequence>
+      <finalStateSequence>144</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>361</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>158</initialStateSequence>
+      <finalStateSequence>144</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>362</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
       <initialStateSequence>168</initialStateSequence>
       <finalStateSequence>174</finalStateSequence>
       <returnLabel></returnLabel>
@@ -4045,7 +4080,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>361</linkSequence>
+        <linkSequence>363</linkSequence>
       </processLinkPK>
       <actionLabel>Revisar solicitação</actionLabel>
       <returnPermited>false</returnPermited>
@@ -4061,39 +4096,39 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>362</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>309</initialStateSequence>
-      <finalStateSequence>81</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
-        <linkSequence>363</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>309</initialStateSequence>
-      <finalStateSequence>81</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
         <linkSequence>364</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>309</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>365</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>309</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>366</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4115,7 +4150,12 @@
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function intermediateconditional326() {
-
+    log.dir({
+		&apos;intermediateconditional326&apos;: &apos;inicio&apos;,
+		&apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),
+		&apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),
+		&apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)
+	  })
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4243,33 +4283,44 @@
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function beforeTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
-	if (nextSequenceId == 176 || nextSequenceId == 7) {&#xd;
-		var attachments = hAPI.listAttachments();&#xd;
-		var hasAttachment = false;&#xd;
+  log.dir({&#xd;
+    &apos;beforeTaskSave&apos;: &apos;inicio&apos;,&#xd;
+    &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),&#xd;
+    &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),&#xd;
+    &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)&#xd;
+  })&#xd;
+  if (nextSequenceId == 176 || nextSequenceId == 7) {&#xd;
+    var attachments = hAPI.listAttachments();&#xd;
+    var hasAttachment = false;&#xd;
 &#xd;
-		for (var i = 0; i &lt; attachments.size(); i++) {&#xd;
-			var attachment = attachments.get(i);&#xd;
-			if (existeAnexo(attachment.getDocumentDescription())) hasAttachment = true;&#xd;
-		}&#xd;
+    for (var i = 0; i &lt; attachments.size(); i++) {&#xd;
+      var attachment = attachments.get(i);&#xd;
+      if (existeAnexo(attachment.getDocumentDescription())) hasAttachment = true;&#xd;
+    }&#xd;
 &#xd;
-		if (!hasAttachment) {&#xd;
-			throw setError(&quot;A tabela &lt;font color=\&quot;red\&quot;&gt;Anexo&lt;/font&gt; necessita de pelo menos uma entrada!&quot;);&#xd;
-		}&#xd;
-	}&#xd;
+    if (!hasAttachment) {&#xd;
+      throw setError(&quot;A tabela &lt;font color=\&quot;red\&quot;&gt;Anexo&lt;/font&gt; necessita de pelo menos uma entrada!&quot;);&#xd;
+    }&#xd;
+  }&#xd;
+  log.dir({&#xd;
+    &apos;beforeTaskSave&apos;: &apos;fim&apos;,&#xd;
+    &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),&#xd;
+    &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),&#xd;
+    &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)&#xd;
+  })&#xd;
 }&#xd;
 &#xd;
-&#xd;
 function existeAnexo(descAnexo) {&#xd;
-	var table_anexo_solicitacao_indexes = hAPI.getChildrenIndexes(&quot;table_anexo_solicitacao&quot;);&#xd;
-	for (var idxAnexo = 0; idxAnexo &lt; table_anexo_solicitacao_indexes.length; idxAnexo++) {&#xd;
-		var idCampo = table_anexo_solicitacao_indexes[idxAnexo];&#xd;
-		if (descAnexo == hAPI.getCardValue(&apos;fnInsertAnexoAs___&apos; + idCampo)) return true&#xd;
-	}&#xd;
-	throw setError(&quot;Não foi econtrando nenhum anexo com a descrição &quot; + descAnexo + &quot; na seção de anexos!&quot;);&#xd;
+  var table_anexo_solicitacao_indexes = hAPI.getChildrenIndexes(&quot;table_anexo_solicitacao&quot;);&#xd;
+  for (var idxAnexo = 0; idxAnexo &lt; table_anexo_solicitacao_indexes.length; idxAnexo++) {&#xd;
+    var idCampo = table_anexo_solicitacao_indexes[idxAnexo];&#xd;
+    if (descAnexo == hAPI.getCardValue(&apos;fnInsertAnexoAs___&apos; + idCampo)) return true&#xd;
+  }&#xd;
+  throw setError(&quot;Não foi econtrando nenhum anexo com a descrição &quot; + descAnexo + &quot; na seção de anexos!&quot;);&#xd;
 }&#xd;
 &#xd;
 function setError(msg) {&#xd;
-	return &quot;&lt;h1&gt;Atenção&lt;/h1&gt;&lt;b&gt;&quot; + msg + &quot;&lt;/b&gt;&quot;&#xd;
+  return &quot;&lt;h1&gt;Atenção&lt;/h1&gt;&lt;b&gt;&quot; + msg + &quot;&lt;/b&gt;&quot;&#xd;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4280,7 +4331,12 @@ function setError(msg) {&#xd;
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function afterTaskComplete(colleagueId, nextSequenceId, userList) {
-  log.info(&quot;afterTaskComplete =&gt; nextSequenceId =&gt; &quot; + nextSequenceId)
+  log.dir({
+    &apos;afterTaskComplete&apos;: &apos;inicio&apos;,
+    &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),
+    &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),
+    &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)
+  })
   var activity = getValue(&quot;WKNumState&quot;);
   var proxima = getValue(&quot;WKNextState&quot;);
   var nSolicitacao = getValue(&quot;WKNumProces&quot;);
@@ -4315,7 +4371,6 @@ function setError(msg) {&#xd;
       parametros.put(&quot;ATENDENTE&quot;, dataParamsEmail.atendente);
       parametros.put(&quot;SOLICITACAO&quot;, dataParamsEmail.num_solicitacao);
 
-
       var destinatarios = new java.util.ArrayList();
       var email = &quot;soaresgui.dev@gmail.com&quot;;
       destinatarios.add(email);
@@ -4338,6 +4393,7 @@ function setError(msg) {&#xd;
   }
 
   if (nextSequenceId == 14) {
+    log.info(&quot;nextSequenceId == 14&quot;)
     var rateioPF = clearPF(&quot;table_rateio_ccusto_fin&quot;);
     var rateioInicial = hAPI.getCardData(getValue(&apos;WKNumProces&apos;));
     if (rateioInicial) {
@@ -4345,7 +4401,6 @@ function setError(msg) {&#xd;
       for (var key in keys) {
         var field = keys[key];
         if (field.indexOf(&quot;coluna_natureza___&quot;) &gt;= 0) {
-          isFromRM = true;
           var rateioProv = new java.util.HashMap();
           var idPF = field.replace(&quot;coluna_natureza___&quot;, &quot;&quot;);
           rateioProv.put(&quot;coluna_natureza_fin&quot;, rateioInicial.get(String(&quot;coluna_natureza&quot; + &quot;___&quot; + idPF)));
@@ -4356,7 +4411,14 @@ function setError(msg) {&#xd;
         }
       }
     }
+    log.info(&quot;nextSequenceId == 14 - fim&quot;)
   }
+  log.dir({
+    &apos;afterTaskComplete&apos;: &apos;FIM&apos;,
+    &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),
+    &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),
+    &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)
+  })
 }
 
 function clearPF(tableName) {
@@ -4376,22 +4438,9 @@ function horaAtual() {
   var ano = data.getFullYear() &lt; 10 ? &quot;0&quot; + data.getFullYear() : data.getFullYear()
   var hora = data.getHours() &lt; 10 ? &quot;0&quot; + data.getHours() : data.getHours()
   var minutos = data.getMinutes() &lt; 10 ? &quot;0&quot; + data.getMinutes() : data.getMinutes()
-
   data = dia + &apos;/&apos; + mes + &apos;/&apos; + ano + &quot; &quot; + hora + &quot;:&quot; + minutos
-
   return data
-}
-
-function getAtribuicoes(atribuicao) {
-  var constraintAtribuicao = DatasetFactory.createConstraint(&quot;ID_ATV&quot;, atribuicao, atribuicao, ConstraintType.MUST)
-  var dtsAtribuicoes = DatasetFactory.getDataset(&quot;dts_consultaCadastroAtribuicoes&quot;, null, [constraintAtribuicao], null)
-  if (dtsAtribuicoes.rowsCount &gt; 0) {
-    return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;)
-  } else {
-    return &quot;&quot;
-  }
-}
-</eventDescription>
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -4403,6 +4452,8 @@ function getAtribuicoes(atribuicao) {
       <eventDescription>function afterProcessCreate(processId) {
     log.info(&quot;============= inicio afterProcessCreate G5 &quot; + getValue(&quot;WKNumProces&quot;) + &quot;============= &quot;);
     try {
+        hAPI.setCardValue(&apos;numAtividadeAtual&apos;, 4);
+
         var destinatarios = new Array();
 
         if (hAPI.getCardValue(&quot;email_solicitante&quot;) != &quot;&quot; &amp;&amp; hAPI.getCardValue(&quot;email_solicitante&quot;) != null) destinatarios.push(hAPI.getCardValue(&quot;email_solicitante&quot;));
@@ -4870,6 +4921,193 @@ function captaChavePix(tipo_chave) {
   }
 }
 </eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>G5</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+  log.dir({&#xd;
+    &apos;afterTaskSave&apos;: &apos;inicio&apos;,&#xd;
+    &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),&#xd;
+    &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),&#xd;
+    &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)&#xd;
+  })&#xd;
+&#xd;
+  /* PROVISIONAMENTO */&#xd;
+  if (nextSequenceId == 7) {&#xd;
+    log.info(&quot;=============== dadosRateio() INI ===============&quot;);&#xd;
+    dadosRateio();&#xd;
+    log.info(&quot;=============== dadosRateio() FIM ===============&quot;);&#xd;
+  }&#xd;
+  /* DADOS DO FORNECEDOR */&#xd;
+  else if (nextSequenceId == 274) {&#xd;
+    log.info(&quot;=============== dadosDoFornecedor() INI ===============&quot;);&#xd;
+    dadosDoFornecedor();&#xd;
+    log.info(&quot;=============== dadosDoFornecedor() FIM ===============&quot;);&#xd;
+  }&#xd;
+&#xd;
+  else if (getValue(&quot;WKNumState&quot;) == 274 &amp;&amp; nextSequenceId == 14) {&#xd;
+    hAPI.setCardValue(&apos;vincular_fornecedor_analise&apos;, &apos;&apos;);&#xd;
+    hAPI.setCardValue(&apos;dados_pagamento_analise&apos;, &apos;&apos;);&#xd;
+    hAPI.setCardValue(&apos;nome_cli_fornecedor_analise&apos;, &apos;&apos;);&#xd;
+    hAPI.setCardValue(&apos;CpfCnpj_analise&apos;, &apos;&apos;);&#xd;
+    hAPI.setCardValue(&apos;cod_boleto_analise&apos;, &apos;&apos;);&#xd;
+  }&#xd;
+&#xd;
+  else if (nextSequenceId == 128 || nextSequenceId == 127) {&#xd;
+    var table_pagamento_unico_idx = hAPI.getChildrenIndexes(&quot;table_pagamento_unico&quot;);&#xd;
+    if(table_pagamento_unico_idx.length == 0) {&#xd;
+      var vencimentoPU = new java.util.HashMap();&#xd;
+      vencimentoPU.put(&quot;data_vencimento_pu&quot;, hAPI.getCardValue(&apos;data_vencimento_analise&apos;));&#xd;
+      hAPI.addCardChild(&quot;table_pagamento_unico&quot;, vencimentoPU);  &#xd;
+    }&#xd;
+  }&#xd;
+&#xd;
+  log.dir({&#xd;
+    &apos;afterTaskSave&apos;: &apos;fim&apos;,&#xd;
+    &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),&#xd;
+    &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),&#xd;
+    &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)&#xd;
+  })&#xd;
+}&#xd;
+&#xd;
+function dadosDoFornecedor() {&#xd;
+  log.info(&quot;=============== dadosDoFornecedor/dadosCadastroFornecedor() INI ===============&quot;);&#xd;
+  dadosCadastroFornecedor();&#xd;
+  log.info(&quot;=============== dadosDoFornecedor/dadosCadastroFornecedor() FIM ===============&quot;);&#xd;
+  log.info(&quot;=============== dadosDoFornecedor/dadosCadastroBancario() INI ===============&quot;);&#xd;
+  dadosCadastroBancario();&#xd;
+  log.info(&quot;=============== dadosDoFornecedor/dadosCadastroBancario() FIM ===============&quot;);&#xd;
+  log.info(&quot;=============== dadosDoFornecedor/dadosRateio() INI ===============&quot;);&#xd;
+  dadosRateio();&#xd;
+  log.info(&quot;=============== dadosDoFornecedor/dadosRateio() FIM ===============&quot;);&#xd;
+}&#xd;
+&#xd;
+function dadosCadastroFornecedor() {&#xd;
+  /* CADASTRO DE FORNECEDOR */&#xd;
+  hAPI.setCardValue(&quot;cliente_global_fin&quot;, hAPI.getCardValue(&quot;cliente_global&quot;));&#xd;
+  hAPI.setCardValue(&quot;data_nascimento_fin&quot;, hAPI.getCardValue(&quot;data_nascimento&quot;));&#xd;
+  hAPI.setCardValue(&quot;estado_civil_fin&quot;, hAPI.getCardValue(&quot;estado_civil&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_fin&quot;, hAPI.getCardValue(&quot;nome&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_cli_fornecedor_analise&quot;, hAPI.getCardValue(&quot;nome&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_social_fin&quot;, hAPI.getCardValue(&quot;nome_social&quot;));&#xd;
+  hAPI.setCardValue(&quot;classificacao_fin&quot;, hAPI.getCardValue(&quot;classificacao&quot;));&#xd;
+  hAPI.setCardValue(&quot;categoria_fin&quot;, hAPI.getCardValue(&quot;categoria&quot;));&#xd;
+  hAPI.setCardValue(&quot;CPF_fin&quot;, hAPI.getCardValue(&quot;CPF&quot;));&#xd;
+  hAPI.setCardValue(&quot;CNPJ_fin&quot;, hAPI.getCardValue(&quot;CNPJ&quot;));&#xd;
+  hAPI.setCardValue(&quot;CpfCnpj_analise&quot;, capta_Cpf_Cnpj(hAPI.getCardValue(&quot;categoria_fin&quot;)));&#xd;
+  hAPI.setCardValue(&quot;inscricao_estadual_fin&quot;, hAPI.getCardValue(&quot;inscricao_estadual&quot;));&#xd;
+  hAPI.setCardValue(&quot;inscricao_municipal_fin&quot;, hAPI.getCardValue(&quot;inscricao_municipal&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_cliente_forn_fin&quot;, hAPI.getCardValue(&quot;nome_cliente_forn&quot;));&#xd;
+  hAPI.setCardValue(&quot;status_tipo_cliente_fin&quot;, hAPI.getCardValue(&quot;status_tipo_cliente&quot;));&#xd;
+&#xd;
+  /* IDENTIDADE */&#xd;
+  hAPI.setCardValue(&quot;identidade_fin&quot;, hAPI.getCardValue(&quot;identidade&quot;));&#xd;
+  hAPI.setCardValue(&quot;orgao_emissor_fin&quot;, hAPI.getCardValue(&quot;orgao_emissor&quot;));&#xd;
+  hAPI.setCardValue(&quot;estado_emissor_fin&quot;, hAPI.getCardValue(&quot;estado_emissor&quot;));&#xd;
+  hAPI.setCardValue(&quot;numero_dependentes_fin&quot;, hAPI.getCardValue(&quot;numero_dependentes&quot;));&#xd;
+  hAPI.setCardValue(&quot;aposen_pensionista_fin&quot;, hAPI.getCardValue(&quot;aposen_pensionista&quot;));&#xd;
+  hAPI.setCardValue(&quot;nacionalidade_fin&quot;, hAPI.getCardValue(&quot;nacionalidade&quot;));&#xd;
+  hAPI.setCardValue(&quot;CEP_fin&quot;, hAPI.getCardValue(&quot;CEP&quot;));&#xd;
+  hAPI.setCardValue(&quot;tipo_rua_fin&quot;, hAPI.getCardValue(&quot;tipo_rua&quot;));&#xd;
+  hAPI.setCardValue(&quot;rua_fin&quot;, hAPI.getCardValue(&quot;rua&quot;));&#xd;
+  hAPI.setCardValue(&quot;numero_fin&quot;, hAPI.getCardValue(&quot;numero&quot;));&#xd;
+  hAPI.setCardValue(&quot;complemento_fin&quot;, hAPI.getCardValue(&quot;complemento&quot;));&#xd;
+  hAPI.setCardValue(&quot;tipo_bairro_fin&quot;, hAPI.getCardValue(&quot;tipo_bairro&quot;));&#xd;
+  hAPI.setCardValue(&quot;bairro_fin&quot;, hAPI.getCardValue(&quot;bairro&quot;));&#xd;
+  hAPI.setCardValue(&quot;id_pais_fin&quot;, hAPI.getCardValue(&quot;id_pais&quot;));&#xd;
+  hAPI.setCardValue(&quot;pais_fin&quot;, hAPI.getCardValue(&quot;pais&quot;));&#xd;
+  hAPI.setCardValue(&quot;sigla_estado_fin&quot;, hAPI.getCardValue(&quot;sigla_estado&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_estado_fin&quot;, hAPI.getCardValue(&quot;nome_estado&quot;));&#xd;
+  hAPI.setCardValue(&quot;codigo_municipio_fin&quot;, hAPI.getCardValue(&quot;codigo_municipio&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_municipio_fin&quot;, hAPI.getCardValue(&quot;nome_municipio&quot;));&#xd;
+  hAPI.setCardValue(&quot;caixa_postal_fin&quot;, hAPI.getCardValue(&quot;caixa_postal&quot;));&#xd;
+  hAPI.setCardValue(&quot;cep_caixa_postal_fin&quot;, hAPI.getCardValue(&quot;cep_caixa_postal&quot;));&#xd;
+  hAPI.setCardValue(&quot;telefone_fin&quot;, hAPI.getCardValue(&quot;telefone&quot;));&#xd;
+  hAPI.setCardValue(&quot;celular_fin&quot;, hAPI.getCardValue(&quot;celular&quot;));&#xd;
+  hAPI.setCardValue(&quot;telefone_comercial&quot;, hAPI.getCardValue(&quot;telefone_comercial&quot;));&#xd;
+  hAPI.setCardValue(&quot;fax_fin&quot;, hAPI.getCardValue(&quot;fax&quot;));&#xd;
+  hAPI.setCardValue(&quot;fax_dedicado_fin&quot;, hAPI.getCardValue(&quot;fax_dedicado&quot;));&#xd;
+  hAPI.setCardValue(&quot;email_fin&quot;, hAPI.getCardValue(&quot;email&quot;));&#xd;
+  hAPI.setCardValue(&quot;contato_fin&quot;, hAPI.getCardValue(&quot;contato&quot;));&#xd;
+  hAPI.setCardValue(&apos;vincular_fornecedor_analise&apos;, hAPI.getCardValue(&apos;vincular_fornecedor&apos;));&#xd;
+&#xd;
+}&#xd;
+&#xd;
+function dadosCadastroBancario() {&#xd;
+  /* Campos comuns */&#xd;
+  hAPI.setCardValue(&quot;cad_referencia_fin&quot;, hAPI.getCardValue(&quot;cad_referencia&quot;));&#xd;
+  hAPI.setCardValue(&quot;cod_boleto_analise&quot;, hAPI.getCardValue(&quot;cod_boleto&quot;));&#xd;
+  hAPI.setCardValue(&quot;referencia_analise&quot;, hAPI.getCardValue(&quot;cad_referencia&quot;));&#xd;
+  hAPI.setCardValue(&quot;descricao_fin&quot;, hAPI.getCardValue(&quot;descricao&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_filial_d_banc_fin&quot;, hAPI.getCardValue(&quot;nome_filial_d_banc&quot;));&#xd;
+  hAPI.setCardValue(&quot;forma_pagamento_fin&quot;, hAPI.getCardValue(&quot;forma_pagamento&quot;));&#xd;
+  hAPI.setCardValue(&quot;banco_fin&quot;, hAPI.getCardValue(&quot;banco&quot;));&#xd;
+  hAPI.setCardValue(&quot;agencia_fin&quot;, hAPI.getCardValue(&quot;agencia&quot;));&#xd;
+  hAPI.setCardValue(&quot;digito_fin&quot;, hAPI.getCardValue(&quot;digito&quot;));&#xd;
+  hAPI.setCardValue(&quot;nome_agencia_fin&quot;, hAPI.getCardValue(&quot;nome_agencia&quot;));&#xd;
+  hAPI.setCardValue(&quot;conta_corrente_fin&quot;, hAPI.getCardValue(&quot;conta_corrente&quot;));&#xd;
+  hAPI.setCardValue(&quot;digito_conta_corrente_fin&quot;, hAPI.getCardValue(&quot;digito_conta_corrente&quot;));&#xd;
+  hAPI.setCardValue(&quot;tipo_conta_fin&quot;, hAPI.getCardValue(&quot;tipo_conta&quot;));&#xd;
+  hAPI.setCardValue(&quot;camara_comp_fin&quot;, hAPI.getCardValue(&quot;camara_comp&quot;));&#xd;
+  hAPI.setCardValue(&quot;favorecido_fin&quot;, hAPI.getCardValue(&quot;favorecido&quot;));&#xd;
+  hAPI.setCardValue(&quot;CpfCnpj_favorecido_fin&quot;, hAPI.getCardValue(&quot;CpfCnpj_favorecido&quot;));&#xd;
+  hAPI.setCardValue(&quot;tipo_chave_pix_fin&quot;, hAPI.getCardValue(&quot;tipo_chave_pix&quot;));&#xd;
+  hAPI.setCardValue(&quot;chave_CPF_fin&quot;, hAPI.getCardValue(&quot;chave_CPF&quot;));&#xd;
+  hAPI.setCardValue(&quot;chave_CNPJ_fin&quot;, hAPI.getCardValue(&quot;chave_CNPJ&quot;));&#xd;
+  hAPI.setCardValue(&quot;chave_email_fin&quot;, hAPI.getCardValue(&quot;chave_email&quot;));&#xd;
+  hAPI.setCardValue(&quot;chave_celular_fin&quot;, hAPI.getCardValue(&quot;chave_celular&quot;));&#xd;
+  hAPI.setCardValue(&quot;chave_aleatoria_fin&quot;, hAPI.getCardValue(&quot;chave_aleatoria&quot;));&#xd;
+&#xd;
+  /* Condicionais */&#xd;
+  if (hAPI.getCardValue(&quot;fornecedor_cadastrado&quot;) == &quot;Não&quot;) {&#xd;
+    hAPI.setCardValue(&quot;dados_bancarios_fin&quot;, hAPI.getCardValue(&quot;dados_bancarios_ativo&quot;));&#xd;
+  } else {&#xd;
+    hAPI.setCardValue(&quot;dados_pagamento_analise&quot;, hAPI.getCardValue(&quot;dados_pagamento&quot;));&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+function dadosRateio() {&#xd;
+  try {&#xd;
+&#xd;
+    var indexes = hAPI.getChildrenIndexes(&quot;table_rateio_ccusto_fin&quot;);&#xd;
+    for (var i = indexes.length - 1; i &gt;= 0; i--) {&#xd;
+      hAPI.removeCardChild(&quot;table_rateio_ccusto_fin&quot;, indexes[i]);&#xd;
+    }&#xd;
+&#xd;
+    var valorTotal = hAPI.getCardValue(&quot;valor_total_rateio&quot;);&#xd;
+    hAPI.setCardValue(&quot;valor_total_rateio_fin&quot;, valorTotal);&#xd;
+    var camposProcessoPrincipal = hAPI.getCardData(getValue(&quot;WKNumProces&quot;))&#xd;
+    var keys = camposProcessoPrincipal.keySet().toArray();&#xd;
+    for (var key in keys) {&#xd;
+      var field = keys[key];&#xd;
+      if (field.indexOf(&quot;coluna_natureza___&quot;) &gt;= 0) {&#xd;
+        var novoItem = new java.util.HashMap();&#xd;
+        var idPF = field.replace(&quot;coluna_natureza___&quot;, &quot;&quot;);&#xd;
+        novoItem.put(&quot;coluna_natureza_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_natureza&quot; + &quot;___&quot; + idPF)));&#xd;
+        novoItem.put(&quot;coluna_ccusto_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_ccusto&quot; + &quot;___&quot; + idPF)));&#xd;
+        novoItem.put(&quot;coluna_valor_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_valor&quot; + &quot;___&quot; + idPF)));&#xd;
+        novoItem.put(&quot;coluna_percentual_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_percentual&quot; + &quot;___&quot; + idPF)));&#xd;
+        hAPI.addCardChild(&quot;table_rateio_ccusto_fin&quot;, novoItem);&#xd;
+      }&#xd;
+    }&#xd;
+  } catch (err) {&#xd;
+    log.error(&quot;G5 beforeStateEntry: &quot; + String(err));&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+function capta_Cpf_Cnpj(tipo_pessoa) {&#xd;
+  if (tipo_pessoa == &quot;F&quot;) {&#xd;
+    return hAPI.getCardValue(&quot;CPF_fin&quot;);&#xd;
+  }&#xd;
+  if (tipo_pessoa == &quot;J&quot;) {&#xd;
+    return hAPI.getCardValue(&quot;CNPJ_fin&quot;);&#xd;
+  }&#xd;
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -5348,10 +5586,13 @@ function formatStringToXML(params) {
       </workflowProcessEventPK>
       <eventDescription>function beforeStateEntry(sequenceId) {
   try {
-    /* PROVISIONAMENTO */
-    if (sequenceId == 7) {
-      dadosRateio();
-    }
+    log.dir({
+      &apos;beforeStateEntry&apos;: &apos;inicio&apos;,
+      &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),
+      &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),
+      &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)
+    })
+
     /* APROVAÇÃO GESTOR - APROVADA */
     if (sequenceId == 227) {
       hAPI.setCardValue(&quot;aprovacao_gestor&quot;, &quot;aprovado&quot;);
@@ -5384,143 +5625,52 @@ function formatStringToXML(params) {
     if (sequenceId == 248) {
       hAPI.setCardValue(&quot;seleciona_fase_envio&quot;, &quot;pagamento_parcial&quot;);
     }
-    /* DADOS DO FORNECEDOR */
-    if (sequenceId == 274 || sequenceId == 14) {
-      dadosDoFornecedor();
+
+    /** Atividades */
+    var stateName = getStateName(getValue(&apos;WKNextState&apos;), getValue(&apos;WKDef&apos;), getValue(&apos;WKVersDef&apos;));
+    if (stateName) {
+      log.info(stateName);
+      hAPI.setCardValue(&apos;numAtividadeAnterior&apos;, hAPI.getCardValue(&apos;numAtividadeAtual&apos;));
+      hAPI.setCardValue(&apos;numAtividadeAtual&apos;, getValue(&apos;WKNextState&apos;));
     }
+
   } catch (err) {
     log.error(&quot;erro no beforeStateEntry do G5: &quot; + err);
   }
+  log.dir({
+    &apos;beforeStateEntry&apos;: &apos;fim&apos;,
+    &apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),
+    &apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),
+    &apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)
+  })
 }
 
-function dadosDoFornecedor() {
-  dadosCadastroFornecedor();
-  dadosCadastroBancario();
-  dadosRateio();
-}
-
-function dadosCadastroFornecedor() {
-  /* CADASTRO DE FORNECEDOR */
-  hAPI.setCardValue(&quot;cliente_global_fin&quot;, hAPI.getCardValue(&quot;cliente_global&quot;));
-  hAPI.setCardValue(&quot;data_nascimento_fin&quot;, hAPI.getCardValue(&quot;data_nascimento&quot;));
-  hAPI.setCardValue(&quot;estado_civil_fin&quot;, hAPI.getCardValue(&quot;estado_civil&quot;));
-  hAPI.setCardValue(&quot;nome_fin&quot;, hAPI.getCardValue(&quot;nome&quot;));
-  hAPI.setCardValue(&quot;nome_cli_fornecedor_analise&quot;, hAPI.getCardValue(&quot;nome&quot;));
-  hAPI.setCardValue(&quot;nome_social_fin&quot;, hAPI.getCardValue(&quot;nome_social&quot;));
-  hAPI.setCardValue(&quot;classificacao_fin&quot;, hAPI.getCardValue(&quot;classificacao&quot;));
-  hAPI.setCardValue(&quot;categoria_fin&quot;, hAPI.getCardValue(&quot;categoria&quot;));
-  hAPI.setCardValue(&quot;CPF_fin&quot;, hAPI.getCardValue(&quot;CPF&quot;));
-  hAPI.setCardValue(&quot;CNPJ_fin&quot;, hAPI.getCardValue(&quot;CNPJ&quot;));
-  hAPI.setCardValue(&quot;CpfCnpj_analise&quot;, capta_Cpf_Cnpj(hAPI.getCardValue(&quot;categoria_fin&quot;)));
-  hAPI.setCardValue(&quot;inscricao_estadual_fin&quot;, hAPI.getCardValue(&quot;inscricao_estadual&quot;));
-  hAPI.setCardValue(&quot;inscricao_municipal_fin&quot;, hAPI.getCardValue(&quot;inscricao_municipal&quot;));
-  hAPI.setCardValue(&quot;nome_cliente_forn_fin&quot;, hAPI.getCardValue(&quot;nome_cliente_forn&quot;));
-  hAPI.setCardValue(&quot;status_tipo_cliente_fin&quot;, hAPI.getCardValue(&quot;status_tipo_cliente&quot;));
-
-  /* IDENTIDADE */
-  hAPI.setCardValue(&quot;identidade_fin&quot;, hAPI.getCardValue(&quot;identidade&quot;));
-  hAPI.setCardValue(&quot;orgao_emissor_fin&quot;, hAPI.getCardValue(&quot;orgao_emissor&quot;));
-  hAPI.setCardValue(&quot;estado_emissor_fin&quot;, hAPI.getCardValue(&quot;estado_emissor&quot;));
-  hAPI.setCardValue(&quot;numero_dependentes_fin&quot;, hAPI.getCardValue(&quot;numero_dependentes&quot;));
-  hAPI.setCardValue(&quot;aposen_pensionista_fin&quot;, hAPI.getCardValue(&quot;aposen_pensionista&quot;));
-  hAPI.setCardValue(&quot;nacionalidade_fin&quot;, hAPI.getCardValue(&quot;nacionalidade&quot;));
-  hAPI.setCardValue(&quot;CEP_fin&quot;, hAPI.getCardValue(&quot;CEP&quot;));
-  hAPI.setCardValue(&quot;tipo_rua_fin&quot;, hAPI.getCardValue(&quot;tipo_rua&quot;));
-  hAPI.setCardValue(&quot;rua_fin&quot;, hAPI.getCardValue(&quot;rua&quot;));
-  hAPI.setCardValue(&quot;numero_fin&quot;, hAPI.getCardValue(&quot;numero&quot;));
-  hAPI.setCardValue(&quot;complemento_fin&quot;, hAPI.getCardValue(&quot;complemento&quot;));
-  hAPI.setCardValue(&quot;tipo_bairro_fin&quot;, hAPI.getCardValue(&quot;tipo_bairro&quot;));
-  hAPI.setCardValue(&quot;bairro_fin&quot;, hAPI.getCardValue(&quot;bairro&quot;));
-  hAPI.setCardValue(&quot;id_pais_fin&quot;, hAPI.getCardValue(&quot;id_pais&quot;));
-  hAPI.setCardValue(&quot;pais_fin&quot;, hAPI.getCardValue(&quot;pais&quot;));
-  hAPI.setCardValue(&quot;sigla_estado_fin&quot;, hAPI.getCardValue(&quot;sigla_estado&quot;));
-  hAPI.setCardValue(&quot;nome_estado_fin&quot;, hAPI.getCardValue(&quot;nome_estado&quot;));
-  hAPI.setCardValue(&quot;codigo_municipio_fin&quot;, hAPI.getCardValue(&quot;codigo_municipio&quot;));
-  hAPI.setCardValue(&quot;nome_municipio_fin&quot;, hAPI.getCardValue(&quot;nome_municipio&quot;));
-  hAPI.setCardValue(&quot;caixa_postal_fin&quot;, hAPI.getCardValue(&quot;caixa_postal&quot;));
-  hAPI.setCardValue(&quot;cep_caixa_postal_fin&quot;, hAPI.getCardValue(&quot;cep_caixa_postal&quot;));
-  hAPI.setCardValue(&quot;telefone_fin&quot;, hAPI.getCardValue(&quot;telefone&quot;));
-  hAPI.setCardValue(&quot;celular_fin&quot;, hAPI.getCardValue(&quot;celular&quot;));
-  hAPI.setCardValue(&quot;telefone_comercial&quot;, hAPI.getCardValue(&quot;telefone_comercial&quot;));
-  hAPI.setCardValue(&quot;fax_fin&quot;, hAPI.getCardValue(&quot;fax&quot;));
-  hAPI.setCardValue(&quot;fax_dedicado_fin&quot;, hAPI.getCardValue(&quot;fax_dedicado&quot;));
-  hAPI.setCardValue(&quot;email_fin&quot;, hAPI.getCardValue(&quot;email&quot;));
-  hAPI.setCardValue(&quot;contato_fin&quot;, hAPI.getCardValue(&quot;contato&quot;));
-  hAPI.setCardValue(&apos;vincular_fornecedor_analise&apos;, hAPI.getCardValue(&apos;vincular_fornecedor&apos;));
-
-}
-
-function dadosCadastroBancario() {
-  /* Campos comuns */
-  hAPI.setCardValue(&quot;cad_referencia_fin&quot;, hAPI.getCardValue(&quot;cad_referencia&quot;));
-  hAPI.setCardValue(&quot;cod_boleto_analise&quot;, hAPI.getCardValue(&quot;cod_boleto&quot;));
-  hAPI.setCardValue(&quot;referencia_analise&quot;, hAPI.getCardValue(&quot;cad_referencia&quot;));
-  hAPI.setCardValue(&quot;descricao_fin&quot;, hAPI.getCardValue(&quot;descricao&quot;));
-  hAPI.setCardValue(&quot;nome_filial_d_banc_fin&quot;, hAPI.getCardValue(&quot;nome_filial_d_banc&quot;));
-  hAPI.setCardValue(&quot;forma_pagamento_fin&quot;, hAPI.getCardValue(&quot;forma_pagamento&quot;));
-  hAPI.setCardValue(&quot;banco_fin&quot;, hAPI.getCardValue(&quot;banco&quot;));
-  hAPI.setCardValue(&quot;agencia_fin&quot;, hAPI.getCardValue(&quot;agencia&quot;));
-  hAPI.setCardValue(&quot;digito_fin&quot;, hAPI.getCardValue(&quot;digito&quot;));
-  hAPI.setCardValue(&quot;nome_agencia_fin&quot;, hAPI.getCardValue(&quot;nome_agencia&quot;));
-  hAPI.setCardValue(&quot;conta_corrente_fin&quot;, hAPI.getCardValue(&quot;conta_corrente&quot;));
-  hAPI.setCardValue(&quot;digito_conta_corrente_fin&quot;, hAPI.getCardValue(&quot;digito_conta_corrente&quot;));
-  hAPI.setCardValue(&quot;tipo_conta_fin&quot;, hAPI.getCardValue(&quot;tipo_conta&quot;));
-  hAPI.setCardValue(&quot;camara_comp_fin&quot;, hAPI.getCardValue(&quot;camara_comp&quot;));
-  hAPI.setCardValue(&quot;favorecido_fin&quot;, hAPI.getCardValue(&quot;favorecido&quot;));
-  hAPI.setCardValue(&quot;CpfCnpj_favorecido_fin&quot;, hAPI.getCardValue(&quot;CpfCnpj_favorecido&quot;));
-  hAPI.setCardValue(&quot;tipo_chave_pix_fin&quot;, hAPI.getCardValue(&quot;tipo_chave_pix&quot;));
-  hAPI.setCardValue(&quot;chave_CPF_fin&quot;, hAPI.getCardValue(&quot;chave_CPF&quot;));
-  hAPI.setCardValue(&quot;chave_CNPJ_fin&quot;, hAPI.getCardValue(&quot;chave_CNPJ&quot;));
-  hAPI.setCardValue(&quot;chave_email_fin&quot;, hAPI.getCardValue(&quot;chave_email&quot;));
-  hAPI.setCardValue(&quot;chave_celular_fin&quot;, hAPI.getCardValue(&quot;chave_celular&quot;));
-  hAPI.setCardValue(&quot;chave_aleatoria_fin&quot;, hAPI.getCardValue(&quot;chave_aleatoria&quot;));
-
-  /* Condicionais */
-  if (hAPI.getCardValue(&quot;fornecedor_cadastrado&quot;) == &quot;Não&quot;) {
-    hAPI.setCardValue(&quot;dados_bancarios_fin&quot;, hAPI.getCardValue(&quot;dados_bancarios_ativo&quot;));
-  } else {
-    hAPI.setCardValue(&quot;dados_pagamento_analise&quot;, hAPI.getCardValue(&quot;dados_pagamento&quot;));
-  }
-}
-
-function dadosRateio() {
+/**
+* Informações da atividade 
+* @param {Number} activity número da atividade  
+* @param {String} processId código do processo
+* @returns {String} descrição do nome da atividade 
+*/
+function getStateName(activity, processId, version) {
+  log.dir({ &quot;getStateName&quot;: [activity, processId, version] })
   try {
-
-    var indexes = hAPI.getChildrenIndexes(&quot;table_rateio_ccusto_fin&quot;);
-    for (var i = indexes.length - 1; i &gt;= 0; i--) {
-      hAPI.removeCardChild(&quot;table_rateio_ccusto_fin&quot;, indexes[i]);
-    }
-
-    var valorTotal = hAPI.getCardValue(&quot;valor_total_rateio&quot;);
-    hAPI.setCardValue(&quot;valor_total_rateio_fin&quot;, valorTotal);
-    var camposProcessoPrincipal = hAPI.getCardData(getValue(&quot;WKNumProces&quot;))
-    var keys = camposProcessoPrincipal.keySet().toArray();
-    for (var key in keys) {
-      var field = keys[key];
-      if (field.indexOf(&quot;coluna_natureza___&quot;) &gt;= 0) {
-        var novoItem = new java.util.HashMap();
-        var idPF = field.replace(&quot;coluna_natureza___&quot;, &quot;&quot;);
-        novoItem.put(&quot;coluna_natureza_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_natureza&quot; + &quot;___&quot; + idPF)));
-        novoItem.put(&quot;coluna_ccusto_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_ccusto&quot; + &quot;___&quot; + idPF)));
-        novoItem.put(&quot;coluna_valor_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_valor&quot; + &quot;___&quot; + idPF)));
-        novoItem.put(&quot;coluna_percentual_fin&quot;, camposProcessoPrincipal.get(String(&quot;coluna_percentual&quot; + &quot;___&quot; + idPF)));
-        hAPI.addCardChild(&quot;table_rateio_ccusto_fin&quot;, novoItem);
-      }
-    }
-  } catch (err) {
-    log.error(&quot;G5 beforeStateEntry: &quot; + String(err));
+    var datasetProcessState = DatasetFactory.getDataset(&apos;processState&apos;, [
+      &apos;stateName&apos;, &apos;stateDescription&apos;, &apos;bpmnType&apos;
+    ], new Array(
+      DatasetFactory.createConstraint(&apos;sqlLimit&apos;, 1, 1, ConstraintType.MUST),
+      DatasetFactory.createConstraint(&apos;bpmnType&apos;, &apos;10&apos;, &apos;10&apos;, ConstraintType.SHOULD),
+      DatasetFactory.createConstraint(&apos;bpmnType&apos;, &apos;60&apos;, &apos;60&apos;, ConstraintType.SHOULD),
+      DatasetFactory.createConstraint(&apos;bpmnType&apos;, &apos;80&apos;, &apos;80&apos;, ConstraintType.SHOULD),
+      DatasetFactory.createConstraint(&apos;processStatePK.version&apos;, version, version, ConstraintType.MUST),
+      DatasetFactory.createConstraint(&apos;processStatePK.processId&apos;, processId, processId, ConstraintType.MUST),
+      DatasetFactory.createConstraint(&apos;processStatePK.sequence&apos;, activity, activity, ConstraintType.MUST)
+    ), [&quot;processStatePK.version;desc&quot;]);
+    if (datasetProcessState.rowsCount &gt; 0) return datasetProcessState.getValue(0, &quot;stateName&quot;);
+    return false;
+  } catch (error) {
+    throw error;
   }
-}
-
-function capta_Cpf_Cnpj(tipo_pessoa) {
-  if (tipo_pessoa == &quot;F&quot;) {
-    return hAPI.getCardValue(&quot;CPF_fin&quot;);
-  }
-  if (tipo_pessoa == &quot;J&quot;) {
-    return hAPI.getCardValue(&quot;CNPJ_fin&quot;);
-  }
-}
-</eventDescription>
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -5582,6 +5732,12 @@ function getAttchment(description) {
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function afterTaskCreate(colleagueId){
+	log.dir({
+		&apos;afterTaskCreate&apos;: &apos;inicio&apos;,
+		&apos;WKNumProces&apos;: getValue(&quot;WKNumProces&quot;),
+		&apos;WKNumState&apos;: getValue(&quot;WKNumState&quot;),
+		&apos;WKNextState&apos;: getValue(&quot;WKNextState&quot;)
+	  })
 }
 </eventDescription>
     </WorkflowProcessEvent>
@@ -5911,7 +6067,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>26</version>
+        <version>32</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5922,7 +6078,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>26</version>
+        <version>32</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5933,7 +6089,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>26</version>
+        <version>32</version>
         <linkSequence>315</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5944,7 +6100,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>26</version>
+        <version>32</version>
         <linkSequence>315</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5955,7 +6111,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>26</version>
+        <version>32</version>
         <linkSequence>316</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5968,7 +6124,7 @@ function getAttchment(description) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>26</version>
+        <version>32</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6118,6 +6274,7 @@ function getAttchment(description) {
       <sequence>210</sequence>
       <attempts>0</attempts>
       <sucessFullMessage></sucessFullMessage>
+      <serviceName></serviceName>
       <frequency>1</frequency>
       <frequencyType>0</frequencyType>
     </ProcessStateService>
@@ -6137,7 +6294,8 @@ function getAttchment(description) {
       <version>1</version>
       <sequence>292</sequence>
       <attempts>0</attempts>
-      <sucessFullMessage></sucessFullMessage>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
       <frequency>1</frequency>
       <frequencyType>0</frequencyType>
     </ProcessStateService>
@@ -6188,7 +6346,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6198,7 +6356,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6212,7 +6370,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6222,7 +6380,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6232,7 +6390,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6242,7 +6400,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6252,7 +6410,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6266,7 +6424,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6276,7 +6434,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6286,7 +6444,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>26</processVersion>
+      <processVersion>32</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

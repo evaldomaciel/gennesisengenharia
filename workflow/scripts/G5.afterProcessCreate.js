@@ -1,6 +1,8 @@
 function afterProcessCreate(processId) {
     log.info("============= inicio afterProcessCreate G5 " + getValue("WKNumProces") + "============= ");
     try {
+        hAPI.setCardValue('numAtividadeAtual', 4);
+
         var destinatarios = new Array();
 
         if (hAPI.getCardValue("email_solicitante") != "" && hAPI.getCardValue("email_solicitante") != null) destinatarios.push(hAPI.getCardValue("email_solicitante"));

@@ -283,10 +283,12 @@ function autocompleteBanco(NUMEROBANCO) {
 			tagClass: 'tag-gray',
 			type: 'autocomplete'
 		});
-		// myAutocomplete.val($("#banco").val());
+		$('.banco').css('background-color', 'white')
 		myAutocomplete.on("change", e => {
 			var selecionado = encontrarChavePorValor(listaDeBancos, $(e.target).val());
 			$("[name='NUMEROBANCO']").val(formatarNumero(selecionado));
+			$("[name='camara_comp']").val(formatarNumero(selecionado));
+			$("[name='camara_comp_fin']").val(formatarNumero(selecionado));
 		})
 	}
 }

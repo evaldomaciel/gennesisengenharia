@@ -3,12 +3,10 @@ $(document).ready(function () {
   autocompleteBanco();
   displayBtnFiles();
 
-  $.each($("[data-date]"), function (i, o) {
-    var id = $(o).attr("id");
-    if ($("#" + id).attr("readonly")) {
-      $("#" + id).data('DateTimePicker').disable();
-    }
+  $('[type="button"]').on('click', e => {
+    formatDate();
   });
+  formatDate();
 
   /* COPIA DATA DE VENCIMENTO PARA AS OUTRAS ETAPAS */
   $("#data_vencimento").on("change", function () {
@@ -201,7 +199,7 @@ $(document).ready(function () {
   toggleCampoDadosPgmt(formGetValue('hidden_dados_pgmt'), formGetValue('tipo_chave_pix'), formGetValue('chave_pix_padrao'));
   toggleMotivoCancelGestor(formGetValue('aprovacao_gestor'));
   toggleMotivoCancelDiretoria(formGetValue('aprovacao_diretoria'));
-  toggleCamposDePagamentoPu(formGetValue('pagamento_realizado_pu'));
+  toggleCamposDePagamentoPu(formGetValue('pagamento_realizado_pu'), $("#numAtividadeAtual").val());
   toggleCamposJurosPu(formGetValue('teve_juros_pu'));
   toggleCamposDePagamentoPp(formGetValue('pagamento_realizado_pp'))
   toggleCamposJurosPp(formGetValue('teve_juros_pp'))
@@ -211,7 +209,7 @@ $(document).ready(function () {
 
 
   /** Preenche o valor das labels de "vincula fornecedor" */
-  if ($("[name='nome']").val() != "") $("[id='nome_forn_analise']").text($("[name='nome']").val()); 
+  if ($("[name='nome']").val() != "") $("[id='nome_forn_analise']").text($("[name='nome']").val());
   if ($("[name='hidden_codigo_cli_for']").val() != "") $("[id='cfo_forn_analise']").text($("[name='hidden_codigo_cli_for']").val());
   if ($("[name='hidden_cnpj_fornecedor']").val() != "") {
     $("[id='cnpj_forn_analise']").text($("[name='hidden_cnpj_fornecedor']").val());
@@ -220,6 +218,16 @@ $(document).ready(function () {
 });
 
 /** Aqui acaba o ready */
+
+function formatDate() {
+  $("[data-date]").each((i, e) => {
+    var id = $(e).attr("id");
+    FLUIGC.calendar("#" + id);
+    if ($("#" + id).attr("readonly")) {
+      $("#" + id).data('DateTimePicker').disable();
+    }
+  });
+}
 
 function parseValue(value) {
   return parseFloat(value.replace(/\./g, "").replace(",", "."));

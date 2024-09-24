@@ -98,13 +98,13 @@ function setSelectedZoomItem(selectedItem) {
     $("#nome_filial_d_banc").val(selectedItem["NOME"]);
     $("#nome_filial_d_banc_fin").val(selectedItem["NOME"]);
     $("#nome_filial_analise").val(selectedItem["NOME"]);
-    window["filial_d_bancarios_fin"].setValue(selectedItem["CODFILIAL"]);
+    formSetValue("filial_d_bancarios_fin", selectedItem["CODFILIAL"])
   }
   if (FIELD == "filial_default") {
     $("#nome_filial_default").val(selectedItem["NOME"]);
     $("#nome_filial_default_fin").val(selectedItem["NOME"]);
     $("#nome_filial_analise").val(selectedItem["NOME"]);
-    window["filial_default_fin"].setValue(selectedItem["CODFILIAL"]);
+    formSetValue("filial_default_fin", selectedItem["CODFILIAL"])
   }
   if (FIELD == "forma_pagamento") {
     $("#hidden_desc_fpgmto").val(selectedItem["Nome"]);
@@ -348,13 +348,14 @@ function reloadZoomAfterLoad(loaded, count) {
   }
 }
 
-function filtraPorColigada() {
-  let CODCOLIGADA = $("#CODCOLIGADA").val();
+function filtraPorColigada(CODCOLIGADA) {
   if (centro_de_custo.open != undefined) reloadZoomFilterValues("centro_de_custo", `CODCOLIGADA,${CODCOLIGADA}`);
   if (dados_pagamento.open != undefined) filtraDadosPagamento();
   if (dados_pagamento_analise.open != undefined) filtraDadosPagamento();
   if (conta_caixa_analise.open != undefined) filtraContaCaixaPelaColigadaEFilial();
   if (vincular_fornecedor.open != undefined) reloadZoomFilterValues("vincular_fornecedor", `CODCOLIGADA,${CODCOLIGADA}`);
+  if (filial_d_bancarios.open != undefined) reloadZoomFilterValues("filial_d_bancarios", `CODCOLIGADA,${CODCOLIGADA}`);
+  if (filial_d_bancarios_fin.open != undefined) reloadZoomFilterValues("filial_d_bancarios_fin", `CODCOLIGADA,${CODCOLIGADA}`);
 }
 
 function filtraCCPorColigada() {
