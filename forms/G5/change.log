@@ -123,3 +123,35 @@ ANDRÉ, Identifiquei que na abertura , a obrigatoriedade dos anexos está vincul
 	
 2024-09-23	
 	"Vamos corrigir a dataset de vencimento"
+
+
+2024-09-24
+WIDGET G3
+Filtros:
+Data da solicitação (Início)
+Data da solicitação (fim)
+Id. Fluig (G3)
+Data de aprovação (Início)
+Data de aprovação (Fim)
+Id. Mov
+Centro de Custo (no formato q ja esta hj)
+Nº da OS
+Produto
+Status da Aprovação
+Número máximo de resultado
+
+WIDGET G4
+Filtros:
+Data da solicitação (Início)
+Data da solicitação (fim)
+Id. Fluig (G4)
+Data de vencimento (Início)
+Data de vencimento (Fim)
+Data de entrega/retirada (Início)
+Data de entrega/retirada (Fim)
+Id. Mov
+Centro de Custo (no formato q ja esta hj)
+Tipo de Entrega
+Nº da OS
+Produto
+Número máximo de resultado
