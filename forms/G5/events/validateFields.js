@@ -53,7 +53,7 @@ function validateForm(form) {
             if (campoVazio(form, "telefone")) msg += getMsgObg('Telefone');
             if (campoVazio(form, "email")) msg += getMsgObg('E-mail');
             if (campoVazio(form, "contato")) msg += getMsgObg('Contato');
-            if (CGCCFO != favorecidoCGC) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor! [FAV: ' + favorecidoCGC + ' | Cad: [' + CGCCFO + '] ');
+            if (CGCCFO != favorecidoCGC) msg += String('<strong><br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!</strong> <font color="red">[FAV: ' + favorecidoCGC + ' | Cad: [' + CGCCFO + ']</font> ');
         }
         if (campoVazio(form, "valor_total_rateio")) msg += getMsgObg('Valor total a ser pago');
 
@@ -168,7 +168,7 @@ function validateForm(form) {
             if (campoVazio(form, "valor_pu")) { msg += getMsgObg('Valor total a ser pago (R$)') }
         }
     } else if (activity == 274) {
-        if (CGCCFO != favorecidoCGC) msg += String('<br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor! [FAV: ' + favorecidoCGC + ' | Cad: [' + CGCCFO + '] ');
+        if (CGCCFO != favorecidoCGC) msg += String('<strong><br/>CPF/CNPJ do Favorecido</font> deve ser igual ao CPF/CNPJ do fornecedor!</strong> <font color="red">[FAV: ' + favorecidoCGC + ' | Cad: [' + CGCCFO + ']</font> ');
     }
     /** Retorna mensagem de erro se alguns dos campos não atender as regras */
     if (msg != "") {
