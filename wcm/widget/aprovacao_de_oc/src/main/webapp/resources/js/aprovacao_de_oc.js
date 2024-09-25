@@ -203,7 +203,7 @@ var ExportaProcesso = SuperWidget.extend({
                 });
             });
 
-            let tpl = $('.template_datatable').html()
+            let tpl = $(`.template_datatable_${this.instanceId}`).html()
             let html = Mustache.render(tpl, mydata);
             $(`#mypanel_${this.instanceId}`).html(html);
             loading.hide();

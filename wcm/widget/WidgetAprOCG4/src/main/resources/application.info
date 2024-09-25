@@ -1,7 +1,7 @@
 application.type=widget
 application.code=WidgetAprOCG4
-application.title=WidgetAprOCG4
-application.description=WidgetAprOCG4
+application.title=Relatório G4
+application.description=Relatório G4
 application.category=SYSTEM
 application.renderer=freemarker
 developer.code=Evaldo-Lenovo
@@ -15,3 +15,4 @@ edit.file=edit.ftl
 locale.file.base.name=WidgetAprOCG4
 application.resource.js.1=/resources/js/WidgetAprOCG4.js
 application.resource.css.2=/resources/css/WidgetAprOCG4.css
+application.resource.js.3=/resources/js/xlsx.full.min.js

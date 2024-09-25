@@ -87,15 +87,12 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += "\n IFNULL(NF.dataRecebimento, '') AS 'dataRecebimento', ";
 		minhaQuery += "\n IFNULL(NF.parecerEstoque, '') AS 'parecerEstoque', ";
 
-
 		minhaQuery += "\n IFNULL(PRODUTOS.CONCATENATED_VALUES, '') AS 'CONCATENATED_VALUES', ";
 
 		minhaQuery += "\n G4.START_DATE, ";
 		minhaQuery += "\n G4.STATUS, ";
 		minhaQuery += "\n HP.NUM_SEQ_ESTADO, ";
-
 		minhaQuery += "\n CAST(HP.NUM_SEQ_MOVTO AS CHAR) AS MAX_NUM_SEQ_MOVTO, ";
-
 		minhaQuery += "\n 'G4' AS  'G4'  ";
 		minhaQuery += "\n FROM PROCES_WORKFLOW 			G4 ";
 
@@ -122,14 +119,11 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += "\n ) 							PRODUTOS	ON PRODUTOS.companyid = DSG4.companyid and PRODUTOS.documentid = DSG4.documentid AND PRODUTOS.version = DSG4.version ";
 		minhaQuery += "\n WHERE DP.COD_EMPRESA = 1 ";
 		minhaQuery += "\n AND DSG4.IdMov is not null AND DSG4.IdMov <> ''  ";
-		// minhaQuery += "\n AND RATEIOS.centroCusto is not null AND RATEIOS.centroCusto <> ''  ";
-		// minhaQuery += "\n AND DSG4.StatusFluig IS NOT NULL  ";
 		minhaQuery += STATUS != undefined ? "\n AND G4.STATUS = '" + STATUS + "'" : "\n AND G4.STATUS <> 1 ";
 		minhaQuery += NUM_SEQ_ESTADO != undefined ? "\n AND EP.NUM_SEQ = '" + NUM_SEQ_ESTADO + "'" : "";
 		minhaQuery += NUM_PROCES != undefined ? "\n AND G4.NUM_PROCES = '" + NUM_PROCES + "'" : "";
 		minhaQuery += IDMOV != undefined ? "\n AND DSG4.IdMov = '" + IDMOV + "'" : "";
 		minhaQuery += CENTRO_CUSTO != undefined ? "\n AND RATEIOS.centroCusto like '%" + CENTRO_CUSTO + "%'" : "";
-		// minhaQuery += CENTRO_CUSTO != undefined ? "\n AND RATEIOS.centroCusto like '%" + CENTRO_CUSTO + "%'" : "";
 		minhaQuery += START_DATE_INI != undefined && START_DATE_FIM != undefined ? "\n AND G4.START_DATE BETWEEN '" + START_DATE_INI + "' AND '" + START_DATE_FIM + "'" : "";
 		minhaQuery += VENCIMENTO_INI != undefined && VENCIMENTO_FIM != undefined ? "\n AND STR_TO_DATE(BOLETO.dataVencimento, '%d/%m/%Y') BETWEEN '" + VENCIMENTO_INI + "' AND '" + VENCIMENTO_FIM + "'" : "";
 		minhaQuery += DATA_ENTREGA_INI != undefined && DATA_ENTREGA_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEntrega, '%d/%m/%Y') BETWEEN '" + DATA_ENTREGA_INI + "' AND '" + DATA_ENTREGA_FIM + "'" : "";
@@ -187,18 +181,6 @@ function createDataset(fields, constraints, sortFields) {
 		if (conn != null) conn.close();
 	}
 	return newDataset;
-}
-
-
-function getMetaListID(datasetName) {
-	var datasetDocument = DatasetFactory.getDataset('document',
-		new Array('activeVersion', 'datasetName', 'documentPK.companyId', 'documentPK.documentId', 'metaListId'),
-		new Array(
-			DatasetFactory.createConstraint('datasetName', datasetName, datasetName, ConstraintType.MUST),
-			DatasetFactory.createConstraint('activeVersion', 'true', 'true', ConstraintType.MUST)
-		), null);
-	if (datasetDocument.rowsCount > 0) return "ML" + String("000" + String(datasetDocument.getValue(0, 'documentPK.companyId'))).slice(-3) + String("000" + String(datasetDocument.getValue(0, 'metaListId'))).slice(-3);
-	else return false;
 }
 
 function retornaTabelas(dataset, codTable) {
@@ -279,22 +261,6 @@ function retornaTabelas(dataset, codTable) {
 
 		return newDataset;
 	}
-}
-
-function TESTS() {
-	var constraintDsProcessHistoryCustom1 = DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST);
-	var constraintDsProcessHistoryCustom2 = DatasetFactory.createConstraint('datasetName', 'DSG4', 'DSG4', ConstraintType.MUST);
-	var datasetDsProcessHistoryCustom = DatasetFactory.getDataset('dsProcessHistoryCustom', null, new Array(constraintDsProcessHistoryCustom1, constraintDsProcessHistoryCustom2), null);
-	console.log(datasetDsProcessHistoryCustom);
-
-	var datasetName = "DSG3";
-	var datasetDocument = DatasetFactory.getDataset('document',
-		new Array('activeVersion', 'datasetName', 'documentPK.companyId', 'documentPK.documentId', 'metaListId'),
-		new Array(
-			DatasetFactory.createConstraint('datasetName', datasetName, datasetName, ConstraintType.MUST),
-			DatasetFactory.createConstraint('activeVersion', 'true', 'true', ConstraintType.MUST)
-		), null);
-	datasetDocument.values
 }
 
 function getDateSQL(addMonths) {

@@ -1,7 +1,7 @@
 <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
 <script src="/portal/resources/js/mustache/mustache-min.js"></script>
 
-<div id="ExportaProcesso_${instanceId}" class="super-widget wcm-widget-class fluig-style-guide" data-params="ExportaProcesso.instance()">
+<div id="ExportaProcessoG4_${instanceId}" class="super-widget wcm-widget-class fluig-style-guide" data-params="ExportaProcessoG4.instance()">
 	<!-- Filtros -->
 	<div class="row">
 		<div class='col-md-12'>
@@ -12,13 +12,13 @@
 		<div class='col-md-3'>
 			<div class='form-group'>
 				<label for='START_DATE_INI_${instanceId}'>Data da solicitação (Início)</label>
-				<input type='text' class='form-control calendar' id='START_DATE_INI_${instanceId}' name='START_DATE_INI_${instanceId}' onblur="verifyInputDate(this, 'solicitacao')" />
+				<input type='text' class='form-control calendar' id='START_DATE_INI_${instanceId}' name='START_DATE_INI_${instanceId}' onblur="verifyInputDateG4(this, 'solicitacao')" />
 			</div>
 		</div>
 		<div class='col-md-3'>
 			<div class='form-group'>
 				<label for='START_DATE_FIM_${instanceId}'>Data da solicitação (Fim)</label>
-				<input type='text' class='form-control calendar' id='START_DATE_FIM_${instanceId}' name='START_DATE_FIM_${instanceId}' onblur="verifyInputDate(this, 'solicitacao')" />
+				<input type='text' class='form-control calendar' id='START_DATE_FIM_${instanceId}' name='START_DATE_FIM_${instanceId}' onblur="verifyInputDateG4(this, 'solicitacao')" />
 			</div>
 		</div>
 		<div class='col-md-3'>
@@ -32,25 +32,25 @@
 		<div class='col-md-3'>
 			<div class='form-group'>
 				<label for='dataVencimento_INI_${instanceId}'>Data de vencimento (Início)</label>
-				<input type='text' class='form-control calendar' id='dataVencimento_INI_${instanceId}' name='dataVencimento_INI_${instanceId}' onblur="verifyInputDate(this, 'vencimento')" />
+				<input type='text' class='form-control calendar' id='dataVencimento_INI_${instanceId}' name='dataVencimento_INI_${instanceId}' onblur="verifyInputDateG4(this, 'vencimento')" />
 			</div>
 		</div>
 		<div class='col-md-3'>
 			<div class='form-group'>
 				<label for='dataVencimento_FIM_${instanceId}'>Data de vencimento (Fim)</label>
-				<input type='text' class='form-control calendar' id='dataVencimento_FIM_${instanceId}' name='dataVencimento_FIM_${instanceId}' onblur="verifyInputDate(this, 'vencimento')" />
+				<input type='text' class='form-control calendar' id='dataVencimento_FIM_${instanceId}' name='dataVencimento_FIM_${instanceId}' onblur="verifyInputDateG4(this, 'vencimento')" />
 			</div>
 		</div>
 		<div class='col-md-3'>
 			<div class='form-group'>
 				<label for='dataEntrega_INI_${instanceId}'>Data de entrega/retirada (Início)</label>
-				<input type='text' class='form-control calendar' id='dataEntrega_INI_${instanceId}' name='dataEntrega_INI_${instanceId}' onblur="verifyInputDate(this, 'dataEntrega')" />
+				<input type='text' class='form-control calendar' id='dataEntrega_INI_${instanceId}' name='dataEntrega_INI_${instanceId}' onblur="verifyInputDateG4(this, 'dataEntrega')" />
 			</div>
 		</div>
 		<div class='col-md-3'>
 			<div class='form-group'>
 				<label for='dataEntrega_FIM_${instanceId}'>Data de entrega/retirada (Fim)</label>
-				<input type='text' class='form-control calendar' id='dataEntrega_FIM_${instanceId}' name='dataEntrega_FIM_${instanceId}' onblur="verifyInputDate(this, 'dataEntrega')" />
+				<input type='text' class='form-control calendar' id='dataEntrega_FIM_${instanceId}' name='dataEntrega_FIM_${instanceId}' onblur="verifyInputDateG4(this, 'dataEntrega')" />
 			</div>
 		</div>
 	</div>
@@ -127,21 +127,21 @@
 	<div id="mypanel_${instanceId}"></div>
 </div>
 
-<script type="text/template" class="template_datatable">
+<script type="text/template" class="template_datatable_${instanceId}">
 	{{#values}}
 		<div class="row">'
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-body">
 						<h3 class="card-title">Solicitação {{NUM_PROCES}}</h3>
-						<h6 class="card-subtitle mb-2 text-muted">Status G4: <span class="{{CORSTATUS}}">{{STATUS}}</span></h6>
+						<h6 class="card-subtitle mb-2 text-muted">Status: <span class="{{CORSTATUS}}">{{STATUS}}</span></h6>
 						<div class="card-text">
 							<div class="row">
 								<div class="col-md-4"> <span style="font-weight: 800;">Status da Aprovação: </span>{{DES_ESTADO}}</div>
 								<div class="col-md-4"> <span style="font-weight: 800;">Data da Aprovação: </span>{{DATA_DE_APROVAO}}</div>
 								<div class="col-md-4"> <span style="font-weight: 800;">Data da Emissão: </span>{{dataEmissao}}</div>
 								<div class="col-md-4"> <span style="font-weight: 800;">Tipo de Movimento: </span>{{tipoMovimento}}</div>
-								<div class="col-md-4"> <span style="font-weight: 800;">Id. Fluig (G3): </span>{{NUM_PROCES}}</div>
+								<div class="col-md-4"> <span style="font-weight: 800;">Id. Fluig (G4): </span>{{NUM_PROCES}}</div>
 								<div class="col-md-4"> <span style="font-weight: 800;">Id. Mov: </span>{{idMov}}</div>
 								<div class="col-md-4"> <span style="font-weight: 800;">Núm. Mov: </span>{{numeroMov}}</div>
 								<div class="col-md-4"> <span style="font-weight: 800;">Local do Estoque: </span>{{localEstoque}}</div>
@@ -160,7 +160,7 @@
 								<div class="col-md-12"> <span style="font-weight: 800;">Descrição: </span>{{CONCATENATED_VALUES}}</div>
 							</div>
 						</div>
-						<a class="card-link" style="text-decoration: underline;" href="/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID={{NUM_PROCES}}" target="_black">Visualizar detalhes solicitação (G3)</a>
+						<a class="card-link" style="text-decoration: underline;" href="/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID={{NUM_PROCES}}" target="_black">Visualizar detalhes solicitação</a>
 					</div>
 				</div>
 			</div> 

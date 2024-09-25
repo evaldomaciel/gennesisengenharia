@@ -1,4 +1,16 @@
 eclipse.preferences.version=1
+encoding//wcm/widget/WidgetAprOCG3/src/main/resources/WidgetAprOCG3.properties=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/resources/WidgetAprOCG3_en_US.properties=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/resources/WidgetAprOCG3_es.properties=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/resources/WidgetAprOCG3_pt_BR.properties=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/resources/application.info=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/resources/edit.ftl=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/resources/view.ftl=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/webapp/WEB-INF/jboss-web.xml=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/webapp/WEB-INF/web.xml=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/webapp/resources/css/WidgetAprOCG3.css=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/webapp/resources/images/icon.png=utf8
+encoding//wcm/widget/WidgetAprOCG3/src/main/webapp/resources/js/WidgetAprOCG3.js=utf8
 encoding//wcm/widget/WidgetAprOCG4/src/main/resources/WidgetAprOCG4.properties=utf8
 encoding//wcm/widget/WidgetAprOCG4/src/main/resources/WidgetAprOCG4_en_US.properties=utf8
 encoding//wcm/widget/WidgetAprOCG4/src/main/resources/WidgetAprOCG4_es.properties=utf8

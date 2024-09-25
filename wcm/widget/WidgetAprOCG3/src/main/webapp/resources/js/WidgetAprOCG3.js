@@ -1,16 +1,16 @@
-let G4_ccComplete;
-let G4_idWidget;
-let G4_loading;
-let G4_oNewWindow;
-let G4_dateExcel = new Array();
-let G4_mydata = new Array();
-document['G4_instanceId'] = 0;
-var ExportaProcessoG4 = SuperWidget.extend({
+let G3_ccComplete;
+let G3_idWidget;
+let G3_loading;
+let G3_oNewWindow;
+let G3_dateExcel = new Array();
+let G3_mydata = new Array();
+document['G3_instanceId'] = 0;
+var ExportaProcessoG3 = SuperWidget.extend({
     //método iniciado quando a widget é carregada
     init: function () {
-        document['G4_instanceId'] = this.instanceId;
-        G4_idWidget = `ExportaProcessoG4_${this.instanceId}`;
-        G4_loading = FLUIGC.loading(`#${G4_idWidget}`);
+        document['G3_instanceId'] = this.instanceId;
+        G3_idWidget = `ExportaProcessoG3_${this.instanceId}`;
+        G3_loading = FLUIGC.loading(`#${G3_idWidget}`);
         /* this.loadTable(); */
         var mySimpleCalendar = FLUIGC.calendar('.calendar');
         this.loadAutocompleteCC();
@@ -26,7 +26,7 @@ var ExportaProcessoG4 = SuperWidget.extend({
     },
 
     loadAutocompleteCC: function (htmlElement, event) {
-        G4_ccComplete = FLUIGC.autocomplete(`#centroCusto_${this.instanceId}`, {
+        G3_ccComplete = FLUIGC.autocomplete(`#centroCusto_${this.instanceId}`, {
             highlight: true,
             minLength: 0,
             hint: true,
@@ -65,7 +65,7 @@ var ExportaProcessoG4 = SuperWidget.extend({
 
     exportarProcessos: function (params) {
         filename = 'Relatorio.xlsx';
-        var ws = XLSX.utils.json_to_sheet(G4_dateExcel);
+        var ws = XLSX.utils.json_to_sheet(G3_dateExcel);
         var wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "Processos");
         XLSX.writeFile(wb, filename);
@@ -105,9 +105,9 @@ var ExportaProcessoG4 = SuperWidget.extend({
     },
 
     loadTable: function (htmlElement, event) {
-        G4_loading.show();
+        G3_loading.show();
         let that = this;
-        G4_dateExcel = new Array();
+        G3_dateExcel = new Array();
 
         let constraints = [];
 
@@ -115,12 +115,8 @@ var ExportaProcessoG4 = SuperWidget.extend({
         let NUM_PROCES = String($(`[name='NUM_PROCES_${this.instanceId}']`).val()).trim();
         let idMov = String($(`[name='idMov_${this.instanceId}']`).val()).trim();
         let centroCusto = String($(`[name='centroCusto_${this.instanceId}']`).val()).trim();
-        let tipoDemanda = String($(`[name='tipoDemanda_${this.instanceId}']`).val()).trim();
+        let numOs = String($(`[name='numOs_${this.instanceId}']`).val()).trim();
         let status = String($(`[name='status_${this.instanceId}']`).val()).trim();
-        let VencimentoIni = String($(`[name='dataVencimento_INI_${this.instanceId}']`).val()).trim();
-        let VencimentoFim = String($(`[name='dataVencimento_FIM_${this.instanceId}']`).val()).trim();
-        let dataEntregaIni = String($(`[name='dataEntrega_INI_${this.instanceId}']`).val()).trim();
-        let dataEntregaFim = String($(`[name='dataEntrega_FIM_${this.instanceId}']`).val()).trim();
         let produto = String($(`[name='produto_${this.instanceId}']`).val()).trim();
         let START_DATE_INI = String($(`[name='START_DATE_INI_${this.instanceId}']`).val()).trim();
         let START_DATE_FIM = String($(`[name='START_DATE_FIM_${this.instanceId}']`).val()).trim();
@@ -130,12 +126,8 @@ var ExportaProcessoG4 = SuperWidget.extend({
         if (NUM_PROCES != "") constraints.push(DatasetFactory.createConstraint('NUM_PROCES', NUM_PROCES, NUM_PROCES, ConstraintType.MUST));
         if (idMov != "") constraints.push(DatasetFactory.createConstraint('idMov', idMov, idMov, ConstraintType.MUST));
         if (centroCusto != "") constraints.push(DatasetFactory.createConstraint('centroCusto', centroCusto, centroCusto, ConstraintType.MUST));
-        if (tipoDemanda != "") constraints.push(DatasetFactory.createConstraint('tipoDemanda', tipoDemanda, tipoDemanda, ConstraintType.MUST));
+        if (numOs != "") constraints.push(DatasetFactory.createConstraint('numOs', numOs, numOs, ConstraintType.MUST));
         if (status != "") constraints.push(DatasetFactory.createConstraint('NUM_SEQ_ESTADO', status, status, ConstraintType.MUST));
-        if (VencimentoIni != "") constraints.push(DatasetFactory.createConstraint('VencimentoIni', this.converterDataFormato(VencimentoIni), this.converterDataFormato(VencimentoIni), ConstraintType.MUST));
-        if (VencimentoFim != "") constraints.push(DatasetFactory.createConstraint('VencimentoFim', this.converterDataFormato(VencimentoFim), this.converterDataFormato(VencimentoFim), ConstraintType.MUST));
-        if (dataEntregaIni != "") constraints.push(DatasetFactory.createConstraint('dataEntregaIni', this.converterDataFormato(dataEntregaIni), this.converterDataFormato(dataEntregaIni), ConstraintType.MUST));
-        if (dataEntregaFim != "") constraints.push(DatasetFactory.createConstraint('dataEntregaFim', this.converterDataFormato(dataEntregaFim), this.converterDataFormato(dataEntregaFim), ConstraintType.MUST));
         if (START_DATE_INI != "" && START_DATE_FIM != "") constraints.push(DatasetFactory.createConstraint('START_DATE', this.converterDataFormato(START_DATE_INI), this.converterDataFormato(START_DATE_FIM), ConstraintType.MUST));
         if (produto != "") constraints.push(DatasetFactory.createConstraint('produto', produto, produto, ConstraintType.MUST));
         if (constraints.length < 2) {
@@ -144,17 +136,17 @@ var ExportaProcessoG4 = SuperWidget.extend({
                 message: 'Defina, pelo menos, mais um filtro para fazer a consulta.',
                 type: 'warning'
             });
-            G4_loading.hide();
+            G3_loading.hide();
             return;
         }
         setTimeout(() => {
-            G4_mydata = DatasetFactory.getDataset("dsWidgetAprOCG4", null, constraints, null);
+            G3_mydata = DatasetFactory.getDataset("dsWidgetAprOCG3", null, constraints, null);
 
-            G4_mydata['values'].forEach(element => {
-                G4_loading.show();
+            G3_mydata['values'].forEach(element => {
+                G3_loading.show();
                 element['CORSTATUS'] = this.mudaCorStatus(element['STATUS']);
                 element['STATUS'] = this.mudaStatus(element['STATUS']);
-                G4_dateExcel.push({
+                G3_dateExcel.push({
                     "Status da Aprovação": element['DES_ESTADO'],
                     "Data da aprovação": element['DATA_DE_APROVAO'],
                     "Data de Emissão": element['dataEmissao'],
@@ -168,33 +160,23 @@ var ExportaProcessoG4 = SuperWidget.extend({
                     "Fornecedor": element['fornecedor'],
                     "Valor Liquido": element['valorLiquido'],
                     "Cod. Pagamento": element['codPagamento'],
-                    "Data de Vencimento": element['dataVencimento'],
-                    "Tipo de Entrega": element['tipoDemanda'],
-                    "Previsão da Entrega": element['dataEntrega'],
                     "Histórico": element['historico'],
-                    "Data de Pagamento": element['dataPagamento'],
-                    "Entrega Parcial/Total": element['material'],
-                    "Data de Receimento": element['dataRecebimento'],
-                    "Observação do Estoque": element['parecerEstoque']
+                    "Num Os": element['numOs']
                 });
             });
 
             let tpl = $(`.template_datatable_${this.instanceId}`).html()
-            let html = Mustache.render(tpl, G4_mydata);
+            let html = Mustache.render(tpl, G3_mydata);
             $(`#mypanel_${this.instanceId}`).html(html);
-            G4_loading.hide();
+            G3_loading.hide();
         }, 1000);
     }
 });
 
-function verifyInputDateG4(element, tipo) {
+function verifyInputDateG3(element, tipo) {
 
-    let dataVencimento_INI = $(`[name='dataVencimento_INI_${document['G4_instanceId']}']`).val()
-    let dataVencimento_FIM = $(`[name='dataVencimento_FIM_${document['G4_instanceId']}']`).val()
-    let dataEntrega_INI = $(`[name='dataEntrega_INI_${document['G4_instanceId']}']`).val()
-    let dataEntrega_FIM = $(`[name='dataEntrega_FIM_${document['G4_instanceId']}']`).val()
-    let START_DATE_INI = $(`[name='START_DATE_INI_${document['G4_instanceId']}']`).val()
-    let START_DATE_FIM = $(`[name='START_DATE_FIM_${document['G4_instanceId']}']`).val()
+    let START_DATE_INI = $(`[name='START_DATE_INI_${document['G3_instanceId']}']`).val()
+    let START_DATE_FIM = $(`[name='START_DATE_FIM_${document['G3_instanceId']}']`).val()
 
     function parseDate(dateString) {
         let parts = dateString.split('/');
@@ -220,26 +202,10 @@ function verifyInputDateG4(element, tipo) {
         return daysDiff >= -31 && daysDiff <= 31;
     }
 
-    if (tipo == "vencimento") {
-        if (dataVencimento_INI != "" && dataVencimento_FIM != "") {
-            if (!validateDateRange(dataVencimento_INI, dataVencimento_FIM)) {
-                alert("O intervalo das datas de vencimento deve ser de no máximo 31 dias.");
-                element.value = ""
-            }
-        }
-
-    } else if (tipo == "solicitacao") {
+    if (tipo == "solicitacao") {
         if (START_DATE_INI != "" && START_DATE_FIM != "") {
             if (!validateDateRange(START_DATE_INI, START_DATE_FIM)) {
                 alert("O intervalo das datas de início da solicitação deve ser de no máximo 31 dias.");
-                element.value = ""
-            }
-        }
-    }
-    else {
-        if (dataEntrega_INI != "" && dataEntrega_FIM != "") {
-            if (!validateDateRange(dataEntrega_INI, dataEntrega_FIM)) {
-                alert("O intervalo das datas de entrega deve ser de no máximo 31 dias.");
                 element.value = ""
             }
         }
