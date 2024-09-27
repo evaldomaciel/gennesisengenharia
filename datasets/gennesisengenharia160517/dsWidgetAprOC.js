@@ -17,7 +17,7 @@ function createDataset(fields, constraints, sortFields) {
 		var DATA_ENTREGA_INI;
 		var DATA_ENTREGA_FIM;
 		var START_DATE_INI = getDateSQL(-1);
-		var START_DATE_FIM = getDateSQL();
+		var START_DATE_FIM = getDateSQL(1);
 		var PRODUTO;
 		var NUM_SEQ_ESTADO;
 
@@ -55,7 +55,7 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += "\n CAST(DSG4.IdentificadorFluig AS CHAR) AS 'DSG4IdentificadorFluig', ";
 		minhaQuery += "\n CAST(DSG3.StatusFluig AS CHAR) AS 'DSG3StatusFluig', ";
 		minhaQuery += "\n CASE WHEN G4.STATUS = 0 THEN 'Aberta' WHEN G4.STATUS = 1 THEN 'Cancelada' WHEN G4.STATUS = 2 THEN 'Finalizada' ELSE ' ' END AS 'DSG4StatusFluig', ";
-		minhaQuery += "\n DATE_FORMAT(G3.END_DATE, '%d/%m/%Y') AS 'DATA_DE_APROVAO', ";
+		minhaQuery += "\n IFNULL(DATE_FORMAT(G3.END_DATE, '%d/%m/%Y'), '') AS 'DATA_DE_APROVAO', ";
 		minhaQuery += "\n DSG3.dataEmissao, ";
 		minhaQuery += "\n IFNULL(DSG3.tipoMovimento, '') AS 'tipoMovimento', ";
 		minhaQuery += "\n IFNULL(DSG3.IdentificadorFluig, '') AS 'IdentificadorFluig', ";

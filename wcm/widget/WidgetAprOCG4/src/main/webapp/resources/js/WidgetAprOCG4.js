@@ -116,7 +116,6 @@ var ExportaProcessoG4 = SuperWidget.extend({
         let idMov = String($(`[name='idMov_${this.instanceId}']`).val()).trim();
         let centroCusto = String($(`[name='centroCusto_${this.instanceId}']`).val()).trim();
         let tipoDemanda = String($(`[name='tipoDemanda_${this.instanceId}']`).val()).trim();
-        let status = String($(`[name='status_${this.instanceId}']`).val()).trim();
         let VencimentoIni = String($(`[name='dataVencimento_INI_${this.instanceId}']`).val()).trim();
         let VencimentoFim = String($(`[name='dataVencimento_FIM_${this.instanceId}']`).val()).trim();
         let dataEntregaIni = String($(`[name='dataEntrega_INI_${this.instanceId}']`).val()).trim();
@@ -131,7 +130,6 @@ var ExportaProcessoG4 = SuperWidget.extend({
         if (idMov != "") constraints.push(DatasetFactory.createConstraint('idMov', idMov, idMov, ConstraintType.MUST));
         if (centroCusto != "") constraints.push(DatasetFactory.createConstraint('centroCusto', centroCusto, centroCusto, ConstraintType.MUST));
         if (tipoDemanda != "") constraints.push(DatasetFactory.createConstraint('tipoDemanda', tipoDemanda, tipoDemanda, ConstraintType.MUST));
-        if (status != "") constraints.push(DatasetFactory.createConstraint('NUM_SEQ_ESTADO', status, status, ConstraintType.MUST));
         if (VencimentoIni != "") constraints.push(DatasetFactory.createConstraint('VencimentoIni', this.converterDataFormato(VencimentoIni), this.converterDataFormato(VencimentoIni), ConstraintType.MUST));
         if (VencimentoFim != "") constraints.push(DatasetFactory.createConstraint('VencimentoFim', this.converterDataFormato(VencimentoFim), this.converterDataFormato(VencimentoFim), ConstraintType.MUST));
         if (dataEntregaIni != "") constraints.push(DatasetFactory.createConstraint('dataEntregaIni', this.converterDataFormato(dataEntregaIni), this.converterDataFormato(dataEntregaIni), ConstraintType.MUST));

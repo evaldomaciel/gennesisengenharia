@@ -92,18 +92,6 @@
 		</div>
 		<div class='col-md-3'>
 			<div class='form-group'>
-				<label for='status_${instanceId}'>Status da Aprovação</label>
-				<select class='form-control' id='status_${instanceId}' name='status_${instanceId}'>
-					<option value="">Selecione uma opção</option>
-					<!-- <option value="23">Gestor de Compras</option> -->
-					<option value="16">Aprovado pelo Gestor de compras</option>
-					<option value="112">Aprovado pelo Financeiro</option>
-					<option value="4">Aprovado pela Estoque</option>
-				</select>
-			</div>
-		</div>
-		<div class='col-md-3'>
-			<div class='form-group'>
 				<label for='limite_${instanceId}'>Número máximo de resultado</label>
 				<input type='number' class='form-control' id='limite_${instanceId}' name='limite_${instanceId}' value="50" />
 			</div>

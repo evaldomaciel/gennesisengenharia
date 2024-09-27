@@ -34,7 +34,7 @@ function createDataset(fields, constraints, sortFields) {
 		var DATA_ENTREGA_INI;
 		var DATA_ENTREGA_FIM;
 		var START_DATE_INI = getDateSQL(-4);
-		var START_DATE_FIM = getDateSQL();
+		var START_DATE_FIM = getDateSQL(1);
 		var PRODUTO;
 		var NUM_SEQ_ESTADO;
 
@@ -68,7 +68,7 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += "\n G4.NUM_PROCES, ";
 
 		minhaQuery += "\n EP.DES_ESTADO, ";
-		minhaQuery += "\n DATE_FORMAT(G4.END_DATE, '%d/%m/%Y') AS 'DATA_DE_APROVAO', ";
+		minhaQuery += "\n IFNULL(DATE_FORMAT(G4.END_DATE, '%d/%m/%Y'), '') AS 'DATA_DE_APROVAO', ";
 		minhaQuery += "\n DSG4.dataEmissao, ";
 		minhaQuery += "\n IFNULL(DSG4.tipoMovimento, '') AS 'tipoMovimento', ";
 		minhaQuery += "\n IFNULL(DSG4.idMov, '') AS 'idMov', ";
