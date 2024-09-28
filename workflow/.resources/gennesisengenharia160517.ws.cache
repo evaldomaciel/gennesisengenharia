@@ -1730,10 +1730,23 @@
        <int>1</int>
       </void>
       <void property="processDescription">
-       <string>DemandaLogistica</string>
+       <string>G6 - Demanda LogÍstica</string>
       </void>
       <void property="processId">
        <string>G6</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>TESTE-ANEXO</string>
+      </void>
+      <void property="processId">
+       <string>TESTE-ANEXO</string>
       </void>
      </object>
     </void>

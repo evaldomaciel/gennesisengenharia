@@ -19,8 +19,8 @@ function publicarGED(pastaDeDestino) {
 				docDto.setVersionDescription('Anexado via processo');
 				docDto.setActiveVersion(true);
 				docDto.setColleagueId(getValue("WKUser")); // Informar o usuário logado.
-				docDto.setPublisherId(getValue("WKUser")); // Informar o publicador. Processo lento pra testar! 
- 
+				docDto.setPublisherId(getValue("WKUser")); // Informar o publicador.
+
 				var securityArray = new java.util.ArrayList();
 				var usuProcess = getUsersProcess();
 				for (var index = 0; index < usuProcess.size(); index++) {

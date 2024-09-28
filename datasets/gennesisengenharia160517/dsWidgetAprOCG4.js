@@ -125,9 +125,9 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += IDMOV != undefined ? "\n AND DSG4.IdMov = '" + IDMOV + "'" : "";
 		minhaQuery += CENTRO_CUSTO != undefined ? "\n AND RATEIOS.centroCusto like '%" + CENTRO_CUSTO + "%'" : "";
 		minhaQuery += START_DATE_INI != undefined && START_DATE_FIM != undefined ? "\n AND G4.START_DATE BETWEEN '" + START_DATE_INI + "' AND '" + START_DATE_FIM + "'" : "";
-		minhaQuery += VENCIMENTO_INI != undefined && VENCIMENTO_FIM != undefined ? "\n AND STR_TO_DATE(BOLETO.dataVencimento, '%d/%m/%Y') BETWEEN '" + VENCIMENTO_INI + "' AND '" + VENCIMENTO_FIM + "'" : "";
-		minhaQuery += DATA_ENTREGA_INI != undefined && DATA_ENTREGA_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEntrega, '%d/%m/%Y') BETWEEN '" + DATA_ENTREGA_INI + "' AND '" + DATA_ENTREGA_FIM + "'" : "";
-		minhaQuery += DATA_EMISSAO_INI != undefined && DATA_EMISSAO_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEmissao, '%d/%m/%Y') BETWEEN '" + DATA_EMISSAO_INI + "' AND '" + DATA_EMISSAO_FIM + "'" : "";
+		minhaQuery += VENCIMENTO_INI != undefined && VENCIMENTO_FIM != undefined ? "\n AND STR_TO_DATE(BOLETO.dataVencimento, '%d/%m/%Y') BETWEEN '" + VENCIMENTO_INI + "' AND '" + VENCIMENTO_FIM + " 23:59:59'" : "";
+		minhaQuery += DATA_ENTREGA_INI != undefined && DATA_ENTREGA_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEntrega, '%d/%m/%Y') BETWEEN '" + DATA_ENTREGA_INI + "' AND '" + DATA_ENTREGA_FIM + " 23:59:59'" : "";
+		minhaQuery += DATA_EMISSAO_INI != undefined && DATA_EMISSAO_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEmissao, '%d/%m/%Y') BETWEEN '" + DATA_EMISSAO_INI + "' AND '" + DATA_EMISSAO_FIM + " 23:59:59'" : "";
 		minhaQuery += TIPO_DE_MANDA != undefined ? "\n AND DSG4.tipoDemanda  = '" + TIPO_DE_MANDA + "'" : "";
 		minhaQuery += PRODUTO != undefined ? "\n AND PRODUTOS.CONCATENATED_VALUES like '%" + PRODUTO + "%'" : "";
 		// minhaQuery += "\n AND G4.NUM_PROCES = 44733  ";
@@ -272,6 +272,17 @@ function getDateSQL(addMonths) {
 	var day = date.getDate();
 	if (month < 10) { month = '0' + month; }
 	if (day < 10) { day = '0' + day; }
-	// return String(day) + "/" + String(month) + "/" + String(year);
+	return String(year) + String(month) + String(day);
+}
+
+function addDays(addDays) {
+	addDays = addDays ? addDays : 0;
+	var date = new Date();
+	date.setMonth(date.getDay() + addDays);
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	if (month < 10) { month = '0' + month; }
+	if (day < 10) { day = '0' + day; }
 	return String(year) + String(month) + String(day);
 }

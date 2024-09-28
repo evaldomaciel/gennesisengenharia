@@ -97,8 +97,8 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += IDMOV != undefined ? "\n AND DSG3.IdMov = '" + IDMOV + "'" : "";
 		minhaQuery += CENTRO_CUSTO != undefined ? "\n AND RATEIOS.centroCusto like '%" + CENTRO_CUSTO + "%'" : "";
 		minhaQuery += NUMOS != undefined ? "\n AND DSG3.NUMOS in ('" + NUMOS.replace(",", "','") + "')" : "";
-		minhaQuery += START_DATE_INI != undefined && START_DATE_FIM != undefined ? "\n AND G3.START_DATE BETWEEN '" + START_DATE_INI + "' AND '" + START_DATE_FIM + "'" : "";
-		minhaQuery += DATA_EMISSAO_INI != undefined && DATA_EMISSAO_FIM != undefined ? "\n AND STR_TO_DATE(DSG3.dataEmissao, '%d/%m/%Y') BETWEEN '" + DATA_EMISSAO_INI + "' AND '" + DATA_EMISSAO_FIM + "'" : "";
+		minhaQuery += START_DATE_INI != undefined && START_DATE_FIM != undefined ? "\n AND G3.START_DATE BETWEEN '" + START_DATE_INI + "' AND '" + START_DATE_FIM + " 23:59:59'" : "";
+		minhaQuery += DATA_EMISSAO_INI != undefined && DATA_EMISSAO_FIM != undefined ? "\n AND STR_TO_DATE(DSG3.dataEmissao, '%d/%m/%Y') BETWEEN '" + DATA_EMISSAO_INI + "' AND '" + DATA_EMISSAO_FIM + " 23:59:59'" : "";
 		minhaQuery += PRODUTO != undefined ? "\n AND PRODUTOS.CONCATENATED_VALUES like '%" + PRODUTO + "%'" : "";
 		// minhaQuery += "\n AND G3.NUM_PROCES = 19932  ";
 		minhaQuery += "\n ORDER BY G3.NUM_PROCES DESC ";
@@ -242,6 +242,17 @@ function getDateSQL(addMonths) {
 	var day = date.getDate();
 	if (month < 10) { month = '0' + month; }
 	if (day < 10) { day = '0' + day; }
-	// return String(day) + "/" + String(month) + "/" + String(year);
+	return String(year) + String(month) + String(day);
+}
+
+function addDays(addDays) {
+	addDays = addDays ? addDays : 0;
+	var date = new Date();
+	date.setMonth(date.getDay() + addDays);
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	if (month < 10) { month = '0' + month; }
+	if (day < 10) { day = '0' + day; }
 	return String(year) + String(month) + String(day);
 }

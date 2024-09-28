@@ -123,6 +123,7 @@ function displayFields(form, customHTML) {
 
       }
       else if (activity == 127) {
+        if (form.getValue('valor_pu') == "" || form.getValue('valor_pu') == null) { form.setValue('valor_pu', form.getValue('valor_total_rateio_fin')) }
         if (form.getValue('teve_juros') != 'Sim') {
           form.setValue('teve_juros_pu', 'Não')
           form.setVisibleById("div_valor_original_pu", false);

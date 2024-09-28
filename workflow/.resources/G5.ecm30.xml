@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>27</version>
+      <version>33</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
-    <formId>0</formId>
+    <formId>59631</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -2730,7 +2730,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>27</version>
+        <version>33</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2742,7 +2742,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>27</version>
+        <version>33</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2754,7 +2754,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>27</version>
+        <version>33</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2766,7 +2766,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>27</version>
+        <version>33</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2778,7 +2778,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>27</version>
+        <version>33</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2790,7 +2790,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>27</version>
+        <version>33</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2802,7 +2802,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>27</version>
+        <version>33</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -5130,27 +5130,41 @@ function publicarGED(pastaDeDestino) {
 			/** Se o tipo do documento for diferente de 5 (formulário do fluig) */
 			if (docDto.getDocumentType() != 5) {
 				var attachments = getAttachments(docDto);
-				log.dir({
-					&quot;docDto.getDocumentType()&quot;: docDto.getDocumentType(),
-					&quot;docDto.getDocumentId()&quot;: docDto.getDocumentId(),
-				});
 				docAPI.copyDocumentToUploadArea(docDto.getDocumentId(), docDto.getVersion());
 				docDto.setParentDocumentId(pastaDeDestino);
-				docDto.setInheritSecurity(true);
+				docDto.setInheritSecurity(false);
 				docDto.setKeyWord(&apos;&apos;);
 				docDto.setVersionDescription(&apos;Anexado via processo&apos;);
 				docDto.setActiveVersion(true);
 				docDto.setColleagueId(getValue(&quot;WKUser&quot;)); // Informar o usuário logado.
-				docDto.setPublisherId(getValue(&quot;WKUser&quot;)); // Informar o publicador.
-				var doc = docAPI.createDocument(docDto, attachments, null, null, null);
+				docDto.setPublisherId(getValue(&quot;WKUser&quot;)); // Informar o publicador. Processo lento pra testar! 
+ 
+				var securityArray = new java.util.ArrayList();
+				var usuProcess = getUsersProcess();
+				for (var index = 0; index &lt; usuProcess.size(); index++) {
+					var security = docAPI.newDocumentSecurityConfigDto();
+					security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos  
+					security.setAttributionValue(usuProcess.get(index)) // id do usuário
+					security.setCompanyId(1)
+					security.setDocumentId(docDto.getDocumentId())
+					security.setDownloadEnabled(true)
+					security.setInheritSecurity(false)
+					security.setSecurityLevel(2) // 0 - todo; 2 -  modificar; 3 - todos
+					security.setSecurityVersion(true)
+					security.setPermission(true)
+					security.setShowContent(true)
+					security.setVersion(docDto.getVersion())
+					securityArray.add(security);
+				}
+				log.dir({ &apos;ação&apos;: &apos;docAPI.createDocument(docDto, attachments, securityArray, null, null)&apos;, &apos;docDto&apos;: docDto, &apos;attachments&apos;: attachments, &apos;securityConfig&apos;: securityArray, &apos;approvers&apos;: null, &apos;relatedDocs&apos;: null })
+				var doc = docAPI.createDocument(docDto, attachments, securityArray, null, null);
 				docsField.push(doc.getDocumentId());
 			}
 		}
 		return docsField;
 	}
 	catch (e) {
-		log.dir({ &quot;message&quot;: e.message, &quot;lineNumber&quot;: e.lineNumber });
-		throw &quot;Erro ao publicar o documento, por favor, contate o administrador.&lt;br/&gt;&lt;br/&gt; &quot; + e;
+		throw e;
 	}
 }
 
@@ -5182,12 +5196,27 @@ function criaPasta(pastaPai, nome) {
 		dto.setDocumentType(&quot;1&quot;);
 		dto.setParentDocumentId(pastaPai);
 		dto.setDocumentTypeId(&quot;&quot;);
-
-		var folder = docAPI.createFolder(dto, null, null);
-		log.info(&quot;PASTA CRIADA COM O ID :&quot; + folder.getDocumentId());
+		var securityArray = new java.util.ArrayList();
+		var usuProcess = getUsersProcess();
+		for (var index = 0; index &lt; usuProcess.size(); index++) {
+			var security = docAPI.newDocumentSecurityConfigDto();
+			security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos 
+			security.setAttributionValue(usuProcess.get(index)) // id do usuário
+			security.setCompanyId(1)
+			security.setDocumentId(pastaPai)
+			security.setDownloadEnabled(true)
+			security.setInheritSecurity(false)
+			security.setSecurityLevel(2) // 0 - todo; 2 -  modificar; 3 - todos
+			security.setSecurityVersion(true)
+			security.setShowContent(true)
+			security.setPermission(true)
+			security.setVersion(100)
+			securityArray.add(security);
+		}
+		var folder = docAPI.createFolder(dto, securityArray, null);
 		return parseInt(folder.getDocumentId());
 	} catch (error) {
-		throw new Error(&quot;Não foi possível criar a pasta! &quot; + String(error));
+		throw error;
 	}
 }
 
@@ -5204,10 +5233,30 @@ function getConstante(param) {
 }
 
 function getColleagueName(user) {
-    var const1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, user, user, ConstraintType.MUST);
-    var datasetAttachment = DatasetFactory.getDataset(&quot;colleague&quot;, null, [const1], null);
-    if (datasetAttachment.rowsCount &gt; 0) return datasetAttachment.getValue(0, &quot;colleagueName&quot;);
-    return user;
+	var const1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, user, user, ConstraintType.MUST);
+	var datasetAttachment = DatasetFactory.getDataset(&quot;colleague&quot;, null, [const1], null);
+	if (datasetAttachment.rowsCount &gt; 0) return datasetAttachment.getValue(0, &quot;colleagueName&quot;);
+	return user;
+}
+
+function getUsersProcess() {
+	var datasetProcessTask = DatasetFactory.getDataset(&apos;processTask&apos;, null, new Array(
+		DatasetFactory.createConstraint(&apos;processTaskPK.processInstanceId&apos;, getValue(&apos;WKNumProces&apos;), getValue(&apos;WKNumProces&apos;), ConstraintType.MUST)
+	), null);
+
+	var users = new java.util.ArrayList();
+	users.add(getValue(&quot;WKUser&quot;));
+
+	for (var index = 0; index &lt; datasetProcessTask.rowsCount; index++) {
+		var user = String(datasetProcessTask.getValue(index, &apos;processTaskPK.colleagueId&apos;));
+		if (
+			user.indexOf(&apos;:&apos;) &lt; 0 &amp;&amp;
+			user.length &gt; 0 &amp;&amp;
+			users.contains(user) == false
+		)
+			users.add(user);
+	}
+	return users;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -6067,7 +6116,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>27</version>
+        <version>33</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6078,7 +6127,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>27</version>
+        <version>33</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6089,7 +6138,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>27</version>
+        <version>33</version>
         <linkSequence>315</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6100,7 +6149,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>27</version>
+        <version>33</version>
         <linkSequence>315</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6111,7 +6160,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>27</version>
+        <version>33</version>
         <linkSequence>316</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6124,7 +6173,7 @@ function getAttchment(description) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>27</version>
+        <version>33</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6244,6 +6293,7 @@ function getAttchment(description) {
       <sequence>114</sequence>
       <attempts>0</attempts>
       <sucessFullMessage></sucessFullMessage>
+      <serviceName></serviceName>
       <frequency>1</frequency>
       <frequencyType>0</frequencyType>
     </ProcessStateService>
@@ -6346,7 +6396,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6356,7 +6406,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6370,7 +6420,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6380,7 +6430,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6390,7 +6440,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6400,7 +6450,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6410,7 +6460,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6424,7 +6474,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6434,7 +6484,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6444,7 +6494,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>27</processVersion>
+      <processVersion>33</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

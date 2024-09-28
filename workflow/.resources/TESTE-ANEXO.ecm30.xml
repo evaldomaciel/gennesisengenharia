@@ -1,0 +1,558 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>TESTE-ANEXO</processId>
+    </processDefinitionPK>
+    <processDescription>TESTE-ANEXO</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId></categoryId>
+    <managerEngineAllocationId></managerEngineAllocationId>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>TESTE-ANEXO</processId>
+      <version>16</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>0</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>false</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>150</positionX>
+      <positionY>100</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Publica Anexo GED</stateName>
+      <stateDescription>Publica Anexo GED</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>380</positionX>
+      <positionY>82</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>2</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <sequence>7</sequence>
+      </processStatePK>
+      <stateName>Atividade</stateName>
+      <stateDescription>Atividade</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>60</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;suporte.fluig&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>240</positionX>
+      <positionY>90</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <sequence>6</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>550</positionX>
+      <positionY>100</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list/>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <linkSequence>8</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>7</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <linkSequence>9</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <linkSequence>10</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>6</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+        <linkSequence>11</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>custom</eventId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>/**
+ * Publica os anexos processo na pasta de destino definida
+ * @param {String|Number} pastaDeDestino código da pasta de destino 
+ * @returns lista de anexos publicados
+ */
+function publicarGED(pastaDeDestino) {
+	var docsField = [];
+	try {
+		var workflowAttachments = hAPI.listAttachments();
+		for (var i = 0; i &lt; workflowAttachments.size(); i++) {
+			var docDto = workflowAttachments.get(i);
+			/** Se o tipo do documento for diferente de 5 (formulário do fluig) */
+			if (docDto.getDocumentType() != 5) {
+				var attachments = getAttachments(docDto);
+				log.dir({
+					&quot;docDto.getDocumentType()&quot;: docDto.getDocumentType(),
+					&quot;docDto.getDocumentId()&quot;: docDto.getDocumentId(),
+				});
+				docAPI.copyDocumentToUploadArea(docDto.getDocumentId(), docDto.getVersion());
+				docDto.setParentDocumentId(pastaDeDestino);
+				docDto.setInheritSecurity(false);
+				docDto.setKeyWord(&apos;&apos;);
+				docDto.setVersionDescription(&apos;Anexado via processo&apos;);
+				docDto.setActiveVersion(true);
+				docDto.setColleagueId(getValue(&quot;WKUser&quot;)); // Informar o usuário logado.
+				docDto.setPublisherId(getValue(&quot;WKUser&quot;)); // Informar o publicador.
+
+				var securityArray = new java.util.ArrayList();
+				var usuProcess = getUsersProcess();
+				log.dir({ &apos;usuariosProcesso&apos;: usuProcess })
+				for (var index = 0; index &lt; usuProcess.size(); index++) {
+					var security = docAPI.newDocumentSecurityConfigDto();
+					security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos  
+					security.setAttributionValue(usuProcess.get(index)) // id do usuário
+					security.setCompanyId(1)
+					security.setDocumentId(docDto.getDocumentId())
+					security.setDownloadEnabled(true)
+					security.setInheritSecurity(false)
+					security.setSecurityLevel(2)// 2 modificar?
+					security.setSecurityVersion(true)
+					security.setPermission(true)
+					// security.setSequence()
+					security.setShowContent(true)
+					security.setVersion(docDto.getVersion())
+					securityArray.add(security);
+				}
+
+				log.dir({
+					&apos;ação&apos;: &apos;docAPI.createDocument(docDto, attachments, securityArray, null, null)&apos;,
+					&apos;docDto&apos;: docDto,
+					&apos;attachments&apos;: attachments,
+					&apos;securityConfig&apos;: securityArray,
+					&apos;approvers&apos;: null,
+					&apos;relatedDocs&apos;: null
+				})
+
+				var doc = docAPI.createDocument(docDto, attachments, securityArray, null, null);
+				docsField.push(doc.getDocumentId());
+			}
+		}
+		log.dir(docsField);
+		return docsField;
+	}
+	catch (e) {
+		log.dir({ &quot;message&quot;: e.message, &quot;lineNumber&quot;: e.lineNumber });
+		throw &quot;Erro ao publicar o documento, por favor, contate o administrador.&lt;br/&gt;&lt;br/&gt; &quot; + e;
+	}
+}
+
+/**
+ * Obtém os detalhes dos anexos de acordo com o ID do documento informado
+ * @param {String|Number} docDto código do documento 
+ * @returns array de informações sobre o documento solicitado
+ */
+function getAttachments(docDto) {
+	var attachmentArray = new java.util.ArrayList();
+	var attachment = docAPI.newAttachment();
+	attachment.setFileName(docDto.getPhisicalFile());
+	attachment.setPrincipal(true);
+	attachment.setAttach(false);
+	attachmentArray.add(attachment);
+	return attachmentArray;
+}
+
+/**
+ * Cria uma nova pasta no GED
+ * @param {Number} pastaPai número da pasta pai 
+ * @param {String} nome nome para a pasta
+ * @returns {String} o ID da pasta criada
+ */
+function criaPasta(pastaPai, nome) {
+	try {
+		var dto = docAPI.newDocumentDto();
+		dto.setDocumentDescription(nome);
+		dto.setDocumentType(&quot;1&quot;);
+		dto.setParentDocumentId(pastaPai);
+		dto.setDocumentTypeId(&quot;&quot;);
+
+		var securityArray = new java.util.ArrayList();
+		var usuProcess = getUsersProcess();
+		log.dir({ &apos;usuariosProcesso&apos;: usuProcess })
+		for (var index = 0; index &lt; usuProcess.size(); index++) {
+			var security = docAPI.newDocumentSecurityConfigDto();
+			security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos 
+			security.setAttributionValue(usuProcess.get(index)) // id do usuário
+			security.setCompanyId(1)
+			security.setDocumentId(pastaPai)
+			security.setDownloadEnabled(true)
+			security.setInheritSecurity(false)
+			security.setSecurityLevel(2) // 0 - todo; 2 -  modificar; 3 - todos
+			security.setSecurityVersion(true)
+			// security.setSequence()
+			security.setShowContent(true)
+			security.setPermission(true)
+			security.setVersion(100)
+			securityArray.add(security);
+		}
+
+		var folder = docAPI.createFolder(dto, securityArray, null);
+		log.info(&quot;PASTA CRIADA COM O ID :&quot; + folder.getDocumentId());
+		return parseInt(folder.getDocumentId());
+	} catch (error) {
+		throw new Error(&quot;Não foi possível criar a pasta! &quot; + String(error));
+	}
+}
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
+	for (var i = 0; i &lt; oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, &quot;id&quot;).trim() == param.trim()) {
+			return oConstantes.getValue(i, &quot;Valor&quot;).trim();
+		}
+	}
+	return &apos;0&apos;;
+}
+
+function getColleagueName(user) {
+	var const1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, user, user, ConstraintType.MUST);
+	var datasetAttachment = DatasetFactory.getDataset(&quot;colleague&quot;, null, [const1], null);
+	if (datasetAttachment.rowsCount &gt; 0) return datasetAttachment.getValue(0, &quot;colleagueName&quot;);
+	return user;
+}
+
+function getUsersProcess() {
+	var datasetProcessTask = DatasetFactory.getDataset(&apos;processTask&apos;, null, new Array(
+		DatasetFactory.createConstraint(&apos;processTaskPK.processInstanceId&apos;, getValue(&apos;WKNumProces&apos;), getValue(&apos;WKNumProces&apos;), ConstraintType.MUST)
+	), null);
+
+	var users = new java.util.ArrayList();
+	users.add(getValue(&quot;WKUser&quot;));
+
+	for (var index = 0; index &lt; datasetProcessTask.rowsCount; index++) {
+		var user = String(datasetProcessTask.getValue(index, &apos;processTaskPK.colleagueId&apos;));
+		if (
+			user.indexOf(&apos;:&apos;) &lt; 0 &amp;&amp;
+			user.length &gt; 0 &amp;&amp;
+			users.contains(user) == false
+		)
+			users.add(user);
+	}
+	return users;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask5</eventId>
+        <processId>TESTE-ANEXO</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask5(attempt, message) {
+	/**
+	  * Criada pasta &quot;Anexos Jurídico&quot; na raiz do GED com o ID 13590 ou 467649
+	  * HMG: gennesisengenharia160517 - pasta : 61248
+	  * PRD: gennesisengenharia160516 - pasta : 88200
+	  */
+
+	try {
+		var pasta = &quot;/app/fluig/appserver/domain/servers/&quot;;
+		var diretorio = new java.io.File(pasta);
+		var arquivos = diretorio.listFiles();
+		var linhaDeComando2 = String(arquivos[0]);
+		var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + &quot;/log/server.log&quot;));
+		var retorno4 = new java.nio.file.Files.writeString(pasta, &quot;&quot;);
+
+		var pageService = fluigAPI.getPageService();
+		var urlDoServidor = String(pageService.getServerURL());
+		var pastaPai = urlDoServidor.indexOf(&apos;gennesisengenharia160516&apos;) &gt;= 0 ? 88200 : 61248;
+		var nomeSubPasta = &quot;G5-&quot; + String(getValue(&quot;WKNumProces&quot;));
+		// var pastaCriada = criaPasta(pastaPai, nomeSubPasta);
+		var pastaCriada = criaPasta(62647, nomeSubPasta);
+		// var listaDeDocumento = publicarGED(62647);
+		var listaDeDocumento = publicarGED(pastaCriada);
+		// hAPI.setCardValue(&quot;anexos&quot;, String(listaDeDocumento.join(&quot;,&quot;)))
+		return true;
+	} catch (error) {
+		throw error;
+	}
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>TESTE-ANEXO</processId>
+      <version>1</version>
+      <sequence>5</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage></sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+</list>
