@@ -1,5 +1,4 @@
 function servicetask210(attempt, message) {
-
   var valores = {
     "CODCOLIGADA": hAPI.getCardValue("hidden_coligada_cli_for"),
     "NOMEFANTASIA": hAPI.getCardValue("nome_social_fin"),
@@ -27,12 +26,7 @@ function servicetask210(attempt, message) {
     "NACIONALIDADE": hAPI.getCardValue("nacionalidade_fin"),
     "APOSENTADOOUPENSIONISTA": hAPI.getCardValue("aposen_pensionista_fin"),
   };
-
-  log.info("VALORES --> ")
-  log.dir(valores)
-
   var cst = []
-
   for (var propriedade in valores) {
     if (valores.hasOwnProperty(propriedade)) {
       if (valores[propriedade] != "") {
@@ -40,9 +34,7 @@ function servicetask210(attempt, message) {
       }
     }
   }
-
   var dtsIntegracao = DatasetFactory.getDataset("ds_novoFornecedor", null, cst, null)
-
   if (dtsIntegracao.rowsCount > 0) {
     if (dtsIntegracao.getValue(0, "Retorno") == "OK") {
       var id = dtsIntegracao.getValue(0, "Mensagem");

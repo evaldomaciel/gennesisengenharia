@@ -1,22 +1,11 @@
 function afterTaskSave(colleagueId, nextSequenceId, userList) {
-  log.dir({
-    'afterTaskSave': 'inicio',
-    'WKNumProces': getValue("WKNumProces"),
-    'WKNumState': getValue("WKNumState"),
-    'WKNextState': getValue("WKNextState")
-  })
-
   /* PROVISIONAMENTO */
   if (nextSequenceId == 7) {
-    log.info("=============== dadosRateio() INI ===============");
     dadosRateio();
-    log.info("=============== dadosRateio() FIM ===============");
   }
   /* DADOS DO FORNECEDOR */
   else if (nextSequenceId == 274) {
-    log.info("=============== dadosDoFornecedor() INI ===============");
     dadosDoFornecedor();
-    log.info("=============== dadosDoFornecedor() FIM ===============");
   }
 
   else if (getValue("WKNumState") == 274 && nextSequenceId == 14) {
@@ -35,25 +24,12 @@ function afterTaskSave(colleagueId, nextSequenceId, userList) {
       hAPI.addCardChild("table_pagamento_unico", vencimentoPU);  
     }
   }
-
-  log.dir({
-    'afterTaskSave': 'fim',
-    'WKNumProces': getValue("WKNumProces"),
-    'WKNumState': getValue("WKNumState"),
-    'WKNextState': getValue("WKNextState")
-  })
 }
 
 function dadosDoFornecedor() {
-  log.info("=============== dadosDoFornecedor/dadosCadastroFornecedor() INI ===============");
   dadosCadastroFornecedor();
-  log.info("=============== dadosDoFornecedor/dadosCadastroFornecedor() FIM ===============");
-  log.info("=============== dadosDoFornecedor/dadosCadastroBancario() INI ===============");
   dadosCadastroBancario();
-  log.info("=============== dadosDoFornecedor/dadosCadastroBancario() FIM ===============");
-  log.info("=============== dadosDoFornecedor/dadosRateio() INI ===============");
   dadosRateio();
-  log.info("=============== dadosDoFornecedor/dadosRateio() FIM ===============");
 }
 
 function dadosCadastroFornecedor() {
@@ -164,9 +140,9 @@ function dadosRateio() {
         hAPI.addCardChild("table_rateio_ccusto_fin", novoItem);
       }
     }
-  } catch (err) {
-    log.error("G5 beforeStateEntry: " + String(err));
-  }
+	} catch (error) {
+		throw error;
+	}
 }
 
 function capta_Cpf_Cnpj(tipo_pessoa) {

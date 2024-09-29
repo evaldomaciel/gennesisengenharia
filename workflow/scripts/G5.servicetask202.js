@@ -24,7 +24,6 @@ function servicetask202(attempt, message) {
     "APOSENTADOOUPENSIONISTA": hAPI.getCardValue("aposentado_pensionista"),
   };
 
-  log.info("VALORES --> ")
   log.dir(valores)
 
   // Objeto para armazenar os valores não nulos
@@ -38,7 +37,6 @@ function servicetask202(attempt, message) {
   }
 
   // Agora valoresNaoNulos contém apenas os valores não nulos
-  log.info("VALORES NAO NULOS -->");
   log.dir(valoresNaoNulos)
 
   var cst = []

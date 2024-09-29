@@ -593,6 +593,6 @@ function enableFields(form) {
       }
     }
   } catch (error) {
-    log.info("error");
+    throw error
   }
 }

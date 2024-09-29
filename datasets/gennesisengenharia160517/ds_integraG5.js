@@ -1,20 +1,15 @@
 function createDataset(fields, constraints, sortFields) {
-	log.info('=====DTS INTEGRACAO G5=====')
 	var dataset = DatasetBuilder.newDataset();
 	dataset.addColumn("Retorno");
 	dataset.addColumn("Mensagem");
-
 	var contexto = 'CODCOLIGADA='
-
 	var valores = getConstraints(constraints);
-
 	try {
 		var wsUpdate_RM = ServiceManager.getService('RMWsDataServer');
 		var serviceLocator = wsUpdate_RM.instantiate('com.totvs.WsDataServer');
 		var service = serviceLocator.getRMIwsDataServer();
 		var serviceHelper = wsUpdate_RM.getBean();
 		var dataServerName = 'FinLanDataBR'
-
 
 		var XML = "<FinLAN> " +
 			"    <FLAN>" +
@@ -167,22 +162,14 @@ function createDataset(fields, constraints, sortFields) {
 			"    </FLAN>" +
 			"</FinLAN>";
 
-		log.info('XML=========' + XML)
-		log.info("======================INSTANCIANDO")
 		var authenticatedService = serviceHelper.getBasicAuthenticatedClient(service, "com.totvs.IwsDataServer", getConstante('rm_usuario'), getConstante('rm_senha'));
-		log.info('AUTH +++ ' + authenticatedService.toString())
 		var result = authenticatedService.saveRecord(dataServerName.toString(), XML.toString(), (contexto + "CODCOLIGADA" in valores ? valores.CODCOLIGADA : "1"));
-
-		log.info('RESULT +++ ' + result.toString())
 		var resultMsg = result.toString()
-
 		if (resultMsg.split(";").length == 1) {
 			dataset.addRow(['NOK', result.toString()])
 		} else {
 			dataset.addRow(['OK', result.toString()])
 		}
-
-
 		return dataset
 	} catch (e) {
 		dataset.addRow(['ERRO' + e.lineNumber, e.toString()]);
@@ -190,11 +177,8 @@ function createDataset(fields, constraints, sortFields) {
 	}
 }
 
-
-
 function getConstraints(constraints) {
 	var objRetorno = {}
-
 	if (constraints != null && constraints.length > 0) {
 		for (var c = 0; c < constraints.length; c++) {
 			if (constraints[c].fieldName.toUpperCase() != "SQLLIMIT") {
@@ -202,9 +186,9 @@ function getConstraints(constraints) {
 			}
 		}
 	}
-
 	return objRetorno;
 }
+
 function getConstante(param) {
 	var aConstraint = [];
 	aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));

@@ -19,12 +19,7 @@ function servicetask292(attempt, message) {
     "DIGITOCONTA": hAPI.getCardValue("digito_conta_corrente_fin"),
     "TIPOCONTA": hAPI.getCardValue("tipo_conta_fin")
   };
-
-  log.info("VALORES --> ")
-  log.dir(valores)
-
   var cst = []
-
   for (var propriedade in valores) {
     if (valores.hasOwnProperty(propriedade)) {
       if (valores[propriedade] != "") {
@@ -32,9 +27,7 @@ function servicetask292(attempt, message) {
       }
     }
   }
-
   var dtsIntegracao = DatasetFactory.getDataset("ds_cadastraDadosFinRM", null, cst, null)
-
   if (dtsIntegracao.rowsCount > 0) {
     if (dtsIntegracao.getValue(0, "Retorno") == "OK") {
       return true

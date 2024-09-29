@@ -36,12 +36,10 @@ function getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, TIPO) {
 		constraintDs_G5_SETOR_SOLICITANTE.setLikeSearch(true);
 		constraintDs_G5_TIPO.setLikeSearch(true);
 		var constraints = new Array(constraintDs_G5_CODCCUSTO, constraintDs_G5_SETOR_SOLICITANTE, constraintDs_G5_CODCOLIGADA, constraintDs_G5_TIPO)
-		log.dir(constraints)
 		var datasetAprovador = DatasetFactory.getDataset('ds_G5-Aprovar', null, constraints, null);
 		if (datasetAprovador != null && datasetAprovador != undefined && datasetAprovador.rowsCount > 0) {
 			return datasetAprovador.getValue(0, 'APROVADOR');
 		} else {
-			log.warn(msgFalha);
 			hAPI.setTaskComments(getValue("WKUser"), getValue("WKNumProces"), 0, msgFalha);
 			return "Pool:Group:G5-APROVAR";
 		}

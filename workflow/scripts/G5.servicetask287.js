@@ -155,7 +155,6 @@ function cancelaLancamentoRM(idLan, codColigada, motivo) {
 		var customClient = serviceHelper.getCustomClient(service, properties, []);
 		var response = customClient.executeWithXmlParams('FinLanCancelamentoData', strXmlParams);
 
-		log.info('response ' + idLanPr + ' >>>>>> ' + String(response));
 		if (String(response) == '1' || String(response).indexOf('Pedido já recebido!') >= 0) {
 			hAPI.setTaskComments(getValue('WKUser'), getValue('WKNumProces'), 0, 'Lançamento financeiro ' + idLanPr + ' cancelado com sucesso no Totvs RM.');
 			return true;

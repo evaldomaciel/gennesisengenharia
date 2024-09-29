@@ -1,5 +1,4 @@
 function afterProcessFinish(processId) {
-	log.info("============= inicio afterProcessFinish 00-FLUIG " + getValue("WKNumProces") + "============= ");
 	try {
 		var parametros = new java.util.HashMap();
 		parametros.put("ASSUNTO", "FinaL do processo");
@@ -19,7 +18,6 @@ function afterProcessFinish(processId) {
 		if (Email2 != "" && Email2 != null) {
 			destinatarios.add(Email2);
 		}
-
 
 		/** Personalizado */
 		var msg = '';
@@ -41,13 +39,8 @@ function afterProcessFinish(processId) {
 		for (var index = 0; index < destinatarios.size(); index++) {
 			var destinatario = String(destinatarios.get(index));
 			var envido = obj.simpleEmail(1, assunto, "suportefluig@engpac.com.br", destinatario, msg, "text/html");
-			log.info(destinatario + " - " + assunto);
 		}
-	} catch (e) {
-		log.error("dentro do catch");
-		log.error("Linha do erro" + e.lineNumber);
-		log.error(String(e));
-		throw new Error(e);
+	} catch (error) {
+		throw error;
 	}
-	log.info("============= fim afterProcessFinish 00-FLUIG " + String(getValue("WKNumProces")) + "============= ");
 }

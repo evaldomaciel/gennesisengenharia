@@ -1,5 +1,4 @@
 function afterProcessCreate(processId) {
-    log.info("============= inicio afterProcessCreate G5 " + getValue("WKNumProces") + "============= ");
     try {
         hAPI.setCardValue('numAtividadeAtual', 4);
 
@@ -24,10 +23,6 @@ function afterProcessCreate(processId) {
         }
 
     } catch (e) {
-        log.error("dentro do catch");
-        log.error("Linha do erro" + e.lineNumber);
-        log.error(String(e));
-        throw new Error(e);
+        throw e;
     }
-    log.info("============= fim afterProcessCreate g5" + String(getValue("WKNumProces")) + "============= ");
 }

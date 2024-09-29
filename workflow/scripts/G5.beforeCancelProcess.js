@@ -1,5 +1,4 @@
 function beforeCancelProcess(colleagueId, processId) {
-    log.info("============= inicio afterTaskComplete 00-FLUIG " + getValue("WKNumProces") + "============= ");
     try {
         var parametros = new java.util.HashMap();
         parametros.put("ASSUNTO", "CANCELAMENTO - FASE APROV. GESTOR");
@@ -19,8 +18,6 @@ function beforeCancelProcess(colleagueId, processId) {
             destinatarios.add(Email2);
         }
 
-        ///notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
-
         /** Personalizado */
         var msg = '';
         msg += '<html>'
@@ -36,13 +33,8 @@ function beforeCancelProcess(colleagueId, processId) {
         for (var index = 0; index < destinatarios.size(); index++) {
             var destinatario = String(destinatarios.get(index));
             var envido = obj.simpleEmail(1, assunto, "suportefluig@engpac.com.br", destinatario, msg, "text/html");
-            log.info(destinatario + " - " + assunto);
         }
-    } catch (e) {
-        log.error("dentro do catch");
-        log.error("Linha do erro" + e.lineNumber);
-        log.error(String(e));
-        throw new Error(e);
-    }
-    log.info("============= fim afterTaskComplete 00-FLUIG " + String(getValue("WKNumProces")) + "============= ");
+	} catch (error) {
+		throw error;
+	}
 }

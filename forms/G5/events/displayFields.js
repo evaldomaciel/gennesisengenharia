@@ -218,7 +218,6 @@ function displayFields(form, customHTML) {
     /** FIM DO PREENCHIMENTO AUTOMATICO */
 
   } catch (error) {
-    log.info("Erro no G5: ", error);
     customHTML.append("\n\t <script> " + String(error.lineNumber) + " - " + String(error) + "</script>");
   }
 }

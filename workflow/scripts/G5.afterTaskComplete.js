@@ -1,24 +1,13 @@
 function afterTaskComplete(colleagueId, nextSequenceId, userList) {
-  log.dir({
-    'afterTaskComplete': 'inicio',
-    'WKNumProces': getValue("WKNumProces"),
-    'WKNumState': getValue("WKNumState"),
-    'WKNextState': getValue("WKNextState")
-  })
+
   var activity = getValue("WKNumState");
   var proxima = getValue("WKNextState");
   var nSolicitacao = getValue("WKNumProces");
   nSolicitacao = nSolicitacao.toString();
 
-  log.info("aftertaskcomplete_008 : " + activity);
 
   if (activity == 114) {
-    log.info("inicio task 114");
-
-    log.info("inicio do try-catch");
     try {
-      log.info("dentro do try");
-
       var dataParamsEmail = {
         usuario: getColleagueName(getValue("WKUser")),
         assunto: "PAGAMENTO REALIZADO - FASE ENVIAR COMPROVANTE",
@@ -26,42 +15,28 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
         atendente: "Departamento Financeiro",
         num_solicitacao: hAPI.getCardValue("numero_solicitacao")
       }
-
-      log.info("DADOS EMAILS")
-      log.dir(dataParamsEmail)
-
       /// Get Dataset para uma variavel;
       var parametros = new java.util.HashMap();
-
       parametros.put("ASSUNTO", dataParamsEmail.assunto);
       parametros.put("USUARIO", dataParamsEmail.usuario);
       parametros.put("TITULO_SOLICITACAO", dataParamsEmail.titulo_solicitacao);
       parametros.put("ATENDENTE", dataParamsEmail.atendente);
       parametros.put("SOLICITACAO", dataParamsEmail.num_solicitacao);
-
       var destinatarios = new java.util.ArrayList();
       var email = "soaresgui.dev@gmail.com";
       destinatarios.add(email);
 
       notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
-    } catch (e) {
-      log.info("dentro do catch");
-      log.info(e);
+    } catch (error) {
+      throw error;
     }
-    log.info("fim do try-catch");
-
-    log.info('## SIMPLES');
-
     var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-
     for (var i in destinatario) {
       obj.simpleEmail(1, 'ENGPAC - G5', "fluig", destinatario[i], '', "text/html");
     }
-
   }
 
   if (nextSequenceId == 14) {
-    log.info("nextSequenceId == 14")
     var rateioPF = clearPF("table_rateio_ccusto_fin");
     var rateioInicial = hAPI.getCardData(getValue('WKNumProces'));
     if (rateioInicial) {
@@ -79,14 +54,7 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
         }
       }
     }
-    log.info("nextSequenceId == 14 - fim")
   }
-  log.dir({
-    'afterTaskComplete': 'FIM',
-    'WKNumProces': getValue("WKNumProces"),
-    'WKNumState': getValue("WKNumState"),
-    'WKNextState': getValue("WKNextState")
-  })
 }
 
 function clearPF(tableName) {

@@ -15,15 +15,10 @@ function servicetask183(attempt, message) {
     var usuario = getConstante('rm_usuario')
     var senha = getConstante('rm_senha')
     var authenticatedService = getWebService(usuario, senha, "RMWsDataServer", "com.totvs.WsDataServer", "com.totvs.IwsDataServer");
-    log.dir({ "getWebService": { 'usuario': usuario, 'senha': senha, "serviceRM": "RMWsDataServer", "instance": "com.totvs.WsDataServer", "authClient": "com.totvs.IwsDataServer" } });
-
     var idLanNovo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : "-1";
-
     var historico_analise = String(hAPI.getCardValue("historico_analise")) + ' - Solicitação do Fluig número ' + getValue('WKNumProces');
     hAPI.setCardValue("historico_analise", historico_analise);
-
     var text = GetXml();
-
     text = formatStringToXML(text);
     text = removeNode(text, "_x0024_IMAGES");
     text = removeNode(text, "FLANCOMPL");
@@ -88,9 +83,7 @@ function servicetask183(attempt, message) {
       rateios += makeFLANRATCCUXML(dadosDoItem);
     }
     text = addItem(text, "</FinLAN>", rateios);
-
     var newXML = new XML(text)
-    log.info("============================= XML =============================")
     log.info(newXML)
     var result = authenticatedService.saveRecord(dataServerName, text, context);
     var result = String(result);
@@ -241,10 +234,6 @@ function addItem(text, prevColumnName, newColumn) {
 }
 
 function replaceValue(text, columnName, newValue) {
-  log.dir({
-    'columnName': columnName,
-    'newValue': newValue
-  })
   newValue = String(newValue);
   if ((newValue != null) && (newValue.trim() != "")) {
     var regex = new RegExp("<" + columnName + ">(.*?)<\\/" + columnName + ">", "g");

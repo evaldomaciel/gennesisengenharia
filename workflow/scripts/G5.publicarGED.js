@@ -38,7 +38,6 @@ function publicarGED(pastaDeDestino) {
 					security.setVersion(docDto.getVersion())
 					securityArray.add(security);
 				}
-				log.dir({ 'ação': 'docAPI.createDocument(docDto, attachments, securityArray, null, null)', 'docDto': docDto, 'attachments': attachments, 'securityConfig': securityArray, 'approvers': null, 'relatedDocs': null })
 				var doc = docAPI.createDocument(docDto, attachments, securityArray, null, null);
 				docsField.push(doc.getDocumentId());
 			}

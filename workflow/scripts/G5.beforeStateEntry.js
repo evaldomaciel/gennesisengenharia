@@ -1,12 +1,5 @@
 function beforeStateEntry(sequenceId) {
   try {
-    log.dir({
-      'beforeStateEntry': 'inicio',
-      'WKNumProces': getValue("WKNumProces"),
-      'WKNumState': getValue("WKNumState"),
-      'WKNextState': getValue("WKNextState")
-    })
-
     /* APROVAÇÃO GESTOR - APROVADA */
     if (sequenceId == 227) {
       hAPI.setCardValue("aprovacao_gestor", "aprovado");
@@ -43,20 +36,12 @@ function beforeStateEntry(sequenceId) {
     /** Atividades */
     var stateName = getStateName(getValue('WKNextState'), getValue('WKDef'), getValue('WKVersDef'));
     if (stateName) {
-      log.info(stateName);
       hAPI.setCardValue('numAtividadeAnterior', hAPI.getCardValue('numAtividadeAtual'));
       hAPI.setCardValue('numAtividadeAtual', getValue('WKNextState'));
     }
-
-  } catch (err) {
-    log.error("erro no beforeStateEntry do G5: " + err);
-  }
-  log.dir({
-    'beforeStateEntry': 'fim',
-    'WKNumProces': getValue("WKNumProces"),
-    'WKNumState': getValue("WKNumState"),
-    'WKNextState': getValue("WKNextState")
-  })
+	} catch (error) {
+		throw error;
+	}
 }
 
 /**
@@ -66,7 +51,6 @@ function beforeStateEntry(sequenceId) {
 * @returns {String} descrição do nome da atividade 
 */
 function getStateName(activity, processId, version) {
-  log.dir({ "getStateName": [activity, processId, version] })
   try {
     var datasetProcessState = DatasetFactory.getDataset('processState', [
       'stateName', 'stateDescription', 'bpmnType'

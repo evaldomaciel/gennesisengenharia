@@ -1,10 +1,4 @@
 function beforeTaskSave(colleagueId, nextSequenceId, userList) {
-  log.dir({
-    'beforeTaskSave': 'inicio',
-    'WKNumProces': getValue("WKNumProces"),
-    'WKNumState': getValue("WKNumState"),
-    'WKNextState': getValue("WKNextState")
-  })
   if (nextSequenceId == 176 || nextSequenceId == 7) {
     var attachments = hAPI.listAttachments();
     var hasAttachment = false;
@@ -18,12 +12,6 @@ function beforeTaskSave(colleagueId, nextSequenceId, userList) {
       throw setError("A tabela <font color=\"red\">Anexo</font> necessita de pelo menos uma entrada!");
     }
   }
-  log.dir({
-    'beforeTaskSave': 'fim',
-    'WKNumProces': getValue("WKNumProces"),
-    'WKNumState': getValue("WKNumState"),
-    'WKNextState': getValue("WKNextState")
-  })
 }
 
 function existeAnexo(descAnexo) {
