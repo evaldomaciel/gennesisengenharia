@@ -1,13 +1,13 @@
 function servicetask176(attempt, message) {
-	var CODCCUSTO = hAPI.getCardValue('CODCCUSTO');
-	var SETOR_SOLICITANTE = String(hAPI.getCardValue('SETORSOLICITANTE')).toUpperCase();
-	var CODCOLIGADA = hAPI.getCardValue('CODCOLIGADA');
+  var CODCCUSTO = hAPI.getCardValue('CODCCUSTO');
+  var SETOR_SOLICITANTE = String(hAPI.getCardValue('SETORSOLICITANTE')).toUpperCase();
+  var CODCOLIGADA = hAPI.getCardValue('CODCOLIGADA');
 
-	/** Aprovação do Gestor */
-	hAPI.setCardValue("cTask007", getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, 'Gestor'));
+  /** Aprovação do Gestor */
+  hAPI.setCardValue("cTask007", getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, 'Gestor'));
 
-	/** Aprovação da diretoria */
-	hAPI.setCardValue("cTask012", getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, 'Diretor'));
+  /** Aprovação da diretoria */
+  hAPI.setCardValue("cTask012", getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, 'Diretor'));
 
   hAPI.setCardValue('cTask034', getValue('WKUser'));
 
@@ -27,25 +27,25 @@ function servicetask176(attempt, message) {
 }
 
 function getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, TIPO) {
-	var msgFalha = String("Não foi encontrado um aprovador no dataset 'ds_G5-Aprovar' com os parâmetros: CODCCUSTO: " + CODCCUSTO + ", SETOR_SOLICITANTE: " + SETOR_SOLICITANTE + ", CODCOLIGADA: " + CODCOLIGADA + ", TIPO: " + TIPO);
-	try {
-		var constraintDs_G5_CODCCUSTO = DatasetFactory.createConstraint('CODCCUSTO', CODCCUSTO, CODCCUSTO, ConstraintType.MUST);
-		var constraintDs_G5_SETOR_SOLICITANTE = DatasetFactory.createConstraint('SETOR_SOLICITANTE', SETOR_SOLICITANTE, SETOR_SOLICITANTE, ConstraintType.MUST);
-		var constraintDs_G5_CODCOLIGADA = DatasetFactory.createConstraint('CODCOLIGADA', CODCOLIGADA, CODCOLIGADA, ConstraintType.MUST);
-		var constraintDs_G5_TIPO = DatasetFactory.createConstraint('TIPO', TIPO, TIPO, ConstraintType.MUST);
-		constraintDs_G5_SETOR_SOLICITANTE.setLikeSearch(true);
-		constraintDs_G5_TIPO.setLikeSearch(true);
-		var constraints = new Array(constraintDs_G5_CODCCUSTO, constraintDs_G5_SETOR_SOLICITANTE, constraintDs_G5_CODCOLIGADA, constraintDs_G5_TIPO)
-		var datasetAprovador = DatasetFactory.getDataset('ds_G5-Aprovar', null, constraints, null);
-		if (datasetAprovador != null && datasetAprovador != undefined && datasetAprovador.rowsCount > 0) {
-			return datasetAprovador.getValue(0, 'APROVADOR');
-		} else {
-			hAPI.setTaskComments(getValue("WKUser"), getValue("WKNumProces"), 0, msgFalha);
-			return "Pool:Group:G5-APROVAR";
-		}
-	} catch (error) {
-		throw new Error(error);
-	}
+  var msgFalha = String("Não foi encontrado um aprovador no dataset 'ds_G5-Aprovar' com os parâmetros: CODCCUSTO: " + CODCCUSTO + ", SETOR_SOLICITANTE: " + SETOR_SOLICITANTE + ", CODCOLIGADA: " + CODCOLIGADA + ", TIPO: " + TIPO);
+  try {
+    var constraintDs_G5_CODCCUSTO = DatasetFactory.createConstraint('CODCCUSTO', CODCCUSTO, CODCCUSTO, ConstraintType.MUST);
+    var constraintDs_G5_SETOR_SOLICITANTE = DatasetFactory.createConstraint('SETOR_SOLICITANTE', SETOR_SOLICITANTE, SETOR_SOLICITANTE, ConstraintType.MUST);
+    var constraintDs_G5_CODCOLIGADA = DatasetFactory.createConstraint('CODCOLIGADA', CODCOLIGADA, CODCOLIGADA, ConstraintType.MUST);
+    var constraintDs_G5_TIPO = DatasetFactory.createConstraint('TIPO', TIPO, TIPO, ConstraintType.MUST);
+    constraintDs_G5_SETOR_SOLICITANTE.setLikeSearch(true);
+    constraintDs_G5_TIPO.setLikeSearch(true);
+    var constraints = new Array(constraintDs_G5_CODCCUSTO, constraintDs_G5_SETOR_SOLICITANTE, constraintDs_G5_CODCOLIGADA, constraintDs_G5_TIPO)
+    var datasetAprovador = DatasetFactory.getDataset('ds_G5-Aprovar', null, constraints, null);
+    if (datasetAprovador != null && datasetAprovador != undefined && datasetAprovador.rowsCount > 0) {
+      return datasetAprovador.getValue(0, 'APROVADOR');
+    } else {
+      hAPI.setTaskComments(getValue("WKUser"), getValue("WKNumProces"), 0, msgFalha);
+      return "Pool:Group:G5-APROVAR";
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
 function getAtribuicoes(atribuicao, tipoAtividade) {

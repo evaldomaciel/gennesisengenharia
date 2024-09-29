@@ -18,10 +18,10 @@ function afterTaskSave(colleagueId, nextSequenceId, userList) {
 
   else if (nextSequenceId == 128 || nextSequenceId == 127) {
     var table_pagamento_unico_idx = hAPI.getChildrenIndexes("table_pagamento_unico");
-    if(table_pagamento_unico_idx.length == 0) {
+    if (table_pagamento_unico_idx.length == 0) {
       var vencimentoPU = new java.util.HashMap();
       vencimentoPU.put("data_vencimento_pu", hAPI.getCardValue('data_vencimento_analise'));
-      hAPI.addCardChild("table_pagamento_unico", vencimentoPU);  
+      hAPI.addCardChild("table_pagamento_unico", vencimentoPU);
     }
   }
 }
@@ -140,9 +140,9 @@ function dadosRateio() {
         hAPI.addCardChild("table_rateio_ccusto_fin", novoItem);
       }
     }
-	} catch (error) {
-		throw error;
-	}
+  } catch (error) {
+    throw error;
+  }
 }
 
 function capta_Cpf_Cnpj(tipo_pessoa) {

@@ -39,9 +39,9 @@ function beforeStateEntry(sequenceId) {
       hAPI.setCardValue('numAtividadeAnterior', hAPI.getCardValue('numAtividadeAtual'));
       hAPI.setCardValue('numAtividadeAtual', getValue('WKNextState'));
     }
-	} catch (error) {
-		throw error;
-	}
+  } catch (error) {
+    throw error;
+  }
 }
 
 /**
