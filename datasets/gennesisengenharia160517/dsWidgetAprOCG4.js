@@ -33,8 +33,8 @@ function createDataset(fields, constraints, sortFields) {
 		var DATA_EMISSAO_FIM;
 		var DATA_ENTREGA_INI;
 		var DATA_ENTREGA_FIM;
-		var START_DATE_INI = getDateSQL(-4);
-		var START_DATE_FIM = getDateSQL(1);
+		var START_DATE_INI;
+		var START_DATE_FIM;
 		var PRODUTO;
 		var NUM_SEQ_ESTADO;
 
@@ -56,8 +56,8 @@ function createDataset(fields, constraints, sortFields) {
 					VENCIMENTO_FIM = element.fieldName == 'VENCIMENTOFIM' ? element.initialValue : VENCIMENTO_FIM;
 					START_DATE_INI = element.fieldName == 'START_DATE' ? element.initialValue : START_DATE_INI;
 					START_DATE_FIM = element.fieldName == 'START_DATE' ? element.finalValue : START_DATE_FIM;
+					DATA_ENTREGA_INI = element.fieldName == 'DATAENTREGAINI' ? element.initialValue : DATA_ENTREGA_INI;
 					DATA_ENTREGA_FIM = element.fieldName == 'DATAENTREGAFIM' ? element.initialValue : DATA_ENTREGA_FIM;
-					DATA_ENTREGA_FIM = element.fieldName == 'DATAENTREGA' ? element.finalValue : DATA_ENTREGA_FIM;
 					PRODUTO = element.fieldName == 'PRODUTO' ? element.initialValue : PRODUTO;
 					NUM_SEQ_ESTADO = element.fieldName == 'NUM_SEQ_ESTADO' ? element.initialValue : NUM_SEQ_ESTADO;
 				}
@@ -124,10 +124,18 @@ function createDataset(fields, constraints, sortFields) {
 		minhaQuery += NUM_PROCES != undefined ? "\n AND G4.NUM_PROCES = '" + NUM_PROCES + "'" : "";
 		minhaQuery += IDMOV != undefined ? "\n AND DSG4.IdMov = '" + IDMOV + "'" : "";
 		minhaQuery += CENTRO_CUSTO != undefined ? "\n AND RATEIOS.centroCusto like '%" + CENTRO_CUSTO + "%'" : "";
+		if (
+			(VENCIMENTO_INI == undefined && VENCIMENTO_FIM == undefined && DATA_ENTREGA_INI == undefined && DATA_ENTREGA_FIM == undefined && DATA_EMISSAO_INI == undefined && DATA_EMISSAO_FIM == undefined) &&
+			(START_DATE_INI == undefined && START_DATE_FIM == undefined)
+		) {
+			START_DATE_INI = getDateSQL(-4);
+			START_DATE_FIM = getDateSQL(1);
+		}
+
 		minhaQuery += START_DATE_INI != undefined && START_DATE_FIM != undefined ? "\n AND G4.START_DATE BETWEEN '" + START_DATE_INI + "' AND '" + START_DATE_FIM + "'" : "";
-		minhaQuery += VENCIMENTO_INI != undefined && VENCIMENTO_FIM != undefined ? "\n AND STR_TO_DATE(BOLETO.dataVencimento, '%d/%m/%Y') BETWEEN '" + VENCIMENTO_INI + "' AND '" + VENCIMENTO_FIM + " 23:59:59'" : "";
-		minhaQuery += DATA_ENTREGA_INI != undefined && DATA_ENTREGA_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEntrega, '%d/%m/%Y') BETWEEN '" + DATA_ENTREGA_INI + "' AND '" + DATA_ENTREGA_FIM + " 23:59:59'" : "";
-		minhaQuery += DATA_EMISSAO_INI != undefined && DATA_EMISSAO_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEmissao, '%d/%m/%Y') BETWEEN '" + DATA_EMISSAO_INI + "' AND '" + DATA_EMISSAO_FIM + " 23:59:59'" : "";
+		minhaQuery += VENCIMENTO_INI != undefined && VENCIMENTO_FIM != undefined ? "\n AND STR_TO_DATE(BOLETO.dataVencimento, '%d/%m/%Y') BETWEEN '" + VENCIMENTO_INI + "' AND '" + VENCIMENTO_FIM + "'" : "";
+		minhaQuery += DATA_ENTREGA_INI != undefined && DATA_ENTREGA_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEntrega, '%d/%m/%Y') BETWEEN '" + DATA_ENTREGA_INI + "' AND '" + DATA_ENTREGA_FIM + "'" : "";
+		minhaQuery += DATA_EMISSAO_INI != undefined && DATA_EMISSAO_FIM != undefined ? "\n AND STR_TO_DATE(DSG4.dataEmissao, '%d/%m/%Y') BETWEEN '" + DATA_EMISSAO_INI + "' AND '" + DATA_EMISSAO_FIM + "'" : "";
 		minhaQuery += TIPO_DE_MANDA != undefined ? "\n AND DSG4.tipoDemanda  = '" + TIPO_DE_MANDA + "'" : "";
 		minhaQuery += PRODUTO != undefined ? "\n AND PRODUTOS.CONCATENATED_VALUES like '%" + PRODUTO + "%'" : "";
 		// minhaQuery += "\n AND G4.NUM_PROCES = 44733  ";

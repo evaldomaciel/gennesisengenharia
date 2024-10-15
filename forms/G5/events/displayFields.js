@@ -175,7 +175,7 @@ function displayFields(form, customHTML) {
     form.setVisibleById("div_atribuicoes", false);
     // }
 
-    if (activity != 0 && activity != 4 && activity != 221 && activity != 216 && activity != 295 && activity != 223) {
+    if (activity != 0 && activity != 4 && activity != 34 && activity != 221 && activity != 216 && activity != 295 && activity != 223) {
       customAppend += "\n $('.table-rateio-ccusto-delete').hide(); ";
       customAppend += "\n $('table#table_anexo_solicitacao').find(\".bpm-mobile-trash-column\").hide() ";
       form.setVisibleById("btn_add_linha_as", false);

@@ -88,4 +88,16 @@ var retorno4 = new java.nio.file.Files.writeString(pasta, "");
 Usuário RM PRD
 Senha RM PRD:  int.fluig
 QFRvdHZzMTIzNDU2*
+
+
+{
+  "item" : [ {
+    "companyId" : 1,
+    "documentDescription" : "Anexo 1 - MEDIÇÃO 6º ENGEPAC.txt",
+    "documentId" : 62963,
+    "foo" : [ ],
+    "version" : 1000,
+    "webServiceMessage" : "ok"
+  } ]
+}
 */

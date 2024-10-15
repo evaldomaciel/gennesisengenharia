@@ -23,6 +23,13 @@ function publicarGED(pastaDeDestino) {
 
         var securityArray = new java.util.ArrayList();
         var usuProcess = getUsersProcess();
+
+        log.dir({
+          'users': usuProcess,
+          'documentId': docDto.getDocumentId(),
+          'parentDocumentId': pastaDeDestino,
+        })
+
         for (var index = 0; index < usuProcess.size(); index++) {
           var security = docAPI.newDocumentSecurityConfigDto();
           security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos  
@@ -124,18 +131,29 @@ function getUsersProcess() {
   var datasetProcessTask = DatasetFactory.getDataset('processTask', null, new Array(
     DatasetFactory.createConstraint('processTaskPK.processInstanceId', getValue('WKNumProces'), getValue('WKNumProces'), ConstraintType.MUST)
   ), null);
-
   var users = new java.util.ArrayList();
   users.add(getValue("WKUser"));
-
   for (var index = 0; index < datasetProcessTask.rowsCount; index++) {
-    var user = String(datasetProcessTask.getValue(index, 'processTaskPK.colleagueId'));
-    if (
-      user.indexOf(':') < 0 &&
-      user.length > 0 &&
-      users.contains(user) == false
-    )
-      users.add(user);
+    var colleagueId = String(datasetProcessTask.getValue(index, 'processTaskPK.colleagueId'));
+    var choosedColleagueId = String(datasetProcessTask.getValue(index, 'choosedColleagueId'));
+    var completeColleagueId = String(datasetProcessTask.getValue(index, 'completeColleagueId'));
+    if (isValidUserToCreateDoc(colleagueId)) { users.add(colleagueId); }
+    if (isValidUserToCreateDoc(choosedColleagueId)) { users.add(choosedColleagueId); }
+    if (isValidUserToCreateDoc(completeColleagueId)) { users.add(completeColleagueId); }
   }
   return users;
+}
+
+function isValidUserToCreateDoc(user) {
+  user = String(user);
+  var response = false
+  if (user.indexOf(':') < 0 && user.length > 0) response = true;
+  log.dir({
+    'isValidUserToCreateDoc': 'isValidUserToCreateDoc',
+    'user': user,
+    'indexOf': user.indexOf(':'),
+    'length': user.length,
+    'response': response
+  })
+  return response
 }

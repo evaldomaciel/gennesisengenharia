@@ -84,16 +84,6 @@ function processResult(result) {
 	var source = new org.xml.sax.InputSource(new java.io.StringReader(result));
 	var xmlResponse = parser.parse(source);
 	
-	
-var pasta = "/app/fluig/appserver/domain/servers/";
-var diretorio = new java.io.File(pasta);
-var arquivos = diretorio.listFiles();
-var linhaDeComando2 = String(arquivos[0]);
-var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + "/log/server.log"));
-var retorno4 = new java.nio.file.Files.writeString(pasta, "");
-
-
-	
 	log.info(String(result));
 
 	var nodes = xmlResponse.getElementsByTagName("FLAN");
