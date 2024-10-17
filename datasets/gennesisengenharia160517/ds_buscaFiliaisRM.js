@@ -1,4 +1,5 @@
 function createDataset(fields, constraints, sortFields) {
+    var dataset = DatasetBuilder.newDataset();
     try {
         var filterDef = [];
         var filterValue = [];

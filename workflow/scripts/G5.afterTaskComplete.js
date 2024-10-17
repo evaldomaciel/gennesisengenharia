@@ -23,16 +23,11 @@ function afterTaskComplete(colleagueId, nextSequenceId, userList) {
       parametros.put("ATENDENTE", dataParamsEmail.atendente);
       parametros.put("SOLICITACAO", dataParamsEmail.num_solicitacao);
       var destinatarios = new java.util.ArrayList();
-      var email = "soaresgui.dev@gmail.com";
-      destinatarios.add(email);
+      destinatarios.add("uhfo0ywzh2@vwhins.com");
 
       notifier.notify(getValue("WKUser"), "template_email_engpac", parametros, destinatarios, "text/html");
     } catch (error) {
       throw error;
-    }
-    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();
-    for (var i in destinatario) {
-      obj.simpleEmail(1, 'ENGPAC - G5', "fluig", destinatario[i], '', "text/html");
     }
   }
 

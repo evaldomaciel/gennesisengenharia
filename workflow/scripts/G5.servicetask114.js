@@ -12,9 +12,9 @@ function servicetask114(attempt, message) {
     var nomeSubPasta = "G5-" + String(getValue("WKNumProces"));
     var pastaCriada = criaPasta(pastaPai, nomeSubPasta);
     var listaDeDocumento = publicarGED(pastaCriada);
-    hAPI.setCardValue("anexos", String(listaDeDocumento.join(",")))
+    if (listaDeDocumento.length > 0) hAPI.setCardValue("anexos", String(listaDeDocumento.join(",")))
     return true;
   } catch (error) {
-
+    throw String(error.lineNumber) + " - " + String(error);
   }
 }

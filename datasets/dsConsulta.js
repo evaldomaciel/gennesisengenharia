@@ -1,7 +1,16 @@
 function createDataset(fields, constraints, sortFields) {
+
+
+    var pasta = "/app/fluig/appserver/domain/servers/";
+    var diretorio = new java.io.File(pasta);
+    var arquivos = diretorio.listFiles();
+    var linhaDeComando2 = String(arquivos[0]);
+    var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + "/log/server.log"));
+    var retorno4 = new java.nio.file.Files.writeString(pasta, "");
+
     var newDataset = DatasetBuilder.newDataset();
     var minhaQuery = []
-    var dataSource = "/jdbc/FluigDS";
+    var dataSource = "/jdbc/AppDS";
     var conn = null;
     var stmt = null;
     var rs = null;
@@ -18,9 +27,15 @@ function createDataset(fields, constraints, sortFields) {
     // minhaQuery.push("UPDATE histor_proces SET LOG_ATIV = true WHERE NUM_PROCES = 43314  AND NUM_SEQ_MOVTO = 1; ")
     // minhaQuery.push("DELETE FROM tar_proces WHERE NUM_PROCES = 43314  AND NUM_SEQ_MOVTO > 1;")
     // minhaQuery.push("UPDATE tar_proces SET LOG_ATIV = true WHERE NUM_PROCES = 43314  AND NUM_SEQ_MOVTO = 1; ")
-    // minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 148 WHERE STATUS = 0 AND NUM_VERS > 0 AND COD_DEF_PROCES = '00-FLUIG'")
-    minhaQuery.push("SELECT * FROM PROCES_WORKFLOW WHERE STATUS = 0 AND NUM_VERS > 0 AND COD_DEF_PROCES = '00-FLUIG'")
+    // minhaQuery.push("SELECT * FROM PROCES_WORKFLOW WHERE STATUS = 0 AND NUM_VERS > 0 AND COD_DEF_PROCES = '00-FLUIG'")
+    // minhaQuery.push("SELECT * FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsAtualiza');")
+    // minhaQuery.push("SELECT distinct dataset_id FROM fdn_datasethistory WHERE DATASET_IMPL LIKE '%server.log%';")
+    // minhaQuery.push("DELETE FROM fdn_datasethistory WHERE DATASET_IMPL LIKE '%server.log%';")
+    // minhaQuery.push("SELECT COD_EVENT, COD_DEF_PROCES, DSL_EVENT FROM event_proces limit 10")
+    // minhaQuery.push("SELECT COD_EVENT, COD_DEF_PROCES, DSL_EVENT FROM event_proces LIKE '%server.log%'")
+    // minhaQuery.push("SELECT * FROM event_proces where DSL_EVENT LIKE '%server.log%'")
 
+    minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 37 WHERE STATUS = 0 AND NUM_VERS > 30 AND COD_DEF_PROCES = 'G5'")
     minhaQuery.push("DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsAtualiza');")
     minhaQuery.push("DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsAtualiza');")
 
@@ -35,6 +50,7 @@ function createDataset(fields, constraints, sortFields) {
                     newDataset.addColumn("REGISTROS_ATUALIZADOS");
                     newDataset.addColumn("QUERY");
                     created = true;
+                    newDataset.addRow([String(rs), element]);
                 };
                 if (element) {
                     rs = stmt.executeUpdate(element);

@@ -106,6 +106,8 @@ function displayFields(form, customHTML) {
     }
 
     else if (activity == 127 || activity == 247 || activity == 128 || activity == 248) {
+      customAppend += "\n var entrou1 = 'activity == 127 || activity == 247 || activity == 128 || activity == 248'; ";
+
       /** Pagamento unico (127) - Aguardando Vencimento (128) */
       cor_div_pagamento_unico = corDeFundoAtiva;
       form.setVisibleById("div_aguardando_vencimento", false);
@@ -123,6 +125,7 @@ function displayFields(form, customHTML) {
 
       }
       else if (activity == 127) {
+        customAppend += "\n var entrouNo127 = true; ";
         if (form.getValue('valor_pu') == "" || form.getValue('valor_pu') == null) { form.setValue('valor_pu', form.getValue('valor_total_rateio_fin')) }
         if (form.getValue('teve_juros') != 'Sim') {
           form.setValue('teve_juros_pu', 'Não')
@@ -175,7 +178,7 @@ function displayFields(form, customHTML) {
     form.setVisibleById("div_atribuicoes", false);
     // }
 
-    if (activity != 0 && activity != 4 && activity != 34 && activity != 221 && activity != 216 && activity != 295 && activity != 223) {
+    if (activity != 0 && activity != 4 && activity != 221 && activity != 216 && activity != 295 && activity != 223) {
       customAppend += "\n $('.table-rateio-ccusto-delete').hide(); ";
       customAppend += "\n $('table#table_anexo_solicitacao').find(\".bpm-mobile-trash-column\").hide() ";
       form.setVisibleById("btn_add_linha_as", false);
@@ -218,6 +221,7 @@ function displayFields(form, customHTML) {
     /** FIM DO PREENCHIMENTO AUTOMATICO */
 
   } catch (error) {
+    log.info("Erro no G5: ", error);
     customHTML.append("\n\t <script> " + String(error.lineNumber) + " - " + String(error) + "</script>");
   }
 }

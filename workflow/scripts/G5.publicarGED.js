@@ -51,8 +51,8 @@ function publicarGED(pastaDeDestino) {
     }
     return docsField;
   }
-  catch (e) {
-    throw e;
+  catch (error) {
+    throw String(error.lineNumber) + " - " + String(error);
   }
 }
 
@@ -104,7 +104,7 @@ function criaPasta(pastaPai, nome) {
     var folder = docAPI.createFolder(dto, securityArray, null);
     return parseInt(folder.getDocumentId());
   } catch (error) {
-    throw error;
+    throw String(error.lineNumber) + " - " + String(error);
   }
 }
 
@@ -137,9 +137,9 @@ function getUsersProcess() {
     var colleagueId = String(datasetProcessTask.getValue(index, 'processTaskPK.colleagueId'));
     var choosedColleagueId = String(datasetProcessTask.getValue(index, 'choosedColleagueId'));
     var completeColleagueId = String(datasetProcessTask.getValue(index, 'completeColleagueId'));
-    if (isValidUserToCreateDoc(colleagueId)) { users.add(colleagueId); }
-    if (isValidUserToCreateDoc(choosedColleagueId)) { users.add(choosedColleagueId); }
-    if (isValidUserToCreateDoc(completeColleagueId)) { users.add(completeColleagueId); }
+    if (!users.contains(colleagueId) && isValidUserToCreateDoc(colleagueId)) { users.add(colleagueId); }
+    if (!users.contains(choosedColleagueId) && isValidUserToCreateDoc(choosedColleagueId)) { users.add(choosedColleagueId); }
+    if (!users.contains(completeColleagueId) && isValidUserToCreateDoc(completeColleagueId)) { users.add(completeColleagueId); }
   }
   return users;
 }
@@ -147,7 +147,12 @@ function getUsersProcess() {
 function isValidUserToCreateDoc(user) {
   user = String(user);
   var response = false
-  if (user.indexOf(':') < 0 && user.length > 0) response = true;
+  if (user.indexOf(':') < 0 && user.length > 0) {
+    var datasetColleague = DatasetFactory.getDataset('colleague', new Array('active', 'colleaguePK.colleagueId'), new Array(DatasetFactory.createConstraint('colleaguePK.colleagueId', user, user, ConstraintType.MUST)), null);
+    if (datasetColleague.rowsCount == 0) response = false;
+    else if (datasetColleague.getValue(0, 'active') == 'true' || datasetColleague.getValue(0, 'active') == true) response = true;
+  }
+
   log.dir({
     'isValidUserToCreateDoc': 'isValidUserToCreateDoc',
     'user': user,
