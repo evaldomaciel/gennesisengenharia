@@ -1,4 +1,5 @@
 function servicetask176(attempt, message) {
+  /** Vamos colocar mais complexidade no 176 */
   var CODCCUSTO = hAPI.getCardValue('CODCCUSTO');
   var SETOR_SOLICITANTE = String(hAPI.getCardValue('SETORSOLICITANTE')).toUpperCase();
   var CODCOLIGADA = hAPI.getCardValue('CODCOLIGADA');
@@ -9,19 +10,21 @@ function servicetask176(attempt, message) {
   /** Aprovação da diretoria */
   hAPI.setCardValue("cTask012", getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, 'Diretor'));
 
+  /** Revisar solicitação */
   hAPI.setCardValue('cTask034', getValue('WKUser'));
 
-  hAPI.setCardValue('cTask274', getAtribuicoes('G5-274-' + hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask014', getAtribuicoes('G5-014-' + hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask097', getAtribuicoes('G5-097-' + hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask127', getAtribuicoes('G5-127-' + hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask128', getAtribuicoes('G5-128-' + hAPI.getCardValue('CODCOLIGADA')));
+  /** Etapas do financeiro */
+  hAPI.setCardValue('cTask274', getAtribuicoes('G5-274', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
+  hAPI.setCardValue('cTask014', getAtribuicoes('G5-014', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
+  hAPI.setCardValue('cTask097', getAtribuicoes('G5-097', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
+  hAPI.setCardValue('cTask127', getAtribuicoes('G5-127', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
+  hAPI.setCardValue('cTask128', getAtribuicoes('G5-128', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
 
   /** Tratar erro */
   hAPI.setCardValue('cTask221', getAtribuicoes('G5-221'));
-  hAPI.setCardValue('cTask216', getAtribuicoes('G5-216-' + hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask295', getAtribuicoes('G5-295-' + hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask223', getAtribuicoes('G5-223-' + hAPI.getCardValue('CODCOLIGADA')));
+  hAPI.setCardValue('cTask216', getAtribuicoes('G5-216', hAPI.getCardValue('CODCOLIGADA')));
+  hAPI.setCardValue('cTask295', getAtribuicoes('G5-295', hAPI.getCardValue('CODCOLIGADA')));
+  hAPI.setCardValue('cTask223', getAtribuicoes('G5-223', hAPI.getCardValue('CODCOLIGADA')));
 
   return true;
 }
@@ -48,13 +51,32 @@ function getAprovadorAtv(CODCCUSTO, SETOR_SOLICITANTE, CODCOLIGADA, TIPO) {
   }
 }
 
-function getAtribuicoes(atribuicao, tipoAtividade) {
-  var constraintAtribuicao = DatasetFactory.createConstraint('ID_ATV', atribuicao, atribuicao, ConstraintType.MUST)
+function getAtribuicoes(idAtv, codColigada, centroCusto) {
+  var filtroSemCC = idAtv + "-" + codColigada;
+  var filtroComCC = filtroSemCC + "-" + centroCusto;
+  var constraintAtribuicao = DatasetFactory.createConstraint('ID_ATV', filtroComCC, filtroComCC, ConstraintType.MUST)
   var dtsAtribuicoes = DatasetFactory.getDataset('dts_consultaCadastroAtribuicoes', null, [constraintAtribuicao], null)
   if (dtsAtribuicoes.rowsCount > 0) {
-    return dtsAtribuicoes.getValue(0, 'hd_cod_user_atv')
-  } else {
-    if (tipoAtividade == 'aprovar') return 'Pool:Group:G5-APROVAR';
-    else return getValue('WKUser');
+    return dtsAtribuicoes.getValue(0, 'hd_cod_user_atv');
   }
+  else {
+    constraintAtribuicao = DatasetFactory.createConstraint('ID_ATV', filtroSemCC, filtroSemCC, ConstraintType.MUST)
+    dtsAtribuicoes = DatasetFactory.getDataset('dts_consultaCadastroAtribuicoes', null, [constraintAtribuicao], null)
+    if (dtsAtribuicoes.rowsCount > 0) {
+      return dtsAtribuicoes.getValue(0, 'hd_cod_user_atv')
+    }
+    else {
+      constraintAtribuicao = DatasetFactory.createConstraint('ID_ATV', idAtv, idAtv, ConstraintType.MUST)
+      dtsAtribuicoes = DatasetFactory.getDataset('dts_consultaCadastroAtribuicoes', null, [constraintAtribuicao], null)
+      if (dtsAtribuicoes.rowsCount > 0) {
+        return dtsAtribuicoes.getValue(0, 'hd_cod_user_atv')
+      }
+    }
+  }
+  var paramsInfo = [];
+  if (idAtv) paramsInfo.push("Atividade: " + idAtv)
+  if (codColigada) paramsInfo.push("Coligada: " + codColigada)
+  if (centroCusto) paramsInfo.push("centroCusto: " + centroCusto)
+  hAPI.setTaskComments(getValue("WKUser"), getValue("WKNumProces"), 0, "Não foi possível definir um aprovador com os parâmetros informados no formulário: [" + paramsInfo.join(" | ") + "]");
+  return getValue('WKUser');
 }

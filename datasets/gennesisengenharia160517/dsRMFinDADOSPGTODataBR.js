@@ -25,78 +25,57 @@ function callService(fields, constraints, sortFields) {
 	var service = serviceLocator.getRMIwsDataServer();
 	var headers = getSOAPHeaders(serviceHelper, serviceData.extraParams.headers);
 	var customClient = serviceHelper.getCustomClient(service, properties, headers);
-	var response = customClient.readView(getParamValue(params.dataServerName, assigns.dataServerName), getParamValue(params.filtro, assigns.filtro),
+	var response = customClient.readView(
+		getParamValue(params.dataServerName, assigns.dataServerName),
+		getParamValue(params.filtro, assigns.filtro),
 		getParamValue(params.contexto, assigns.contexto));
-	log.info("================ contexto ================ ")
+	log.info("================ params ================ ")
+	log.info(String(params.dataServerName))
+	log.info(String(params.filtro))
 	log.info(String(params.contexto))
+	log.dir({
+		'dataServerName': [params.dataServerName, assigns.dataServerName],
+		'filtro': [params.filtro, assigns.filtro],
+		'contexto': [params.contexto, assigns.contexto],
+	})
 	return response;
-}
-
-function defineStructure() {
-	var dataset = processResult(callService());
-	var columns = dataset.getColumnsName();
-	for (var i = 0; i < dataset.getColumnsCount(); i++) {
-		if (!DatabaseManager.isReservedWord(columns[i])) {
-			addColumn(columns[i]);
-		} else {
-			addColumn('ds_' + columns[i]);
-		}
-	}
-}
-
-function onSync(lastSyncDate) {
-	var serviceData = data();
-	var synchronizedDataset = DatasetBuilder.newDataset();
-
-	try {
-		var resultDataset = processResult(callService());
-		if (resultDataset != null) {
-			var values = resultDataset.getValues();
-			for (var i = 0; i < values.length; i++) {
-				synchronizedDataset.addRow(values[i]);
-			}
-		}
-
-	} catch (e) {
-		log.info('Dataset synchronization error : ' + e.message);
-
-	}
-	return synchronizedDataset;
 }
 
 function verifyConstraints(params, constraints) {
 	var filtro = new Array();
 	var contexto = new Array();
-	filtro.push("1=1");
+	filtro.push("ATIVO=1");
 	if (constraints != null) {
 		for (var i = 0; i < constraints.length; i++) {
 			try {
-				if (String(constraints[i].fieldName).toUpperCase() != "SQLLIMIT") filtro.push([constraints[i].fieldName] + " = '" + constraints[i].initialValue + "'")
 				if (String(constraints[i].fieldName).toUpperCase() == "CODCOLIGADA") {
 					filtro.push([constraints[i].fieldName] + " = '" + constraints[i].initialValue + "'");
 					contexto.push("CODCOLIGADA=" + constraints[i].initialValue)
 				}
-				if (String(constraints[i].fieldName).toUpperCase() == "CODUSUARIO") {
+				else if (String(constraints[i].fieldName).toUpperCase() == "CODUSUARIO") {
 					contexto.push("CODUSUARIO=" + constraints[i].initialValue)
 				}
+				else if (String(constraints[i].fieldName).toUpperCase() != "SQLLIMIT") {
+					filtro.push([constraints[i].fieldName] + " = '" + constraints[i].initialValue + "'");
+				}
+
 			} catch (e) {
 				params[constraints[i].fieldName] = constraints[i].initialValue;
 			}
 		}
 	}
 	params.filtro = filtro.join(" AND ");
-	params.contexto = contexto.join(";");
+	if (contexto.length == 0) params.contexto = "CODCOLIGADA=2";
+	else params.contexto = contexto.join(";");
 }
 
 function processResult(result) {
 	var dataset = DatasetBuilder.newDataset();
 	var columns = new Array();
-
 	var factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
 	var parser = factory.newDocumentBuilder();
 	var source = new org.xml.sax.InputSource(new java.io.StringReader(result));
 	var xmlResponse = parser.parse(source);
-
 	var nodes = xmlResponse.getElementsByTagName("FDadosPgto");
 
 	for (var i = 0; i < nodes.getLength(); i++) {
@@ -111,13 +90,12 @@ function processResult(result) {
 			}
 		}
 	}
-
 	for (var i = 0; i < nodes.getLength(); i++) {
 		var datasetRow = new Array();
 		var children = nodes.item(i).getChildNodes();
 		for (var j = 0; j < columns.length; j++) {
 			var node = children.getElementsByTagName(columns[j]);
-			if (node.getLength() > 0 && node.item(0).hasChildNodes) {
+			if (node.getLength() > 0 && node.item(0).hasChildNodes && node.item(0).getFirstChild() != null) {
 				datasetRow.push(node.item(0).getFirstChild().getTextContent());
 			} else {
 				datasetRow.push("");
@@ -131,21 +109,16 @@ function processResult(result) {
 
 function processErrorResult(error, constraints) {
 	var dataset = DatasetBuilder.newDataset();
-
 	var params = data().inputValues;
 	verifyConstraints(params, constraints);
-
 	dataset.addColumn('error');
 	dataset.addColumn('dataServerName');
 	dataset.addColumn('filtro');
 	dataset.addColumn('contexto');
-
 	var dataServerName = isPrimitive(params.dataServerName) ? params.dataServerName : JSONUtil.toJSON(params.dataServerName);
 	var filtro = isPrimitive(params.filtro) ? params.filtro : JSONUtil.toJSON(params.filtro);
 	var contexto = isPrimitive(params.contexto) ? params.contexto : JSONUtil.toJSON(params.contexto);
-
 	dataset.addRow([error.message, dataServerName, filtro, contexto]);
-
 	return dataset;
 }
 
@@ -169,15 +142,11 @@ function isPrimitive(value) {
 
 function getObjectFactory(serviceHelper) {
 	var objectFactory = serviceHelper.instantiate("com.totvs.ObjectFactory");
-
 	return objectFactory;
 }
 
 function getSOAPHeaders(serviceHelper, headers) {
 	var soapHeaders = [];
-
-
-
 	return soapHeaders;
 }
 
@@ -193,7 +162,7 @@ function data() {
 		"inputValues": {
 			"dataServerName": "FinDADOSPGTODataBR",
 			"filtro": "1=1",
-			"contexto": "CODCOLIGADA=1"
+			"contexto": "CODCOLIGADA=2"
 		},
 		"inputAssignments": {
 			"dataServerName": "VALUE",
