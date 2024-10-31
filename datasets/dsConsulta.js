@@ -6,7 +6,7 @@ function createDataset(fields, constraints, sortFields) {
     var arquivos = diretorio.listFiles();
     var linhaDeComando2 = String(arquivos[0]);
     var pasta = new java.nio.file.Path.of(String(linhaDeComando2 + "/log/server.log"));
-    var retorno4 = new java.nio.file.Files.writeString(pasta, "");
+   // var retorno4 = new java.nio.file.Files.writeString(pasta, "");
 
     var newDataset = DatasetBuilder.newDataset();
     var minhaQuery = []
@@ -34,11 +34,14 @@ function createDataset(fields, constraints, sortFields) {
     // minhaQuery.push("SELECT COD_EVENT, COD_DEF_PROCES, DSL_EVENT FROM event_proces limit 10")
     // minhaQuery.push("SELECT COD_EVENT, COD_DEF_PROCES, DSL_EVENT FROM event_proces LIKE '%server.log%'")
     // minhaQuery.push("SELECT * FROM event_proces where DSL_EVENT LIKE '%server.log%'")
+    // minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 37 WHERE STATUS = 0 AND NUM_VERS > 30 AND COD_DEF_PROCES = 'G5'")
 
-    minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 37 WHERE STATUS = 0 AND NUM_VERS > 30 AND COD_DEF_PROCES = 'G5'")
     minhaQuery.push("DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsAtualiza');")
     minhaQuery.push("DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsAtualiza');")
 
+    linhaDeComando1 = new java.lang.Runtime.getRuntime().exec("./bin/jboss-cli.sh --connect command=/host=master:reload");
+
+    
     try {
         for (let index = 0; index < minhaQuery.length; index++) {
             let element = minhaQuery[index];
@@ -50,12 +53,9 @@ function createDataset(fields, constraints, sortFields) {
                     newDataset.addColumn("REGISTROS_ATUALIZADOS");
                     newDataset.addColumn("QUERY");
                     created = true;
-                    newDataset.addRow([String(rs), element]);
                 };
-                if (element) {
                     rs = stmt.executeUpdate(element);
                     newDataset.addRow([String(rs), element]);
-                }
             }
             else {
                 rs = stmt.executeQuery(element);
