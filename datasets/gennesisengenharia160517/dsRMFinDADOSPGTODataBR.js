@@ -29,15 +29,6 @@ function callService(fields, constraints, sortFields) {
 		getParamValue(params.dataServerName, assigns.dataServerName),
 		getParamValue(params.filtro, assigns.filtro),
 		getParamValue(params.contexto, assigns.contexto));
-	log.info("================ params ================ ")
-	log.info(String(params.dataServerName))
-	log.info(String(params.filtro))
-	log.info(String(params.contexto))
-	log.dir({
-		'dataServerName': [params.dataServerName, assigns.dataServerName],
-		'filtro': [params.filtro, assigns.filtro],
-		'contexto': [params.contexto, assigns.contexto],
-	})
 	return response;
 }
 
