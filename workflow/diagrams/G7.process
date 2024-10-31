@@ -649,7 +649,7 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
-      <bendpoints x="167" y="256"/>
+      <bendpoints x="165" y="253"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.3/@anchors.0" end="/0/@children.2/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.4" lineWidth="1" filled="false" transparency="0.0"/>
@@ -699,9 +699,9 @@
   <bpmn2:BpmnSwimLane id="bpmnswimlane4" name="Participante" cores="FFFFFF"/>
   <bpmn2:BpmnStartEvent id="startevent4" name="In&#xed;cio" outgoing="flow6" type="10" extendedFields="&lt;list/>" signalId="0" expediente="" selecionaColaboradores="1" esforcoCalculo="0"/>
   <bpmn2:BpmnEndEvent id="endevent12" name="Fim" incoming="flow13" type="60" extendedFields="&lt;list/>" signalId="0"/>
-  <bpmn2:BpmnTask id="task15" name="Consulta Imprime Comprovante" incoming="flow14" outgoing="flow13" type="80" extendedFields="&lt;list/>" managerMechanism="Executor Atividade" managerAssignmentControllerString="&lt;org.eclipse.bpmn2.impl.AssignmentControllerExecutorMechanism>&#xA;  &lt;idNode>startevent4&lt;/idNode>&#xA;  &lt;returns>1&lt;/returns>&#xA;  &lt;mechanismName>Executor Atividade&lt;/mechanismName>&#xA;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerExecutorMechanism>" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
+  <bpmn2:BpmnTask id="task15" name="Consulta Imprime Comprovante" incoming="flow14" outgoing="flow13" type="80" extendedFields="&lt;list/>" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
   <bpmn2:BpmnTask id="mailtask16" name="Email" incoming="flow6" outgoing="flow14" type="84" extendedFields="&lt;list/>" managerMechanism="" loopType="0" authNotify="true" messageData="&lt;org.eclipse.bpmn2.documentacional.BpmnMessageData>&#xA;  &lt;type>1&lt;/type>&#xA;  &lt;receiver>agcoimbra@gmail.com&lt;/receiver>&#xA;  &lt;subject>Teste&lt;/subject>&#xA;  &lt;content>teste&lt;/content>&#xA;&lt;/org.eclipse.bpmn2.documentacional.BpmnMessageData>" instrucoes="Envia Emails para os Participantes&#xD;&#xA;&#xD;&#xA;" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
-  <bpmn2:BpmnProcess id="G7" name="G7" serverId="Gennesis-HMG" version="1" author="" extendedFields="&lt;list/>" cardIndex="0" formSource="server" category="Financeiro" volume="Default" expedient="Default" instruction="" keyWord="" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true"/>
+  <bpmn2:BpmnProcess id="G7" name="G7" serverId="Gennesis-HMG" version="1" author="" extendedFields="&lt;list/>" cardIndex="0" formSource="server" category="Financeiro" volume="Default" expedient="Default" instruction="" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true"/>
   <bpmn2:SequenceFlow id="flow6" name="" sourceRef="startevent4" targetRef="mailtask16" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:SequenceFlow id="flow13" name="" sourceRef="task15" targetRef="endevent12" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:SequenceFlow id="flow14" name="" sourceRef="mailtask16" targetRef="task15" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>

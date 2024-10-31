@@ -150,8 +150,12 @@ function updateValorTotal(tableName) {
   document.getElementById(`valor_total_rateio${fieldFin}`).value = formattedValue;
 
   let valorTotal = parseValue(document.getElementById("Valor").value);
+  
+  ///** desconsiderando valores menores que 1 centavo */
+  total = (~~(total*100))/100
 
-  if (!isNaN(valorTotal) && total > valorTotal) {
+  if (!isNaN(valorTotal) && total > valorTotal) 
+  {
     $(`#div_mensagem_valor_excedido${fieldFin}`).show(400);
   } else {
     $(`#div_mensagem_valor_excedido${fieldFin}`).hide(400);

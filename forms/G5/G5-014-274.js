@@ -138,6 +138,9 @@ function getValorTotalFin() {
 
   const valorTotal = parseValue(document.getElementById("Valor_fin").value);
 
+  ///** desconsiderando valores menores que 1 centavo */
+  total = (~~(total*100))/100
+
   if (!isNaN(valorTotal) && total > valorTotal) {
     $("#div_mensagem_valor_excedido_fin").show(400);
   } else {
