@@ -79,8 +79,25 @@ function getAttachments(docDto) {
  */
 function criaPasta(pastaPai, nome) {
   try {
+
+    var CentroDeCusto = hAPI.getCardValue("centro_de_custo");
+    var NumeroDaSolicitacao = hAPI.getCardValue("numero_solicitacao");
+
+    if (!CentroDeCusto || CentroDeCusto.trim() === "") {
+      throw "O campo Centro de Custo está vazio ou não foi preenchido.";
+    }
+
+    var CentroDeCustoNOME = CentroDeCusto.split(" - ");
+    var centroDeCusto = CentroDeCustoNOME.length > 1 ? CentroDeCustoNOME[1].trim() : CentroDeCusto.trim();
+
+    if (!centroDeCusto || centroDeCusto === "") {
+      throw "Erro ao processar o Centro de Custo. Nome não encontrado.";
+    }
+
+    var NomeDaPasta = "G5-" + centroDeCusto + "-" + NumeroDaSolicitacao ;
+
     var dto = docAPI.newDocumentDto();
-    dto.setDocumentDescription(nome);
+    dto.setDocumentDescription(NomeDaPasta);
     dto.setDocumentType("1");
     dto.setParentDocumentId(pastaPai);
     dto.setDocumentTypeId("");
