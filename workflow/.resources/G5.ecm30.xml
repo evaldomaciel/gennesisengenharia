@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>39</version>
+      <version>55</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
-    <formId>88477</formId>
+    <formId>59631</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -2926,7 +2926,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>39</version>
+        <version>55</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2938,7 +2938,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>39</version>
+        <version>55</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2950,7 +2950,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>39</version>
+        <version>55</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2962,7 +2962,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>39</version>
+        <version>55</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2974,7 +2974,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>39</version>
+        <version>55</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2986,7 +2986,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>39</version>
+        <version>55</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2998,7 +2998,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>39</version>
+        <version>55</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4453,6 +4453,52 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
+        <eventId>afterStateEntry</eventId>
+        <processId>G5</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterStateEntry(sequenceId) {&#xd;
+    var numeroFluxo = parseInt(getValue(&quot;WKNumProces&quot;));&#xd;
+    var NumDaSolicitacao = hAPI.getCardValue(&quot;numero_solicitacao&quot;);&#xd;
+    var emailDestinatario = hAPI.getCardValue(&quot;email_solicitante&quot;);&#xd;
+&#xd;
+    var assunto = &quot;G5 - Solicitação De Pagamentos Avulsos, Solicitacao Numero:&quot; + numeroFluxo;&#xd;
+    var corpoEmail = &quot;Olá, sua solicitação foi enviada para a fase de ajuste, por favor confire as informações no FLUIG &quot;&#xd;
+        + &quot;&lt;br&gt; Atenciosamente;&quot; + &quot; &lt;br&gt; Departamento Financeiro.&quot;;&#xd;
+&#xd;
+    function RetornoParaOsolicitante(emailDestinatario, assunto, corpoEmail) {&#xd;
+        log.dir(emailDestinatario);&#xd;
+        log.info(&apos;o e-mail == &apos; + emailDestinatario);&#xd;
+&#xd;
+        try {&#xd;
+            var parametros = new java.util.HashMap();&#xd;
+            parametros.put(&quot;subject&quot;, assunto);&#xd;
+            parametros.put(&quot;corpoEmail&quot;, corpoEmail);&#xd;
+&#xd;
+            var destinatarios = new java.util.ArrayList();&#xd;
+            destinatarios.add(emailDestinatario);&#xd;
+&#xd;
+            log.info(&quot;enviarEmail &gt;&gt; parametros &quot; + parametros);&#xd;
+&#xd;
+            notifier.notify(&apos;admin&apos;, &quot;template_blank2.html&quot;, parametros, destinatarios, &quot;text/html&quot;);&#xd;
+        } catch (err) {&#xd;
+            log.info(&quot;########### ERRO AO EMAIL CUSTOMIZADO ###########&quot;);&#xd;
+            log.error(err);&#xd;
+            throw (err);&#xd;
+        }&#xd;
+    }&#xd;
+&#xd;
+    if ( sequenceId == 91 ) { // Retorno Para o solicitante&#xd;
+        RetornoParaOsolicitante(emailDestinatario, assunto, corpoEmail);&#xd;
+    } else if ( sequenceId == 7 ) { // Retorno Para o solicitante&#xd;
+        RetornoParaOsolicitante(emailDestinatario, assunto, corpoEmail);&#xd;
+    } &#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
         <eventId>beforeCancelProcess</eventId>
         <processId>G5</processId>
         <version>1</version>
@@ -5398,8 +5444,25 @@ function getAttachments(docDto) {
  */
 function criaPasta(pastaPai, nome) {
   try {
+
+    var CentroDeCusto = hAPI.getCardValue(&quot;centro_de_custo&quot;);
+    var NumeroDaSolicitacao = hAPI.getCardValue(&quot;numero_solicitacao&quot;);
+
+    if (!CentroDeCusto || CentroDeCusto.trim() === &quot;&quot;) {
+      throw &quot;O campo Centro de Custo está vazio ou não foi preenchido.&quot;;
+    }
+
+    var CentroDeCustoNOME = CentroDeCusto.split(&quot; - &quot;);
+    var centroDeCusto = CentroDeCustoNOME.length &gt; 1 ? CentroDeCustoNOME[1].trim() : CentroDeCusto.trim();
+
+    if (!centroDeCusto || centroDeCusto === &quot;&quot;) {
+      throw &quot;Erro ao processar o Centro de Custo. Nome não encontrado.&quot;;
+    }
+
+    var NomeDaPasta = &quot;G5-&quot; + centroDeCusto + &quot;-&quot; + NumeroDaSolicitacao ;
+
     var dto = docAPI.newDocumentDto();
-    dto.setDocumentDescription(nome);
+    dto.setDocumentDescription(NomeDaPasta);
     dto.setDocumentType(&quot;1&quot;);
     dto.setParentDocumentId(pastaPai);
     dto.setDocumentTypeId(&quot;&quot;);
@@ -5512,7 +5575,6 @@ function isValidUserToCreateDoc(user) {
     var text = GetXml();
     text = formatStringToXML(text);
     text = removeNode(text, &quot;_x0024_IMAGES&quot;);
-    text = removeNode(text, &quot;FLANCOMPL&quot;);
     text = removeNode(text, &quot;FLANRATCCU&quot;);
 
     /** Validando se o pagamento é via boleto */
@@ -5522,6 +5584,7 @@ function isValidUserToCreateDoc(user) {
       text = replaceValue(text, &apos;IPTE&apos;, hAPI.getCardValue(&quot;cod_boleto_analise&quot;));
     }
 
+    text = replaceValue(text, &apos;IDFLUIG&apos;, getValue(&apos;WKNumProces&apos;));
     text = replaceValue(text, &apos;CODCOLIGADA&apos;, hAPI.getCardValue(&quot;CODCOLIGADA&quot;));
     text = replaceValue(text, &apos;CODCOLCONVENIO&apos;, hAPI.getCardValue(&quot;CODCOLIGADA&quot;));
     text = replaceValue(text, &apos;CODCOLPGTO&apos;, hAPI.getCardValue(&quot;CODCOLIGADA&quot;));
@@ -5654,6 +5717,11 @@ function GetXml() {
     &quot;     &lt;MODELOCONTABILIZACAO&gt;0&lt;/MODELOCONTABILIZACAO&gt;&quot; +
     &quot;     &lt;MODELOCONTABILIZACAOBAIXA&gt;0&lt;/MODELOCONTABILIZACAOBAIXA&gt;&quot; +
     &quot;  &lt;/FLAN&gt;&quot; +
+    &quot;  &lt;FLANCOMPL&gt;&quot; +
+    &quot;    &lt;CODCOLIGADA&gt;1&lt;/CODCOLIGADA&gt;&quot; +
+    &quot;    &lt;IDLAN&gt;-1&lt;/IDLAN&gt;&quot; +
+    &quot;    &lt;IDFLUIG&gt;0&lt;/IDFLUIG&gt;&quot; +
+    &quot;  &lt;/FLANCOMPL&gt;&quot; +
     &quot;&lt;/FinLAN&gt;&quot;;
 }
 
@@ -6303,7 +6371,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>39</version>
+        <version>55</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6314,7 +6382,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>39</version>
+        <version>55</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6325,7 +6393,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>39</version>
+        <version>55</version>
         <linkSequence>315</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6336,7 +6404,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>39</version>
+        <version>55</version>
         <linkSequence>315</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6347,7 +6415,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>39</version>
+        <version>55</version>
         <linkSequence>316</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6360,7 +6428,7 @@ function getAttchment(description) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>39</version>
+        <version>55</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6584,7 +6652,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6594,7 +6662,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6608,7 +6676,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6618,7 +6686,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6628,7 +6696,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6638,7 +6706,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6648,7 +6716,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6662,7 +6730,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6672,7 +6740,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6682,7 +6750,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>39</processVersion>
+      <processVersion>55</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

@@ -21,7 +21,6 @@ function servicetask183(attempt, message) {
     var text = GetXml();
     text = formatStringToXML(text);
     text = removeNode(text, "_x0024_IMAGES");
-    text = removeNode(text, "FLANCOMPL");
     text = removeNode(text, "FLANRATCCU");
 
     /** Validando se o pagamento é via boleto */
@@ -31,6 +30,7 @@ function servicetask183(attempt, message) {
       text = replaceValue(text, 'IPTE', hAPI.getCardValue("cod_boleto_analise"));
     }
 
+    text = replaceValue(text, 'IDFLUIG', getValue('WKNumProces'));
     text = replaceValue(text, 'CODCOLIGADA', hAPI.getCardValue("CODCOLIGADA"));
     text = replaceValue(text, 'CODCOLCONVENIO', hAPI.getCardValue("CODCOLIGADA"));
     text = replaceValue(text, 'CODCOLPGTO', hAPI.getCardValue("CODCOLIGADA"));
@@ -163,6 +163,11 @@ function GetXml() {
     "     <MODELOCONTABILIZACAO>0</MODELOCONTABILIZACAO>" +
     "     <MODELOCONTABILIZACAOBAIXA>0</MODELOCONTABILIZACAOBAIXA>" +
     "  </FLAN>" +
+    "  <FLANCOMPL>" +
+    "    <CODCOLIGADA>1</CODCOLIGADA>" +
+    "    <IDLAN>-1</IDLAN>" +
+    "    <IDFLUIG>0</IDFLUIG>" +
+    "  </FLANCOMPL>" +
     "</FinLAN>";
 }
 

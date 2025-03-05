@@ -1,0 +1,549 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+        <link type="text/css" rel="stylesheet" href="modal.css" />
+        <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+        <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+        <script type="text/javascript" src="custom.js"></script>
+        <script type="text/javascript" src="anexos.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </head>
+
+    <body>
+        <div class="fluig-style-guide">
+            <div class="container-fluid">
+                <form name="form" role="form">
+                    <!--CAMPOS OCULTOS-->
+                    <input type="hidden" name="TipoAprovacao" id="TipoAprovacao" />
+                    <input type="hidden" name="NSeqItmMov" id="NSeqItmMov" />
+                    <input type="hidden" name="IdentificadorFluig" id="IdentificadorFluig" />
+                    <input type="hidden" name="StatusFluig" id="StatusFluig" />
+                    <input type="hidden" name="IdentificadorFluigAnexo" id="IdentificadorFluigAnexo" />
+                    <input type="hidden" name="CC" id="CC" />
+                    <input type="hidden" name="CC_mobile" id="CC_mobile" />
+                    <input type="hidden" name="produtosMobile" id="produtosMobile" />
+                    <!--FIM CAMPOS OCULTOS-->
+                    <!-- Campos ocultos para os itens da tabela -->
+                    <input type="hidden" id="produtoCampoOculto" name="produtoCampoOculto" value="" />
+                    <input type="hidden" id="unidadeCampoOculto" name="unidadeCampoOculto" value="" />
+                    <input type="hidden" id="quantidadeCampoOculto" name="quantidadeCampoOculto" value="" />
+                    <input type="hidden" id="precoUnitarioCampoOculto" name="precoUnitarioCampoOculto" value="" />
+                    <input type="hidden" id="descontoCampoOculto" name="descontoCampoOculto" value="" />
+                    <input type="hidden" id="totalCampoOculto" name="totalCampoOculto" value="" />
+                    <input type="hidden" id="centroCustoCampoOculto" name="centroCustoCampoOculto" value="" />
+                    <input type="hidden" id="valorCampoOculto" name="valorCampoOculto" value="" />
+                 
+                    <!-- Campos ocultos para os itens da tabela  fim-->
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h1 class="fs-no-margin fs-ellipsis fs-full-width">
+                                    <i class="fluigicon fluigicon-test-top-right" aria-hidden="true"> </i>
+                                    Aprovar Ordem de Compras
+                                    <small class="hidden-xs"></small>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Inicio Tab panes -->
+                    <div class="tab-content">
+                        <section class="SecDadosSolicitante" id="SecDadosSolicitante">
+                            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <i class="icon-calendar"></i>
+                                            <h4 class="panel-title">
+                                                <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                    <strong>Dados do Solicitante</strong>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <!--                                                 <div class="col-xs-12 col-sm-12 col-lg-4 col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="nomeSolicitante">Solicitante</label>
+                                                        <input type="text" class="form-control" name="nomeSolicitante" id="nomeSolicitante" readonly />
+                                                    </div>
+                                                </div> -->
+                                                <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="nomeComprador">Comprador</label>
+                                                        <input type="text" class="form-control" name="nomeComprador" id="nomeComprador" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="urgencia">Urgência</label>
+                                                        <input type="text" class="form-control" name="urgencia" id="urgencia" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="dynamicField">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="pedidoExtra">Pedido Extra</label>
+                                                        <input type="text" class="form-control" name="pedidoExtra" id="pedidoExtra" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="sec_movimento" id="sec_movimento">
+                            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <i class="icon-calendar"></i>
+                                            <h4 class="panel-title">
+                                                <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                    <strong>Dados do Movimento</strong>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-lg-2 col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="CodColigada">Cod. Coligada</label>
+                                                        <input type="text" name="CodColigada" id="CodColigada" class="form-control" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-2 col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="tipoMovimento">Tipo Movimento</label>
+                                                        <input type="text" name="tipoMovimento" id="tipoMovimento" class="form-control" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-2 col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="IdMov">Identificador</label>
+                                                        <input type="text" class="form-control" name="IdMov" id="IdMov" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="numeroMov">N.º Movimento</label>
+                                                        <input type="text" class="form-control" name="numeroMov" id="numeroMov" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="dataEmissao">Data Emissão</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" name="dataEmissao" id="dataEmissao" readonly />
+                                                            <span class="input-group-addon">
+                                                                <span class="fluigicon fluigicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-lg-2 col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="filial">Filial</label>
+                                                        <input class="form-control" type="text" name="filial" id="filial" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="fornecedor">Fornecedor</label>
+                                                        <input type="text" class="form-control" name="fornecedor" id="fornecedor" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-2 col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="desconto">Desconto</label>
+                                                        <input type="text" class="form-control" name="desconto" id="desconto" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-2 col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="valueFrete">Valor Frete</label>
+                                                        <input type="text" class="form-control" name="valueFrete" id="valueFrete" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg-3">
+                                                    <label class="control-label" for="valorLiquido">Valor Líquido</label>
+                                                    <div class="form-group has-info has-feedback">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">R$</span>
+                                                            <input type="text" class="form-control" name="valorLiquido" id="valorLiquido" readonly />
+                                                            <span class="fluigicon fluigicon-verified form-control-feedback"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="dadosBancarios">Dados Bancarios</label>
+                                                        <input type="text" class="form-control" name="dadosBancarios" id="dadosBancarios" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-2 col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="numOs">Nº da OS</label>
+                                                        <input type="text" class="form-control" name="numOs" id="numOs" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="codPagamento">Condição de Pagamento</label>
+                                                        <input type="text" class="form-control" name="codPagamento" id="codPagamento" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-4 col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="localEstoque">Local. Estoque</label>
+                                                        <input type="text" class="form-control" name="localEstoque" id="localEstoque" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <section id="sec_rateio_CC">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                                                        <div class="panel-group" id="accordion">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading clearfix">
+                                                                    <i class="icon-calendar"></i>
+                                                                    <h4 class="panel-title">
+                                                                        <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                                            <strong>Dados do Rateios</strong>
+                                                                        </a>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                                                                            <table id="tabela_rateios" tablename="tabela_rateios" noaddbutton="true" nodeletebutton="true" cellspacing="0" class="table table-striped table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th></th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="row">
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="centroCusto">Centro de Custo</label>
+                                                                                                        <input type="text" class="form-control" name="centroCusto" id="centroCusto" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="valor">Valor</label>
+                                                                                                        <input type="text" class="form-control" name="valor" id="valor" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section id="sec_itens_mov">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                                                        <div class="panel-group" id="accordion">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading clearfix">
+                                                                    <i class="icon-calendar"></i>
+                                                                    <h4 class="panel-title">
+                                                                        <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                                            <strong>Itens do Movimento</strong>
+                                                                        </a>
+                                                                        <div class="col-xs-12 col-sm-12 col-lg-5 col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label" for="DetalheProduto"></label>
+                                                                                <button type="button" onclick="AtualizarMenorCompra(this)" class="btn btn-danger">
+                                                                                    Atualizar Preços Médios
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                                                                            <table id="tabela_produtos" tablename="tabela_produtos" noaddbutton="true" nodeletebutton="true" cellspacing="0" class="table table-striped table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th></th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="row">
+                                                                                                
+                                                                                               <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6" hidden>
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="sequencia">Seq.</label>
+                                                                                                        <input type="text" class="form-control" name="sequencia" id="sequencia" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="produto">Produto</label>
+                                                                                                        <input type="text" class="form-control" name="produto" id="produto" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6" hidden>
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="IDPRD">IDPRD</label>
+                                                                                                        <input type="text" class="form-control" name="IDPRD" id="IDPRD" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="unidade">Unidade</label>
+                                                                                                        <input type="text" class="form-control" name="unidade" id="unidade" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="quantidade">Quantidade</label>
+                                                                                                        <input type="text" class="form-control" name="quantidade" id="quantidade" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="precoUnidade">Preço Un.</label>
+                                                                                                        <input type="text" class="form-control" name="precoUnidade" id="precoUnidade" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="descontoItem">Desconto</label>
+                                                                                                        <input type="text" class="form-control" name="descontoItem" id="descontoItem" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="totalProduto">Total</label>
+                                                                                                        <input type="text" class="form-control" name="totalProduto" id="totalProduto" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="PrecoMedio">Preço Médio</label>
+                                                                                                        <input type="text" class="form-control" name="PrecoMedio" id="PrecoMedio" readonly />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="MenorCompra">Menor Valor</label>
+                                                                                                        <input type="text" name="MenorCompra" id="MenorCompra" class="form-control" readonly>
+                                                                                                </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-12 col-sm-12 col-lg-1 col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label" for="Acoes">Detalhamentos</label>
+                                                                                                        <div id="Detalhamentos"></div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div> 
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section id="Documentacao" class="tab-content">
+                                                <div class="panel panel-info fs-xl-margin-top">
+                                                    <div id="registros-container">
+                                                        <div class="panel panel-info">
+                                                            <div class="panel-heading clearfix" style="background-color: rgb(100, 100, 100);">
+                                                                <i class="icon-calendar"></i>
+                                                                <h4 class="panel-title">
+                                                                    <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseOne">
+                                                                        <i class="flaticon flaticon-person icon-lg" aria-hidden="true"
+                                                                            style="color: aliceblue;"></i>
+                                                                        <strong class="" style="color: aliceblue;">Mapa De Cotação</strong>
+                                                                    </a>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body fs-sm-margin-top">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="table-responsive">
+                                                                    <table tablename="dependentes" id="tblDependente" class="table table-bordered tabelaPaiFilho" nodeletebutton=true noaddbutton =true>
+                                                                        <thead class="fs-display-none">
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td class="tdDeleteRow"></td>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="fs-v-align-middle fs-font-bold count" style="width: 1%;"></td>
+                                                                                <td>
+                                                                                    <div class="row">
+                                                                                        
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="form-group">
+                                                                                                <label class="control-label">Registro de anexo</label>
+                                                                                                <div class="componentAnexo">
+                                                                                                    <div class="input-group">
+                                                                                                        <input type="hidden" class="descAnexo" name="fdRegistroNascDep" />
+                                                                                                        <input type="text" id="fnRegistroNascDep" name="fnRegistroNascDep" class="form-control inputAnexo input-sm" placeholder="Selecione um arquivo" readonly />
+                                                                                                    </div>
+                                                                                                    <div class="icones">
+                                                                                                        <button type="button" class="btnUpFile btn btn-success btn-sm" data-acao="upload" onclick="anexo(event)" title="Selecionar">
+                                                                                                            <i class="fluigicon fluigicon-file-upload icon-sm"></i>
+                                                                                                        </button>
+                                                                                                        <button style="display: none;" type="button" class="btnViewerFile btn btn-info btn-sm" data-acao="viewer" onclick="anexo(event)" title="Visualizar" disabled>
+                                                                                                            <i class="fluigicon fluigicon-eye-open icon-sm"></i>
+                                                                                                        </button>
+                                                                                                        <button style="display: none;" type="button" class="btnDownloadFile btn btn-info btn-sm" data-acao="download" onclick="anexo(event)" title="Download" disabled>
+                                                                                                            <i class="fluigicon fluigicon-download icon-sm"></i>
+                                                                                                        </button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="fs-v-align-middle fs-text-center tdDeleteRow" style="width: 1%;">
+                                                                                    <div>
+                                                                                        <i class="fluigicon fluigicon-trash icon-md fs-xs-padding fs-cursor-pointer fs-color-danger" title="Remover Dependente"  onclick="destroyRowDependente(this)"></i>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                       </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 btnAddNewRow" id="btnAddNewRowDependente">
+                                                                <button class="btn btn-sm btn-success" onClick="addNewRowDependente()">Novo Registro</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section id="sec_info_adicionais">
+                                                <div class="row" style="text-align: center;">
+                                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label style="font-size: medium;" for="historico">Histórico</label>
+                                                            <textarea class="form-control" id="historico" name="historico" maxlength="500" rows="4" readonly></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label style="font-size: medium;" for="observacao">Observação</label>
+                                                            <textarea class="form-control" id="observacao" name="observacao" maxlength="500" rows="4" readonly></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detalhamento Do Menor Valor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Coligada</th>
+                        <th>ID Movimento</th>
+                        <th>ID Produto</th>
+                        <th>Fornecedor</th>
+                        <th>Tipo De Fornecedor</th>
+                        <th>Quantidade</th>
+                        <th>Data de Compra</th>
+                        <th>Valor Unitário</th>
+                        <th>Comprador</th>
+                        <th>Centro de Custo</th>
+                    </tr>
+                </thead>
+                <tbody id="itemTableBody">
+                   
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- Modal 2 -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detalhamento Do Produto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Coligada</th>
+                        <th>Ordem De Compra</th>
+                        <th>Fornecedor</th>
+                        <th>Tipo De Fornecedor</th>
+                        <th>Data</th>
+                        <th>Quantidade</th>
+                        <th>Comprador</th>
+                        <th>Valor Unitário Final</th>
+                    </tr>
+                </thead>
+                <tbody id="itemTableBody2">
+                   
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </body>
+</html>
