@@ -2153,6 +2153,101 @@
    </array>
   </void>
   <void method="put">
+   <string>camposFormulario, documentoId = 64381</string>
+   <array class="java.lang.String" length="30">
+    <void index="0">
+     <string>Avaliado</string>
+    </void>
+    <void index="1">
+     <string>cancelado</string>
+    </void>
+    <void index="2">
+     <string>codigo_autenticacao</string>
+    </void>
+    <void index="3">
+     <string>cod_coligada</string>
+    </void>
+    <void index="4">
+     <string>copia_email_solicitante</string>
+    </void>
+    <void index="5">
+     <string>cTask015</string>
+    </void>
+    <void index="6">
+     <string>cTask016</string>
+    </void>
+    <void index="7">
+     <string>cTask021</string>
+    </void>
+    <void index="8">
+     <string>cTask029</string>
+    </void>
+    <void index="9">
+     <string>data_pagamento</string>
+    </void>
+    <void index="10">
+     <string>data_vencimento</string>
+    </void>
+    <void index="11">
+     <string>descAvaliacao</string>
+    </void>
+    <void index="12">
+     <string>div_Avaliacao</string>
+    </void>
+    <void index="13">
+     <string>div_descAvaliacao</string>
+    </void>
+    <void index="14">
+     <string>email_solicitante</string>
+    </void>
+    <void index="15">
+     <string>id_fornecedor</string>
+    </void>
+    <void index="16">
+     <string>id_titulo</string>
+    </void>
+    <void index="17">
+     <string>nomeComprador</string>
+    </void>
+    <void index="18">
+     <string>nTask015</string>
+    </void>
+    <void index="19">
+     <string>nTask016</string>
+    </void>
+    <void index="20">
+     <string>nTask021</string>
+    </void>
+    <void index="21">
+     <string>nTask029</string>
+    </void>
+    <void index="22">
+     <string>processo_origem</string>
+    </void>
+    <void index="23">
+     <string>solicitacao_origem</string>
+    </void>
+    <void index="24">
+     <string>valor_original</string>
+    </void>
+    <void index="25">
+     <string>valor_titulo</string>
+    </void>
+    <void index="26">
+     <string>zTask015</string>
+    </void>
+    <void index="27">
+     <string>zTask016</string>
+    </void>
+    <void index="28">
+     <string>zTask021</string>
+    </void>
+    <void index="29">
+     <string>zTask029</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
    <string>mecanismo</string>
    <array class="[Ljava.lang.Object;" length="23">
     <void index="0">

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+  <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+  <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+  <!-- CUSTOM -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
+    integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
+    crossorigin="anonymous"></script>
+  <link href="/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+  <link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+  <script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+  <script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+  <link href="G7.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="G7.js"></script>
+</head>
+
+<body class="fluig-style-guide">
+  <form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents"
+    style="padding-left: 10px; padding-right: 10px;">
+    <!-- ETAPA 000 | 004 - INICIO -->
+    <div id="div_formulario_inicial">
+      <section id="section_cabecalho" class="panel panel-primary">
+        <div class="panel-heading" style="font-weight: 800; " id="heading_cabecalho_inicio">
+          <div id="cabecalho_title_inicio">
+            <i class="flaticon flaticon-person icon-lg" aria-hidden="true"></i>Solicitação
+          </div>
+        </div>
+        <div class="panel-body" id="div_body_solicitacao">
+          <div class="row">
+            <div class="col-md-6 col-sm-12" id="div_processo_origem">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="processo_origem">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="processo_origem">Processo Origem</label>
+                    <select class="form-control" name="processo_origem" id="processo_origem" data_id="processo_origem">
+                      <option value="">Selecione...</option>
+                      <option value="G4">G4 - Anexação de Comprovante</option>
+                      <option value="G5">G5 - Pagamentos Avulsos</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12" id="div_solicitacao_origem">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="solicitacao_origem">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="solicitacao_origem" class="required">Nº Solicitação Origem</label>
+                    <input type="text" class="form-control" data_id="solicitacao_origem" name="solicitacao_origem"
+                      id="solicitacao_origem" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-12" id="div_id_titulo">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="id_titulo">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="id_titulo">ID do Título</label>
+                    <input type="text" class="form-control" data_id="id_titulo" name="id_titulo" id="id_titulo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12" id="div_id_fornecedor">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="id_fornecedor">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="id_fornecedor">ID do Fornecedor</label>
+                    <input type="text" class="form-control" name="id_fornecedor" id="id_fornecedor" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12" id="div_data_vencimento">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="data_vencimento">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="data_vencimento">Data de Vencimento</label>
+                    <input type="text" class="form-control" name="data_vencimento" id="data_vencimento" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-12" id="div_data_pagamento">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="data_pagamento">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="data_pagamento">Data de Pagamento</label>
+                    <input type="text" class="form-control" data_id="data_pagamento" name="data_pagamento"
+                      id="data_pagamento" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12" id="div_valor_titulo">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="valor_titulo">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="valor_titulo">Valor do Título</label>
+                    <input type="text" class="form-control" name="valor_titulo" id="valor_titulo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12" id="div_codigo_autenticacao">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="codigo_autenticacao">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="codigo_autenticacao">Codigo de autenticação</label>
+                    <input type="text" class="form-control" name="codigo_autenticacao" id="codigo_autenticacao" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- FIM ETAPA 000 | 004 - INICIO -->
+
+    <!-- ETAPA 015 - IDENTIFICAÇÃO --------------------------->
+    <div class="panel panel-primary" id="div_identificacao">
+      <div class="panel-heading" style="font-weight: 800;">
+        <i class="flaticon flaticon-pageview icon-lg" aria-hidden="true"></i>Identificação
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <div class="form-field" data-type="radio" data-show-properties="" data-field-name="cancelado"
+              style="position: relative; left: 0px; top: 0px;">
+              <div class="form-input">
+                <div class="form-group">
+                  <label class="required">Cancelar a Solicitação?</label>
+                  <div class="radio-options">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="cancelado" id="cancelado" value="Sim">Sim
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="cancelado" id="cancelado" value="Não">Não
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIM ETAPA 015 - IDENTIFICAÇÃO --------------------------->
+
+    <!-- ETAPA 29 - AVALIAR ATENDIMENTO --------------------------->
+    <div class="panel panel-primary" id="div_Avaliacao" name="div_Avaliacao">
+      <div class="panel-heading" style="font-weight: 800;">
+        <i class="flaticon flaticon-document-approved icon-lg" aria-hidden="true">
+        </i>Avaliar Atendimento
+      </div>
+      <div class="panel-body div_AvaliacaoColorBackground" data-type="zoomfield" data-show-properties=""
+        data-field-name="Avaliado" style="position: relative; left: 0px; top: 0px;">
+        <label>
+          <h3 class="required" title='Avaliação da atuação'>Classifique o seu nivel de satisfação com a
+            atuação?</h3>
+        </label>
+        <div class="col-sm-12 form-group ">
+          <div class="col-sm-2 radio-inline">
+            <input type="radio" id="Muito_satisfeito" name="Avaliado" value="Muito_satisfeito"> Muito
+            Satisfeito<br>
+            <label for="Muito_satisfeito" class="marcacao" title="Muito Satisfeito">
+              <img src="./img/1.png" width="40px" />
+            </label>
+          </div>
+          <div class="col-sm-2 radio-inline">
+            <input type="radio" id="Satisfeito" name="Avaliado" value="Satisfeito"> Satisfeito<br>
+            <label for="Satisfeito" class="marcacao" title="Satisfeito">
+              <img src="./img/2.png" width="40px" />
+            </label>
+          </div>
+          <div class="col-sm-2 radio-inline">
+            <input type="radio" id="Indiferente" name="Avaliado" value="Indiferente">Indiferente<br>
+            <label for="Indiferente" title="Indiferente" class="marcacao">
+              <img src="./img/3.png" width="40px" />
+            </label>
+          </div>
+          <div class="col-sm-2 radio-inline">
+            <input type="radio" id="Insatisfeito" name="Avaliado" value="Insatisfeito">Insatisfeito<br>
+            <label title="Insatisfeito" class="marcacao" for="Insatisfeito">
+              <img src="./img/4.png" width="40px" />
+            </label>
+          </div>
+          <div class="col-sm-2 radio-inline">
+            <input type="radio" id="Muito_insatisfeito" name="Avaliado" value="Muito_insatisfeito">Muito
+            insatisfeito<br>
+            <label title="Muito insatisfeito" class="marcacao" for="Muito_insatisfeito">
+              <img src="./img/5.png" width="40px" />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="div_descAvaliacao" name="div_descAvaliacao" class="form-field div_AvaliacaoColorBackground "
+        data-type="textarea" data-show-properties="" data-field-name="descAvaliacao"
+        style="position: relative; left: 0px; top: 0px; display: block;">
+        <div class="form-input">
+          <div class="panel-body">
+            <label>Descrição complementar da avaliação da atuação</label>
+            <textarea class="form-control" rows="10" name="descAvaliacao" id="descAvaliacao" placeholder=""
+              data-size="big"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIM ETAPA 29 - AVALIAR ATENDIMENTO --------------------------->
+
+    <!-- DIV DADOS OCULTOS (CASO PRECISE NA INTEGRAÇÃO)-->
+    <div id="div_dados_ocultos">
+      <section id="section_pagamento_parcial" class="panel panel-primary">
+        <div class="panel-heading" style="font-weight: 800; ">
+          <i class="flaticon flaticon-lock icon-lg" aria-hidden="true"></i>Dados Ocultos
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4 col-sm-6" id="div_nomeComprador">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="nomeComprador">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="nomeComprador">Comprador</label>
+                    <input type="text" class="form-control" data_id="nomeComprador" name="nomeComprador"
+                      id="nomeComprador" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6" id="div_email_solicitante">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="email_solicitante">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="email_solicitante">Email do Solicitante</label>
+                    <input type="text" class="form-control" data_id="email_solicitante" name="email_solicitante"
+                      id="email_solicitante" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6" id="div_copia_email_solicitante">
+              <div class="form-field" data-type="textbox" data-show-properties
+                data-field-name="copia_email_solicitante">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="copia_email_solicitante">Email Cópia</label>
+                    <input type="text" class="form-control" data_id="copia_email_solicitante"
+                      name="copia_email_solicitante" id="copia_email_solicitante" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6" id="div_valor_original">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="valor_original">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="valor_original">Valor Original</label>
+                    <input type="text" class="form-control" data_id="valor_original" name="valor_original"
+                      id="valor_original" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6" id="div_cod_coligada">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="cod_coligada">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="cod_coligada">Cod. Coligada</label>
+                    <input type="text" class="form-control" data_id="cod_coligada" name="cod_coligada"
+                      id="cod_coligada" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- FIM DIV DADOS OCULTOS -->
+    <!-- DIV PAINEL DE ATRIBUIÇÃO -->
+    <div class="panel panel-primary" id="div_atribuicoes" style="background-color: #fa8888;">
+      <!-- v:066 24-01-2024 inplantação do processo de notificação-->
+      <div class="panel-heading">
+        <i class="flaticon flaticon-document-approved icon-lg"></i>Painel de
+        Atribuição V:66 24-01-2024
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-xs-12">
+            <label for="atividade">Atividade</label>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <label for="cTask015">Atribuição</label>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <label for="zTask015">Substituição</label>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <label for="nTask015">Prazo</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-xs-12">
+            <label for="cTask015">015 - Identificação</label>
+          </div>
+          <div class="col-md-3 col-xs-3">
+            <input class="col-md-12 col-xs-12" id="cTask015" type="text" name="cTask015" />
+            <br>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input type="zoom" name="zTask015" id="zTask015" dataset="colleague" zoomvalue="colleagueId"
+              datasetvalue="colleagueName" data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha um usuário',
+                'filterValues':'active,true',
+                'fields':[
+                {
+                'field':'login',
+                'label':'Login',
+                'standard':'true'
+                }
+                ]
+                }">
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input id="nTask015" type="text" name="nTask015" mask="000:00" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 col-xs-12">
+            <label for="cTask016">016 - Email</label>
+          </div>
+          <div class="col-md-3 col-xs-3">
+            <input class="col-md-12 col-xs-12" id="cTask016" type="text" name="cTask016" />
+            <br>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input type="zoom" name="zTask016" id="zTask016" dataset="colleague" zoomvalue="colleagueId"
+              datasetvalue="colleagueName" data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha um usuário',
+                'filterValues':'active,true',
+                'fields':[
+                {
+                'field':'login',
+                'label':'Login',
+                'standard':'true'
+                }
+                ]
+                }">
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input id="nTask016" type="text" name="nTask016" mask="000:00" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 col-xs-12">
+            <label for="cTask021">021 - Anexar Comprovante</label>
+          </div>
+          <div class="col-md-3 col-xs-3">
+            <input class="col-md-12 col-xs-12" id="cTask021" type="text" name="cTask021" />
+            <br>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input type="zoom" class="form-control" name="zTask021" id="zTask021" dataset="colleague"
+              zoomvalue="colleagueId" datasetvalue="colleagueName" data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha um usuário',
+                'filterValues':'active,true',
+                'fields':[
+                {
+                'field':'login',
+                'label':'Login',
+                'standard':'true'
+                }
+                ]
+                }">
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input id="nTask021" type="text" name="nTask021" mask="000:00" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 col-xs-12">
+            <label for="cTask029">029 - Avaliar Atendimento</label>
+          </div>
+          <div class="col-md-3 col-xs-3">
+            <input class="col-md-12 col-xs-12" id="cTask029" type="text" name="cTask029" />
+            <br>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input type="zoom" class="form-control" name="zTask029" id="zTask029" dataset="colleague"
+              zoomvalue="colleagueId" datasetvalue="colleagueName" data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha um usuário',
+                'filterValues':'active,true',
+                'fields':[
+                {
+                'field':'login',
+                'label':'Login',
+                'standard':'true'
+                }
+                ]
+                }">
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input id="nTask029" type="text" name="nTask029" mask="000:00" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- FIM DO PAINEL DE ATRIBUIÇÃO -->
+  </form>
+  <script type="text/javascript">
+    var keyDown = false, ctrl = 17, vKey = 86, Vkey = 118;
+    $(document).keydown(function (e) {
+      if (e.keyCode == ctrl) keyDown = true;
+    }).keyup(function (e) {
+      if (e.keyCode == ctrl) keyDown = false;
+    });
+    $('[data-only-numbers]').on('keypress', function (e) {
+      if (!e) {
+        var e = window.event;
+      }
+      if (e.keyCode > 0 && e.which == 0) {
+        return true;
+      }
+      if (e.keyCode) {
+        code = e.keyCode;
+      } else if (e.which) {
+        code = e.which;
+      }
+      if (code == 46) {
+        return true;
+      }
+      var character = String.fromCharCode(code);
+      if (character == '\b' || character == ' ' || character == '\t') {
+        return true;
+      }
+      if (keyDown && (code == vKey || code == Vkey)) {
+        return (character);
+      } else {
+        return (/[0-9]$/.test(character));
+      }
+    }).on('focusout', function (e) {
+      var $this = $(this);
+      if ($this.val() == "") {
+        return true;
+      }
+      $this.val($this.val().replace(/[^0-9\.]/g, ''));
+    }).on('paste', function (e) {
+      var $this = $(this);
+      setTimeout(function () {
+        $this.val($this.val().replace(/[^0-9\.]/g, ''));
+      }, 5);
+    });
+    $('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="text"], textarea[required="required"]', function () {
+      validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+    });
+    $('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function () {
+      validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+    });
+    function validationFieldsForm(field, type) {
+      if (type === "checkbox" || type === "radio") {
+        if (!field.is(':checked')) {
+          field.parents('.form-field').addClass('required');
+        } else {
+          field.parents('.form-field').removeClass('required');
+        }
+      } else {
+        if (!field.val().trim()) {
+          field.parents('.form-field').addClass('required');
+        } else {
+          field.parents('.form-field').removeClass('required');
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
