@@ -11,9 +11,7 @@
   <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
   <!-- CUSTOM -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
-    integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
-    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
   <link href="/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
   <link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
   <script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
@@ -23,8 +21,9 @@
 </head>
 
 <body class="fluig-style-guide">
-  <form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents"
-    style="padding-left: 10px; padding-right: 10px;">
+  <form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
+    <input type="hidden" name="status" id="status" />
+    <input type="hidden" name="processInstanceId" id="processInstanceId" />
     <!-- ETAPA 000 | 004 - INICIO -->
     <div id="div_formulario_inicial">
       <section id="section_cabecalho" class="panel panel-primary">

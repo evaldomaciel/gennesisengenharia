@@ -4,13 +4,14 @@
       <companyId>1</companyId>
       <processId>G7</processId>
     </processDefinitionPK>
-    <processDescription>G7</processDescription>
+    <processDescription>G7 - Manutenção de comprovantes</processDescription>
     <instruction></instruction>
     <active>true</active>
     <publicProcess>false</publicProcess>
     <volumeId>Default</volumeId>
     <categoryId>Financeiro</categoryId>
-    <managerEngineAllocationId></managerEngineAllocationId>
+    <managerEngineAllocationId>Grupo</managerEngineAllocationId>
+    <managerEngineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;G7-GESTORES&lt;/Group&gt;&lt;/AssignmentController&gt;</managerEngineAllocationConfiguration>
     <snapshotFrequency>0</snapshotFrequency>
     <baseDay>0</baseDay>
     <baseMonth>0</baseMonth>
@@ -27,8 +28,8 @@
   <ProcessDefinitionVersion>
     <processDefinitionVersionPK>
       <companyId>1</companyId>
-      <processId>G7</processId>
-      <version>1</version>
+      <processId>G7 - Manutenção de comprovantes</processId>
+      <version>210</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -75,8 +76,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>150</positionX>
-      <positionY>76</positionY>
+      <positionX>120</positionX>
+      <positionY>33</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -103,15 +104,15 @@
         <version>1</version>
         <sequence>15</sequence>
       </processStatePK>
-      <stateName>Consulta Imprime Comprovante</stateName>
-      <stateDescription>Consulta Imprime Comprovante</stateDescription>
+      <stateName>Identificação</stateName>
+      <stateDescription>Identificação</stateDescription>
       <instruction></instruction>
       <deadlineTime>0</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
+      <deadlineFieldName>nTask015</deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Executor Atividade</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;cTask015&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -126,8 +127,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>260</positionX>
-      <positionY>378</positionY>
+      <positionX>597</positionX>
+      <positionY>433</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -179,8 +180,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>260</positionX>
-      <positionY>229</positionY>
+      <positionX>597</positionX>
+      <positionY>284</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -200,6 +201,382 @@
       <destinationStates/>
       <digitalSignature>false</digitalSignature>
       <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>21</sequence>
+      </processStatePK>
+      <stateName>Anexar Comprovante</stateName>
+      <stateDescription>Anexar Comprovante</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>nTask021</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;cTask021&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>910</positionX>
+      <positionY>277</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>29</sequence>
+      </processStatePK>
+      <stateName>Avaliar Atendimento</stateName>
+      <stateDescription>Avaliar Atendimento</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;cTask029&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>910</positionX>
+      <positionY>59</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>30</sequence>
+      </processStatePK>
+      <stateName>Atribuição</stateName>
+      <stateDescription>Atribuição</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>330</positionX>
+      <positionY>23</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>41</sequence>
+      </processStatePK>
+      <stateName>Atualiza lançamento</stateName>
+      <stateDescription>Atualiza lançamento</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>190</positionX>
+      <positionY>16</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>45</sequence>
+      </processStatePK>
+      <stateName>Tratar erro</stateName>
+      <stateDescription>Tratar erro</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>190</positionX>
+      <positionY>123</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>37</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>390</positionX>
+      <positionY>53</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>30</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>44</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>280</positionX>
+      <positionY>76</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>41</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <sequence>17</sequence>
+      </processStatePK>
+      <stateName>Identificado?</stateName>
+      <stateDescription>Identificado?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>620</positionX>
+      <positionY>0</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
     </ProcessState>
     <ProcessState>
       <processStatePK>
@@ -230,8 +607,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1000</positionX>
-      <positionY>402</positionY>
+      <positionX>1190</positionX>
+      <positionY>73</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -249,19 +626,78 @@
       <digitalSignature>false</digitalSignature>
     </ProcessState>
   </list>
-  <list/>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>210</version>
+        <sequence>17</sequence>
+      </conditionProcessStatePK>
+      <condition>false</condition>
+      <destinationSequenceId>16</destinationSequenceId>
+      <conditionType>1</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>210</version>
+        <sequence>17</sequence>
+      </conditionProcessStatePK>
+      <condition>false</condition>
+      <destinationSequenceId>15</destinationSequenceId>
+      <conditionType>1</conditionType>
+    </ConditionProcessState>
+  </list>
   <list>
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
         <processId>G7</processId>
         <version>1</version>
-        <linkSequence>6</linkSequence>
+        <linkSequence>19</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>4</initialStateSequence>
+      <initialStateSequence>17</initialStateSequence>
       <finalStateSequence>16</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Com identificação</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>20</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>17</initialStateSequence>
+      <finalStateSequence>15</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Sem Identificação</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>22</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>16</initialStateSequence>
+      <finalStateSequence>21</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -273,11 +709,62 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <version>1</version>
-        <linkSequence>13</linkSequence>
+        <linkSequence>32</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>15</initialStateSequence>
+      <initialStateSequence>30</initialStateSequence>
+      <finalStateSequence>17</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>33</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>29</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>34</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>29</initialStateSequence>
+      <finalStateSequence>12</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>35</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>29</initialStateSequence>
       <finalStateSequence>12</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
@@ -290,12 +777,131 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <version>1</version>
-        <linkSequence>14</linkSequence>
+        <linkSequence>39</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>16</initialStateSequence>
-      <finalStateSequence>15</finalStateSequence>
+      <initialStateSequence>15</initialStateSequence>
+      <finalStateSequence>16</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>40</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>15</initialStateSequence>
+      <finalStateSequence>29</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>42</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>41</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>43</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>41</initialStateSequence>
+      <finalStateSequence>30</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>46</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>37</initialStateSequence>
+      <finalStateSequence>45</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>47</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>44</initialStateSequence>
+      <finalStateSequence>45</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>48</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>45</initialStateSequence>
+      <finalStateSequence>41</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>49</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>45</initialStateSequence>
+      <finalStateSequence>41</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -304,15 +910,678 @@
     </ProcessLink>
   </list>
   <list/>
-  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId) {&#xd;
+    log.info(&quot;Inicio afterProcessCreate processo G7&quot;);&#xd;
+    hAPI.setCardValue(&quot;status&quot;, 0);&#xd;
+    hAPI.setCardValue(&quot;processInstanceId&quot;, getValue(&apos;WKNumProces&apos;));&#xd;
+&#xd;
+    // Coletar dados restantes do RM&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterStateEntry</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterStateEntry(sequenceId) {&#xd;
+    if (sequenceId == 16) {&#xd;
+        try {&#xd;
+            var assunto = hAPI.getCardValue(&quot;processo_origem&quot;) + &quot; - &quot; + hAPI.getCardValue(&quot;solicitacao_origem&quot;) + &quot; - Comprovante de Pagamento&quot;;&#xd;
+&#xd;
+            var destinatarios = new Array();&#xd;
+            if (hAPI.getCardValue(&quot;email_solicitante&quot;) != &quot;&quot; &amp;&amp; hAPI.getCardValue(&quot;email_solicitante&quot;) != null) destinatarios.push(hAPI.getCardValue(&quot;email_solicitante&quot;));&#xd;
+            if (hAPI.getCardValue(&quot;copia_email_solicitante&quot;) != &quot;&quot; &amp;&amp; hAPI.getCardValue(&quot;copia_email_solicitante&quot;) != null) destinatarios.push(hAPI.getCardValue(&quot;copia_email_solicitante&quot;));&#xd;
+&#xd;
+            log.dir(destinatarios);&#xd;
+            log.info(&apos;o e-mail == &apos; + destinatarios);&#xd;
+&#xd;
+            // Recuperando os anexos&#xd;
+            var anexos = hAPI.listAttachments();&#xd;
+            var anexo = anexos.get(0);&#xd;
+            var documentId = anexo.getDocumentId();&#xd;
+&#xd;
+            // Coletar o link de download do PDF&#xd;
+            try {&#xd;
+                var clientService = fluigAPI.getAuthorizeClientService();&#xd;
+                var url = documentId;&#xd;
+                var data = {&#xd;
+                    companyId: getValue(&apos;WKCompany&apos;) + &apos;&apos;,&#xd;
+                    serviceCode: &apos;downloadDocument&apos;,&#xd;
+                    endpoint: encodeURI(url),&#xd;
+                    method: &apos;get&apos;,&#xd;
+                    options: {&#xd;
+                        encoding: &apos;UTF-8&apos;,&#xd;
+                        mediaType: &apos;application/json&apos;&#xd;
+                    }&#xd;
+                };&#xd;
+&#xd;
+                var response = clientService.invoke(JSON.stringify(data));&#xd;
+                var result = response.getResult();&#xd;
+                var jsonResponse = JSON.parse(result);&#xd;
+                log.info(&quot;Resposta da API: &quot; + JSON.stringify(jsonResponse));&#xd;
+&#xd;
+                // Verifica o status da resposta&#xd;
+                if (jsonResponse.success != false) {&#xd;
+                    // Coleta o PDF&#xd;
+                    var PDF = jsonResponse.content;&#xd;
+                    log.info(&quot;Conteúdo: &quot; + PDF);&#xd;
+                } else {&#xd;
+                    log.error(&quot;Erro na requisição: &quot; + jsonResponse);&#xd;
+                }&#xd;
+            } catch (e) {&#xd;
+                log.error(&quot;Erro ao fazer a requisição GET: &quot; + e);&#xd;
+            }&#xd;
+&#xd;
+            var msg = &apos;&apos;;&#xd;
+            msg += &apos;&lt;html&gt;&apos;&#xd;
+            msg += &apos;	&lt;body&gt;&apos;&#xd;
+            msg += &apos;	&lt;h2&gt; Olá, &apos; + getColleagueName(getValue(&quot;WKUser&quot;)) + &apos;&lt;/h2&gt;&apos;;&#xd;
+            msg += &apos;	&lt;p&gt; Segue o comprovante de pagamento realizado no processo &lt;b&gt;&apos; + hAPI.getCardValue(&quot;processo_origem&quot;) + &apos;&lt;/b&gt;, solicitação &lt;a href=&quot;https://gennesisengenharia160517.fluig.cloudtotvs.com.br:1650/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=&apos; + hAPI.getCardValue(&quot;solicitacao_origem&quot;) + &apos;&quot;&gt;&lt;b&gt;&apos; + hAPI.getCardValue(&quot;solicitacao_origem&quot;) + &apos;&lt;/b&gt;&lt;/a&gt;:&lt;/p&gt;&apos;;&#xd;
+            msg += &apos;	&lt;a href=&quot;&apos; + PDF + &apos;&quot; download&gt;Vizualizar PDF&lt;/a&gt;&apos;;&#xd;
+            msg += &apos;	&lt;/body&gt;&apos;&#xd;
+            msg += &apos;&lt;/html&gt;&apos;&#xd;
+&#xd;
+            var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
+&#xd;
+            for (var x = 0; x &lt; destinatarios.length; x++) {&#xd;
+                obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatarios[x], msg, &quot;text/html&quot;);&#xd;
+            }&#xd;
+        } catch (err) {&#xd;
+            log.error(err);&#xd;
+            throw (err);&#xd;
+        }&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function getColleagueName(user) {&#xd;
+    var const1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, user, user, ConstraintType.MUST);&#xd;
+    var datasetAttachment = DatasetFactory.getDataset(&quot;colleague&quot;, null, [const1], null);&#xd;
+    if (datasetAttachment.rowsCount &gt; 0) return datasetAttachment.getValue(0, &quot;colleagueName&quot;);&#xd;
+    return user;&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessFinish</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessFinish(processId) {&#xd;
+	hAPI.setCardValue(&quot;status&quot;, 2);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterCancelProcess</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterCancelProcess(colleagueId, processId) {&#xd;
+	hAPI.setCardValue(&quot;status&quot;, 1);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask30</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask30(attempt, message) {
+	hAPI.setCardValue(&quot;cTask015&quot;, getValue(&quot;WKUser&quot;));
+	hAPI.setCardValue(&quot;cTask016&quot;, getAtribuicoes(&quot;G7-016&quot;));
+	hAPI.setCardValue(&quot;cTask021&quot;, getAtribuicoes(&quot;G7-021&quot;));
+	hAPI.setCardValue(&quot;cTask029&quot;, getAtribuicoes(&quot;G7-029&quot;));
+
+	hAPI.setCardValue(&quot;nTask015&quot;, get_Constante(&quot;G7-015-SLA&quot;));
+	hAPI.setCardValue(&quot;nTask021&quot;, get_Constante(&quot;G7-021-SLA&quot;));
+	hAPI.setCardValue(&quot;nTask029&quot;, get_Constante(&quot;G7-029-SLA&quot;));
+
+	try {
+		var Service = ServiceManager.getService(&apos;ECMWorkflowEngineService&apos;);
+		var serviceHelper = Service.getBean();
+		//var serviceLocator = serviceHelper.instantiate(&apos;classe.locator&apos;);
+	} catch (error) {
+		log.error(error);
+		throw error;
+	}
+}
+
+function getAtribuicoes(atribuicao) {
+	var constraintAtribuicao = DatasetFactory.createConstraint(
+		&quot;ID_ATV&quot;,
+		atribuicao,
+		atribuicao,
+		ConstraintType.MUST
+	);
+	var dtsAtribuicoes = DatasetFactory.getDataset(
+		&quot;dts_consultaCadastroAtribuicoes&quot;,
+		null,
+		[constraintAtribuicao],
+		null
+	);
+	if (dtsAtribuicoes.rowsCount &gt; 0) {
+		return dtsAtribuicoes.getValue(0, &quot;hd_cod_user_atv&quot;);
+	} else {
+		return &quot;&quot;;
+	}
+}
+
+///**** GET PARA CONTANTES
+///**** PARAMETROS cCriterio
+function get_Constante(cCriterio) {
+	/// Get Dataset para uma variavel;
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, cCriterio, cCriterio, ConstraintType.MUST));
+	/// aciona o dataset ds_Constante
+	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
+
+	for (var i = 0; i &lt; oConstantes.values.length; i++) {
+		if (oConstantes.values[i][0].trim() == cCriterio.trim()) {
+			return oConstantes.values[i][1];
+		}
+	}
+	return &apos;0&apos;;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask41</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask41(attempt, message) {
+	try {
+
+		/** Cancela solicitações abertas anteriormente */
+		function cancelaSol(cardDocumentId) {
+			log.info(&apos;Documento  &apos; + cardDocumentId)
+			var colunasWorkflowProcess = new Array(&apos;workflowProcessPK.processInstanceId&apos;);
+			var datasetWorkflowProcess = DatasetFactory.getDataset(&apos;workflowProcess&apos;, colunasWorkflowProcess, new Array(
+				DatasetFactory.createConstraint(&apos;cardDocumentId&apos;, cardDocumentId, cardDocumentId, ConstraintType.MUST)
+			), null);
+
+			log.info(&apos;Vamos cancelar a solicitação &apos; + datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;))
+
+			return DatasetFactory.getDataset(&apos;dsCancelaSolicitacoes&apos;, null, new Array(
+				DatasetFactory.createConstraint(&apos;processInstanceId&apos;, datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), ConstraintType.MUST)
+			), null);
+		}
+
+		var id_titulo = hAPI.getCardValue(&apos;id_titulo&apos;);
+		var processInstanceId = getValue(&apos;WKNumProces&apos;)
+
+		var constraintDs_G71 = DatasetFactory.createConstraint(&apos;id_titulo&apos;, id_titulo, id_titulo, ConstraintType.MUST);
+		var constraintDs_G72 = DatasetFactory.createConstraint(&apos;processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST_NOT);
+		var datasetDs_G7 = DatasetFactory.getDataset(&apos;ds_G7&apos;, null, new Array(constraintDs_G71, constraintDs_G72), null);
+
+		for (var indexG7 = 0; indexG7 &lt; datasetDs_G7.rowsCount; indexG7++) {
+			log.info(datasetDs_G7.getValue(indexG7, &apos;documentid&apos;))
+			var cancelou = cancelaSol(datasetDs_G7.getValue(indexG7, &apos;documentid&apos;))
+			log.dir(cancelou);
+		}
+
+		/** Atualiza o registro no RM */
+
+		var user = getConstante(&apos;rm_usuario&apos;)
+		var pass = getConstante(&apos;rm_senha&apos;)
+		var idLan = hAPI.getCardValue(&apos;id_titulo&apos;);
+		var codColigada = hAPI.getCardValue(&apos;cod_coligada&apos;);
+		var context = String(&quot;CODSISTEMA=G;CODCOLIGADA=&quot; + codColigada + &quot;;CODUSUARIO=&quot; + user);
+		var primaryKey = String(codColigada + &quot;;&quot; + idLan);
+		var authService = getWebService(user, pass, &apos;RMWsDataServer&apos;, &apos;com.totvs.WsDataServer&apos;, &apos;com.totvs.IwsDataServer&apos;);
+
+		var text = new String(authService.readRecord(&quot;FinLanDataBR&quot;, primaryKey, context));
+
+		log.info(text);
+
+		if (String(text).indexOf(&quot;FLAN&quot;) &gt; 0) {
+			text = formatStringToXML(text);
+
+			hAPI.setCardValue(&quot;solicitacao_origem&quot;, getNodeValue(text, &quot;IDFLUIG&quot;));
+			hAPI.setCardValue(&quot;id_fornecedor&quot;, getNodeValue(text, &quot;CODCFO&quot;));
+			hAPI.setCardValue(&quot;data_vencimento&quot;, getNodeValue(text, &quot;DATAVENCIMENTO&quot;));
+			hAPI.setCardValue(&quot;data_pagamento&quot;, getNodeValue(text, &quot;DATAPAG&quot;));
+			hAPI.setCardValue(&quot;valor_titulo&quot;, getNodeValue(text, &quot;VALORBAIXADO&quot;));
+			hAPI.setCardValue(&quot;codigo_autenticacao&quot;, getNodeValue(text, &quot;CODCFO&quot;));
+			hAPI.setCardValue(&quot;valor_original&quot;, getNodeValue(text, &quot;VALORORIGINAL&quot;));
+
+			text = removeNode(text, &quot;FLAN&quot;);
+			text = removeNode(text, &quot;FLANRATCCU&quot;);
+			text = removeNode(text, &quot;FLANCOMPL&quot;);
+			text = removeNode(text, &quot;_x0024_IMAGES&quot;);
+
+			var FLAN = &quot;&lt;FLAN&gt;&quot;;
+			FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
+			FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
+			FLAN += &quot;&lt;/FLAN&gt;&quot;;
+			FLAN += &quot;&lt;FLANCOMPL&gt;&quot;;
+			FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
+			FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
+			FLAN += &quot;	&lt;IDFLUIG&gt;&quot; + getValue(&apos;WKNumProces&apos;) + &quot;&lt;/IDFLUIG&gt;&quot;;
+			FLAN += &quot;&lt;/FLANCOMPL&gt;&quot;;
+
+			text = addItem(text, &quot;&lt;/FinLAN&gt;&quot;, FLAN);
+
+			text = new XML(text);
+			log.info(&quot;XML atualizado: &quot; + text);
+
+			// Está gerando 2 processos G7
+			var result = new String(authService.saveRecord(&quot;FinLanDataBR&quot;, text, context));
+			checkIsPK(result, 2);
+
+			log.info(&quot;Lançamento atualizado no RM&quot;);
+		} else {
+			throw &quot;Não foi possível obter os dados do movimento: &quot; + idLan + &quot;!&quot;;
+		}
+	}
+	catch (e) {
+		if (e == null) e = &quot;Erro desconhecido!&quot;;
+		var mensagemErro = &quot;Ocorreu um erro ao salvar dados no RM: &quot; + String(e) + &quot;. Linha: &quot; + String(e.lineNumber);
+		throw mensagemErro;
+	}
+
+	// Gerar e anexar PDF
+	try {
+
+		// Coletar hora atual
+		var data = new Date();
+		var horas = (&quot;0&quot; + data.getHours()).slice(-2);
+		var minutos = (&quot;0&quot; + data.getMinutes()).slice(-2);
+		var horaFormatada = horas + &quot;:&quot; + minutos;
+
+		var valor_titulo = parseFloat(hAPI.getCardValue(&quot;valor_titulo&quot;));
+		var valor_original = parseFloat(hAPI.getCardValue(&quot;valor_original&quot;));
+		var acre_desc = (valor_titulo - valor_original);
+		var valor_pago = (valor_original + acre_desc);
+
+		var conteudoHTML =
+			&quot;&lt;!DOCTYPE html&gt;&quot; +
+			&quot;&lt;html lang=&apos;pt-br&apos;&gt;&quot; +
+			&quot;&lt;head&gt;&quot; +
+			&quot;&lt;meta charset=&apos;UTF-8&apos;/&gt;&quot; +
+			&quot;&lt;title&gt;Comprovante de Pagamento&lt;/title&gt;&quot; +
+			&quot;&lt;/head&gt;&quot; +
+			&quot;&lt;body&gt;&quot; +
+			&quot;&lt;table border=&apos;1&apos; cellpadding=&apos;10&apos; align=&apos;center&apos; width=&apos;600&apos;&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&quot; +
+			&quot;&lt;table&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td&gt;&lt;img src=&apos;https://gennesisengenharia160517.fluig.cloudtotvs.com.br:1650/portal/api/servlet/image/1/custom/logo_image.png&apos; alt=&apos;Logo ENGPAC/Gênnessis Engenharia&apos; width=&apos;90&apos; /&gt;&lt;/td&gt;&quot; +
+			&quot;&lt;td&gt;&lt;b style=&apos; font-size: 20px&apos;&gt;Comprovante de Pagamento&lt;/b&gt;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;/table&gt;&quot; +
+			&quot;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Data:&lt;/b&gt; &quot; + formatarData(hAPI.getCardValue(&quot;data_pagamento&quot;)) + &quot; &lt;b&gt;Hora:&lt;/b&gt; &quot; + horaFormatada + &quot;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Fornecedor:&lt;/b&gt; &quot; + hAPI.getCardValue(&quot;id_fornecedor&quot;) + &quot; &lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Vencimento:&lt;/b&gt; &quot; + formatarData(hAPI.getCardValue(&quot;data_vencimento&quot;)) + &quot;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Pago:&lt;/b&gt; &quot; + valor_pago.toFixed(2).replace(&apos;.&apos;, &apos;,&apos;).replace(/\B(?=(\d{3})+(?!\d))/g, &apos;.&apos;) + &quot;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Valor:&lt;/b&gt; &quot; + valor_titulo.toFixed(2).replace(&apos;.&apos;, &apos;,&apos;).replace(/\B(?=(\d{3})+(?!\d))/g, &apos;.&apos;) + &quot;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Acréscimos/Descontos:&lt;/b&gt; &quot; + acre_desc.toFixed(2).replace(&apos;.&apos;, &apos;,&apos;).replace(/\B(?=(\d{3})+(?!\d))/g, &apos;.&apos;) + &quot;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Autenticação:&lt;/b&gt; &quot; + hAPI.getCardValue(&quot;codigo_autenticacao&quot;) + &quot;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;tr&gt;&quot; +
+			&quot;&lt;td align=&apos;center&apos; style=&apos;border-color: white;&apos;&gt;&lt;b style=&apos;font-size: 20px;&apos;&gt;Banco Itau SA&lt;/b&gt;&lt;/td&gt;&quot; +
+			&quot;&lt;/tr&gt;&quot; +
+			&quot;&lt;/table&gt;&quot; +
+			&quot;&lt;/body&gt;&quot; +
+			&quot;&lt;/html&gt;&quot;;
+
+		// Nome do arquivo que será salvo no servidor
+		var nomeArquivo = &quot;comprovante_pagamento&quot; + hAPI.getCardValue(&quot;solicitacao_origem&quot;) + &quot;.pdf&quot;;
+
+		// Importando as classes do iText
+		var Document = Packages.com.itextpdf.text.Document;
+		var PdfWriter = Packages.com.itextpdf.text.pdf.PdfWriter;
+		var StringReader = Packages.java.io.StringReader;
+		var XMLWorkerHelper = Packages.com.itextpdf.tool.xml.XMLWorkerHelper;
+
+		// Criar documento PDF
+		var document = new Document();
+		var fileOutputStream = new java.io.FileOutputStream(nomeArquivo);
+		var pdfWriter = PdfWriter.getInstance(document, fileOutputStream);
+
+		// Abrindo o documento antes de adicionar o conteúdo
+		document.open();
+
+		// Convertendo HTML para PDF
+		XMLWorkerHelper.getInstance().parseXHtml(
+			pdfWriter,
+			document,
+			new StringReader(conteudoHTML)
+		);
+
+		document.close();
+		fileOutputStream.close();
+
+
+		// Transformar arquivo em bytes
+		var file = new java.io.File(nomeArquivo);
+		var is = new java.io.FileInputStream(file);
+		var bytesBuffer = java.lang.reflect.Array.newInstance(java.lang.Byte.TYPE, 8192);
+		var baos = new java.io.ByteArrayOutputStream();
+		var len = 0;
+
+		while ((len = is.read(bytesBuffer, 0, bytesBuffer.length)) != -1) {
+			baos.write(bytesBuffer, 0, len);
+		}
+
+		var fileContents = baos.toByteArray();
+		baos.close();
+
+		log.info(&quot;PDF criado com sucesso em: &quot; + nomeArquivo);
+
+		// Salvar arquivo no GED
+		var FOLDER_FORM_PDF = 64569; // ID da pasta onde salvará o PDF
+		var serviceHelper = ServiceManager.getService(&quot;ECMDocumentService&quot;).getBean();
+		var service = serviceHelper
+			.instantiate(&quot;com.totvs.technology.ecm.dm.ws.ECMDocumentServiceService&quot;)
+			.getDocumentServicePort();
+
+		if (service == null) {
+			log.error(&quot;Erro ao carregar ECMDocumentService&quot;);
+			throw &quot;Erro ao gerar PDF do formulário&quot;;
+		}
+
+		var attachment = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.Attachment&quot;);
+		attachment.setFileName(nomeArquivo);
+		attachment.setFileSize(1);
+		attachment.setAttach(true);
+		attachment.setEditing(false);
+		attachment.setPrincipal(true);
+		attachment.setFilecontent(fileContents);
+
+		var attachmentArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.AttachmentArray&quot;);
+		attachmentArray.getItem().add(attachment);
+
+		var result = service.createSimpleDocument(
+			&quot;suporte.fluig&quot;, // Login do usuário
+			&quot;Fluig@2022*&quot;, // Senha do usuário
+			1,
+			FOLDER_FORM_PDF,
+			&quot;admin&quot;,
+			nomeArquivo,
+			attachmentArray
+		);
+
+		// Anexar arquivo
+		hAPI.attachDocument(result.getItem().get(0).getDocumentId());
+	} catch (err) {
+		log.error(err);
+		throw &quot;Erro ao gerar PDF do formulário: &quot; + err;
+	}
+}
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
+	for (var i = 0; i &lt; oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, &quot;id&quot;).trim() == param.trim()) {
+			return oConstantes.getValue(i, &quot;Valor&quot;).trim();
+		}
+	}
+	return &apos;0&apos;;
+}
+
+function formatarData(data) {
+	var dia = data.substring(8, 10);
+	var mes = data.substring(5, 7);
+	var ano = data.substring(0, 4);
+	return dia + &quot;/&quot; + mes + &quot;/&quot; + ano;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>actionsRM</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>/**&#xd;
+* A API de autenticação da Totvs baseia no &quot;Basic access authentication&quot; do HTTP.&#xd;
+* Código Java para autenticação &#xd;
+* Programa responsável por integrar com os Web services do RM &#xd;
+*  Exemplo dev valores para os parâmetros &#xd;
+* @param {String} user nome de usuário&#xd;
+* @param {String} pass senha do usuário &#xd;
+* @param {String} serviceRM nome do serviço cadastrado no painel de controle&#xd;
+* @param {String} instance instância do serviço &quot;com.totvs.WsDataServer&quot;&#xd;
+* @param {String} authClient instância do serviço de autenticação &quot;com.totvs.IwsDataServer&quot;&#xd;
+* @returns parâmetros de autenticação&#xd;
+*/&#xd;
+function getWebService(user, pass, serviceRM, instance, authClient) {&#xd;
+	var dataServerService = ServiceManager.getServiceInstance(serviceRM);&#xd;
+	if (dataServerService == null) {&#xd;
+		throw &quot;Serviço nao encontrado: &quot; + serviceRM;&#xd;
+	}&#xd;
+	var serviceLocator = dataServerService.instantiate(instance);&#xd;
+	if (serviceLocator == null) {&#xd;
+		throw &quot;Instancia do serviço nao encontrada: &quot; + serviceRM + &quot; - &quot; + instance;&#xd;
+	}&#xd;
+	var service = serviceLocator.getRMIwsDataServer();&#xd;
+	if (service == null) {&#xd;
+		throw &quot;Instancia do dataserver do invalida: &quot; + serviceRM + &quot; - &quot; + instance;&#xd;
+	}&#xd;
+	var serviceHelper = dataServerService.getBean();&#xd;
+	if (serviceHelper == null) {&#xd;
+		throw &quot;Instancia do service helper invalida: &quot; + serviceRM + &quot; - &quot; + instance;&#xd;
+	}&#xd;
+	var authService = serviceHelper.getBasicAuthenticatedClient(service, authClient, user, pass);&#xd;
+	if (serviceHelper == null) {&#xd;
+		throw &quot;Instancia do auth service invalida: &quot; + serviceRM + &quot; - &quot; + instance;&#xd;
+	}&#xd;
+	return authService;&#xd;
+}&#xd;
+function dcReadView(dataServerName, context, user, pass, filter) {&#xd;
+	// carrega o webservice...&#xd;
+	var authService = getWebService(user, pass);&#xd;
+	// lê os dados da visão respeitando o filter passado&#xd;
+	var viewData = new String(authService.readView(dataServerName, filter, context));&#xd;
+	return viewData;&#xd;
+}&#xd;
+function dcReadRecord(dataServerName, context, user, pass, primaryKey) {&#xd;
+	// carrega o webservice...&#xd;
+	var authService = getWebService(user, pass);&#xd;
+	// lê os dados do registro respeitando a pk passada&#xd;
+	try {&#xd;
+		var recordData = new String(authService.readRecord(dataServerName, primaryKey, context));&#xd;
+	}&#xd;
+	catch (e) {&#xd;
+		var recordData = new String(authService.getSchema(dataServerName, context));&#xd;
+	}&#xd;
+	return recordData;&#xd;
+}&#xd;
+function dcSaveRecord(dataServerName, context, user, pass, xml) {&#xd;
+	// carrega o webservice...&#xd;
+	var authService = getWebService(user, pass);&#xd;
+	// salva o registro de acordo com o xml passado&#xd;
+	var pk = new String(authService.readRecord(dataServerName, xml, context));&#xd;
+	return pk;&#xd;
+}&#xd;
+&#xd;
+//Transforma o conceito de constraints do Fluig para o filter do TBC.&#xd;
+function parseConstraints(constraints, filterRequired) {&#xd;
+	// inicializa o resultado...&#xd;
+	var result = [];&#xd;
+	result.context = &quot;&quot;;&#xd;
+	// inicializa o filter...&#xd;
+	var filter = &quot;&quot;;&#xd;
+	// varre as contraints...&#xd;
+	for (con in constraints) {&#xd;
+		var fieldName = con.getFieldName().toUpperCase();&#xd;
+		if (fieldName == &quot;RMSCONTEXT&quot;) {&#xd;
+			result.context = con.getInitialValue();&#xd;
+			continue;&#xd;
+		}&#xd;
+		filter += &quot;(&quot;;&#xd;
+		if (fieldName == &quot;RMSFILTER&quot;) {&#xd;
+			filter += con.getInitialValue();&#xd;
+		}&#xd;
+		else {&#xd;
+			if (con.getInitialValue() == con.getFinalValue() || isEmpty(con.getFinalValue())) {&#xd;
+				filter += con.getFieldName();&#xd;
+				var isLike = false;&#xd;
+				switch (con.getConstraintType()) {&#xd;
+					case ConstraintType.MUST:&#xd;
+						filter += &quot; = &quot;;&#xd;
+						break;&#xd;
+					case ConstraintType.MUST_NOT:&#xd;
+						filter += &quot; = &quot;;&#xd;
+						break;&#xd;
+					case ConstraintType.SHOULD:&#xd;
+						filter += &quot; LIKE &quot;;&#xd;
+						isLike = true;&#xd;
+						break;&#xd;
+					case ConstraintType.SHOULD_NOT:&#xd;
+						filter += &quot; NOT LIKE &quot;;&#xd;
+						isLike = true;&#xd;
+						break;&#xd;
+				}&#xd;
+				filter += getFormattedValue(con.getInitialValue(), isLike);&#xd;
+			}&#xd;
+			else {&#xd;
+				filter += con.getFieldName();&#xd;
+				filter += &quot; BETWEEN &quot;;&#xd;
+				filter += getFormattedValue(con.getInitialValue(), false);&#xd;
+				filter += &quot; AND &quot;;&#xd;
+				filter += getFormattedValue(con.getFinalValue(), false);&#xd;
+			}&#xd;
+		}&#xd;
+		filter += &quot;) AND &quot;;&#xd;
+	}&#xd;
+	if (filter.length == 0) {&#xd;
+		if (filterRequired) {&#xd;
+			filter = &quot;1=1&quot;;&#xd;
+		}&#xd;
+		else {&#xd;
+			filter = &quot;1=1&quot;;&#xd;
+		}&#xd;
+	}&#xd;
+	else filter = filter.substring(0, filter.length - 5);&#xd;
+	// guarda o filter...&#xd;
+	result.filter = filter;&#xd;
+	// retorna o resultado...&#xd;
+	return result;&#xd;
+}&#xd;
+function isEmpty(str) {&#xd;
+	return (!str || 0 === str.length);&#xd;
+}&#xd;
+function getFormattedValue(value, isLike) {&#xd;
+	if (isLike) { return &quot;&apos;%&quot; + value + &quot;%&apos;&quot;; }&#xd;
+	else { return &quot;&apos;&quot; + value + &quot;&apos;&quot;; }&#xd;
+}&#xd;
+function getXMLFromString(xmlString) {&#xd;
+	var factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();&#xd;
+	var parser = factory.newDocumentBuilder();&#xd;
+	var is = new org.xml.sax.InputSource();&#xd;
+	is.setCharacterStream(new java.io.StringReader(xmlString));&#xd;
+	return parser.parse(is);&#xd;
+}&#xd;
+function checkIsPK(result, qtd) {&#xd;
+	var lines = result.split(&apos;\r&apos;);&#xd;
+	if (lines.length == 1) {&#xd;
+		var pk = result.split(&apos;;&apos;);&#xd;
+		if (pk.length == qtd) return;&#xd;
+	}&#xd;
+	throw result;&#xd;
+}&#xd;
+function ChekExist(result) {&#xd;
+	var lines = result.split(&apos;\r&apos;);&#xd;
+	if (lines.length &gt; 1) return true;&#xd;
+	else return false;&#xd;
+}&#xd;
+/**&#xd;
+ * Trata o XML para evitar que a próximas funções a serem executadas retornem algum erro&#xd;
+ * @param {string} params string de integração  &#xd;
+ * @returns string de integração sem os cacteres que podem causar algum problema na integração&#xd;
+ */&#xd;
+function formatStringToXML(params) {&#xd;
+	var regexLineR = new RegExp(&quot;\r&quot;, &quot;g&quot;);&#xd;
+	var regexLine = new RegExp(&quot;\n&quot;, &quot;g&quot;);&#xd;
+	var regexTab = new RegExp(&quot;\t&quot;, &quot;g&quot;);&#xd;
+	var regexDspace = new RegExp(&quot;  &quot;, &quot;g&quot;);&#xd;
+	var text = params.replace(regexLine, &quot; &quot;);&#xd;
+	text = text.replace(regexLineR, &quot; &quot;);&#xd;
+	text = text.replace(regexTab, &quot; &quot;);&#xd;
+	text = text.replace(regexDspace, &quot; &quot;);&#xd;
+	return text = text.trim();&#xd;
+}&#xd;
+function addItem(text, prevColumnName, newColumn) {&#xd;
+	if ((prevColumnName != null) &amp;&amp; (prevColumnName.trim() != &quot;&quot;)) {&#xd;
+		var entryPoint = text.indexOf(prevColumnName);&#xd;
+		return text.substr(0, entryPoint) + newColumn + text.substr(entryPoint);;&#xd;
+	}&#xd;
+	else {&#xd;
+		return text&#xd;
+	};&#xd;
+}&#xd;
+function replaceValue(text, columnName, newValue) {&#xd;
+	newValue = String(newValue);&#xd;
+	if ((newValue != null) &amp;&amp; (newValue.trim() != &quot;&quot;)) {&#xd;
+		var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;\\/&quot; + columnName + &quot;&gt;&quot;, &quot;g&quot;);&#xd;
+		var replaceText = &quot;&lt;&quot; + columnName + &quot;&gt;&quot; + newValue + &quot;&lt;/&quot; + columnName + &quot;&gt;&quot;;&#xd;
+		return text.replace(regex, replaceText);&#xd;
+	}&#xd;
+	else return text;&#xd;
+}&#xd;
+function removeValue(text, columnName) {&#xd;
+	var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;\\/&quot; + columnName + &quot;&gt;&quot;, &quot;g&quot;);&#xd;
+	var replaceText = &quot;&lt;&quot; + columnName + &quot;&gt;&lt;/&quot; + columnName + &quot;&gt;&quot;;&#xd;
+	return text.replace(regex, replaceText);&#xd;
+}&#xd;
+function removeNode(text, columnName) {&#xd;
+	var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;\\/&quot; + columnName + &quot;&gt;&quot;, &quot;g&quot;);&#xd;
+	var replaceText = &quot;&quot;;&#xd;
+	return text.replace(regex, replaceText);&#xd;
+}&#xd;
+function isEmpty(str) {&#xd;
+	return (!str || 0 === str.length);&#xd;
+}&#xd;
+function getNodeValue(text, columnName) {&#xd;
+	var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;/&quot; + columnName + &quot;&gt;&quot;);&#xd;
+	var match = text.match(regex);&#xd;
+	return match ? match[1] : null;&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
   <list/>
   <list>
     <SwimLane>
       <color>00FF00</color>
-      <height>490</height>
-      <width>1141</width>
+      <height>551</height>
+      <width>1351</width>
       <positionX>10</positionX>
-      <positionY>10</positionY>
+      <positionY>13</positionY>
       <stateName>G7 - Manutenção de comprovantes</stateName>
       <type>1</type>
       <parentSequence>0</parentSequence>
@@ -325,11 +1594,11 @@
     </SwimLane>
     <SwimLane>
       <color>FFFFFF</color>
-      <height>163</height>
-      <width>1111</width>
+      <height>183</height>
+      <width>1321</width>
       <positionX>40</positionX>
-      <positionY>10</positionY>
-      <stateName>RM</stateName>
+      <positionY>13</positionY>
+      <stateName>1-RM</stateName>
       <type>2</type>
       <parentSequence>1</parentSequence>
       <swimLanePK>
@@ -341,11 +1610,11 @@
     </SwimLane>
     <SwimLane>
       <color>FFFFFF</color>
-      <height>163</height>
-      <width>1111</width>
+      <height>185</height>
+      <width>1321</width>
       <positionX>40</positionX>
-      <positionY>173</positionY>
-      <stateName>Fluig</stateName>
+      <positionY>379</positionY>
+      <stateName>2-Fluig</stateName>
       <type>2</type>
       <parentSequence>1</parentSequence>
       <swimLanePK>
@@ -357,11 +1626,11 @@
     </SwimLane>
     <SwimLane>
       <color>FFFFFF</color>
-      <height>164</height>
-      <width>1111</width>
+      <height>183</height>
+      <width>1321</width>
       <positionX>40</positionX>
-      <positionY>336</positionY>
-      <stateName>Participante</stateName>
+      <positionY>196</positionY>
+      <stateName>3-Gestores</stateName>
       <type>2</type>
       <parentSequence>1</parentSequence>
       <swimLanePK>
@@ -379,12 +1648,56 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>1</version>
-        <linkSequence>6</linkSequence>
+        <version>210</version>
+        <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>167</positionX>
-      <positionY>256</positionY>
+      <positionX>535</positionX>
+      <positionY>152</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>210</version>
+        <linkSequence>20</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>535</positionX>
+      <positionY>409</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>210</version>
+        <linkSequence>34</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1101</positionX>
+      <positionY>65</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>210</version>
+        <linkSequence>40</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1055</positionX>
+      <positionY>408</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>210</version>
+        <linkSequence>40</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1055</positionX>
+      <positionY>141</positionY>
     </ProcessLinkBend>
   </list>
   <list>
@@ -392,21 +1705,63 @@
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>1</version>
+        <version>210</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
       <runType>1</runType>
       <type>0</type>
-      <value>&lt;BpmnMessageData&gt;&lt;Type&gt;1&lt;/Type&gt;&lt;Receiver&gt;agcoimbra@gmail.com&lt;/Receiver&gt;&lt;Subject&gt;Teste&lt;/Subject&gt;&lt;Content&gt;teste&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
+      <value>&lt;BpmnMessageData&gt;&lt;Type&gt;2&lt;/Type&gt;&lt;Receiver&gt;email_solicitante&lt;/Receiver&gt;&lt;Subject&gt;Teste&lt;/Subject&gt;&lt;Content&gt;teste&lt;/Content&gt;&lt;/BpmnMessageData&gt;</value>
       <frequencia>01</frequencia>
     </ProcessStateTrigger>
   </list>
   <list/>
   <list/>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>G7</processId>
+      <version>1</version>
+      <sequence>30</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>G7</processId>
+      <version>1</version>
+      <sequence>41</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
   <list/>
   <list/>
   <list/>
-  <list/>
-  <list/>
+  <list>
+    <ConditionProcessAutomaticRules>
+      <sequence>17</sequence>
+      <expressionOrder>1</expressionOrder>
+      <ruleOrder>1</ruleOrder>
+      <field>solicitacao_origem</field>
+      <value></value>
+      <operator>9</operator>
+      <valueType>0</valueType>
+    </ConditionProcessAutomaticRules>
+    <ConditionProcessAutomaticRules>
+      <sequence>17</sequence>
+      <expressionOrder>2</expressionOrder>
+      <ruleOrder>1</ruleOrder>
+      <field>solicitacao_origem</field>
+      <value></value>
+      <operator>0</operator>
+      <valueType>0</valueType>
+    </ConditionProcessAutomaticRules>
+  </list>
 </list>
