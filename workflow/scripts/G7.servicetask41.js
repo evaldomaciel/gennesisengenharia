@@ -6,14 +6,19 @@ function servicetask41(attempt, message) {
 			log.info('Documento  ' + cardDocumentId)
 			var colunasWorkflowProcess = new Array('workflowProcessPK.processInstanceId');
 			var datasetWorkflowProcess = DatasetFactory.getDataset('workflowProcess', colunasWorkflowProcess, new Array(
-				DatasetFactory.createConstraint('cardDocumentId', cardDocumentId, cardDocumentId, ConstraintType.MUST)
+				DatasetFactory.createConstraint('cardDocumentId', cardDocumentId, cardDocumentId, ConstraintType.MUST),
+				DatasetFactory.createConstraint('status', 0, 0, ConstraintType.MUST)
 			), null);
 
-			log.info('Vamos cancelar a solicitação ' + datasetWorkflowProcess.getValue(0, 'workflowProcessPK.processInstanceId'))
+			if (datasetWorkflowProcess.rowsCount > 0) {
+				log.info('Vamos cancelar a solicitação ' + datasetWorkflowProcess.getValue(0, 'workflowProcessPK.processInstanceId'))
+				return DatasetFactory.getDataset('dsCancelaSolicitacoes', null, new Array(
+					DatasetFactory.createConstraint('processInstanceId', datasetWorkflowProcess.getValue(0, 'workflowProcessPK.processInstanceId'), datasetWorkflowProcess.getValue(0, 'workflowProcessPK.processInstanceId'), ConstraintType.MUST)
+				), null);
+			}
+			log.info('Documento  ' + cardDocumentId + " não tinha uma solicitação vinculada para cancelar!")
+			return false;
 
-			return DatasetFactory.getDataset('dsCancelaSolicitacoes', null, new Array(
-				DatasetFactory.createConstraint('processInstanceId', datasetWorkflowProcess.getValue(0, 'workflowProcessPK.processInstanceId'), datasetWorkflowProcess.getValue(0, 'workflowProcessPK.processInstanceId'), ConstraintType.MUST)
-			), null);
 		}
 
 		var id_titulo = hAPI.getCardValue('id_titulo');

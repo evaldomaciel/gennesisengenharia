@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>210</version>
+      <version>211</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -632,7 +632,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>210</version>
+        <version>211</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -644,7 +644,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>210</version>
+        <version>211</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -1112,14 +1112,19 @@ function get_Constante(cCriterio) {
 			log.info(&apos;Documento  &apos; + cardDocumentId)
 			var colunasWorkflowProcess = new Array(&apos;workflowProcessPK.processInstanceId&apos;);
 			var datasetWorkflowProcess = DatasetFactory.getDataset(&apos;workflowProcess&apos;, colunasWorkflowProcess, new Array(
-				DatasetFactory.createConstraint(&apos;cardDocumentId&apos;, cardDocumentId, cardDocumentId, ConstraintType.MUST)
+				DatasetFactory.createConstraint(&apos;cardDocumentId&apos;, cardDocumentId, cardDocumentId, ConstraintType.MUST),
+				DatasetFactory.createConstraint(&apos;status&apos;, 0, 0, ConstraintType.MUST)
 			), null);
 
-			log.info(&apos;Vamos cancelar a solicitação &apos; + datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;))
+			if (datasetWorkflowProcess.rowsCount &gt; 0) {
+				log.info(&apos;Vamos cancelar a solicitação &apos; + datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;))
+				return DatasetFactory.getDataset(&apos;dsCancelaSolicitacoes&apos;, null, new Array(
+					DatasetFactory.createConstraint(&apos;processInstanceId&apos;, datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), ConstraintType.MUST)
+				), null);
+			}
+			log.info(&apos;Documento  &apos; + cardDocumentId + &quot; não tinha uma solicitação vinculada para cancelar!&quot;)
+			return false;
 
-			return DatasetFactory.getDataset(&apos;dsCancelaSolicitacoes&apos;, null, new Array(
-				DatasetFactory.createConstraint(&apos;processInstanceId&apos;, datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), ConstraintType.MUST)
-			), null);
 		}
 
 		var id_titulo = hAPI.getCardValue(&apos;id_titulo&apos;);
@@ -1648,7 +1653,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>210</version>
+        <version>211</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1659,7 +1664,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>210</version>
+        <version>211</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1670,7 +1675,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>210</version>
+        <version>211</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1681,7 +1686,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>210</version>
+        <version>211</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1692,7 +1697,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>210</version>
+        <version>211</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1705,7 +1710,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>210</version>
+        <version>211</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
