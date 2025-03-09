@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G4 - Anexação de Comprovante</processId>
-      <version>200</version>
+      <version>171</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>11400</formId>
@@ -1100,7 +1100,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>1</expressionOrder>
-        <version>200</version>
+        <version>171</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==true</condition>
@@ -1112,7 +1112,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>2</expressionOrder>
-        <version>200</version>
+        <version>171</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==false</condition>
