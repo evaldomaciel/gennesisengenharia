@@ -30,6 +30,8 @@ function servicetask183(attempt, message) {
       text = replaceValue(text, 'IPTE', hAPI.getCardValue("cod_boleto_analise"));
     }
 
+    var context = "CODCOLIGADA=" + hAPI.getCardValue("CODCOLIGADA");
+
     text = replaceValue(text, 'IDFLUIG', getValue('WKNumProces'));
     text = replaceValue(text, 'CODCOLIGADA', hAPI.getCardValue("CODCOLIGADA"));
     text = replaceValue(text, 'CODCOLCONVENIO', hAPI.getCardValue("CODCOLIGADA"));
