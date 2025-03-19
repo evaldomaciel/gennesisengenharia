@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G4 - Anexação de Comprovante</processId>
-      <version>171</version>
+      <version>173</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>11400</formId>
@@ -459,56 +459,6 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <sequence>129</sequence>
-      </processStatePK>
-      <stateName>Atualiza movimento RM</stateName>
-      <stateDescription>Atualiza movimento RM</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>0</deadlineTime>
-      <deadlineFieldName></deadlineFieldName>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>220</positionX>
-      <positionY>38</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>82</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
-      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <executionType>1</executionType>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G4</processId>
-        <version>1</version>
         <sequence>9</sequence>
       </processStatePK>
       <stateName>Enviar para o Financeiro</stateName>
@@ -533,7 +483,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>670</positionX>
+      <positionX>553</positionX>
       <positionY>55</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -932,53 +882,6 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <sequence>132</sequence>
-      </processStatePK>
-      <stateName>Intermediário</stateName>
-      <stateDescription>Intermediário</stateDescription>
-      <instruction>Evento intermediário do processo</instruction>
-      <deadlineTime>0</deadlineTime>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId></engineAllocationId>
-      <engineAllocationConfiguration></engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>1</allowanceAuthorityTime>
-      <frequenceAuthorityTime>1</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>230</positionX>
-      <positionY>98</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>43</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-      <parentSequence>129</parentSequence>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>G4</processId>
-        <version>1</version>
         <sequence>47</sequence>
       </processStatePK>
       <stateName>Anexa Boleto?</stateName>
@@ -989,7 +892,7 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>540</positionX>
+      <positionX>360</positionX>
       <positionY>22</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
@@ -1029,7 +932,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>903</positionX>
-      <positionY>609</positionY>
+      <positionY>600</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1100,7 +1003,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>1</expressionOrder>
-        <version>171</version>
+        <version>173</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==true</condition>
@@ -1112,7 +1015,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>2</expressionOrder>
-        <version>171</version>
+        <version>173</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==false</condition>
@@ -1452,45 +1355,10 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>130</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>6</initialStateSequence>
-      <finalStateSequence>129</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G4</processId>
-        <version>1</version>
-        <linkSequence>131</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>129</initialStateSequence>
-      <finalStateSequence>47</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G4</processId>
-        <version>1</version>
         <linkSequence>133</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>132</initialStateSequence>
       <finalStateSequence>6</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
@@ -1508,10 +1376,10 @@
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>6</initialStateSequence>
-      <finalStateSequence>129</finalStateSequence>
+      <finalStateSequence>47</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
-      <automaticLink>true</automaticLink>
+      <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
@@ -1980,80 +1848,6 @@ function isEmpty(str) {&#xd;
     var contemBoleto = tipoPagamento.indexOf(&quot;BOLETO&quot;) !== -1;&#xd;
     log.info(&quot;-----&gt;  existe boleto  &gt;  &quot; + contemBoleto);&#xd;
     return contemBoleto;&#xd;
-}</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
-        <eventId>servicetask129</eventId>
-        <processId>G4</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function servicetask129(attempt, message) {
-	try {
-		var user = getConstante(&apos;rm_usuario&apos;)
-		var pass = getConstante(&apos;rm_senha&apos;)
-		var idMov = hAPI.getCardValue(&apos;IdMov&apos;);
-		var codColigada = hAPI.getCardValue(&apos;CodColigada&apos;);
-		var context = String(&quot;CODSISTEMA=G;CODCOLIGADA=&quot; + codColigada + &quot;;CODUSUARIO=&quot; + user);
-		var primaryKey = String(codColigada + &quot;;&quot; + idMov);
-		var authService = getWebService(user, pass, &apos;RMWsDataServer&apos;, &apos;com.totvs.WsDataServer&apos;, &apos;com.totvs.IwsDataServer&apos;);
-
-		var text = new String(authService.readRecord(&quot;MOVMOVIMENTOTBCDATA&quot;, primaryKey, context));
-
-		log.info(text)
-
-		if (String(text).indexOf(&quot;TMOV&quot;) &gt; 0) {
-			text = formatStringToXML(text);
-			text = removeNode(text, &quot;TMOV&quot;);
-			text = removeNode(text, &quot;TNFE&quot;);
-			text = removeNode(text, &quot;TMOVFISCAL&quot;);
-			text = removeNode(text, &quot;TMOVRATCCU&quot;);
-			text = removeNode(text, &quot;TITMMOV&quot;);
-			text = removeNode(text, &quot;TITMMOVRATCCU&quot;);
-			text = removeNode(text, &quot;TITMMOVCOMPL&quot;);
-			text = removeNode(text, &quot;TMOVTRANSP&quot;);
-			text = removeNode(text, &quot;TCTRCMOV&quot;);
-			text = removeNode(text, &quot;TITMMOVFISCAL&quot;);
-
-			var TMOV = &quot;&lt;TMOV&gt;&quot;;
-			TMOV += &quot;&lt;IDMOV&gt;&quot; + idMov + &quot;&lt;/IDMOV&gt;&quot;;
-			TMOV += &quot;&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
-			TMOV += &quot;&lt;/TMOV&gt;&quot;;
-
-			text = addItem(text, &quot;&lt;/MovMovimento&gt;&quot;, TMOV);
-			text = replaceValue(text, &quot;IDFLUIG&quot;, getValue(&apos;WKNumProces&apos;));
-
-			text = new XML(text);
-			log.info(text);
-			var result = new String(authService.saveRecord(&quot;MOVMOVIMENTOTBCDATA&quot;, text, context));
-			checkIsPK(result, 2);
-			log.info(&quot;Movimento atualizado no RM&quot;);
-			return true;
-		} else {
-			throw &quot;Não foi possível obter os dados do movimento: &quot; + idMov + &quot;!&quot;;
-		}
-	}
-	catch (e) {
-		if (e == null) e = &quot;Erro desconhecido!&quot;;
-		var mensagemErro = &quot;Ocorreu um erro ao salvar dados no RM: &quot; + String(e) + &quot;. Linha: &quot; + String(e.lineNumber);
-		throw mensagemErro;
-	}
-
-
-}
-
-
-function getConstante(param) {
-	var aConstraint = [];
-	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, param, param, ConstraintType.MUST));
-	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
-	for (var i = 0; i &lt; oConstantes.rowsCount; i++) {
-		if (oConstantes.getValue(i, &quot;id&quot;).trim() == param.trim()) {
-			return oConstantes.getValue(i, &quot;Valor&quot;).trim();
-		}
-	}
-	return &apos;0&apos;;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -2767,19 +2561,7 @@ function logTexto(texto) {&#xd;
       <slotId>15</slotId>
     </ProcessFormField>
   </list>
-  <list>
-    <ProcessStateService>
-      <companyId>1</companyId>
-      <processId>G4</processId>
-      <version>1</version>
-      <sequence>129</sequence>
-      <attempts>0</attempts>
-      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
-      <serviceName></serviceName>
-      <frequency>1</frequency>
-      <frequencyType>0</frequencyType>
-    </ProcessStateService>
-  </list>
+  <list/>
   <list/>
   <list/>
   <list/>

@@ -41,6 +41,7 @@
                     <label for="processo_origem">Processo Origem</label>
                     <select class="form-control" name="processo_origem" id="processo_origem" data_id="processo_origem">
                       <option value="">Selecione...</option>
+                      <option value="G3">G3 - Aprovação de Ordem de Compra</option>
                       <option value="G4">G4 - Anexação de Comprovante</option>
                       <option value="G5">G5 - Pagamentos Avulsos</option>
                     </select>
@@ -67,6 +68,16 @@
                   <div class="form-group">
                     <label for="id_titulo">ID do Título</label>
                     <input type="text" class="form-control" data_id="id_titulo" name="id_titulo" id="id_titulo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12" id="div_id_movimento">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="id_movimento">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="id_movimento">ID do Movimento</label>
+                    <input type="text" class="form-control" data_id="id_movimento" name="id_movimento" id="id_movimento" />
                   </div>
                 </div>
               </div>
@@ -110,6 +121,17 @@
                   <div class="form-group">
                     <label for="valor_titulo">Valor do Título</label>
                     <input type="text" class="form-control" name="valor_titulo" id="valor_titulo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12" id="div_forma_de_pagamento">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="forma_de_pagamento">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="forma_de_pagamento">Forma de Pagamento</label>
+                    <input type="text" class="form-control" name="forma_de_pagamento" id="forma_de_pagamento" />
+                    <input type="hidden" name="forma_de_pagamento_cod" id="forma_de_pagamento_cod" />
                   </div>
                 </div>
               </div>

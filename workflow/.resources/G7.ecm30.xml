@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>211</version>
+      <version>233</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>0</formId>
+    <formId>64381</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -76,8 +76,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>120</positionX>
-      <positionY>33</positionY>
+      <positionX>100</positionX>
+      <positionY>53</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -334,8 +334,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>330</positionX>
-      <positionY>23</positionY>
+      <positionX>190</positionX>
+      <positionY>43</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -363,8 +363,8 @@
         <version>1</version>
         <sequence>41</sequence>
       </processStatePK>
-      <stateName>Atualiza lançamento</stateName>
-      <stateDescription>Atualiza lançamento</stateDescription>
+      <stateName>Gera PDF</stateName>
+      <stateDescription>Gera PDF</stateDescription>
       <instruction></instruction>
       <deadlineTime>0</deadlineTime>
       <deadlineFieldName></deadlineFieldName>
@@ -385,8 +385,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>190</positionX>
-      <positionY>16</positionY>
+      <positionX>360</positionX>
+      <positionY>43</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -437,8 +437,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>190</positionX>
-      <positionY>123</positionY>
+      <positionX>200</positionX>
+      <positionY>130</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -488,8 +488,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>390</positionX>
-      <positionY>53</positionY>
+      <positionX>250</positionX>
+      <positionY>73</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -535,8 +535,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>280</positionX>
-      <positionY>76</positionY>
+      <positionX>450</positionX>
+      <positionY>103</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -569,7 +569,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>620</positionX>
-      <positionY>0</positionY>
+      <positionY>20</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -608,7 +608,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1190</positionX>
-      <positionY>73</positionY>
+      <positionY>76</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -632,7 +632,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>211</version>
+        <version>233</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -644,7 +644,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>211</version>
+        <version>233</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -698,23 +698,6 @@
       <returnPermited>false</returnPermited>
       <initialStateSequence>16</initialStateSequence>
       <finalStateSequence>21</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G7</processId>
-        <version>1</version>
-        <linkSequence>32</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>30</initialStateSequence>
-      <finalStateSequence>17</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -811,40 +794,6 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <version>1</version>
-        <linkSequence>42</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>4</initialStateSequence>
-      <finalStateSequence>41</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G7</processId>
-        <version>1</version>
-        <linkSequence>43</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>41</initialStateSequence>
-      <finalStateSequence>30</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G7</processId>
-        <version>1</version>
         <linkSequence>46</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -879,12 +828,63 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <version>1</version>
-        <linkSequence>48</linkSequence>
+        <linkSequence>50</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>30</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>51</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>30</initialStateSequence>
+      <finalStateSequence>41</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>53</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>45</initialStateSequence>
-      <finalStateSequence>41</finalStateSequence>
+      <finalStateSequence>30</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>54</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>45</initialStateSequence>
+      <finalStateSequence>30</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>true</automaticLink>
@@ -896,12 +896,12 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <version>1</version>
-        <linkSequence>49</linkSequence>
+        <linkSequence>55</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>45</initialStateSequence>
-      <finalStateSequence>41</finalStateSequence>
+      <initialStateSequence>41</initialStateSequence>
+      <finalStateSequence>17</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -995,6 +995,7 @@
 &#xd;
             for (var x = 0; x &lt; destinatarios.length; x++) {&#xd;
                 obj.simpleEmail(1, assunto, &quot;suportefluig@engpac.com.br&quot;, destinatarios[x], msg, &quot;text/html&quot;);&#xd;
+                log.info(&quot;Email enviado com sucesso!&quot;);&#xd;
             }&#xd;
         } catch (err) {&#xd;
             log.error(err);&#xd;
@@ -1107,104 +1108,58 @@ function get_Constante(cCriterio) {
       <eventDescription>function servicetask41(attempt, message) {
 	try {
 
-		/** Cancela solicitações abertas anteriormente */
-		function cancelaSol(cardDocumentId) {
-			log.info(&apos;Documento  &apos; + cardDocumentId)
-			var colunasWorkflowProcess = new Array(&apos;workflowProcessPK.processInstanceId&apos;);
-			var datasetWorkflowProcess = DatasetFactory.getDataset(&apos;workflowProcess&apos;, colunasWorkflowProcess, new Array(
-				DatasetFactory.createConstraint(&apos;cardDocumentId&apos;, cardDocumentId, cardDocumentId, ConstraintType.MUST),
-				DatasetFactory.createConstraint(&apos;status&apos;, 0, 0, ConstraintType.MUST)
-			), null);
+		var cancSolDuplicada = cancelaSolAberta();
+		var gerPDF = geraPdf();
 
-			if (datasetWorkflowProcess.rowsCount &gt; 0) {
-				log.info(&apos;Vamos cancelar a solicitação &apos; + datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;))
-				return DatasetFactory.getDataset(&apos;dsCancelaSolicitacoes&apos;, null, new Array(
-					DatasetFactory.createConstraint(&apos;processInstanceId&apos;, datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), ConstraintType.MUST)
-				), null);
-			}
-			log.info(&apos;Documento  &apos; + cardDocumentId + &quot; não tinha uma solicitação vinculada para cancelar!&quot;)
-			return false;
-
+		var G3 = getG3(hAPI.getCardValue(&apos;id_movimento&apos;))
+		if (G3 &amp;&amp; G3.rowsCount &gt; 0) {
+			hAPI.setCardValue(&apos;solicitacao_origem&apos;, G3.getValue(0, &apos;IdentificadorFluig&apos;))
+			hAPI.setCardValue(&apos;processo_origem&apos;, &apos;G3&apos;)
+			return true;
 		}
 
-		var id_titulo = hAPI.getCardValue(&apos;id_titulo&apos;);
-		var processInstanceId = getValue(&apos;WKNumProces&apos;)
-
-		var constraintDs_G71 = DatasetFactory.createConstraint(&apos;id_titulo&apos;, id_titulo, id_titulo, ConstraintType.MUST);
-		var constraintDs_G72 = DatasetFactory.createConstraint(&apos;processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST_NOT);
-		var datasetDs_G7 = DatasetFactory.getDataset(&apos;ds_G7&apos;, null, new Array(constraintDs_G71, constraintDs_G72), null);
-
-		for (var indexG7 = 0; indexG7 &lt; datasetDs_G7.rowsCount; indexG7++) {
-			log.info(datasetDs_G7.getValue(indexG7, &apos;documentid&apos;))
-			var cancelou = cancelaSol(datasetDs_G7.getValue(indexG7, &apos;documentid&apos;))
-			log.dir(cancelou);
+		var G5 = getG5(hAPI.getCardValue(&apos;id_titulo&apos;))
+		if (G5 &amp;&amp; G5.rowsCount &gt; 0) {
+			hAPI.setCardValue(&apos;solicitacao_origem&apos;, G5.getValue(0, &apos;numero_solicitacao&apos;))
+			hAPI.setCardValue(&apos;processo_origem&apos;, &apos;G5&apos;)
+			return true;
 		}
 
-		/** Atualiza o registro no RM */
+	}
+	catch (error) {
+		throw error;
+	}
+}
 
-		var user = getConstante(&apos;rm_usuario&apos;)
-		var pass = getConstante(&apos;rm_senha&apos;)
-		var idLan = hAPI.getCardValue(&apos;id_titulo&apos;);
-		var codColigada = hAPI.getCardValue(&apos;cod_coligada&apos;);
-		var context = String(&quot;CODSISTEMA=G;CODCOLIGADA=&quot; + codColigada + &quot;;CODUSUARIO=&quot; + user);
-		var primaryKey = String(codColigada + &quot;;&quot; + idLan);
-		var authService = getWebService(user, pass, &apos;RMWsDataServer&apos;, &apos;com.totvs.WsDataServer&apos;, &apos;com.totvs.IwsDataServer&apos;);
-
-		var text = new String(authService.readRecord(&quot;FinLanDataBR&quot;, primaryKey, context));
-
-		log.info(text);
-
-		if (String(text).indexOf(&quot;FLAN&quot;) &gt; 0) {
-			text = formatStringToXML(text);
-
-			hAPI.setCardValue(&quot;solicitacao_origem&quot;, getNodeValue(text, &quot;IDFLUIG&quot;));
-			hAPI.setCardValue(&quot;id_fornecedor&quot;, getNodeValue(text, &quot;CODCFO&quot;));
-			hAPI.setCardValue(&quot;data_vencimento&quot;, getNodeValue(text, &quot;DATAVENCIMENTO&quot;));
-			hAPI.setCardValue(&quot;data_pagamento&quot;, getNodeValue(text, &quot;DATAPAG&quot;));
-			hAPI.setCardValue(&quot;valor_titulo&quot;, getNodeValue(text, &quot;VALORBAIXADO&quot;));
-			hAPI.setCardValue(&quot;codigo_autenticacao&quot;, getNodeValue(text, &quot;CODCFO&quot;));
-			hAPI.setCardValue(&quot;valor_original&quot;, getNodeValue(text, &quot;VALORORIGINAL&quot;));
-
-			text = removeNode(text, &quot;FLAN&quot;);
-			text = removeNode(text, &quot;FLANRATCCU&quot;);
-			text = removeNode(text, &quot;FLANCOMPL&quot;);
-			text = removeNode(text, &quot;_x0024_IMAGES&quot;);
-
-			var FLAN = &quot;&lt;FLAN&gt;&quot;;
-			FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
-			FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
-			FLAN += &quot;&lt;/FLAN&gt;&quot;;
-			FLAN += &quot;&lt;FLANCOMPL&gt;&quot;;
-			FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
-			FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
-			FLAN += &quot;	&lt;IDFLUIG&gt;&quot; + getValue(&apos;WKNumProces&apos;) + &quot;&lt;/IDFLUIG&gt;&quot;;
-			FLAN += &quot;&lt;/FLANCOMPL&gt;&quot;;
-
-			text = addItem(text, &quot;&lt;/FinLAN&gt;&quot;, FLAN);
-
-			text = new XML(text);
-			log.info(&quot;XML atualizado: &quot; + text);
-
-			// Está gerando 2 processos G7
-			var result = new String(authService.saveRecord(&quot;FinLanDataBR&quot;, text, context));
-			checkIsPK(result, 2);
-
-			log.info(&quot;Lançamento atualizado no RM&quot;);
-		} else {
-			throw &quot;Não foi possível obter os dados do movimento: &quot; + idLan + &quot;!&quot;;
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
+	for (var i = 0; i &lt; oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, &quot;id&quot;).trim() == param.trim()) {
+			return oConstantes.getValue(i, &quot;Valor&quot;).trim();
 		}
 	}
-	catch (e) {
-		if (e == null) e = &quot;Erro desconhecido!&quot;;
-		var mensagemErro = &quot;Ocorreu um erro ao salvar dados no RM: &quot; + String(e) + &quot;. Linha: &quot; + String(e.lineNumber);
-		throw mensagemErro;
-	}
+	return &apos;0&apos;;
+}
 
-	// Gerar e anexar PDF
+function formatarData(data) {
+	var dia = data.substring(8, 10);
+	var mes = data.substring(5, 7);
+	var ano = data.substring(0, 4);
+	return dia + &quot;/&quot; + mes + &quot;/&quot; + ano;
+}
+
+function geraPdf() {
 	try {
-
-		// Coletar hora atual
+		// Gerar e anexar PDF
+		// Coletar hora e data atual
 		var data = new Date();
+		var dia = (&quot;0&quot; + data.getDate()).slice(-2);
+		var mes = (&quot;0&quot; + (data.getMonth() + 1)).slice(-2);
+		var ano = data.getFullYear();
+		var dataFormatada = dia + &quot;/&quot; + mes + &quot;/&quot; + ano;
+
 		var horas = (&quot;0&quot; + data.getHours()).slice(-2);
 		var minutos = (&quot;0&quot; + data.getMinutes()).slice(-2);
 		var horaFormatada = horas + &quot;:&quot; + minutos;
@@ -1234,7 +1189,7 @@ function get_Constante(cCriterio) {
 			&quot;&lt;/td&gt;&quot; +
 			&quot;&lt;/tr&gt;&quot; +
 			&quot;&lt;tr&gt;&quot; +
-			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Data:&lt;/b&gt; &quot; + formatarData(hAPI.getCardValue(&quot;data_pagamento&quot;)) + &quot; &lt;b&gt;Hora:&lt;/b&gt; &quot; + horaFormatada + &quot;&lt;/td&gt;&quot; +
+			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Data:&lt;/b&gt; &quot; + dataFormatada + &quot; &lt;b&gt;Hora:&lt;/b&gt; &quot; + horaFormatada + &quot;&lt;/td&gt;&quot; +
 			&quot;&lt;/tr&gt;&quot; +
 			&quot;&lt;tr&gt;&quot; +
 			&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Fornecedor:&lt;/b&gt; &quot; + hAPI.getCardValue(&quot;id_fornecedor&quot;) + &quot; &lt;/td&gt;&quot; +
@@ -1340,30 +1295,185 @@ function get_Constante(cCriterio) {
 
 		// Anexar arquivo
 		hAPI.attachDocument(result.getItem().get(0).getDocumentId());
+		return result.getItem().get(0).getDocumentId();
 	} catch (err) {
 		log.error(err);
 		throw &quot;Erro ao gerar PDF do formulário: &quot; + err;
 	}
 }
 
-function getConstante(param) {
-	var aConstraint = [];
-	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, param, param, ConstraintType.MUST));
-	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
-	for (var i = 0; i &lt; oConstantes.rowsCount; i++) {
-		if (oConstantes.getValue(i, &quot;id&quot;).trim() == param.trim()) {
-			return oConstantes.getValue(i, &quot;Valor&quot;).trim();
+function cancelaSolAberta() {
+	try {
+
+		/** Cancela solicitações abertas anteriormente */
+		function cancelaSol(cardDocumentId) {
+			log.info(&apos;Documento  &apos; + cardDocumentId)
+			var colunasWorkflowProcess = new Array(&apos;workflowProcessPK.processInstanceId&apos;);
+			var datasetWorkflowProcess = DatasetFactory.getDataset(&apos;workflowProcess&apos;, colunasWorkflowProcess, new Array(
+				DatasetFactory.createConstraint(&apos;cardDocumentId&apos;, cardDocumentId, cardDocumentId, ConstraintType.MUST),
+				DatasetFactory.createConstraint(&apos;status&apos;, 0, 0, ConstraintType.MUST)
+			), null);
+
+			if (datasetWorkflowProcess.rowsCount &gt; 0) {
+				log.info(&apos;Vamos cancelar a solicitação &apos; + datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;))
+				return DatasetFactory.getDataset(&apos;dsCancelaSolicitacoes&apos;, null, new Array(
+					DatasetFactory.createConstraint(&apos;processInstanceId&apos;, datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), datasetWorkflowProcess.getValue(0, &apos;workflowProcessPK.processInstanceId&apos;), ConstraintType.MUST)
+				), null);
+			}
+			log.info(&apos;Documento  &apos; + cardDocumentId + &quot; não tinha uma solicitação vinculada para cancelar!&quot;)
+			return false;
+
 		}
+
+		var id_titulo = hAPI.getCardValue(&apos;id_titulo&apos;);
+		var processInstanceId = getValue(&apos;WKNumProces&apos;)
+
+		var constraintDs_G71 = DatasetFactory.createConstraint(&apos;id_titulo&apos;, id_titulo, id_titulo, ConstraintType.MUST);
+		var constraintDs_G72 = DatasetFactory.createConstraint(&apos;processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST_NOT);
+		var datasetDs_G7 = DatasetFactory.getDataset(&apos;ds_G7&apos;, null, new Array(constraintDs_G71, constraintDs_G72), null);
+
+		for (var indexG7 = 0; indexG7 &lt; datasetDs_G7.rowsCount; indexG7++) {
+			log.info(datasetDs_G7.getValue(indexG7, &apos;documentid&apos;))
+			var cancelou = cancelaSol(datasetDs_G7.getValue(indexG7, &apos;documentid&apos;))
+			log.dir(cancelou);
+		}
+
+		return true;
 	}
-	return &apos;0&apos;;
+	catch (e) {
+		if (e == null) e = &quot;Erro desconhecido!&quot;;
+		var mensagemErro = &quot;Ocorreu um erro ao salvar dados no RM: &quot; + String(e) + &quot;. Linha: &quot; + String(e.lineNumber);
+		throw mensagemErro;
+	}
 }
 
-function formatarData(data) {
-	var dia = data.substring(8, 10);
-	var mes = data.substring(5, 7);
-	var ano = data.substring(0, 4);
-	return dia + &quot;/&quot; + mes + &quot;/&quot; + ano;
-}</eventDescription>
+function atualizaLan() {
+	/** Atualiza o registro no RM */
+
+	var user = getConstante(&apos;rm_usuario&apos;)
+	var pass = getConstante(&apos;rm_senha&apos;)
+	var idLan = hAPI.getCardValue(&apos;id_titulo&apos;);
+	var codColigada = hAPI.getCardValue(&apos;cod_coligada&apos;);
+	var context = String(&quot;CODSISTEMA=G;CODCOLIGADA=&quot; + codColigada + &quot;;CODUSUARIO=&quot; + user);
+	var primaryKey = String(codColigada + &quot;;&quot; + idLan);
+	var authService = getWebService(user, pass, &apos;RMWsDataServer&apos;, &apos;com.totvs.WsDataServer&apos;, &apos;com.totvs.IwsDataServer&apos;);
+
+	var text = new String(authService.readRecord(&quot;FinLanDataBR&quot;, primaryKey, context));
+
+	log.info(text);
+
+	if (String(text).indexOf(&quot;FLAN&quot;) &gt; 0) {
+		text = formatStringToXML(text);
+
+		var solicitacao_origem = getNodeValue(text, &quot;IDFLUIG&quot;);
+
+		hAPI.setCardValue(&quot;solicitacao_origem&quot;, solicitacao_origem);
+		hAPI.setCardValue(&quot;id_fornecedor&quot;, getNodeValue(text, &quot;CODCFO&quot;));
+		hAPI.setCardValue(&quot;data_vencimento&quot;, getNodeValue(text, &quot;DATAVENCIMENTO&quot;));
+		hAPI.setCardValue(&quot;data_pagamento&quot;, new Date());
+		hAPI.setCardValue(&quot;valor_titulo&quot;, getNodeValue(text, &quot;VALOR&quot;));
+		hAPI.setCardValue(&quot;codigo_autenticacao&quot;, getNodeValue(text, &quot;CODCFO&quot;));
+		hAPI.setCardValue(&quot;valor_original&quot;, getNodeValue(text, &quot;VALORORIGINAL&quot;));
+
+		// Coleta email do solicitante
+		var constraint_G5 = DatasetFactory.createConstraint(&apos;numero_solicitacao&apos;, solicitacao_origem, solicitacao_origem, ConstraintType.MUST);
+		var ds_G5 = DatasetFactory.getDataset(&apos;ds_G5&apos;, null, [constraint_G5], null);
+
+		if (ds_G5.rowsCount &gt; 0) {
+			hAPI.setCardValue(&quot;processo_origem&quot;, &quot;G5&quot;);
+			hAPI.setCardValue(&quot;email_solicitante&quot;, ds_G5.getValue(0, &apos;email_solicitante&apos;));
+			hAPI.setCardValue(&quot;copia_email_solicitante&quot;, ds_G5.getValue(0, &apos;copia_email_solicitante&apos;));
+		} else {
+			var constraint_G4 = DatasetFactory.createConstraint(&apos;IdentificadorFluig&apos;, solicitacao_origem, solicitacao_origem, ConstraintType.MUST);
+			var ds_G4 = DatasetFactory.getDataset(&apos;DSG4&apos;, null, [constraint_G4], null);
+
+			if (ds_G4.rowsCount &gt; 0) {
+				hAPI.setCardValue(&quot;processo_origem&quot;, &quot;G4&quot;);
+				//Coletar e-mail pelo nome do comprador
+				hAPI.setCardValue(&quot;nomeComprador&quot;, ds_G4.getValue(0, &quot;nomeComprador&quot;));
+				var userEmail = hAPI.getCardValue(&quot;nomeComprador&quot;);
+
+				var c1 = DatasetFactory.createConstraint(&apos;login&apos;, userEmail, userEmail, ConstraintType.MUST);
+				var dataset = DatasetFactory.getDataset(&quot;colleague&quot;, null, [c1], null);
+
+				var email = dataset.getValue(0, &quot;mail&quot;);
+				hAPI.setCardValue(&quot;email_solicitante&quot;, email);
+			} else {
+				log.info(&quot;Solicitação não encontrada!&quot;)
+			}
+		}
+
+		// Precisa mesmo salvar???
+
+		// text = removeNode(text, &quot;FLAN&quot;);
+		// text = removeNode(text, &quot;FLANRATCCU&quot;);
+		// text = removeNode(text, &quot;FLANCOMPL&quot;);
+		// text = removeNode(text, &quot;_x0024_IMAGES&quot;);
+
+		// var FLAN = &quot;&lt;FLAN&gt;&quot;;
+		// FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
+		// FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
+		// FLAN += &quot;&lt;/FLAN&gt;&quot;;
+		// FLAN += &quot;&lt;FLANCOMPL&gt;&quot;;
+		// FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
+		// FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
+		// FLAN += &quot;	&lt;IDFLUIG&gt;&quot; + getValue(&apos;WKNumProces&apos;) + &quot;&lt;/IDFLUIG&gt;&quot;;
+		// FLAN += &quot;&lt;/FLANCOMPL&gt;&quot;;
+
+		// text = addItem(text, &quot;&lt;/FinLAN&gt;&quot;, FLAN);
+
+		// text = new XML(text);
+		// log.info(&quot;XML atualizado: &quot; + text);
+
+		// // // Está gerando 2 processos G7
+		// var result = new String(authService.saveRecord(&quot;FinLanDataBR&quot;, text, context));
+		// log.info(&quot;Result: &quot; + result);
+		// checkIsPK(result, 2);
+
+		// log.info(&quot;Lançamento atualizado no RM&quot;);
+	} else {
+		throw &quot;Não foi possível obter os dados do movimento: &quot; + idLan + &quot;!&quot;;
+	}
+}
+
+
+function getG3(IdMov) {
+	if (parseInt(IdMov) &gt; 0) {
+		var datasetDSG3 = DatasetFactory.getDataset(&apos;DSG3&apos;,
+			new Array(&apos;IdMov&apos;, &apos;IdentificadorFluig&apos;, &apos;IdentificadorFluigAnexo&apos;),
+			new Array(
+				DatasetFactory.createConstraint(&apos;sqlLimit&apos;, &apos;1&apos;, &apos;1&apos;, ConstraintType.MUST),
+				DatasetFactory.createConstraint(&apos;IdMov&apos;, IdMov, IdMov, ConstraintType.MUST)
+			),
+			new Array(&apos;IdentificadorFluig;desc&apos;)
+		);
+		if (datasetDSG3 &amp;&amp; datasetDSG3.rowsCount &gt; 0) return datasetDSG3;
+	}
+	return false;
+}
+
+
+function getG5(idLan) {
+	if (parseInt(idLan) &gt; 0) {
+		var datasetDs_G5 = DatasetFactory.getDataset(&apos;ds_G5&apos;,
+			new Array(&apos;idLan&apos;, &apos;numero_solicitacao&apos;),
+			new Array(
+				DatasetFactory.createConstraint(&apos;sqlLimit&apos;, &apos;1&apos;, &apos;1&apos;, ConstraintType.MUST),
+				DatasetFactory.createConstraint(&apos;idLan&apos;, idLan, idLan, ConstraintType.MUST)
+			),
+			new Array(&apos;numero_solicitacao;desc&apos;)
+		);
+		if (datasetDs_G5 &amp;&amp; datasetDs_G5.rowsCount &gt; 0) return datasetDs_G5;
+	}
+	return false;
+}
+
+
+
+
+
+
+</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -1582,7 +1692,7 @@ function getNodeValue(text, columnName) {&#xd;
   <list/>
   <list>
     <SwimLane>
-      <color>00FF00</color>
+      <color>C0C0C0</color>
       <height>551</height>
       <width>1351</width>
       <positionX>10</positionX>
@@ -1653,7 +1763,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>211</version>
+        <version>233</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1664,7 +1774,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>211</version>
+        <version>233</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1675,7 +1785,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>211</version>
+        <version>233</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1686,7 +1796,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>211</version>
+        <version>233</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1697,7 +1807,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>211</version>
+        <version>233</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1710,7 +1820,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>211</version>
+        <version>233</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>

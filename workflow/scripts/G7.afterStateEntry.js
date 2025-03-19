@@ -60,6 +60,7 @@ function afterStateEntry(sequenceId) {
 
             for (var x = 0; x < destinatarios.length; x++) {
                 obj.simpleEmail(1, assunto, "suportefluig@engpac.com.br", destinatarios[x], msg, "text/html");
+                log.info("Email enviado com sucesso!");
             }
         } catch (err) {
             log.error(err);

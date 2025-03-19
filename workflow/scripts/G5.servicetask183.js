@@ -11,9 +11,10 @@ function servicetask183(attempt, message) {
   dataPrevBaixa = dataPrevBaixa.replace("Z", "");
 
   try {
-    var dataServerName = 'FinLanDataBR'
-    var usuario = getConstante('rm_usuario')
-    var senha = getConstante('rm_senha')
+    var dataServerName = 'FinLanDataBR';
+    var usuario = getConstante('rm_usuario');
+    var senha = getConstante('rm_senha');
+    var context = String("CODSISTEMA=G;CODCOLIGADA=" + hAPI.getCardValue("CODCOLIGADA") + ";CODUSUARIO=" + usuario);
     var authenticatedService = getWebService(usuario, senha, "RMWsDataServer", "com.totvs.WsDataServer", "com.totvs.IwsDataServer");
     var idLanNovo = parseInt(hAPI.getCardValue("idLan")) > 0 ? hAPI.getCardValue("idLan") : "-1";
     var historico_analise = String(hAPI.getCardValue("historico_analise")) + ' - Solicitação do Fluig número ' + getValue('WKNumProces');
@@ -29,8 +30,6 @@ function servicetask183(attempt, message) {
     } else {
       text = replaceValue(text, 'IPTE', hAPI.getCardValue("cod_boleto_analise"));
     }
-
-    var context = "CODCOLIGADA=" + hAPI.getCardValue("CODCOLIGADA");
 
     text = replaceValue(text, 'IDFLUIG', getValue('WKNumProces'));
     text = replaceValue(text, 'CODCOLIGADA', hAPI.getCardValue("CODCOLIGADA"));
@@ -89,6 +88,7 @@ function servicetask183(attempt, message) {
     log.info(newXML)
     var result = authenticatedService.saveRecord(dataServerName, text, context);
     var result = String(result);
+    log.info("Result:" + result);
     checkIsPK(result, 2);
     var movimentoGerado = result.split(";")[1];
     hAPI.setCardValue("idLan", String(movimentoGerado));
@@ -108,7 +108,6 @@ function GetXml() {
     "     <NFOUDUP>0</NFOUDUP>" +
     "     <CLASSIFICACAO>0</CLASSIFICACAO>" +
     "     <PAGREC>0</PAGREC>" +
-    "     <CNABBANCO>341</CNABBANCO>" +
     "     <REEMBOLSAVEL>0</REEMBOLSAVEL>" +
     "     <CARENCIAJUROS>0</CARENCIAJUROS>" +
     "     <MULTADIA>0</MULTADIA>" +
@@ -124,6 +123,7 @@ function GetXml() {
     "     <DATAVENCIMENTO>2050-01-01T00:00:00.000</DATAVENCIMENTO>" +
     "     <DATAEMISSAO>2050-01-01T00:00:00.000</DATAEMISSAO>" +
     "     <DATAPREVBAIXA>2050-01-01T00:00:00.000</DATAPREVBAIXA>" +
+    "     <DATAPAG>2050-01-01T00:00:00.000</DATAPAG>" +
     "     <MESDECOMPETENCIA>2050-01-01T00:00:00</MESDECOMPETENCIA>" +
     "     <VALORORIGINAL>0</VALORORIGINAL>" +
     "     <VALORBAIXADO>0</VALORBAIXADO>" +
@@ -158,6 +158,7 @@ function GetXml() {
     "     <IDPGTO></IDPGTO>" +
     "     <CODTDO></CODTDO>" +
     "     <CODFILIAL></CODFILIAL>" +
+    "     <CNABBANCO>341</CNABBANCO>" +
     "     <SERIEDOCUMENTO>@@@</SERIEDOCUMENTO>" +
     "     <CODCOLPGTO>-1</CODCOLPGTO>" +
     "     <NUMLOTECONTABIL>0</NUMLOTECONTABIL>" +

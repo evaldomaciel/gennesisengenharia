@@ -133,3 +133,25 @@ QFRvdHZzMTIzNDU2*
   } ]
 }
 */
+
+
+var datasetDSG3 = DatasetFactory.getDataset('DSG3',
+	new Array('IdMov', 'IdentificadorFluig', 'IdentificadorFluigAnexo'),
+	new Array(
+		DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
+		DatasetFactory.createConstraint('IdMov', '69945', '69945', ConstraintType.MUST)
+	),
+	new Array('IdentificadorFluig;desc')
+);
+
+
+var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', 
+	new Array('idLan', 'numero_solicitacao'),
+	new Array(
+		DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
+		DatasetFactory.createConstraint('idLan', '61296', '61296', ConstraintType.MUST)
+	),
+	new Array('numero_solicitacao;desc')
+);
+
+console.log(datasetDs_G5)

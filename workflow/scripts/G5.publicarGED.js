@@ -78,51 +78,34 @@ function getAttachments(docDto) {
  * @returns {String} o ID da pasta criada
  */
 function criaPasta(pastaPai, nome) {
-  try {
-
-    var CentroDeCusto = hAPI.getCardValue("centro_de_custo");
-    var NumeroDaSolicitacao = hAPI.getCardValue("numero_solicitacao");
-
-    if (!CentroDeCusto || CentroDeCusto.trim() === "") {
-      throw "O campo Centro de Custo está vazio ou não foi preenchido.";
-    }
-
-    var CentroDeCustoNOME = CentroDeCusto.split(" - ");
-    var centroDeCusto = CentroDeCustoNOME.length > 1 ? CentroDeCustoNOME[1].trim() : CentroDeCusto.trim();
-
-    if (!centroDeCusto || centroDeCusto === "") {
-      throw "Erro ao processar o Centro de Custo. Nome não encontrado.";
-    }
-
-    var NomeDaPasta = "G5-" + centroDeCusto + "-" + NumeroDaSolicitacao ;
-
-    var dto = docAPI.newDocumentDto();
-    dto.setDocumentDescription(NomeDaPasta);
-    dto.setDocumentType("1");
-    dto.setParentDocumentId(pastaPai);
-    dto.setDocumentTypeId("");
-    var securityArray = new java.util.ArrayList();
-    var usuProcess = getUsersProcess();
-    for (var index = 0; index < usuProcess.size(); index++) {
-      var security = docAPI.newDocumentSecurityConfigDto();
-      security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos 
-      security.setAttributionValue(usuProcess.get(index)) // id do usuário
-      security.setCompanyId(1)
-      security.setDocumentId(pastaPai)
-      security.setDownloadEnabled(true)
-      security.setInheritSecurity(false)
-      security.setSecurityLevel(2) // 0 - todo; 2 -  modificar; 3 - todos
-      security.setSecurityVersion(true)
-      security.setShowContent(true)
-      security.setPermission(true)
-      security.setVersion(100)
-      securityArray.add(security);
-    }
-    var folder = docAPI.createFolder(dto, securityArray, null);
-    return parseInt(folder.getDocumentId());
-  } catch (error) {
-    throw String(error.lineNumber) + " - " + String(error);
-  }
+	try {
+		var dto = docAPI.newDocumentDto();
+		dto.setDocumentDescription(nome);
+		dto.setDocumentType("1");
+		dto.setParentDocumentId(pastaPai);
+		dto.setDocumentTypeId("");
+		var securityArray = new java.util.ArrayList();
+		var usuProcess = getUsersProcess();
+		for (var index = 0; index < usuProcess.size(); index++) {
+			var security = docAPI.newDocumentSecurityConfigDto();
+			security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos 
+			security.setAttributionValue(usuProcess.get(index)) // id do usuário
+			security.setCompanyId(1)
+			security.setDocumentId(pastaPai)
+			security.setDownloadEnabled(true)
+			security.setInheritSecurity(false)
+			security.setSecurityLevel(2) // 0 - todo; 2 -  modificar; 3 - todos
+			security.setSecurityVersion(true)
+			security.setShowContent(true)
+			security.setPermission(true)
+			security.setVersion(100)
+			securityArray.add(security);
+		}
+		var folder = docAPI.createFolder(dto, securityArray, null);
+		return parseInt(folder.getDocumentId());
+	} catch (error) {
+		throw error;
+	}
 }
 
 function getConstante(param) {

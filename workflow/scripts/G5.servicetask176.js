@@ -14,18 +14,18 @@ function servicetask176(attempt, message) {
   hAPI.setCardValue('cTask034', getValue('WKUser'));
 
   /** Etapas do financeiro */
-  hAPI.setCardValue('cTask274', getAtribuicoes('G5-274', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
-  hAPI.setCardValue('cTask014', getAtribuicoes('G5-014', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
-  hAPI.setCardValue('cTask097', getAtribuicoes('G5-097', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
-  hAPI.setCardValue('cTask127', getAtribuicoes('G5-127', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
-  hAPI.setCardValue('cTask128', getAtribuicoes('G5-128', hAPI.getCardValue('CODCOLIGADA'), hAPI.getCardValue('CODCCUSTO')));
+  hAPI.setCardValue('cTask274', getAtribuicoes('G5-274'));
+  hAPI.setCardValue('cTask014', getAtribuicoes('G5-014'));
+  hAPI.setCardValue('cTask097', getAtribuicoes('G5-097'));
+  hAPI.setCardValue('cTask127', getAtribuicoes('G5-127'));
+  hAPI.setCardValue('cTask128', getAtribuicoes('G5-128'));
 
   /** Tratar erro */
   hAPI.setCardValue('cTask221', getAtribuicoes('G5-221'));
-  hAPI.setCardValue('cTask216', getAtribuicoes('G5-216', hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask295', getAtribuicoes('G5-295', hAPI.getCardValue('CODCOLIGADA')));
-  hAPI.setCardValue('cTask223', getAtribuicoes('G5-223', hAPI.getCardValue('CODCOLIGADA')));
-
+  hAPI.setCardValue('cTask216', getAtribuicoes('G5-216'));
+  hAPI.setCardValue('cTask295', getAtribuicoes('G5-295'));
+  hAPI.setCardValue('cTask223', getAtribuicoes('G5-223'));
+  
   return true;
 }
 

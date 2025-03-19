@@ -15,6 +15,7 @@ function enableFields(form) {
     form.setEnabled("valor_titulo", false);
     form.setEnabled("codigo_autenticacao", false);
     form.setEnabled("cancelado", false);
+    form.setEnabled("forma_de_pagamento", false);
 
     if (activity == 15) {
       form.setEnabled("processo_origem", true);

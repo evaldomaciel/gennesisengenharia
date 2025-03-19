@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>43</version>
+      <version>72</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
-    <formId>88477</formId>
+    <formId>59631</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -2926,7 +2926,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>43</version>
+        <version>72</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2938,7 +2938,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>43</version>
+        <version>72</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2950,7 +2950,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>43</version>
+        <version>72</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2962,7 +2962,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>43</version>
+        <version>72</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2974,7 +2974,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>43</version>
+        <version>72</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2986,7 +2986,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>43</version>
+        <version>72</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2998,7 +2998,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>43</version>
+        <version>72</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -5047,18 +5047,18 @@ function notificaCancelamento(textoMsg, destinatario) {
   hAPI.setCardValue(&apos;cTask034&apos;, getValue(&apos;WKUser&apos;));
 
   /** Etapas do financeiro */
-  hAPI.setCardValue(&apos;cTask274&apos;, getAtribuicoes(&apos;G5-274&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;), hAPI.getCardValue(&apos;CODCCUSTO&apos;)));
-  hAPI.setCardValue(&apos;cTask014&apos;, getAtribuicoes(&apos;G5-014&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;), hAPI.getCardValue(&apos;CODCCUSTO&apos;)));
-  hAPI.setCardValue(&apos;cTask097&apos;, getAtribuicoes(&apos;G5-097&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;), hAPI.getCardValue(&apos;CODCCUSTO&apos;)));
-  hAPI.setCardValue(&apos;cTask127&apos;, getAtribuicoes(&apos;G5-127&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;), hAPI.getCardValue(&apos;CODCCUSTO&apos;)));
-  hAPI.setCardValue(&apos;cTask128&apos;, getAtribuicoes(&apos;G5-128&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;), hAPI.getCardValue(&apos;CODCCUSTO&apos;)));
+  hAPI.setCardValue(&apos;cTask274&apos;, getAtribuicoes(&apos;G5-274&apos;));
+  hAPI.setCardValue(&apos;cTask014&apos;, getAtribuicoes(&apos;G5-014&apos;));
+  hAPI.setCardValue(&apos;cTask097&apos;, getAtribuicoes(&apos;G5-097&apos;));
+  hAPI.setCardValue(&apos;cTask127&apos;, getAtribuicoes(&apos;G5-127&apos;));
+  hAPI.setCardValue(&apos;cTask128&apos;, getAtribuicoes(&apos;G5-128&apos;));
 
   /** Tratar erro */
   hAPI.setCardValue(&apos;cTask221&apos;, getAtribuicoes(&apos;G5-221&apos;));
-  hAPI.setCardValue(&apos;cTask216&apos;, getAtribuicoes(&apos;G5-216&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
-  hAPI.setCardValue(&apos;cTask295&apos;, getAtribuicoes(&apos;G5-295&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
-  hAPI.setCardValue(&apos;cTask223&apos;, getAtribuicoes(&apos;G5-223&apos;, hAPI.getCardValue(&apos;CODCOLIGADA&apos;)));
-
+  hAPI.setCardValue(&apos;cTask216&apos;, getAtribuicoes(&apos;G5-216&apos;));
+  hAPI.setCardValue(&apos;cTask295&apos;, getAtribuicoes(&apos;G5-295&apos;));
+  hAPI.setCardValue(&apos;cTask223&apos;, getAtribuicoes(&apos;G5-223&apos;));
+  
   return true;
 }
 
@@ -5443,51 +5443,34 @@ function getAttachments(docDto) {
  * @returns {String} o ID da pasta criada
  */
 function criaPasta(pastaPai, nome) {
-  try {
-
-    var CentroDeCusto = hAPI.getCardValue(&quot;centro_de_custo&quot;);
-    var NumeroDaSolicitacao = hAPI.getCardValue(&quot;numero_solicitacao&quot;);
-
-    if (!CentroDeCusto || CentroDeCusto.trim() === &quot;&quot;) {
-      throw &quot;O campo Centro de Custo está vazio ou não foi preenchido.&quot;;
-    }
-
-    var CentroDeCustoNOME = CentroDeCusto.split(&quot; - &quot;);
-    var centroDeCusto = CentroDeCustoNOME.length &gt; 1 ? CentroDeCustoNOME[1].trim() : CentroDeCusto.trim();
-
-    if (!centroDeCusto || centroDeCusto === &quot;&quot;) {
-      throw &quot;Erro ao processar o Centro de Custo. Nome não encontrado.&quot;;
-    }
-
-    var NomeDaPasta = &quot;G5-&quot; + centroDeCusto + &quot;-&quot; + NumeroDaSolicitacao ;
-
-    var dto = docAPI.newDocumentDto();
-    dto.setDocumentDescription(NomeDaPasta);
-    dto.setDocumentType(&quot;1&quot;);
-    dto.setParentDocumentId(pastaPai);
-    dto.setDocumentTypeId(&quot;&quot;);
-    var securityArray = new java.util.ArrayList();
-    var usuProcess = getUsersProcess();
-    for (var index = 0; index &lt; usuProcess.size(); index++) {
-      var security = docAPI.newDocumentSecurityConfigDto();
-      security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos 
-      security.setAttributionValue(usuProcess.get(index)) // id do usuário
-      security.setCompanyId(1)
-      security.setDocumentId(pastaPai)
-      security.setDownloadEnabled(true)
-      security.setInheritSecurity(false)
-      security.setSecurityLevel(2) // 0 - todo; 2 -  modificar; 3 - todos
-      security.setSecurityVersion(true)
-      security.setShowContent(true)
-      security.setPermission(true)
-      security.setVersion(100)
-      securityArray.add(security);
-    }
-    var folder = docAPI.createFolder(dto, securityArray, null);
-    return parseInt(folder.getDocumentId());
-  } catch (error) {
-    throw String(error.lineNumber) + &quot; - &quot; + String(error);
-  }
+	try {
+		var dto = docAPI.newDocumentDto();
+		dto.setDocumentDescription(nome);
+		dto.setDocumentType(&quot;1&quot;);
+		dto.setParentDocumentId(pastaPai);
+		dto.setDocumentTypeId(&quot;&quot;);
+		var securityArray = new java.util.ArrayList();
+		var usuProcess = getUsersProcess();
+		for (var index = 0; index &lt; usuProcess.size(); index++) {
+			var security = docAPI.newDocumentSecurityConfigDto();
+			security.setAttributionType(1) // 1 - usuário; 2 - grupo; 3 - todos 
+			security.setAttributionValue(usuProcess.get(index)) // id do usuário
+			security.setCompanyId(1)
+			security.setDocumentId(pastaPai)
+			security.setDownloadEnabled(true)
+			security.setInheritSecurity(false)
+			security.setSecurityLevel(2) // 0 - todo; 2 -  modificar; 3 - todos
+			security.setSecurityVersion(true)
+			security.setShowContent(true)
+			security.setPermission(true)
+			security.setVersion(100)
+			securityArray.add(security);
+		}
+		var folder = docAPI.createFolder(dto, securityArray, null);
+		return parseInt(folder.getDocumentId());
+	} catch (error) {
+		throw error;
+	}
 }
 
 function getConstante(param) {
@@ -5565,9 +5548,10 @@ function isValidUserToCreateDoc(user) {
   dataPrevBaixa = dataPrevBaixa.replace(&quot;Z&quot;, &quot;&quot;);
 
   try {
-    var dataServerName = &apos;FinLanDataBR&apos;
-    var usuario = getConstante(&apos;rm_usuario&apos;)
-    var senha = getConstante(&apos;rm_senha&apos;)
+    var dataServerName = &apos;FinLanDataBR&apos;;
+    var usuario = getConstante(&apos;rm_usuario&apos;);
+    var senha = getConstante(&apos;rm_senha&apos;);
+    var context = String(&quot;CODSISTEMA=G;CODCOLIGADA=&quot; + hAPI.getCardValue(&quot;CODCOLIGADA&quot;) + &quot;;CODUSUARIO=&quot; + usuario);
     var authenticatedService = getWebService(usuario, senha, &quot;RMWsDataServer&quot;, &quot;com.totvs.WsDataServer&quot;, &quot;com.totvs.IwsDataServer&quot;);
     var idLanNovo = parseInt(hAPI.getCardValue(&quot;idLan&quot;)) &gt; 0 ? hAPI.getCardValue(&quot;idLan&quot;) : &quot;-1&quot;;
     var historico_analise = String(hAPI.getCardValue(&quot;historico_analise&quot;)) + &apos; - Solicitação do Fluig número &apos; + getValue(&apos;WKNumProces&apos;);
@@ -5641,6 +5625,7 @@ function isValidUserToCreateDoc(user) {
     log.info(newXML)
     var result = authenticatedService.saveRecord(dataServerName, text, context);
     var result = String(result);
+    log.info(&quot;Result:&quot; + result);
     checkIsPK(result, 2);
     var movimentoGerado = result.split(&quot;;&quot;)[1];
     hAPI.setCardValue(&quot;idLan&quot;, String(movimentoGerado));
@@ -5660,7 +5645,6 @@ function GetXml() {
     &quot;     &lt;NFOUDUP&gt;0&lt;/NFOUDUP&gt;&quot; +
     &quot;     &lt;CLASSIFICACAO&gt;0&lt;/CLASSIFICACAO&gt;&quot; +
     &quot;     &lt;PAGREC&gt;0&lt;/PAGREC&gt;&quot; +
-    &quot;     &lt;CNABBANCO&gt;341&lt;/CNABBANCO&gt;&quot; +
     &quot;     &lt;REEMBOLSAVEL&gt;0&lt;/REEMBOLSAVEL&gt;&quot; +
     &quot;     &lt;CARENCIAJUROS&gt;0&lt;/CARENCIAJUROS&gt;&quot; +
     &quot;     &lt;MULTADIA&gt;0&lt;/MULTADIA&gt;&quot; +
@@ -5676,6 +5660,7 @@ function GetXml() {
     &quot;     &lt;DATAVENCIMENTO&gt;2050-01-01T00:00:00.000&lt;/DATAVENCIMENTO&gt;&quot; +
     &quot;     &lt;DATAEMISSAO&gt;2050-01-01T00:00:00.000&lt;/DATAEMISSAO&gt;&quot; +
     &quot;     &lt;DATAPREVBAIXA&gt;2050-01-01T00:00:00.000&lt;/DATAPREVBAIXA&gt;&quot; +
+    &quot;     &lt;DATAPAG&gt;2050-01-01T00:00:00.000&lt;/DATAPAG&gt;&quot; +
     &quot;     &lt;MESDECOMPETENCIA&gt;2050-01-01T00:00:00&lt;/MESDECOMPETENCIA&gt;&quot; +
     &quot;     &lt;VALORORIGINAL&gt;0&lt;/VALORORIGINAL&gt;&quot; +
     &quot;     &lt;VALORBAIXADO&gt;0&lt;/VALORBAIXADO&gt;&quot; +
@@ -5710,6 +5695,7 @@ function GetXml() {
     &quot;     &lt;IDPGTO&gt;&lt;/IDPGTO&gt;&quot; +
     &quot;     &lt;CODTDO&gt;&lt;/CODTDO&gt;&quot; +
     &quot;     &lt;CODFILIAL&gt;&lt;/CODFILIAL&gt;&quot; +
+    &quot;     &lt;CNABBANCO&gt;341&lt;/CNABBANCO&gt;&quot; +
     &quot;     &lt;SERIEDOCUMENTO&gt;@@@&lt;/SERIEDOCUMENTO&gt;&quot; +
     &quot;     &lt;CODCOLPGTO&gt;-1&lt;/CODCOLPGTO&gt;&quot; +
     &quot;     &lt;NUMLOTECONTABIL&gt;0&lt;/NUMLOTECONTABIL&gt;&quot; +
@@ -6061,14 +6047,35 @@ function getAttchment(description) {
    * PRD: gennesisengenharia160516 - pasta : 88200
    */
 
+  var nomeDaPasta = &quot;G5-&quot; + String(getValue(&apos;WKNumProces&apos;));
+
   try {
     var pageService = fluigAPI.getPageService();
     var urlDoServidor = String(pageService.getServerURL());
     var pastaPai = urlDoServidor.indexOf(&apos;gennesisengenharia160516&apos;) &gt;= 0 ? 88200 : 61248;
-    var nomeSubPasta = &quot;G5-&quot; + String(getValue(&quot;WKNumProces&quot;));
-    var pastaCriada = criaPasta(pastaPai, nomeSubPasta);
+
+    var cCusto = hAPI.getCardValue(&quot;centro_de_custo&quot;);
+    var TabelaRateioCC = hAPI.getChildrenIndexes(&quot;table_rateio_ccusto&quot;);
+
+    for (var i = 0; i &lt; TabelaRateioCC.length; i++) {
+      var NaturezaPreenchida = hAPI.getCardValue(&quot;coluna_natureza___&quot; + TabelaRateioCC[i]);
+      if (!NaturezaPreenchida || NaturezaPreenchida.trim() === &quot;&quot;) {
+        throw &quot;O campo natureza está vazio ou não foi preenchido.&quot;;
+      }
+
+      var centroDeCusto_hAPI = cCusto.split(&quot; - &quot;);
+      var centroDeCusto = centroDeCusto_hAPI.length &gt; 1 ? centroDeCusto_hAPI[1].trim() : cCusto.trim();
+
+      if (!centroDeCusto || centroDeCusto === &quot;&quot;) {
+        throw &quot;Erro ao validar o centro de custo. O campo não foi preenchido.&quot;;
+      }
+      nomeDaPasta = &quot;G5-&quot; + centroDeCusto + &quot;-&quot; + NumeroDaSolicitacao + &quot;-&quot; + NaturezaPreenchida;
+    }
+
+    var pastaCriada = criaPasta(pastaPai, nomeDaPasta);
     var listaDeDocumento = publicarGED(pastaCriada);
     if (listaDeDocumento.length &gt; 0) hAPI.setCardValue(&quot;anexos&quot;, String(listaDeDocumento.join(&quot;,&quot;)))
+
     return true;
   } catch (error) {
     throw String(error.lineNumber) + &quot; - &quot; + String(error);
@@ -6371,7 +6378,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>43</version>
+        <version>72</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6382,7 +6389,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>43</version>
+        <version>72</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6393,7 +6400,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>43</version>
+        <version>72</version>
         <linkSequence>315</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6404,7 +6411,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>43</version>
+        <version>72</version>
         <linkSequence>315</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6415,7 +6422,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>43</version>
+        <version>72</version>
         <linkSequence>316</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6428,7 +6435,7 @@ function getAttchment(description) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>43</version>
+        <version>72</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6652,7 +6659,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6662,7 +6669,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6676,7 +6683,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6686,7 +6693,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6696,7 +6703,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6706,7 +6713,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6716,7 +6723,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6730,7 +6737,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6740,7 +6747,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6750,7 +6757,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>43</processVersion>
+      <processVersion>72</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

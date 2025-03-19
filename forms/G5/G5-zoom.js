@@ -398,7 +398,7 @@ function filtraTipoDeDocumentoPorColigada(codColigada) {
 }
 
 function filtraContaCaixaPelaColigadaEFilial() {
-  if (validaZoom("conta_caixa_analise")) reloadZoomFilterValues(`conta_caixa_analise`, `filtro,FCXA.CODCOLIGADA = ${$("#CODCOLIGADA").val()}`);
+  if (validaZoom("conta_caixa_analise")) reloadZoomFilterValues(`conta_caixa_analise`, `filtro,FCXA.CODCOLIGADA = ${$("#CODCOLIGADA").val()} AND FCXA.CODFILIAL = ${$("#CODFILIAL").val()}`)
 }
 
 function filtraDadosPagamento() {
@@ -427,7 +427,6 @@ function validaContaCaixa(codContaCaixa) {
     else {
       let codFilialCX = datasetDsReadRecord.values[0].CODFILIAL;
       if (codFilialCX == undefined || codFilialCX == "") {
-        // conta caixa global, tudo certo!
         return;
       }
       if (codFilialCX != codFlialSol) {
@@ -649,6 +648,9 @@ function getNomeFilial(CODCOLIGADA, CODFILIAL) {
 function formSetValue(nomeCampo, valor) {
   if (window[nomeCampo].open != undefined) valor == "" || valor == null ? window[nomeCampo].clear() : window[nomeCampo].setValue(valor);
   else window[nomeCampo].value = valor;
+
+  console.log("Campo:" + nomeCampo + " Valor: " + valor);
+  if(valor == "" || valor == null) console.log("Valor para o campo " + nomeCampo + " não encontrado!");
 }
 
 function formGetValue(nomeCampo) {
