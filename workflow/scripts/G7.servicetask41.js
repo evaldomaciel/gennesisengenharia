@@ -1,20 +1,23 @@
 function servicetask41(attempt, message) {
 	try {
+		if (hAPI.getCardValue('solicitacao_origem') == 0) {
+			hAPI.setCardValue('solicitacao_origem', "");
+		}
 
 		var cancSolDuplicada = cancelaSolAberta();
 		var gerPDF = geraPdf();
 
 		var G3 = getG3(hAPI.getCardValue('id_movimento'))
 		if (G3 && G3.rowsCount > 0) {
-			hAPI.setCardValue('solicitacao_origem', G3.getValue(0, 'IdentificadorFluig'))
-			hAPI.setCardValue('processo_origem', 'G3')
+			hAPI.setCardValue('solicitacao_origem', G3.getValue(0, 'IdentificadorFluig'));
+			hAPI.setCardValue('processo_origem', 'G3');
 			return true;
 		}
 
 		var G5 = getG5(hAPI.getCardValue('id_titulo'))
 		if (G5 && G5.rowsCount > 0) {
-			hAPI.setCardValue('solicitacao_origem', G5.getValue(0, 'numero_solicitacao'))
-			hAPI.setCardValue('processo_origem', 'G5')
+			hAPI.setCardValue('solicitacao_origem', G5.getValue(0, 'numero_solicitacao'));
+			hAPI.setCardValue('processo_origem', 'G5');
 			return true;
 		}
 
@@ -36,81 +39,107 @@ function getConstante(param) {
 	return '0';
 }
 
-function formatarData(data) {
-	var dia = data.substring(8, 10);
-	var mes = data.substring(5, 7);
-	var ano = data.substring(0, 4);
-	return dia + "/" + mes + "/" + ano;
-}
-
 function geraPdf() {
 	try {
 		// Gerar e anexar PDF
-		// Coletar hora e data atual
+		// Coletar hora atual
 		var data = new Date();
-		var dia = ("0" + data.getDate()).slice(-2);
-		var mes = ("0" + (data.getMonth() + 1)).slice(-2);
-		var ano = data.getFullYear();
-		var dataFormatada = dia + "/" + mes + "/" + ano;
-
 		var horas = ("0" + data.getHours()).slice(-2);
 		var minutos = ("0" + data.getMinutes()).slice(-2);
 		var horaFormatada = horas + ":" + minutos;
 
-		var valor_titulo = parseFloat(hAPI.getCardValue("valor_titulo"));
-		var valor_original = parseFloat(hAPI.getCardValue("valor_original"));
+		var valor_titulo = parseFloat((hAPI.getCardValue("valor_titulo").replace(',', '.')));
+		var valor_original = parseFloat((hAPI.getCardValue("valor_original").replace(',', '.')));
 		var acre_desc = (valor_titulo - valor_original);
-		var valor_pago = (valor_original + acre_desc);
+
+		var codigo_autenticacao = "";
+
+		if (hAPI.getCardValue("codigo_autenticacao") != "") {
+			codigo_autenticacao =
+				"<tr>" +
+				"<td style='border-color: white;'><b>Autenticação:</b> " + hAPI.getCardValue("codigo_autenticacao") + "</td>" +
+				"</tr>";
+		}
 
 		var conteudoHTML =
 			"<!DOCTYPE html>" +
 			"<html lang='pt-br'>" +
 			"<head>" +
-			"<meta charset='UTF-8'/>" +
-			"<title>Comprovante de Pagamento</title>" +
+			"    <meta charset='UTF-8'/>" +
+			"    <title>Comprovante</title>" +
+			"    <style>" +
+			"        h2 { text-align: center; font-weight: bold; }" +
+			"        .linha { margin-bottom: 10px; margin-left: 50px; font-size: 18px; }" +
+			"        .titulo { font-weight: bold; margin-top: 20px; margin-bottom: 20px; font-size: 18px; }" +
+			"    </style>" +
 			"</head>" +
 			"<body>" +
-			"<table border='1' cellpadding='10' align='center' width='600'>" +
-			"<tr>" +
-			"<td style='border-color: white;'>" +
-			"<table>" +
-			"<tr>" +
-			"<td><img src='https://gennesisengenharia160517.fluig.cloudtotvs.com.br:1650/portal/api/servlet/image/1/custom/logo_image.png' alt='Logo ENGPAC/Gênnessis Engenharia' width='90' /></td>" +
-			"<td><b style=' font-size: 20px'>Comprovante de Pagamento</b></td>" +
-			"</tr>" +
-			"</table>" +
-			"</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td style='border-color: white;'><b>Data:</b> " + dataFormatada + " <b>Hora:</b> " + horaFormatada + "</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td style='border-color: white;'><b>Fornecedor:</b> " + hAPI.getCardValue("id_fornecedor") + " </td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td style='border-color: white;'><b>Vencimento:</b> " + formatarData(hAPI.getCardValue("data_vencimento")) + "</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td style='border-color: white;'><b>Pago:</b> " + valor_pago.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td style='border-color: white;'><b>Valor:</b> " + valor_titulo.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td style='border-color: white;'><b>Acréscimos/Descontos:</b> " + acre_desc.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td style='border-color: white;'><b>Autenticação:</b> " + hAPI.getCardValue("codigo_autenticacao") + "</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td align='center' style='border-color: white;'><b style='font-size: 20px;'>Banco Itau SA</b></td>" +
-			"</tr>" +
-			"</table>" +
+			"    <div align='center' width='690'>" +
+			"        <h2>COMPROVANTE</h2>" +
+			"        <p class='titulo'>Dados do pagador</p>" +
+			"        <p class='linha'>Nome do pagador: <b> " + hAPI.getCardValue("id_fornecedor") + " </b></p>" +
+			"        <p class='linha'>CPF/CNPJ do pagador: <b>123.456.789-10</b></p>" +
+			"        <p class='linha'>Agência/Conta: <b>12356-7</b></p>" +
+			"        <p class='titulo'>Dados do recebedor</p>" +
+			"        <p class='linha'>Nome do recebedor: <b>Teste</b></p>" +
+			"        <p class='linha'>Chave: <b>123.456.789-10</b></p>" +
+			"        <p class='linha'>CPF/CNPJ do recebedor: <b>123.456.789-10</b></p>" +
+			"        <p class='linha'>Instituição: <b>Itau</b></p>" +
+			"        <p class='titulo'>Dados da transação</p>" +
+			"        <p class='linha'>Valor: <b>" + valor_titulo.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</b></p>" +
+			"        <p class='linha'>Data da transferência: <b>" + hAPI.getCardValue("data_pagamento").substring(0, 10) + "</b></p>" +
+			"        <p class='linha'>Tipo de pagamento: <b>" + hAPI.getCardValue("forma_de_pagamento") + "</b></p>" +
+			"    </div>" +
 			"</body>" +
 			"</html>";
 
+		// var conteudoHTML =
+		// 	"<!DOCTYPE html>" +
+		// 	"<html lang='pt-br'>" +
+		// 	"<head>" +
+		// 	"<meta charset='UTF-8'/>" +
+		// 	"<title>Comprovante de Pagamento</title>" +
+		// 	"</head>" +
+		// 	"<body>" +
+		// 	"<table border='1' cellpadding='10' align='center' width='600'>" +
+		// 	"<tr>" +
+		// 	"<td style='border-color: white;'>" +
+		// 	"<table>" +
+		// 	"<tr>" +
+		// 	"<td><img src='https://gennesisengenharia160517.fluig.cloudtotvs.com.br:1650/portal/api/servlet/image/1/custom/logo_image.png' alt='Logo ENGPAC/Gênnessis Engenharia' width='90' /></td>" +
+		// 	"<td><b style=' font-size: 20px'>Comprovante de Pagamento</b></td>" +
+		// 	"</tr>" +
+		// 	"</table>" +
+		// 	"</td>" +
+		// 	"</tr>" +
+		// 	"<tr>" +
+		// 	"<td style='border-color: white;'><b>Data:</b> " + hAPI.getCardValue("data_pagamento").substring(0, 10) + " <b>Hora:</b> " + horaFormatada + "</td>" +
+		// 	"</tr>" +
+		// 	"<tr>" +
+		// 	"<td style='border-color: white;'><b>Fornecedor:</b> " + hAPI.getCardValue("id_fornecedor") + " </td>" +
+		// 	"</tr>" +
+		// 	"<tr>" +
+		// 	"<td style='border-color: white;'><b>Vencimento:</b> " + hAPI.getCardValue("data_vencimento").substring(0, 10) + "</td>" +
+		// 	"</tr>" +
+		// 	"<tr>" +
+		// 	"<td style='border-color: white;'><b>Pago:</b> " + valor_titulo.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
+		// 	"</tr>" +
+		// 	"<tr>" +
+		// 	"<td style='border-color: white;'><b>Valor:</b> " + valor_original.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
+		// 	"</tr>" +
+		// 	"<tr>" +
+		// 	"<td style='border-color: white;'><b>Acréscimos/Descontos:</b> " + acre_desc.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
+		// 	"</tr>" +
+		// 	codigo_autenticacao +
+		// 	"<tr>" +
+		// 	"<td align='center' style='border-color: white;'><b style='font-size: 20px;'>Banco Itau SA</b></td>" +
+		// 	"</tr>" +
+		// 	"</table>" +
+		// 	"</body>" +
+		// 	"</html>";
+
 		// Nome do arquivo que será salvo no servidor
-		var nomeArquivo = "comprovante_pagamento" + hAPI.getCardValue("solicitacao_origem") + ".pdf";
+		var nomeArquivo = "comprovante_pagamento" + hAPI.getCardValue("id_titulo") + ".pdf";
 
 		// Importando as classes do iText
 		var Document = Packages.com.itextpdf.text.Document;
@@ -242,7 +271,6 @@ function cancelaSolAberta() {
 
 function atualizaLan() {
 	/** Atualiza o registro no RM */
-
 	var user = getConstante('rm_usuario')
 	var pass = getConstante('rm_senha')
 	var idLan = hAPI.getCardValue('id_titulo');
@@ -267,34 +295,6 @@ function atualizaLan() {
 		hAPI.setCardValue("valor_titulo", getNodeValue(text, "VALOR"));
 		hAPI.setCardValue("codigo_autenticacao", getNodeValue(text, "CODCFO"));
 		hAPI.setCardValue("valor_original", getNodeValue(text, "VALORORIGINAL"));
-
-		// Coleta email do solicitante
-		var constraint_G5 = DatasetFactory.createConstraint('numero_solicitacao', solicitacao_origem, solicitacao_origem, ConstraintType.MUST);
-		var ds_G5 = DatasetFactory.getDataset('ds_G5', null, [constraint_G5], null);
-
-		if (ds_G5.rowsCount > 0) {
-			hAPI.setCardValue("processo_origem", "G5");
-			hAPI.setCardValue("email_solicitante", ds_G5.getValue(0, 'email_solicitante'));
-			hAPI.setCardValue("copia_email_solicitante", ds_G5.getValue(0, 'copia_email_solicitante'));
-		} else {
-			var constraint_G4 = DatasetFactory.createConstraint('IdentificadorFluig', solicitacao_origem, solicitacao_origem, ConstraintType.MUST);
-			var ds_G4 = DatasetFactory.getDataset('DSG4', null, [constraint_G4], null);
-
-			if (ds_G4.rowsCount > 0) {
-				hAPI.setCardValue("processo_origem", "G4");
-				//Coletar e-mail pelo nome do comprador
-				hAPI.setCardValue("nomeComprador", ds_G4.getValue(0, "nomeComprador"));
-				var userEmail = hAPI.getCardValue("nomeComprador");
-
-				var c1 = DatasetFactory.createConstraint('login', userEmail, userEmail, ConstraintType.MUST);
-				var dataset = DatasetFactory.getDataset("colleague", null, [c1], null);
-
-				var email = dataset.getValue(0, "mail");
-				hAPI.setCardValue("email_solicitante", email);
-			} else {
-				log.info("Solicitação não encontrada!")
-			}
-		}
 
 		// Precisa mesmo salvar???
 
@@ -333,7 +333,7 @@ function atualizaLan() {
 function getG3(IdMov) {
 	if (parseInt(IdMov) > 0) {
 		var datasetDSG3 = DatasetFactory.getDataset('DSG3',
-			new Array('IdMov', 'IdentificadorFluig', 'IdentificadorFluigAnexo'),
+			new Array('IdMov', 'IdentificadorFluig', 'IdentificadorFluigAnexo', 'nomeComprador'),
 			new Array(
 				DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
 				DatasetFactory.createConstraint('IdMov', IdMov, IdMov, ConstraintType.MUST)
@@ -349,7 +349,7 @@ function getG3(IdMov) {
 function getG5(idLan) {
 	if (parseInt(idLan) > 0) {
 		var datasetDs_G5 = DatasetFactory.getDataset('ds_G5',
-			new Array('idLan', 'numero_solicitacao'),
+			new Array('idLan', 'numero_solicitacao', 'email_solicitante', 'copia_email_solicitante'),
 			new Array(
 				DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
 				DatasetFactory.createConstraint('idLan', idLan, idLan, ConstraintType.MUST)

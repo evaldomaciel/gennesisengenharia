@@ -124,6 +124,7 @@ function setSelectedZoomItem(selectedItem) {
     $("#nome_tipo_documento").val(selectedItem["DESCRICAO"]);
   }
   if (FIELD == "vincular_fornecedor") {
+    console.log(selectedItem);
     if (selectedItem["CODCOLIGADA"] != $("[name='CODCOLIGADA']").val() && selectedItem["CODCOLIGADA"] != 0) {
       exibeMsg("Atenção!", "O fornecedor que você selecionou não é um cadastro global (0) e/ou não pertence a mesma coligada selecionada no início do formulário. Verifique o código da coligada antes de selecionar o fornecedor ou altere a coligada onde será feito o lançamento", "danger");
       window['vincular_fornecedor'].clear()
@@ -293,6 +294,12 @@ function removedZoomItem(removedItem) {
   if (removedItem.inputId == "centro_de_custo") {
     $("#hidden_filial_cc").val("");
     $("#filial").val("");
+    window['dados_pagamento'].clear();
+    $("#tipo_forn").text("");
+    $("#chave_forn").text("");
+    $("#div_chave_tipo_forn").hide(400);
+    $("#div_cod_boleto").hide(400);
+    limpaDaDadosPagamento();
   }
   if (removedItem.inputId == "coligada") {
     limpaFiltroColigada();
@@ -403,10 +410,12 @@ function filtraContaCaixaPelaColigadaEFilial() {
 
 function filtraDadosPagamento() {
   if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
-  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
+  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()},CODFILIAL,${$("#CODFILIAL").val()}`);
 }
 
 function validaContaCaixa(codContaCaixa) {
+  console.log("entrou no validaContaCaixa");
+  console.log(codContaCaixa);
   let codColigada = String($("#CODCOLIGADA").val());
   let datasetDsReadRecord = DatasetFactory.getDataset('dsReadRecord', null, new Array(
     DatasetFactory.createConstraint('dataServer', 'FinCxaDataBR', null, ConstraintType.MUST),
@@ -427,6 +436,7 @@ function validaContaCaixa(codContaCaixa) {
     else {
       let codFilialCX = datasetDsReadRecord.values[0].CODFILIAL;
       if (codFilialCX == undefined || codFilialCX == "") {
+        console.log("conta caixa global, tudo certo!");
         return;
       }
       if (codFilialCX != codFlialSol) {

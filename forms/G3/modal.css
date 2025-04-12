@@ -3,50 +3,28 @@
     color: white;
 }
 
+.modal-headerFD {
+    background-color: #d41515;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.35rem 0.35rem 0.35rem 0.35rem;
+    padding: 10px;
+}
+
 .modal.fade .modal-dialog {
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    transform: translateY(-30px);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transform: translateY(-100px);
     opacity: 0;
 }
 
 .modal.show .modal-dialog {
-    transform: translateY(0);
+    transform: translateY(90px);
     opacity: 1;
 }
 .custom-width-valor {
-    width: 150px; 
+    width: 10px; 
 }
-
-.tooltip-button {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.tooltip-button::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: 40px; 
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(235, 8, 8, 0.8);
-    color: #f3f3f3;
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.tooltip-button:hover::after {
-    opacity: 1;
-    visibility: visible;
-}
-
 
 .componentAnexo{
 	display: flex;

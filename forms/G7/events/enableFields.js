@@ -9,6 +9,7 @@ function enableFields(form) {
     form.setEnabled("processo_origem", false);
     form.setEnabled("solicitacao_origem", false);
     form.setEnabled("id_titulo", false);
+    form.setEnabled("id_movimento", false);
     form.setEnabled("id_fornecedor", false);
     form.setEnabled("data_vencimento", false);
     form.setEnabled("data_pagamento", false);

@@ -94,7 +94,7 @@ function toggleCampoDadosPgmt(desc, tipoPix, chave) {
     $("#div_chave_tipo_forn").hide(400);
     toggleCodBoleto($("#hidden_dados_pgmt").val());
   }
-  else if (desc == "PIX") {
+  else if (desc.includes("PIX")) {
     $("#div_cod_boleto").hide(400);
     $("#div_chave_tipo_forn").show(400);
     tipoDaChavePixDadosPagamento(tipoPix, chave);

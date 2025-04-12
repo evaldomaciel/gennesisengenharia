@@ -3,6 +3,41 @@ function afterStateEntry(sequenceId) {
         try {
             var assunto = hAPI.getCardValue("processo_origem") + " - " + hAPI.getCardValue("solicitacao_origem") + " - Comprovante de Pagamento";
 
+            // Coleta e-mail
+            if (hAPI.getCardValue('processo_origem') == "G5") {
+                var ds_G5 = DatasetFactory.getDataset('ds_G5',
+                    new Array('email_solicitante', 'copia_email_solicitante'),
+                    new Array(
+                        DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
+                        DatasetFactory.createConstraint('numero_solicitacao', hAPI.getCardValue("solicitacao_origem"), hAPI.getCardValue("solicitacao_origem"), ConstraintType.MUST)
+                    ),
+                    null
+                );
+
+                if (ds_G5 && ds_G5.rowsCount > 0) {
+                    hAPI.setCardValue('email_solicitante', ds_G5.getValue(0, 'email_solicitante'));
+                    hAPI.setCardValue('copia_email_solicitante', ds_G5.getValue(0, 'copia_email_solicitante'));
+                }
+            } else if (hAPI.getCardValue('processo_origem') == "G3") {
+                var ds_G3 = DatasetFactory.getDataset('DSG3',
+                    new Array('nomeComprador'),
+                    new Array(
+                        DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
+                        DatasetFactory.createConstraint('IdentificadorFluig', hAPI.getCardValue("solicitacao_origem"), hAPI.getCardValue("solicitacao_origem"), ConstraintType.MUST)
+                    ),
+                    null
+                );
+
+                if (ds_G3 && ds_G3.rowsCount > 0) {
+                    // Coleta Email por nome do comprador
+                    hAPI.setCardValue('nomeComprador', ds_G3.getValue(0, 'nomeComprador'));
+                    var userEmail = hAPI.getCardValue("nomeComprador");
+                    var c1 = DatasetFactory.createConstraint('login', userEmail, userEmail, ConstraintType.MUST);
+                    var dataset = DatasetFactory.getDataset("colleague", null, [c1], null);
+                    hAPI.setCardValue("email_solicitante", dataset.getValue(0, "mail"));
+                }
+            }
+
             var destinatarios = new Array();
             if (hAPI.getCardValue("email_solicitante") != "" && hAPI.getCardValue("email_solicitante") != null) destinatarios.push(hAPI.getCardValue("email_solicitante"));
             if (hAPI.getCardValue("copia_email_solicitante") != "" && hAPI.getCardValue("copia_email_solicitante") != null) destinatarios.push(hAPI.getCardValue("copia_email_solicitante"));

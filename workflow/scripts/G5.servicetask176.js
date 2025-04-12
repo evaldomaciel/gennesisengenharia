@@ -1,4 +1,5 @@
 function servicetask176(attempt, message) {
+  log.info("Incio Serviço de atribuição");
   /** Vamos colocar mais complexidade no 176 */
   var CODCCUSTO = hAPI.getCardValue('CODCCUSTO');
   var SETOR_SOLICITANTE = String(hAPI.getCardValue('SETORSOLICITANTE')).toUpperCase();
@@ -26,6 +27,7 @@ function servicetask176(attempt, message) {
   hAPI.setCardValue('cTask295', getAtribuicoes('G5-295'));
   hAPI.setCardValue('cTask223', getAtribuicoes('G5-223'));
   
+  log.info("Fim Serviço de atribuição");
   return true;
 }
 

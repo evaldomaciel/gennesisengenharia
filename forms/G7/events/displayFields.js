@@ -41,29 +41,18 @@ function displayFields(form, customHTML) {
       form.setVisibleById("div_Avaliacao", false);
 
       // Atribuições teste
-      //form.setValue("processo_origem", "G5");
-      //form.setValue("solicitacao_origem", "47599");
-      form.setValue("id_titulo", "61265");
-      //form.setValue("id_fornecedor", "123");
-      //form.setValue("data_vencimento", "28/02/2025");
-      //form.setValue("data_pagamento", "01/02/2025");
-      //form.setValue("valor_titulo", "100.000,00");
-      //form.setValue("codigo_autenticacao", "123");
+      // form.setValue("processo_origem", "G5");
+      // form.setValue("solicitacao_origem", "61280");
+      form.setValue("id_titulo", "61287");
+      form.setValue("id_movimento", "");
+      form.setValue("id_fornecedor", "ACO POTIGUAR");
+      form.setValue("data_vencimento", "19/03/2025 00:00:00");
+      form.setValue("data_pagamento", "20/03/2025 00:00:00");
+      form.setValue("valor_titulo", "850,25");
+      form.setValue("forma_de_pagamento", "PIX");
+      form.setValue("codigo_autenticacao", "");
       form.setValue("cod_coligada", "2");
-      //form.setValue("nomeComprador", "Admin Fluig");
-      //form.setValue("valor_original", "90.000,00");
-      //var userEmail = getColleagueName(user);
-
-      // Coletar e-mail pelo nome do comprador
-      // if (form.getValue("nomeComprador") != "") {
-      //   var userEmail = form.getValue("nomeComprador");
-      // }
-
-      // var c1 = DatasetFactory.createConstraint('colleagueName', userEmail, userEmail, ConstraintType.MUST);
-      // var dataset = DatasetFactory.getDataset("colleague", null, [c1], null);
-
-      // var email = dataset.getValue(0, "mail");
-      // form.setValue("email_solicitante", email);
+      form.setValue("valor_original", "1000,00");
     }
 
     if (activity == 15) {
