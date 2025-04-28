@@ -34,6 +34,19 @@ function onSync(lastSyncDate) {
 	return synchronizedDataset;
 }
 
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
+	for (var i = 0; i < oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, "id").trim() == param.trim()) {
+			return oConstantes.getValue(i, "Valor").trim();
+		}
+	}
+	return '0';
+}
+
 function createDataset(fields, constraints, sortFields) {
 	var newDataset = DatasetBuilder.newDataset();
 	try {
@@ -66,11 +79,11 @@ function createDataset(fields, constraints, sortFields) {
 
 
 function callService(documentId, version, time) {
-	var fluigService = 'ECMDocumentService';
-	var ECMDocumentServiceService = "com.totvs.technology.ecm.dm.ws.ECMDocumentServiceService";
-
 	var  user = getConstante('fluig_usuario');
 	var  pass = getConstante('fluig_senha');
+
+	var fluigService = 'ECMDocumentService';
+	var ECMDocumentServiceService = "com.totvs.technology.ecm.dm.ws.ECMDocumentServiceService";
 
 	var serviceHelperActive = ServiceManager.getService(fluigService);
 	var serviceLocatorActive = serviceHelperActive.instantiate(ECMDocumentServiceService);
@@ -84,7 +97,7 @@ function callService(documentId, version, time) {
 
 	documentDto.setVersionDescription('Atualizado via dataset ' + String(new Date().toDateString()) + " - " + time);
 	documentDto.setColleagueId(getValue("WKUser")); // Informar o usuário logado.
-	documentDto.setPublisherId(getValue("WKUser")); // Informar o publicador.  
+	documentDto.setPublisherId(getValue("WKUser")); // Informar o publicador. Processo lento pra testar! 
 
 
 	var serviceHelper = ServiceManager.getService(fluigService);
@@ -169,7 +182,7 @@ function getFoldersOC() {
 	var colunasDocument = new Array('documentPK.documentId', 'documentDescription');
 	var datasetDocument = DatasetFactory.getDataset('document', colunasDocument, new Array(
 		// DatasetFactory.createConstraint('sqlLimit', '2', '2', ConstraintType.MUST),
-		DatasetFactory.createConstraint('parentDocumentId', '88200', '88200', ConstraintType.MUST)
+		DatasetFactory.createConstraint('parentDocumentId', '61248', '61248', ConstraintType.MUST)
 	), ['documentPK.documentId;desc']);
 	return datasetDocument;
 }
@@ -189,16 +202,4 @@ function getParentName(documentId) {
 		DatasetFactory.createConstraint('documentPK.documentId', documentId, documentId, ConstraintType.MUST)
 	), ['documentPK.documentId;desc']);
 	return datasetDocument.getValue(0, 'documentDescription');
-}
-
-function getConstante(param) {
-	var aConstraint = [];
-	aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
-	var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
-	for (var i = 0; i < oConstantes.rowsCount; i++) {
-		if (oConstantes.getValue(i, "id").trim() == param.trim()) {
-			return oConstantes.getValue(i, "Valor").trim();
-		}
-	}
-	return '0';
 }

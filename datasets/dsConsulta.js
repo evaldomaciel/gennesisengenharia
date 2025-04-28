@@ -42,10 +42,17 @@ function createDataset(fields, constraints, sortFields) {
     // minhaQuery.push("SELECT * FROM event_proces where DSL_EVENT LIKE '%server.log%'")
     // minhaQuery.push("DELETE FROM event_proces where DSL_EVENT LIKE '%server.log%'")
     // minhaQuery.push("SELECT * FROM event_proces where DSL_EVENT LIKE '%server.log%'")
-    minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 200 WHERE STATUS = 0 AND NUM_VERS > 190 AND COD_DEF_PROCES = 'G4'")
+  
+    
+    minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 305 WHERE STATUS = 0 AND NUM_VERS > 190 AND COD_DEF_PROCES = 'G7'")
 
-    minhaQuery.push("DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsAtualiza');")
-    minhaQuery.push("DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsAtualiza');")
+var constraintDocument1 = DatasetFactory.createConstraint('sqlLimit', '100', '100', ConstraintType.MUST);
+var constraintDocument2 = DatasetFactory.createConstraint('documentPK.documentId', '65616', '65616', ConstraintType.MUST);
+var datasetDocument = DatasetFactory.getDataset('document', null, new Array(constraintDocument1, constraintDocument2), null);
+console.log(datasetDocument)
+
+ //   minhaQuery.push("DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsAtualiza');")
+ //   minhaQuery.push("DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsAtualiza');")
 
     // linhaDeComando1 = new java.lang.Runtime.getRuntime().exec("./bin/jboss-cli.sh --connect command=/host=master:reload");
 

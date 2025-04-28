@@ -8,11 +8,13 @@ function servicetask56(attempt, message) {
 	try {
 
 		var attachmentList = hAPI.listAttachments();
+		log.info("Definida a variável attachmentList")
 
 		if (numSolOrigem > 0) {
 			/** Vamos descobrir se vem do G3/G4 ou G5 */
 
 			var solOrigem = getSourceProcess(numSolOrigem)
+			log.info("Definida a variável solOrigem")
 
 			if (solOrigem && solOrigem.getValue(0, "processId") == "G3") {
 				processId = "G3";
@@ -32,14 +34,21 @@ function servicetask56(attempt, message) {
 			if (solAnexarDoc > 0) {
 
 				var movSeq = getMovementSeq(solAnexarDoc);
+				log.dir(movSeq)
+
+				var selectedStateObj = funSwitchNextState(processId, movSeq.getValue(0, 'stateSequence'))
+				log.dir(selectedStateObj)
+
 				var processDetail = getSourceProcess(solAnexarDoc);
+				log.dir(processDetail)
+
 				var docDetails = getDocDetails(processDetail.getValue(0, 'cardDocumentId'));
+				log.dir(docDetails)
 
 				var cardData = hAPI.getCardData(solAnexarDoc);
 				var keys = cardData.keySet().toArray();
 				var fieldsAndValues = [];
 				var attachmentsListBody = [];
-
 
 				log.info("------ cardData ------ ");
 				log.dir(cardData)
@@ -48,6 +57,7 @@ function servicetask56(attempt, message) {
 				log.dir(keys)
 
 				for (var key in keys) {
+					log.info("Vamos aos anexos " + keys[key])
 					var fieldName = keys[key];
 
 					/** Removendo campos existentes de anexos */
@@ -72,6 +82,7 @@ function servicetask56(attempt, message) {
 				if (attachmentList.size() > 0) {
 					for (var i = 0; i < attachmentList.size(); i++) {
 						var attachment = attachmentList.get(i);
+						log.info("Processando o anexo " + attachment)
 
 						if (processId == "G4") {
 							valorOriginal = currencyPtBr2Float(cardData.get('valorLiquido'));
@@ -115,9 +126,6 @@ function servicetask56(attempt, message) {
 					}
 				}
 
-				log.info("------ fieldsAndValues ------ ");
-				log.dir(fieldsAndValues)
-
 				var fluigService = fluigAPI.getAuthorizeClientService();
 				var data = {
 					companyId: String(getValue("WKCompany")),
@@ -138,7 +146,7 @@ function servicetask56(attempt, message) {
 						"processId": processId,
 						"version": processDetail.getValue(0, 'version'),
 						"taskUserId": getValue("WKUser"),
-						"completeTask": false,
+						"completeTask": selectedStateObj.completeTask,
 						"currentMovto": movSeq.getValue(0, 'processHistoryPK.movementSequence'),
 						"managerMode": true,
 						"selectedDestinyAfterAutomatic": -1,
@@ -156,7 +164,7 @@ function servicetask56(attempt, message) {
 						"isDigitalSigned": false,
 						"isLinkReturn": null,
 						"versionDoc": docDetails.getValue(0, 'documentPK.version'),
-						"selectedState": movSeq.getValue(0, 'stateSequence'),
+						"selectedState": selectedStateObj.selectedState,
 						"internalFields": [
 							"tipoDemanda",
 							"dataEntrega",
@@ -170,11 +178,11 @@ function servicetask56(attempt, message) {
 						"subProcessSequence": null,
 						"currentState": movSeq.getValue(0, 'stateSequence')
 					}
-
 				}
 
 				var obj = fluigService.invoke(JSONUtil.toJSON(data));
 
+				log.info("Integração para movimentar o fluxo sem erro aparente!")
 				log.dir(obj);
 				return String(obj.result)
 			}
@@ -187,30 +195,53 @@ function servicetask56(attempt, message) {
 	}
 }
 
+
+function funSwitchNextState(processId, currentState) {
+	log.info("funSwitchNextState(" + processId + ", " + currentState + ") ")
+	currentState = String(currentState);
+	if (processId == "G5" && currentState == "127") {/** Não faz nada, pois já esta na etapa esperada */ }
+	else if (processId == "G5" && currentState == "97") return { selectedState: 127, completeTask: true }
+	else if (processId == "G5" && currentState == "128") return { selectedState: 127, completeTask: true }
+	else if (processId == "G4" && currentState == "14") return { selectedState: 12, completeTask: true }
+	else if (processId == "G4" && currentState == "12") return { selectedState: 16, completeTask: true }
+	return { selectedState: currentState, completeTask: false }
+}
+
 function currencyPtBr2Float(val) {
-	if (String(val).length > 1) {
-		val = val.replaceAll("[^\\d,.-]", "");
-		var localeBR = new java.util.Locale("pt", "BR");
-		var formatador = new java.text.NumberFormat.getNumberInstance(localeBR);
-		var numero = formatador.parse(val);
-		var valorDecimal = new java.math.BigDecimal(numero.toString());
-		return valorDecimal;
+	log.info("currencyPtBr2Float(" + val + ")")
+	try {
+		if (String(val).length > 1) {
+			val = val.replaceAll("[^\\d,.-]", "");
+			var localeBR = new java.util.Locale("pt", "BR");
+			var formatador = new java.text.NumberFormat.getNumberInstance(localeBR);
+			var numero = formatador.parse(val);
+			var valorDecimal = new java.math.BigDecimal(numero.toString());
+			return valorDecimal;
+		}
+		return 0.00;
+	} catch (error) {
+		throw error;
 	}
-	return 0.00;
 }
 
 function getSourceProcess(processInstanceId) {
-	var datasetWorkflowProcess = DatasetFactory.getDataset('workflowProcess',
-		new Array('processId', 'workflowProcessPK.processInstanceId', 'status', 'version', 'cardDocumentId'),
-		new Array(
-			DatasetFactory.createConstraint('workflowProcessPK.processInstanceId', processInstanceId, processInstanceId, ConstraintType.MUST)
-		), null);
-	if (datasetWorkflowProcess.rowsCount > 0) return datasetWorkflowProcess;
-	log.info("Não foi possível obter os dados na função getSourceProcess(" + processInstanceId + ")")
-	return false
+	log.info("getSourceProcess(" + processInstanceId + ")")
+	try {
+		var datasetWorkflowProcess = DatasetFactory.getDataset('workflowProcess',
+			new Array('processId', 'workflowProcessPK.processInstanceId', 'status', 'version', 'cardDocumentId'),
+			new Array(
+				DatasetFactory.createConstraint('workflowProcessPK.processInstanceId', processInstanceId, processInstanceId, ConstraintType.MUST)
+			), null);
+		if (datasetWorkflowProcess.rowsCount > 0) return datasetWorkflowProcess;
+		log.info("Não foi possível obter os dados na função getSourceProcess(" + processInstanceId + ")")
+		return false
+	} catch (error) {
+		throw "Erro na função getSourceProcess " + String(error);
+	}
 }
 
 function getG3(identificadorFluig) {
+	log.info("getG3(" + identificadorFluig + ")")
 	var datasetDSG3 = DatasetFactory.getDataset('DSG3',
 		new Array('IdentificadorFluig', 'StatusFluig', 'IdentificadorFluigAnexo'),
 		new Array(
@@ -222,6 +253,7 @@ function getG3(identificadorFluig) {
 }
 
 function getG4(identificadorFluig) {
+	log.info("getG4(" + identificadorFluig + ")")
 	var datasetDSG4 = DatasetFactory.getDataset('DSG3',
 		new Array('IdentificadorFluig', 'StatusFluig'),
 		new Array(
@@ -233,44 +265,54 @@ function getG4(identificadorFluig) {
 }
 
 function getG5(identificadorFluig) {
+	log.info("getG5(" + identificadorFluig + ")")
 	var datasetDSG5 = DatasetFactory.getDataset('DSG3',
 		new Array('numero_solicitacao'),
 		new Array(
 			DatasetFactory.createConstraint('numero_solicitacao', identificadorFluig, identificadorFluig, ConstraintType.MUST)
 		), null);
 	if (datasetDSG5.rowsCount > 0) return datasetDSG5;
-
 	log.info("Não foi possível obter os dados na função getG5(" + identificadorFluig + ")")
 	return false
 }
 
 function getDocDetails(documentId) {
-	var datasetDocument = DatasetFactory.getDataset('document',
-		new Array('documentPK.version', 'documentPK.documentId'),
-		new Array(
-			DatasetFactory.createConstraint('documentPK.documentId', documentId, documentId, ConstraintType.MUST),
-			DatasetFactory.createConstraint('activeVersion', 'true', 'true', ConstraintType.MUST)
-		), null);
-	if (datasetDocument.rowsCount > 0) return datasetDocument;
-	log.info("Não foi possível obter os dados na função getDocDetails(" + documentId + ") ")
-	return false;
+	log.info("getDocDetails(" + documentId + ")")
+	try {
+		var datasetDocument = DatasetFactory.getDataset('document',
+			new Array('documentPK.version', 'documentPK.documentId'),
+			new Array(
+				DatasetFactory.createConstraint('documentPK.documentId', documentId, documentId, ConstraintType.MUST),
+				DatasetFactory.createConstraint('activeVersion', 'true', 'true', ConstraintType.MUST)
+			), null);
+		if (datasetDocument.rowsCount > 0) return datasetDocument;
+		else log.error("Não foi possível obter os dados na função getDocDetails(" + documentId + "). ");
+	} catch (error) {
+		throw "Erro na função getDocDetails " + String(error);
+	}
 }
 
 function getMovementSeq(processInstanceId) {
-	var datasetProcessHistory = DatasetFactory.getDataset('processHistory', null,
-		new Array(
-			DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
-			DatasetFactory.createConstraint('processHistoryPK.processInstanceId', processInstanceId, processInstanceId, ConstraintType.MUST)
-		),
-		new Array('processHistoryPK.movementSequence;desc')
-	);
-	log.dir(datasetProcessHistory)
-	if (datasetProcessHistory.rowsCount > 0) return datasetProcessHistory;
-	log.info("Não foi possível obter os dados na função getMovementSeq(" + processInstanceId + ")")
-	return false;
+	log.info("getMovementSeq(" + processInstanceId + ")")
+	try {
+		var datasetProcessHistory = DatasetFactory.getDataset('processHistory', null,
+			new Array(
+				DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
+				DatasetFactory.createConstraint('processHistoryPK.processInstanceId', processInstanceId, processInstanceId, ConstraintType.MUST)
+			),
+			new Array('processHistoryPK.movementSequence;desc')
+		);
+		log.dir(datasetProcessHistory)
+		if (datasetProcessHistory.rowsCount > 0) return datasetProcessHistory;
+		log.info("Não foi possível obter os dados na função getMovementSeq(" + processInstanceId + ")")
+		return false;
+	} catch (error) {
+		throw "Erro na função getMovementSeq " + String(error);
+	}
 }
 
 function setFormProcess(params) {
+	log.info("setFormProcess(" + params + ")")
 	return {
 		"processInstanceId": params.processInstanceId,
 		"processId": params.processId,

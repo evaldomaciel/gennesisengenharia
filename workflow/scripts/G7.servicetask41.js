@@ -93,51 +93,6 @@ function geraPdf() {
 			"</body>" +
 			"</html>";
 
-		// var conteudoHTML =
-		// 	"<!DOCTYPE html>" +
-		// 	"<html lang='pt-br'>" +
-		// 	"<head>" +
-		// 	"<meta charset='UTF-8'/>" +
-		// 	"<title>Comprovante de Pagamento</title>" +
-		// 	"</head>" +
-		// 	"<body>" +
-		// 	"<table border='1' cellpadding='10' align='center' width='600'>" +
-		// 	"<tr>" +
-		// 	"<td style='border-color: white;'>" +
-		// 	"<table>" +
-		// 	"<tr>" +
-		// 	"<td><img src='https://gennesisengenharia160517.fluig.cloudtotvs.com.br:1650/portal/api/servlet/image/1/custom/logo_image.png' alt='Logo ENGPAC/Gênnessis Engenharia' width='90' /></td>" +
-		// 	"<td><b style=' font-size: 20px'>Comprovante de Pagamento</b></td>" +
-		// 	"</tr>" +
-		// 	"</table>" +
-		// 	"</td>" +
-		// 	"</tr>" +
-		// 	"<tr>" +
-		// 	"<td style='border-color: white;'><b>Data:</b> " + hAPI.getCardValue("data_pagamento").substring(0, 10) + " <b>Hora:</b> " + horaFormatada + "</td>" +
-		// 	"</tr>" +
-		// 	"<tr>" +
-		// 	"<td style='border-color: white;'><b>Fornecedor:</b> " + hAPI.getCardValue("id_fornecedor") + " </td>" +
-		// 	"</tr>" +
-		// 	"<tr>" +
-		// 	"<td style='border-color: white;'><b>Vencimento:</b> " + hAPI.getCardValue("data_vencimento").substring(0, 10) + "</td>" +
-		// 	"</tr>" +
-		// 	"<tr>" +
-		// 	"<td style='border-color: white;'><b>Pago:</b> " + valor_titulo.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
-		// 	"</tr>" +
-		// 	"<tr>" +
-		// 	"<td style='border-color: white;'><b>Valor:</b> " + valor_original.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
-		// 	"</tr>" +
-		// 	"<tr>" +
-		// 	"<td style='border-color: white;'><b>Acréscimos/Descontos:</b> " + acre_desc.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</td>" +
-		// 	"</tr>" +
-		// 	codigo_autenticacao +
-		// 	"<tr>" +
-		// 	"<td align='center' style='border-color: white;'><b style='font-size: 20px;'>Banco Itau SA</b></td>" +
-		// 	"</tr>" +
-		// 	"</table>" +
-		// 	"</body>" +
-		// 	"</html>";
-
 		// Nome do arquivo que será salvo no servidor
 		var nomeArquivo = "comprovante_pagamento" + hAPI.getCardValue("id_titulo") + ".pdf";
 
@@ -205,9 +160,12 @@ function geraPdf() {
 		var attachmentArray = serviceHelper.instantiate("com.totvs.technology.ecm.dm.ws.AttachmentArray");
 		attachmentArray.getItem().add(attachment);
 
+		var user = getConstante('fluig_usuario');
+		var pass = getConstante('fluig_senha');
+
 		var result = service.createSimpleDocument(
-			"suporte.fluig", // Login do usuário
-			"Fluig@2022*", // Senha do usuário
+			user, // Login do usuário
+			pass, // Senha do usuário
 			1,
 			FOLDER_FORM_PDF,
 			"admin",
@@ -360,9 +318,3 @@ function getG5(idLan) {
 	}
 	return false;
 }
-
-
-
-
-
-

@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>288</version>
+      <version>305</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>64381</formId>
@@ -437,7 +437,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>200</positionX>
+      <positionX>190</positionX>
       <positionY>130</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -729,7 +729,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>288</version>
+        <version>305</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -741,7 +741,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>288</version>
+        <version>305</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -995,7 +995,7 @@
         <version>1</version>
         <linkSequence>57</linkSequence>
       </processLinkPK>
-      <actionLabel>1 - Testar integração</actionLabel>
+      <actionLabel>1 - Anexar comprovante no processo de origem</actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>21</initialStateSequence>
       <finalStateSequence>56</finalStateSequence>
@@ -1234,11 +1234,13 @@ function getColleagueName(user) {&#xd;
 	try {
 
 		var attachmentList = hAPI.listAttachments();
+		log.info(&quot;Definida a variável attachmentList&quot;)
 
 		if (numSolOrigem &gt; 0) {
 			/** Vamos descobrir se vem do G3/G4 ou G5 */
 
 			var solOrigem = getSourceProcess(numSolOrigem)
+			log.info(&quot;Definida a variável solOrigem&quot;)
 
 			if (solOrigem &amp;&amp; solOrigem.getValue(0, &quot;processId&quot;) == &quot;G3&quot;) {
 				processId = &quot;G3&quot;;
@@ -1258,14 +1260,21 @@ function getColleagueName(user) {&#xd;
 			if (solAnexarDoc &gt; 0) {
 
 				var movSeq = getMovementSeq(solAnexarDoc);
+				log.dir(movSeq)
+
+				var selectedStateObj = funSwitchNextState(processId, movSeq.getValue(0, &apos;stateSequence&apos;))
+				log.dir(selectedStateObj)
+
 				var processDetail = getSourceProcess(solAnexarDoc);
+				log.dir(processDetail)
+
 				var docDetails = getDocDetails(processDetail.getValue(0, &apos;cardDocumentId&apos;));
+				log.dir(docDetails)
 
 				var cardData = hAPI.getCardData(solAnexarDoc);
 				var keys = cardData.keySet().toArray();
 				var fieldsAndValues = [];
 				var attachmentsListBody = [];
-
 
 				log.info(&quot;------ cardData ------ &quot;);
 				log.dir(cardData)
@@ -1274,6 +1283,7 @@ function getColleagueName(user) {&#xd;
 				log.dir(keys)
 
 				for (var key in keys) {
+					log.info(&quot;Vamos aos anexos &quot; + keys[key])
 					var fieldName = keys[key];
 
 					/** Removendo campos existentes de anexos */
@@ -1298,6 +1308,7 @@ function getColleagueName(user) {&#xd;
 				if (attachmentList.size() &gt; 0) {
 					for (var i = 0; i &lt; attachmentList.size(); i++) {
 						var attachment = attachmentList.get(i);
+						log.info(&quot;Processando o anexo &quot; + attachment)
 
 						if (processId == &quot;G4&quot;) {
 							valorOriginal = currencyPtBr2Float(cardData.get(&apos;valorLiquido&apos;));
@@ -1341,9 +1352,6 @@ function getColleagueName(user) {&#xd;
 					}
 				}
 
-				log.info(&quot;------ fieldsAndValues ------ &quot;);
-				log.dir(fieldsAndValues)
-
 				var fluigService = fluigAPI.getAuthorizeClientService();
 				var data = {
 					companyId: String(getValue(&quot;WKCompany&quot;)),
@@ -1364,7 +1372,7 @@ function getColleagueName(user) {&#xd;
 						&quot;processId&quot;: processId,
 						&quot;version&quot;: processDetail.getValue(0, &apos;version&apos;),
 						&quot;taskUserId&quot;: getValue(&quot;WKUser&quot;),
-						&quot;completeTask&quot;: false,
+						&quot;completeTask&quot;: selectedStateObj.completeTask,
 						&quot;currentMovto&quot;: movSeq.getValue(0, &apos;processHistoryPK.movementSequence&apos;),
 						&quot;managerMode&quot;: true,
 						&quot;selectedDestinyAfterAutomatic&quot;: -1,
@@ -1382,7 +1390,7 @@ function getColleagueName(user) {&#xd;
 						&quot;isDigitalSigned&quot;: false,
 						&quot;isLinkReturn&quot;: null,
 						&quot;versionDoc&quot;: docDetails.getValue(0, &apos;documentPK.version&apos;),
-						&quot;selectedState&quot;: movSeq.getValue(0, &apos;stateSequence&apos;),
+						&quot;selectedState&quot;: selectedStateObj.selectedState,
 						&quot;internalFields&quot;: [
 							&quot;tipoDemanda&quot;,
 							&quot;dataEntrega&quot;,
@@ -1396,11 +1404,11 @@ function getColleagueName(user) {&#xd;
 						&quot;subProcessSequence&quot;: null,
 						&quot;currentState&quot;: movSeq.getValue(0, &apos;stateSequence&apos;)
 					}
-
 				}
 
 				var obj = fluigService.invoke(JSONUtil.toJSON(data));
 
+				log.info(&quot;Integração para movimentar o fluxo sem erro aparente!&quot;)
 				log.dir(obj);
 				return String(obj.result)
 			}
@@ -1413,30 +1421,53 @@ function getColleagueName(user) {&#xd;
 	}
 }
 
+
+function funSwitchNextState(processId, currentState) {
+	log.info(&quot;funSwitchNextState(&quot; + processId + &quot;, &quot; + currentState + &quot;) &quot;)
+	currentState = String(currentState);
+	if (processId == &quot;G5&quot; &amp;&amp; currentState == &quot;127&quot;) {/** Não faz nada, pois já esta na etapa esperada */ }
+	else if (processId == &quot;G5&quot; &amp;&amp; currentState == &quot;97&quot;) return { selectedState: 127, completeTask: true }
+	else if (processId == &quot;G5&quot; &amp;&amp; currentState == &quot;128&quot;) return { selectedState: 127, completeTask: true }
+	else if (processId == &quot;G4&quot; &amp;&amp; currentState == &quot;14&quot;) return { selectedState: 12, completeTask: true }
+	else if (processId == &quot;G4&quot; &amp;&amp; currentState == &quot;12&quot;) return { selectedState: 16, completeTask: true }
+	return { selectedState: currentState, completeTask: false }
+}
+
 function currencyPtBr2Float(val) {
-	if (String(val).length &gt; 1) {
-		val = val.replaceAll(&quot;[^\\d,.-]&quot;, &quot;&quot;);
-		var localeBR = new java.util.Locale(&quot;pt&quot;, &quot;BR&quot;);
-		var formatador = new java.text.NumberFormat.getNumberInstance(localeBR);
-		var numero = formatador.parse(val);
-		var valorDecimal = new java.math.BigDecimal(numero.toString());
-		return valorDecimal;
+	log.info(&quot;currencyPtBr2Float(&quot; + val + &quot;)&quot;)
+	try {
+		if (String(val).length &gt; 1) {
+			val = val.replaceAll(&quot;[^\\d,.-]&quot;, &quot;&quot;);
+			var localeBR = new java.util.Locale(&quot;pt&quot;, &quot;BR&quot;);
+			var formatador = new java.text.NumberFormat.getNumberInstance(localeBR);
+			var numero = formatador.parse(val);
+			var valorDecimal = new java.math.BigDecimal(numero.toString());
+			return valorDecimal;
+		}
+		return 0.00;
+	} catch (error) {
+		throw error;
 	}
-	return 0.00;
 }
 
 function getSourceProcess(processInstanceId) {
-	var datasetWorkflowProcess = DatasetFactory.getDataset(&apos;workflowProcess&apos;,
-		new Array(&apos;processId&apos;, &apos;workflowProcessPK.processInstanceId&apos;, &apos;status&apos;, &apos;version&apos;, &apos;cardDocumentId&apos;),
-		new Array(
-			DatasetFactory.createConstraint(&apos;workflowProcessPK.processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST)
-		), null);
-	if (datasetWorkflowProcess.rowsCount &gt; 0) return datasetWorkflowProcess;
-	log.info(&quot;Não foi possível obter os dados na função getSourceProcess(&quot; + processInstanceId + &quot;)&quot;)
-	return false
+	log.info(&quot;getSourceProcess(&quot; + processInstanceId + &quot;)&quot;)
+	try {
+		var datasetWorkflowProcess = DatasetFactory.getDataset(&apos;workflowProcess&apos;,
+			new Array(&apos;processId&apos;, &apos;workflowProcessPK.processInstanceId&apos;, &apos;status&apos;, &apos;version&apos;, &apos;cardDocumentId&apos;),
+			new Array(
+				DatasetFactory.createConstraint(&apos;workflowProcessPK.processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST)
+			), null);
+		if (datasetWorkflowProcess.rowsCount &gt; 0) return datasetWorkflowProcess;
+		log.info(&quot;Não foi possível obter os dados na função getSourceProcess(&quot; + processInstanceId + &quot;)&quot;)
+		return false
+	} catch (error) {
+		throw &quot;Erro na função getSourceProcess &quot; + String(error);
+	}
 }
 
 function getG3(identificadorFluig) {
+	log.info(&quot;getG3(&quot; + identificadorFluig + &quot;)&quot;)
 	var datasetDSG3 = DatasetFactory.getDataset(&apos;DSG3&apos;,
 		new Array(&apos;IdentificadorFluig&apos;, &apos;StatusFluig&apos;, &apos;IdentificadorFluigAnexo&apos;),
 		new Array(
@@ -1448,6 +1479,7 @@ function getG3(identificadorFluig) {
 }
 
 function getG4(identificadorFluig) {
+	log.info(&quot;getG4(&quot; + identificadorFluig + &quot;)&quot;)
 	var datasetDSG4 = DatasetFactory.getDataset(&apos;DSG3&apos;,
 		new Array(&apos;IdentificadorFluig&apos;, &apos;StatusFluig&apos;),
 		new Array(
@@ -1459,44 +1491,54 @@ function getG4(identificadorFluig) {
 }
 
 function getG5(identificadorFluig) {
+	log.info(&quot;getG5(&quot; + identificadorFluig + &quot;)&quot;)
 	var datasetDSG5 = DatasetFactory.getDataset(&apos;DSG3&apos;,
 		new Array(&apos;numero_solicitacao&apos;),
 		new Array(
 			DatasetFactory.createConstraint(&apos;numero_solicitacao&apos;, identificadorFluig, identificadorFluig, ConstraintType.MUST)
 		), null);
 	if (datasetDSG5.rowsCount &gt; 0) return datasetDSG5;
-
 	log.info(&quot;Não foi possível obter os dados na função getG5(&quot; + identificadorFluig + &quot;)&quot;)
 	return false
 }
 
 function getDocDetails(documentId) {
-	var datasetDocument = DatasetFactory.getDataset(&apos;document&apos;,
-		new Array(&apos;documentPK.version&apos;, &apos;documentPK.documentId&apos;),
-		new Array(
-			DatasetFactory.createConstraint(&apos;documentPK.documentId&apos;, documentId, documentId, ConstraintType.MUST),
-			DatasetFactory.createConstraint(&apos;activeVersion&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST)
-		), null);
-	if (datasetDocument.rowsCount &gt; 0) return datasetDocument;
-	log.info(&quot;Não foi possível obter os dados na função getDocDetails(&quot; + documentId + &quot;) &quot;)
-	return false;
+	log.info(&quot;getDocDetails(&quot; + documentId + &quot;)&quot;)
+	try {
+		var datasetDocument = DatasetFactory.getDataset(&apos;document&apos;,
+			new Array(&apos;documentPK.version&apos;, &apos;documentPK.documentId&apos;),
+			new Array(
+				DatasetFactory.createConstraint(&apos;documentPK.documentId&apos;, documentId, documentId, ConstraintType.MUST),
+				DatasetFactory.createConstraint(&apos;activeVersion&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST)
+			), null);
+		if (datasetDocument.rowsCount &gt; 0) return datasetDocument;
+		else log.error(&quot;Não foi possível obter os dados na função getDocDetails(&quot; + documentId + &quot;). &quot;);
+	} catch (error) {
+		throw &quot;Erro na função getDocDetails &quot; + String(error);
+	}
 }
 
 function getMovementSeq(processInstanceId) {
-	var datasetProcessHistory = DatasetFactory.getDataset(&apos;processHistory&apos;, null,
-		new Array(
-			DatasetFactory.createConstraint(&apos;sqlLimit&apos;, &apos;1&apos;, &apos;1&apos;, ConstraintType.MUST),
-			DatasetFactory.createConstraint(&apos;processHistoryPK.processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST)
-		),
-		new Array(&apos;processHistoryPK.movementSequence;desc&apos;)
-	);
-	log.dir(datasetProcessHistory)
-	if (datasetProcessHistory.rowsCount &gt; 0) return datasetProcessHistory;
-	log.info(&quot;Não foi possível obter os dados na função getMovementSeq(&quot; + processInstanceId + &quot;)&quot;)
-	return false;
+	log.info(&quot;getMovementSeq(&quot; + processInstanceId + &quot;)&quot;)
+	try {
+		var datasetProcessHistory = DatasetFactory.getDataset(&apos;processHistory&apos;, null,
+			new Array(
+				DatasetFactory.createConstraint(&apos;sqlLimit&apos;, &apos;1&apos;, &apos;1&apos;, ConstraintType.MUST),
+				DatasetFactory.createConstraint(&apos;processHistoryPK.processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST)
+			),
+			new Array(&apos;processHistoryPK.movementSequence;desc&apos;)
+		);
+		log.dir(datasetProcessHistory)
+		if (datasetProcessHistory.rowsCount &gt; 0) return datasetProcessHistory;
+		log.info(&quot;Não foi possível obter os dados na função getMovementSeq(&quot; + processInstanceId + &quot;)&quot;)
+		return false;
+	} catch (error) {
+		throw &quot;Erro na função getMovementSeq &quot; + String(error);
+	}
 }
 
 function setFormProcess(params) {
+	log.info(&quot;setFormProcess(&quot; + params + &quot;)&quot;)
 	return {
 		&quot;processInstanceId&quot;: params.processInstanceId,
 		&quot;processId&quot;: params.processId,
@@ -2163,51 +2205,6 @@ function geraPdf() {
 			&quot;&lt;/body&gt;&quot; +
 			&quot;&lt;/html&gt;&quot;;
 
-		// var conteudoHTML =
-		// 	&quot;&lt;!DOCTYPE html&gt;&quot; +
-		// 	&quot;&lt;html lang=&apos;pt-br&apos;&gt;&quot; +
-		// 	&quot;&lt;head&gt;&quot; +
-		// 	&quot;&lt;meta charset=&apos;UTF-8&apos;/&gt;&quot; +
-		// 	&quot;&lt;title&gt;Comprovante de Pagamento&lt;/title&gt;&quot; +
-		// 	&quot;&lt;/head&gt;&quot; +
-		// 	&quot;&lt;body&gt;&quot; +
-		// 	&quot;&lt;table border=&apos;1&apos; cellpadding=&apos;10&apos; align=&apos;center&apos; width=&apos;600&apos;&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&quot; +
-		// 	&quot;&lt;table&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td&gt;&lt;img src=&apos;https://gennesisengenharia160517.fluig.cloudtotvs.com.br:1650/portal/api/servlet/image/1/custom/logo_image.png&apos; alt=&apos;Logo ENGPAC/Gênnessis Engenharia&apos; width=&apos;90&apos; /&gt;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;td&gt;&lt;b style=&apos; font-size: 20px&apos;&gt;Comprovante de Pagamento&lt;/b&gt;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;/table&gt;&quot; +
-		// 	&quot;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Data:&lt;/b&gt; &quot; + hAPI.getCardValue(&quot;data_pagamento&quot;).substring(0, 10) + &quot; &lt;b&gt;Hora:&lt;/b&gt; &quot; + horaFormatada + &quot;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Fornecedor:&lt;/b&gt; &quot; + hAPI.getCardValue(&quot;id_fornecedor&quot;) + &quot; &lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Vencimento:&lt;/b&gt; &quot; + hAPI.getCardValue(&quot;data_vencimento&quot;).substring(0, 10) + &quot;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Pago:&lt;/b&gt; &quot; + valor_titulo.toFixed(2).replace(&apos;.&apos;, &apos;,&apos;).replace(/\B(?=(\d{3})+(?!\d))/g, &apos;.&apos;) + &quot;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Valor:&lt;/b&gt; &quot; + valor_original.toFixed(2).replace(&apos;.&apos;, &apos;,&apos;).replace(/\B(?=(\d{3})+(?!\d))/g, &apos;.&apos;) + &quot;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td style=&apos;border-color: white;&apos;&gt;&lt;b&gt;Acréscimos/Descontos:&lt;/b&gt; &quot; + acre_desc.toFixed(2).replace(&apos;.&apos;, &apos;,&apos;).replace(/\B(?=(\d{3})+(?!\d))/g, &apos;.&apos;) + &quot;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	codigo_autenticacao +
-		// 	&quot;&lt;tr&gt;&quot; +
-		// 	&quot;&lt;td align=&apos;center&apos; style=&apos;border-color: white;&apos;&gt;&lt;b style=&apos;font-size: 20px;&apos;&gt;Banco Itau SA&lt;/b&gt;&lt;/td&gt;&quot; +
-		// 	&quot;&lt;/tr&gt;&quot; +
-		// 	&quot;&lt;/table&gt;&quot; +
-		// 	&quot;&lt;/body&gt;&quot; +
-		// 	&quot;&lt;/html&gt;&quot;;
-
 		// Nome do arquivo que será salvo no servidor
 		var nomeArquivo = &quot;comprovante_pagamento&quot; + hAPI.getCardValue(&quot;id_titulo&quot;) + &quot;.pdf&quot;;
 
@@ -2275,9 +2272,12 @@ function geraPdf() {
 		var attachmentArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.AttachmentArray&quot;);
 		attachmentArray.getItem().add(attachment);
 
+		var user = getConstante(&apos;fluig_usuario&apos;);
+		var pass = getConstante(&apos;fluig_senha&apos;);
+
 		var result = service.createSimpleDocument(
-			&quot;suporte.fluig&quot;, // Login do usuário
-			&quot;Fluig@2022*&quot;, // Senha do usuário
+			user, // Login do usuário
+			pass, // Senha do usuário
 			1,
 			FOLDER_FORM_PDF,
 			&quot;admin&quot;,
@@ -2429,14 +2429,7 @@ function getG5(idLan) {
 		if (datasetDs_G5 &amp;&amp; datasetDs_G5.rowsCount &gt; 0) return datasetDs_G5;
 	}
 	return false;
-}
-
-
-
-
-
-
-</eventDescription>
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -2726,7 +2719,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>288</version>
+        <version>305</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2737,7 +2730,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>288</version>
+        <version>305</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2748,7 +2741,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>288</version>
+        <version>305</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2759,7 +2752,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>288</version>
+        <version>305</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2770,7 +2763,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>288</version>
+        <version>305</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2783,7 +2776,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>288</version>
+        <version>305</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -2823,7 +2816,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processId>G7</processId>
       <version>1</version>
       <sequence>56</sequence>
-      <attempts>0</attempts>
+      <attempts>2</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
       <serviceName></serviceName>
       <frequency>1</frequency>

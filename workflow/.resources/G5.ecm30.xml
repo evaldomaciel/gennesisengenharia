@@ -1676,8 +1676,8 @@
         <version>1</version>
         <sequence>135</sequence>
       </processStatePK>
-      <stateName>Intermediário - Pagamento Unico</stateName>
-      <stateDescription>Intermediário - Pagamento Unico</stateDescription>
+      <stateName>Recebe - Pagamento Unico</stateName>
+      <stateDescription>Recebe - Pagamento Unico</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -1911,8 +1911,8 @@
         <version>1</version>
         <sequence>155</sequence>
       </processStatePK>
-      <stateName>Intermediário</stateName>
-      <stateDescription>Intermediário</stateDescription>
+      <stateName>Envia - Pagamento Unico</stateName>
+      <stateDescription>Envia - Pagamento Unico</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
