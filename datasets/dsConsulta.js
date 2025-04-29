@@ -44,7 +44,7 @@ function createDataset(fields, constraints, sortFields) {
     // minhaQuery.push("SELECT * FROM event_proces where DSL_EVENT LIKE '%server.log%'")
   
     
-    minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 305 WHERE STATUS = 0 AND NUM_VERS > 190 AND COD_DEF_PROCES = 'G7'")
+    minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 336 WHERE STATUS = 0 AND NUM_VERS > 190 AND COD_DEF_PROCES = 'G7'")
 
 var constraintDocument1 = DatasetFactory.createConstraint('sqlLimit', '100', '100', ConstraintType.MUST);
 var constraintDocument2 = DatasetFactory.createConstraint('documentPK.documentId', '65616', '65616', ConstraintType.MUST);

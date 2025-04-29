@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>305</version>
+      <version>336</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>64381</formId>
@@ -729,7 +729,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>305</version>
+        <version>336</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -741,7 +741,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>305</version>
+        <version>336</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -1056,6 +1056,23 @@
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>64</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>56</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
   </list>
   <list/>
   <list>
@@ -1220,6 +1237,18 @@ function getColleagueName(user) {&#xd;
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
+        <eventId>afterReleaseVersion</eventId>
+        <processId>G7</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterReleaseVersion(processXML){&#xd;
+	log.info(&quot;----- Nova Versão -----&quot;)&#xd;
+	log.dir(processXML);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
         <eventId>servicetask56</eventId>
         <processId>G7</processId>
         <version>1</version>
@@ -1245,7 +1274,10 @@ function getColleagueName(user) {&#xd;
 			if (solOrigem &amp;&amp; solOrigem.getValue(0, &quot;processId&quot;) == &quot;G3&quot;) {
 				processId = &quot;G3&quot;;
 				var solG3 = getG3(numSolOrigem);
-				if (solG3) solAnexarDoc = parseInt(solG3.getValue(0, &apos;IdentificadorFluigAnexo&apos;));
+				if (solG3 &amp;&amp; parseInt(solG3.getValue(0, &apos;IdentificadorFluigAnexo&apos;)) &gt; 0) {
+					solAnexarDoc = parseInt(solG3.getValue(0, &apos;IdentificadorFluigAnexo&apos;))
+					processId = &quot;G4&quot;;
+				};
 			}
 
 			else if (solOrigem &amp;&amp; solOrigem.getValue(0, &quot;processId&quot;) == &quot;G4&quot;) {
@@ -1260,30 +1292,16 @@ function getColleagueName(user) {&#xd;
 			if (solAnexarDoc &gt; 0) {
 
 				var movSeq = getMovementSeq(solAnexarDoc);
-				log.dir(movSeq)
-
 				var selectedStateObj = funSwitchNextState(processId, movSeq.getValue(0, &apos;stateSequence&apos;))
-				log.dir(selectedStateObj)
-
 				var processDetail = getSourceProcess(solAnexarDoc);
-				log.dir(processDetail)
-
 				var docDetails = getDocDetails(processDetail.getValue(0, &apos;cardDocumentId&apos;));
-				log.dir(docDetails)
-
+				var processTask = getProcessTask(solAnexarDoc)
 				var cardData = hAPI.getCardData(solAnexarDoc);
 				var keys = cardData.keySet().toArray();
 				var fieldsAndValues = [];
 				var attachmentsListBody = [];
 
-				log.info(&quot;------ cardData ------ &quot;);
-				log.dir(cardData)
-
-				log.info(&quot;------ keys ------ &quot;);
-				log.dir(keys)
-
 				for (var key in keys) {
-					log.info(&quot;Vamos aos anexos &quot; + keys[key])
 					var fieldName = keys[key];
 
 					/** Removendo campos existentes de anexos */
@@ -1296,9 +1314,12 @@ function getColleagueName(user) {&#xd;
 					else if (fieldName.indexOf(&apos;juros___&apos;) &gt;= 0) { /** Não faz nada */ }
 					else if (fieldName.indexOf(&apos;parecerFinanceiro___&apos;) &gt;= 0) { /** Não faz nada */ }
 
+					else if (fieldName.indexOf(&apos;aprovacaoComprovantes&apos;) &gt;= 0) { /** Não faz nada */ }
+					else if (fieldName.indexOf(&apos;tipoDemanda&apos;) &gt;= 0) { /** Não faz nada */ }
+					else if (fieldName.indexOf(&apos;dataEntrega&apos;) &gt;= 0) { /** Não faz nada */ }
+
 					/** Adiciona os outros campos */
 					else { fieldsAndValues.push({ &quot;name&quot;: fieldName, &quot;value&quot;: cardData.get(fieldName) }); }
-
 				}
 
 				if (processId == &quot;G4&quot;) valorOriginal = currencyPtBr2Float(cardData.get(&apos;valorLiquido&apos;));
@@ -1308,8 +1329,7 @@ function getColleagueName(user) {&#xd;
 				if (attachmentList.size() &gt; 0) {
 					for (var i = 0; i &lt; attachmentList.size(); i++) {
 						var attachment = attachmentList.get(i);
-						log.info(&quot;Processando o anexo &quot; + attachment)
-
+						log.info(&quot;Vamos aos anexo: &quot; + attachment.getDocumentDescription());
 						if (processId == &quot;G4&quot;) {
 							valorOriginal = currencyPtBr2Float(cardData.get(&apos;valorLiquido&apos;));
 							fieldsAndValues.push({ &quot;name&quot;: &apos;dataPagamento___&apos; + String(i + 1), &quot;value&quot;: hAPI.getCardValue(&apos;data_pagamento&apos;) });
@@ -1352,6 +1372,22 @@ function getColleagueName(user) {&#xd;
 					}
 				}
 
+				/** Preenchendo campos especifico */
+				if (processId == &quot;G4&quot; || processId == &quot;G3&quot;) {
+					fieldsAndValues.push({ &quot;name&quot;: &quot;aprovacaoComprovantes&quot;, &quot;value&quot;: &quot;Aprovado&quot; });
+					fieldsAndValues.push({ &quot;name&quot;: &quot;tipoDemanda&quot;, &quot;value&quot;: &quot;Não definido&quot; });
+					fieldsAndValues.push({ &quot;name&quot;: &quot;dataEntrega&quot;, &quot;value&quot;: &quot;Não definido&quot; });
+				}
+
+				/** Varáveis para mover a solicitação */
+				var currentMovto = movSeq.getValue(0, &apos;processHistoryPK.movementSequence&apos;);
+				var versionDoc = docDetails.getValue(0, &apos;NR_VERSAO&apos;);
+				var currentState = movSeq.getValue(0, &apos;stateSequence&apos;);
+				// var selectedColleague = processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;);
+				var selectedColleague = String(processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;)).indexOf(&quot;:&quot;) &gt;= 0 ? &quot;fluig2&quot; : processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;);
+				var processVersion = processDetail.getValue(0, &apos;version&apos;);
+
+
 				var fluigService = fluigAPI.getAuthorizeClientService();
 				var data = {
 					companyId: String(getValue(&quot;WKCompany&quot;)),
@@ -1370,16 +1406,14 @@ function getColleagueName(user) {&#xd;
 					params: {
 						&quot;processInstanceId&quot;: solAnexarDoc,
 						&quot;processId&quot;: processId,
-						&quot;version&quot;: processDetail.getValue(0, &apos;version&apos;),
-						&quot;taskUserId&quot;: getValue(&quot;WKUser&quot;),
+						&quot;version&quot;: processVersion,
+						&quot;taskUserId&quot;: selectedColleague,
 						&quot;completeTask&quot;: selectedStateObj.completeTask,
-						&quot;currentMovto&quot;: movSeq.getValue(0, &apos;processHistoryPK.movementSequence&apos;),
+						&quot;currentMovto&quot;: currentMovto,
 						&quot;managerMode&quot;: true,
 						&quot;selectedDestinyAfterAutomatic&quot;: -1,
 						&quot;conditionAfterAutomatic&quot;: -1,
-						&quot;selectedColleague&quot;: [
-							getValue(&quot;WKUser&quot;)
-						],
+						&quot;selectedColleague&quot;: [], /** Antes estava com o selectedColleague */
 						&quot;comments&quot;: &quot;Atualizado via script do processo G7, solicitação &quot; + getValue(&quot;WKNumProces&quot;),
 						&quot;newObservations&quot;: [],
 						&quot;appointments&quot;: [],
@@ -1389,7 +1423,7 @@ function getColleagueName(user) {&#xd;
 						&quot;formData&quot;: fieldsAndValues,
 						&quot;isDigitalSigned&quot;: false,
 						&quot;isLinkReturn&quot;: null,
-						&quot;versionDoc&quot;: docDetails.getValue(0, &apos;documentPK.version&apos;),
+						&quot;versionDoc&quot;: versionDoc,
 						&quot;selectedState&quot;: selectedStateObj.selectedState,
 						&quot;internalFields&quot;: [
 							&quot;tipoDemanda&quot;,
@@ -1402,22 +1436,60 @@ function getColleagueName(user) {&#xd;
 						],
 						&quot;subProcessId&quot;: null,
 						&quot;subProcessSequence&quot;: null,
-						&quot;currentState&quot;: movSeq.getValue(0, &apos;stateSequence&apos;)
+						&quot;currentState&quot;: currentState
 					}
 				}
 
-				var obj = fluigService.invoke(JSONUtil.toJSON(data));
+				log.info(&quot;------- JSON de integração ------- &quot;)
+				log.dir(data)
+
+				var vo = fluigService.invoke(JSONUtil.toJSON(data));
+
+				log.info(&quot;------- Sem tratar  getServiceCode ------- &quot;)
+				log.dir(vo.getServiceCode());
+				log.info(&quot;------- Sem tratar  getHttpStatusResult ------- &quot;)
+				log.dir(vo.getHttpStatusResult());
+				log.info(&quot;------- Sem tratar  getParams ------- &quot;)
+				log.dir(vo.getParams());
+
+
+				log.info(&quot;String(vo.getResult()).indexOf(&apos;\&quot;content\&quot;:\&quot;ERROR\&quot;,\&quot;message\&quot;&apos;) &gt; 0&quot;);
+				log.info(String(vo.getResult()).indexOf(&apos;&quot;content&quot;:&quot;ERROR&quot;,&quot;message&quot;&apos;) &gt; 0);
+
+				if (vo.getResult() == null || vo.getResult().isEmpty()) {
+					throw new Error(&quot;Retorno está vazio&quot;);
+
+				}
+				else if (vo.getResult() &amp;&amp; String(vo.getResult()).indexOf(&apos;&quot;content&quot;:&quot;ERROR&quot;,&quot;message&quot;&apos;) &gt; 0) {
+
+					// var posErrorString = String(vo.getResult()).indexOf(&apos;&quot;content&quot;:&quot;ERROR&quot;,&quot;message&quot;&apos;);
+					// var totalLenError = vo.getResult().size();
+					// var resultString = String(vo.getResult());
+
+					// var erroMessenger = []
+					// for (var index = posErrorString; index &lt; totalLenError; index++) {
+					// 	erroMessenger.push(resultString[index]);
+
+					// }
+
+					// throw new Error(erroMessenger.join());
+					throw new Error(vo.getResult());
+				}
+
+				else {
+					log.info(vo.getResult());
+				}
 
 				log.info(&quot;Integração para movimentar o fluxo sem erro aparente!&quot;)
-				log.dir(obj);
-				return String(obj.result)
+				log.dir(vo.getResult());
+				return String(vo.getResult())
 			}
 		} else {
 			log.info(&quot;Não há documento para atualizar! &quot;);
 		}
 	}
 	catch (error) {
-		throw String(error.lineNumber + &quot; - &quot; + error.message);
+		throw new Error(error.lineNumber + &quot; - &quot; + error.message);
 	}
 }
 
@@ -1446,7 +1518,7 @@ function currencyPtBr2Float(val) {
 		}
 		return 0.00;
 	} catch (error) {
-		throw error;
+		throw new Error(error);
 	}
 }
 
@@ -1460,62 +1532,72 @@ function getSourceProcess(processInstanceId) {
 			), null);
 		if (datasetWorkflowProcess.rowsCount &gt; 0) return datasetWorkflowProcess;
 		log.info(&quot;Não foi possível obter os dados na função getSourceProcess(&quot; + processInstanceId + &quot;)&quot;)
-		return false
 	} catch (error) {
-		throw &quot;Erro na função getSourceProcess &quot; + String(error);
+		throw new Error(&quot;Erro na função getSourceProcess &quot; + String(error));
 	}
+	return false
 }
 
 function getG3(identificadorFluig) {
 	log.info(&quot;getG3(&quot; + identificadorFluig + &quot;)&quot;)
-	var datasetDSG3 = DatasetFactory.getDataset(&apos;DSG3&apos;,
-		new Array(&apos;IdentificadorFluig&apos;, &apos;StatusFluig&apos;, &apos;IdentificadorFluigAnexo&apos;),
-		new Array(
-			DatasetFactory.createConstraint(&apos;IdentificadorFluig&apos;, identificadorFluig, identificadorFluig, ConstraintType.MUST)
-		), null);
-	if (datasetDSG3.rowsCount &gt; 0) return datasetDSG3;
-	log.info(&quot;Não foi possível obter os dados na função getG3(&quot; + identificadorFluig + &quot;)&quot;)
+	try {
+		var datasetDSG3 = DatasetFactory.getDataset(&apos;DSG3&apos;,
+			new Array(&apos;IdentificadorFluig&apos;, &apos;StatusFluig&apos;, &apos;IdentificadorFluigAnexo&apos;),
+			new Array(
+				DatasetFactory.createConstraint(&apos;IdentificadorFluig&apos;, identificadorFluig, identificadorFluig, ConstraintType.MUST)
+			), null);
+		if (datasetDSG3.rowsCount &gt; 0) return datasetDSG3;
+		log.info(&quot;Não foi possível obter os dados na função getG3(&quot; + identificadorFluig + &quot;)&quot;)
+	} catch (error) {
+		throw new Error(&quot;Erro na função getG3 &quot; + String(error));
+	}
 	return false
 }
 
 function getG4(identificadorFluig) {
 	log.info(&quot;getG4(&quot; + identificadorFluig + &quot;)&quot;)
-	var datasetDSG4 = DatasetFactory.getDataset(&apos;DSG3&apos;,
-		new Array(&apos;IdentificadorFluig&apos;, &apos;StatusFluig&apos;),
-		new Array(
-			DatasetFactory.createConstraint(&apos;IdentificadorFluig&apos;, identificadorFluig, identificadorFluig, ConstraintType.MUST)
-		), null);
-	if (datasetDSG4.rowsCount &gt; 0) return datasetDSG4;
-	log.info(&quot;Não foi possível obter os dados na função getG4(&quot; + identificadorFluig + &quot;)&quot;)
+	try {
+		var datasetDSG4 = DatasetFactory.getDataset(&apos;DSG4&apos;,
+			new Array(&apos;IdentificadorFluig&apos;, &apos;StatusFluig&apos;),
+			new Array(
+				DatasetFactory.createConstraint(&apos;IdentificadorFluig&apos;, identificadorFluig, identificadorFluig, ConstraintType.MUST)
+			), null);
+		if (datasetDSG4.rowsCount &gt; 0) return datasetDSG4;
+		log.info(&quot;Não foi possível obter os dados na função getG4(&quot; + identificadorFluig + &quot;)&quot;)
+	} catch (error) {
+		throw new Error(&quot;Erro na função getG4 &quot; + String(error));
+	}
 	return false
 }
 
 function getG5(identificadorFluig) {
 	log.info(&quot;getG5(&quot; + identificadorFluig + &quot;)&quot;)
-	var datasetDSG5 = DatasetFactory.getDataset(&apos;DSG3&apos;,
-		new Array(&apos;numero_solicitacao&apos;),
-		new Array(
-			DatasetFactory.createConstraint(&apos;numero_solicitacao&apos;, identificadorFluig, identificadorFluig, ConstraintType.MUST)
-		), null);
-	if (datasetDSG5.rowsCount &gt; 0) return datasetDSG5;
-	log.info(&quot;Não foi possível obter os dados na função getG5(&quot; + identificadorFluig + &quot;)&quot;)
+	try {
+		var datasetDSG5 = DatasetFactory.getDataset(&apos;ds_G5&apos;,
+			new Array(&apos;numero_solicitacao&apos;),
+			new Array(
+				DatasetFactory.createConstraint(&apos;numero_solicitacao&apos;, identificadorFluig, identificadorFluig, ConstraintType.MUST)
+			), null);
+		if (datasetDSG5.rowsCount &gt; 0) return datasetDSG5;
+		log.info(&quot;Não foi possível obter os dados na função getG5(&quot; + identificadorFluig + &quot;)&quot;)
+	} catch (error) {
+		throw new Error(&quot;Erro na função getG5 &quot; + String(error));
+	}
 	return false
 }
 
 function getDocDetails(documentId) {
 	log.info(&quot;getDocDetails(&quot; + documentId + &quot;)&quot;)
 	try {
-		var datasetDocument = DatasetFactory.getDataset(&apos;document&apos;,
-			new Array(&apos;documentPK.version&apos;, &apos;documentPK.documentId&apos;),
-			new Array(
-				DatasetFactory.createConstraint(&apos;documentPK.documentId&apos;, documentId, documentId, ConstraintType.MUST),
-				DatasetFactory.createConstraint(&apos;activeVersion&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST)
-			), null);
-		if (datasetDocument.rowsCount &gt; 0) return datasetDocument;
+		var datasetDsConsultaDocumentoBD = DatasetFactory.getDataset(&apos;dsConsultaDocumentoBD&apos;, null, new Array(
+			DatasetFactory.createConstraint(&apos;NR_DOCUMENTO&apos;, documentId, documentId, ConstraintType.MUST)
+		), null);
+		if (datasetDsConsultaDocumentoBD.rowsCount &gt; 0) return datasetDsConsultaDocumentoBD;
 		else log.error(&quot;Não foi possível obter os dados na função getDocDetails(&quot; + documentId + &quot;). &quot;);
 	} catch (error) {
-		throw &quot;Erro na função getDocDetails &quot; + String(error);
+		throw new Error(&quot;Erro na função getDocDetails &quot; + String(error));
 	}
+	return false;
 }
 
 function getMovementSeq(processInstanceId) {
@@ -1528,510 +1610,27 @@ function getMovementSeq(processInstanceId) {
 			),
 			new Array(&apos;processHistoryPK.movementSequence;desc&apos;)
 		);
-		log.dir(datasetProcessHistory)
 		if (datasetProcessHistory.rowsCount &gt; 0) return datasetProcessHistory;
 		log.info(&quot;Não foi possível obter os dados na função getMovementSeq(&quot; + processInstanceId + &quot;)&quot;)
-		return false;
 	} catch (error) {
 		throw &quot;Erro na função getMovementSeq &quot; + String(error);
 	}
+	return false;
 }
 
-function setFormProcess(params) {
-	log.info(&quot;setFormProcess(&quot; + params + &quot;)&quot;)
-	return {
-		&quot;processInstanceId&quot;: params.processInstanceId,
-		&quot;processId&quot;: params.processId,
-		&quot;version&quot;: params.version,
-		&quot;taskUserId&quot;: params.taskUserId,
-		&quot;completeTask&quot;: false,
-		&quot;currentMovto&quot;: params.currentMovto,
-		&quot;managerMode&quot;: true,
-		&quot;selectedDestinyAfterAutomatic&quot;: -1,
-		&quot;conditionAfterAutomatic&quot;: -1,
-		&quot;selectedColleague&quot;: [
-			params.taskUserId
-		],
-		&quot;comments&quot;: &quot;&quot;,
-		&quot;newObservations&quot;: [],
-		&quot;appointments&quot;: [],
-		&quot;attachments&quot;: [],
-		&quot;pass&quot;: null,
-		&quot;digitalSignature&quot;: false,
-		&quot;formData&quot;: [
-			{
-				&quot;name&quot;: &quot;tipoDemanda&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;dataEntrega&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;responsavelPeloRecebimento&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;material&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;material&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;tipoRecebimento&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;notacoesMaterialParcial&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;pagamentosParciaisObs&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;encerraLoopNotifi&quot;,
-				&quot;value&quot;: &quot;false&quot;
-			},
-			{
-				&quot;name&quot;: &quot;processHistory&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valueRadioParcial&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;TipoAprovacao&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;NSeqItmMov&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;IdentificadorFluig&quot;,
-				&quot;value&quot;: &quot;48278&quot;
-			},
-			{
-				&quot;name&quot;: &quot;StatusFluig&quot;,
-				&quot;value&quot;: &quot;Aberta&quot;
-			},
-			{
-				&quot;name&quot;: &quot;CC&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;CentroDeCustoMecanismo&quot;,
-				&quot;value&quot;: &quot;02.01.01.01.004&quot;
-			},
-			{
-				&quot;name&quot;: &quot;CC_mobile&quot;,
-				&quot;value&quot;: &quot;SEECT PB ITEM 2&quot;
-			},
-			{
-				&quot;name&quot;: &quot;produtosMobile&quot;,
-				&quot;value&quot;: &quot;TIJOLO CERAMICO 09X14X29 |&quot;
-			},
-			{
-				&quot;name&quot;: &quot;tipoEntrega&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;dataVencimentoArr&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valueTipoDemandaCompras&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;produtoCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;unidadeCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;quantidadeCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;precoUnitarioCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;descontoCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;totalCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;centroCustoCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorCampoOculto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;nomeComprador&quot;,
-				&quot;value&quot;: &quot;Evaldo 1&quot;
-			},
-			{
-				&quot;name&quot;: &quot;urgencia&quot;,
-				&quot;value&quot;: &quot;Não informado&quot;
-			},
-			{
-				&quot;name&quot;: &quot;pedidoExtra&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;CodColigada&quot;,
-				&quot;value&quot;: &quot;2&quot;
-			},
-			{
-				&quot;name&quot;: &quot;tipoMovimento&quot;,
-				&quot;value&quot;: &quot;1.1.26&quot;
-			},
-			{
-				&quot;name&quot;: &quot;IdMov&quot;,
-				&quot;value&quot;: &quot;69958&quot;
-			},
-			{
-				&quot;name&quot;: &quot;numeroMov&quot;,
-				&quot;value&quot;: &quot;010569&quot;
-			},
-			{
-				&quot;name&quot;: &quot;dataEmissao&quot;,
-				&quot;value&quot;: &quot;2025-04-10&quot;
-			},
-			{
-				&quot;name&quot;: &quot;filial&quot;,
-				&quot;value&quot;: &quot;1 - ENGENHARIA DE AVALIACOES, PERICIAS E CONST. LTDA&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fornecedor&quot;,
-				&quot;value&quot;: &quot;ENGPAC&quot;
-			},
-			{
-				&quot;name&quot;: &quot;desconto&quot;,
-				&quot;value&quot;: &quot;R$ 0,00&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valueFrete&quot;,
-				&quot;value&quot;: &quot;R$ 0,00&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorLiquido&quot;,
-				&quot;value&quot;: &quot;R$ 100,00&quot;
-			},
-			{
-				&quot;name&quot;: &quot;dadosBancarios&quot;,
-				&quot;value&quot;: &quot;Banco:  | Ag/C:  | PIX: (TIPO):&quot;
-			},
-			{
-				&quot;name&quot;: &quot;codPagamento&quot;,
-				&quot;value&quot;: &quot;A VISTA SEM PRAZO&quot;
-			},
-			{
-				&quot;name&quot;: &quot;localEstoque&quot;,
-				&quot;value&quot;: &quot;01.003 - ALMOXARIFADO CENTRAL MOSSORO&quot;
-			},
-			{
-				&quot;name&quot;: &quot;centroCusto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valor&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;centroCusto___1&quot;,
-				&quot;value&quot;: &quot;02.01.01.01.004 - SEECT PB ITEM 2&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valor___1&quot;,
-				&quot;value&quot;: &quot;R$ 100,00&quot;
-			},
-			{
-				&quot;name&quot;: &quot;sequencia&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;produto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;unidade&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;quantidade&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;precoUnidade&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;descontoItem&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;totalProduto&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;sequencia___1&quot;,
-				&quot;value&quot;: &quot;1&quot;
-			},
-			{
-				&quot;name&quot;: &quot;produto___1&quot;,
-				&quot;value&quot;: &quot;TIJOLO CERAMICO 09X14X29&quot;
-			},
-			{
-				&quot;name&quot;: &quot;unidade___1&quot;,
-				&quot;value&quot;: &quot;UN&quot;
-			},
-			{
-				&quot;name&quot;: &quot;quantidade___1&quot;,
-				&quot;value&quot;: &quot;10&quot;
-			},
-			{
-				&quot;name&quot;: &quot;precoUnidade___1&quot;,
-				&quot;value&quot;: &quot;R$ 10,00&quot;
-			},
-			{
-				&quot;name&quot;: &quot;descontoItem___1&quot;,
-				&quot;value&quot;: &quot;R$ 0,00&quot;
-			},
-			{
-				&quot;name&quot;: &quot;totalProduto___1&quot;,
-				&quot;value&quot;: &quot;R$ 100,00&quot;
-			},
-			{
-				&quot;name&quot;: &quot;historico&quot;,
-				&quot;value&quot;: &quot;ok&quot;
-			},
-			{
-				&quot;name&quot;: &quot;observacao&quot;,
-				&quot;value&quot;: &quot;-&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fdMapaTipoDemanda&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fnMapaTipoDemanda&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;parecerCredito&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;_dataEntrega&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;dataVencimento&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fdParecerTecnico&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fnParecerTecnico&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;dataPagamento&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fdMapaComparativo&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fnMapaComparativo&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;juros&quot;,
-				&quot;value&quot;: &quot;-&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorOriginal&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorPago&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorJuros&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;parecerFinanceiro&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-
-			{
-				&quot;name&quot;: &quot;dataPagamento___1&quot;,
-				&quot;value&quot;: &quot;nao&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fdMapaComparativo___1&quot;,
-				&quot;value&quot;: &quot;comprovante_pagamento61373.pdf&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fnMapaComparativo___1&quot;,
-				&quot;value&quot;: &quot;comprovante_pagamento61373.pdf&quot;
-			},
-			{
-				&quot;name&quot;: &quot;juros___1&quot;,
-				&quot;value&quot;: &quot;nao&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorOriginal___1&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorPago___1&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;valorJuros___1&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;parecerFinanceiro___1&quot;,
-				&quot;value&quot;: &quot;nao veremos novamente algo&quot;
-			},
-
-			{
-				&quot;name&quot;: &quot;statusAprovacao&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;aprovacaoComprovantes&quot;,
-				&quot;value&quot;: &quot;-&quot;
-			},
-			{
-				&quot;name&quot;: &quot;_responsavelPeloRecebimento&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;tipoRecebimentoValue&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;_notacoesMaterialParcial&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;dataRecebimento&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fdPropostaDeFornecedores&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fnPropostaDeFornecedores&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fdRelatorioFotografico&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;fnRelatorioFotografico&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;_pagamentosParciaisObs&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;obs_Estorno&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;obs_Credito&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;cTask039&quot;,
-				&quot;value&quot;: &quot;Pool:Group:ENGPAC_1&quot;
-			},
-			{
-				&quot;name&quot;: &quot;cTask039Group&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;cTask039UsersGroup&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;nTask039&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;txt_posicaoNotificacao&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;usuarioNotificacao&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;_material&quot;,
-				&quot;value&quot;: &quot;&quot;
-			},
-			{
-				&quot;name&quot;: &quot;zTask039&quot;,
-				&quot;value&quot;: &quot;&quot;
-			}
-		],
-		&quot;isDigitalSigned&quot;: false,
-		&quot;isLinkReturn&quot;: null,
-		&quot;versionDoc&quot;: params.versionDoc,
-		&quot;selectedState&quot;: params.selectedState,
-		&quot;internalFields&quot;: [
-			&quot;tipoDemanda&quot;,
-			&quot;dataEntrega&quot;,
-			&quot;responsavelPeloRecebimento&quot;,
-			&quot;material&quot;,
-			&quot;material&quot;,
-			&quot;tipoRecebimento&quot;,
-			&quot;notacoesMaterialParcial&quot;
-		],
-		&quot;subProcessId&quot;: null,
-		&quot;subProcessSequence&quot;: null,
-		&quot;currentState&quot;: params.currentState,
+function getProcessTask(processInstanceId) {
+	log.info(&quot;getProcessTask(&quot; + processInstanceId + &quot;)&quot;);
+	try {
+		var datasetProcessTask = DatasetFactory.getDataset(&apos;processTask&apos;, null, new Array(
+			DatasetFactory.createConstraint(&apos;processTaskPK.processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST),
+			DatasetFactory.createConstraint(&apos;active&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST)
+		), null);
+		if (datasetProcessTask.rowsCount &gt; 0) return datasetProcessTask;
+		log.info(&quot;Não foi possível obter os dados na função getProcessTask(&quot; + processInstanceId + &quot;)&quot;)
+	} catch (error) {
+		throw new Error(&quot;Erro na função getProcessTask &quot; + String(error));
 	}
-}
-
-function setFormData(params) {
-	var newArray = []
-
-	for (var index = 0; index &lt; params.length; index++) {
-		newArray.push({
-			&quot;name&quot;: params[index].name,
-			&quot;value&quot;: params[index].value
-		})
-	}
-
-	return newArray;
+	return false;
 }
 
 /***
@@ -2719,7 +2318,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>305</version>
+        <version>336</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2730,7 +2329,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>305</version>
+        <version>336</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2741,7 +2340,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>305</version>
+        <version>336</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2752,7 +2351,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>305</version>
+        <version>336</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2763,7 +2362,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>305</version>
+        <version>336</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2776,7 +2375,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>305</version>
+        <version>336</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
