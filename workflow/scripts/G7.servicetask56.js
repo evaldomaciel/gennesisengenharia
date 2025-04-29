@@ -206,18 +206,6 @@ function servicetask56(attempt, message) {
 
 				}
 				else if (vo.getResult() && String(vo.getResult()).indexOf('"content":"ERROR","message"') > 0) {
-
-					// var posErrorString = String(vo.getResult()).indexOf('"content":"ERROR","message"');
-					// var totalLenError = vo.getResult().size();
-					// var resultString = String(vo.getResult());
-
-					// var erroMessenger = []
-					// for (var index = posErrorString; index < totalLenError; index++) {
-					// 	erroMessenger.push(resultString[index]);
-
-					// }
-
-					// throw new Error(erroMessenger.join());
 					throw new Error(vo.getResult());
 				}
 
