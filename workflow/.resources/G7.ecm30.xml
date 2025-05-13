@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>336</version>
+      <version>337</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>64381</formId>
@@ -729,7 +729,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>336</version>
+        <version>337</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -741,7 +741,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>336</version>
+        <version>337</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -1461,18 +1461,6 @@ function getColleagueName(user) {&#xd;
 
 				}
 				else if (vo.getResult() &amp;&amp; String(vo.getResult()).indexOf(&apos;&quot;content&quot;:&quot;ERROR&quot;,&quot;message&quot;&apos;) &gt; 0) {
-
-					// var posErrorString = String(vo.getResult()).indexOf(&apos;&quot;content&quot;:&quot;ERROR&quot;,&quot;message&quot;&apos;);
-					// var totalLenError = vo.getResult().size();
-					// var resultString = String(vo.getResult());
-
-					// var erroMessenger = []
-					// for (var index = posErrorString; index &lt; totalLenError; index++) {
-					// 	erroMessenger.push(resultString[index]);
-
-					// }
-
-					// throw new Error(erroMessenger.join());
 					throw new Error(vo.getResult());
 				}
 
@@ -2318,7 +2306,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>336</version>
+        <version>337</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2329,7 +2317,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>336</version>
+        <version>337</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2340,7 +2328,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>336</version>
+        <version>337</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2351,7 +2339,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>336</version>
+        <version>337</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2362,7 +2350,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>336</version>
+        <version>337</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2375,7 +2363,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>336</version>
+        <version>337</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
