@@ -53,12 +53,11 @@ function afterStateEntry(sequenceId) {
             // Coletar o link de download do PDF
             try {
                 var clientService = fluigAPI.getAuthorizeClientService();
-                var url = documentId;
                 var data = {
-                    companyId: getValue('WKCompany') + '',
-                    serviceCode: 'downloadDocument',
-                    endpoint: encodeURI(url),
-                    method: 'get',
+                    companyId: String(getValue("WKCompany")),
+                    serviceCode: 'api-fluig',
+                    endpoint: "/api/public/2.0/documents/getDownloadURL/"+documentId,
+                    method: 'GET',
                     options: {
                         encoding: 'UTF-8',
                         mediaType: 'application/json'

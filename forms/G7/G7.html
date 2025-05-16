@@ -22,6 +22,15 @@
 
 <body class="fluig-style-guide">
   <form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
+
+    <input type="hidden" name="nome_pagador" id="nome_pagador" />
+    <input type="hidden" name="cgc_pagador" id="cgc_pagador" />
+    <input type="hidden" name="banco" id="banco" />
+    <input type="hidden" name="banco_agencia" id="banco_agencia" />
+    <input type="hidden" name="banco_conta" id="banco_conta" />
+    <input type="hidden" name="cgc_fornecedor" id="cgc_fornecedor" />
+    <input type="hidden" name="chave_pix" id="chave_pix" />
+
     <input type="hidden" name="status" id="status" />
     <input type="hidden" name="processInstanceId" id="processInstanceId" />
     <!-- ETAPA 000 | 004 - INICIO -->
@@ -309,6 +318,17 @@
                     <label for="cod_coligada">Cod. Coligada</label>
                     <input type="text" class="form-control" data_id="cod_coligada" name="cod_coligada"
                       id="cod_coligada" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6" id="div_tipo_solicitacao_G5">
+              <div class="form-field" data-type="textbox" data-show-properties data-field-name="tipo_solicitacao_G5">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label for="tipo_solicitacao_G5">Tipo solicitação G5</label>
+                    <input type="text" class="form-control" data_id="tipo_solicitacao_G5" name="tipo_solicitacao_G5"
+                      id="tipo_solicitacao_G5" value="individual" />
                   </div>
                 </div>
               </div>

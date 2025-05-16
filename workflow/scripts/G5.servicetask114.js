@@ -11,6 +11,7 @@ function servicetask114(attempt, message) {
     var pageService = fluigAPI.getPageService();
     var urlDoServidor = String(pageService.getServerURL());
     var pastaPai = urlDoServidor.indexOf('gennesisengenharia160516') >= 0 ? 88200 : 61248;
+    var NumeroDaSolicitacao = hAPI.getCardValue("numero_solicitacao");
 
     var cCusto = hAPI.getCardValue("centro_de_custo");
     var TabelaRateioCC = hAPI.getChildrenIndexes("table_rateio_ccusto");

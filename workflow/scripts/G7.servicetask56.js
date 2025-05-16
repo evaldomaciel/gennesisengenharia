@@ -205,7 +205,7 @@ function servicetask56(attempt, message) {
 					throw new Error("Retorno está vazio");
 
 				}
-				else if (vo.getResult() && String(vo.getResult()).indexOf('"content":"ERROR","message"') > 0) {
+				else if (vo.getResult() && (String(vo.getResult()).indexOf('"content":"ERROR","message"') > 0 || String(vo.getResult()).indexOf('ClientOAuth1Exception') > 0)) {
 					throw new Error(vo.getResult());
 				}
 
@@ -230,9 +230,8 @@ function servicetask56(attempt, message) {
 function funSwitchNextState(processId, currentState) {
 	log.info("funSwitchNextState(" + processId + ", " + currentState + ") ")
 	currentState = String(currentState);
-	if (processId == "G5" && currentState == "127") {/** Não faz nada, pois já esta na etapa esperada */ }
-	else if (processId == "G5" && currentState == "97") return { selectedState: 127, completeTask: true }
-	else if (processId == "G5" && currentState == "128") return { selectedState: 127, completeTask: true }
+	if (processId == "G5" && currentState == "344") {/** Não faz nada, pois já esta na etapa esperada - Dispara E-mail */ }
+	else if (processId == "G5" && currentState == "127") return { selectedState: 344, completeTask: true }
 	else if (processId == "G4" && currentState == "14") return { selectedState: 12, completeTask: true }
 	else if (processId == "G4" && currentState == "12") return { selectedState: 16, completeTask: true }
 	return { selectedState: currentState, completeTask: false }

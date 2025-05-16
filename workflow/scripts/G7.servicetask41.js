@@ -5,22 +5,26 @@ function servicetask41(attempt, message) {
 		}
 
 		var cancSolDuplicada = cancelaSolAberta();
-		var gerPDF = geraPdf();
 
 		var G3 = getG3(hAPI.getCardValue('id_movimento'))
 		if (G3 && G3.rowsCount > 0) {
 			hAPI.setCardValue('solicitacao_origem', G3.getValue(0, 'IdentificadorFluig'));
 			hAPI.setCardValue('processo_origem', 'G3');
+			geraPdf();
 			return true;
 		}
 
-		var G5 = getG5(hAPI.getCardValue('id_titulo'))
+		var G5 = getG5(hAPI.getCardValue('id_titulo'), hAPI.getCardValue('solicitacao_origem'))
 		if (G5 && G5.rowsCount > 0) {
 			hAPI.setCardValue('solicitacao_origem', G5.getValue(0, 'numero_solicitacao'));
 			hAPI.setCardValue('processo_origem', 'G5');
+			hAPI.setCardValue('tipo_solicitacao_G5', G5.getValue(0, 'solicitacao_mult_analise'));
+
+			if (G5.getValue(0, 'solicitacao_mult_analise') == 'individual') {
+				geraPdf();
+			}
 			return true;
 		}
-
 	}
 	catch (error) {
 		throw error;
@@ -61,37 +65,49 @@ function geraPdf() {
 				"</tr>";
 		}
 
-		var conteudoHTML =
-			"<!DOCTYPE html>" +
-			"<html lang='pt-br'>" +
-			"<head>" +
-			"    <meta charset='UTF-8'/>" +
-			"    <title>Comprovante</title>" +
-			"    <style>" +
-			"        h2 { text-align: center; font-weight: bold; }" +
-			"        .linha { margin-bottom: 10px; margin-left: 50px; font-size: 18px; }" +
-			"        .titulo { font-weight: bold; margin-top: 20px; margin-bottom: 20px; font-size: 18px; }" +
-			"    </style>" +
-			"</head>" +
-			"<body>" +
-			"    <div align='center' width='690'>" +
-			"        <h2>COMPROVANTE</h2>" +
-			"        <p class='titulo'>Dados do pagador</p>" +
-			"        <p class='linha'>Nome do pagador: <b> " + hAPI.getCardValue("id_fornecedor") + " </b></p>" +
-			"        <p class='linha'>CPF/CNPJ do pagador: <b>123.456.789-10</b></p>" +
-			"        <p class='linha'>Agência/Conta: <b>12356-7</b></p>" +
-			"        <p class='titulo'>Dados do recebedor</p>" +
-			"        <p class='linha'>Nome do recebedor: <b>Teste</b></p>" +
-			"        <p class='linha'>Chave: <b>123.456.789-10</b></p>" +
-			"        <p class='linha'>CPF/CNPJ do recebedor: <b>123.456.789-10</b></p>" +
-			"        <p class='linha'>Instituição: <b>Itau</b></p>" +
-			"        <p class='titulo'>Dados da transação</p>" +
-			"        <p class='linha'>Valor: <b>" + valor_titulo.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</b></p>" +
-			"        <p class='linha'>Data da transferência: <b>" + hAPI.getCardValue("data_pagamento").substring(0, 10) + "</b></p>" +
-			"        <p class='linha'>Tipo de pagamento: <b>" + hAPI.getCardValue("forma_de_pagamento") + "</b></p>" +
-			"    </div>" +
-			"</body>" +
-			"</html>";
+		var conteudoHTML = ""
+		conteudoHTML += "<!DOCTYPE html>"
+		conteudoHTML += "<html lang='pt-br'>"
+		conteudoHTML += "<head>"
+		conteudoHTML += "    <meta charset='UTF-8'/>"
+		conteudoHTML += "    <title>Comprovante de Transferência</title>"
+		conteudoHTML += "    <style>"
+		conteudoHTML += "        h2 { text-align: center; font-weight: bold; }"
+		conteudoHTML += "        .linha { margin-bottom: 7px; margin-left: 55px; font-size: 11.5px; }"
+		conteudoHTML += "        .titulo { font-weight: bold; margin-top: 14px; margin-bottom: 14px; font-size: 11.5px; }"
+		conteudoHTML += "    </style>"
+		conteudoHTML += "</head>"
+		conteudoHTML += "<body>"
+		conteudoHTML += "    <div align='center' width='450'>"
+		conteudoHTML += "        <h2 style='font-size: 15px'><hr></hr>Comprovante de Transferência</h2>"
+		conteudoHTML += "        <p class='titulo'>Dados do pagador</p>"
+		conteudoHTML += "        <p class='linha'>Nome do pagador: <b> " + hAPI.getCardValue("nome_pagador") + " </b></p>"
+		conteudoHTML += "        <p class='linha'>CPF/CNPJ do pagador: <b> " + hAPI.getCardValue("cgc_pagador") + "</b></p>"
+		conteudoHTML += "        <p class='linha'>Agência/Conta: <b> " + hAPI.getCardValue("banco_agencia") + " / " + hAPI.getCardValue("banco_conta") + "</b></p>"
+		conteudoHTML += "        <p class='titulo'>Dados do recebedor</p>"
+		conteudoHTML += "        <p class='linha'>Nome do recebedor: <b> " + hAPI.getCardValue("id_fornecedor") + "</b></p>"
+		conteudoHTML += "        <p class='linha'>Chave: <b> " + hAPI.getCardValue("chave_pix") + "</b></p>"
+		conteudoHTML += "        <p class='linha'>CPF/CNPJ do recebedor: <b> " + hAPI.getCardValue("cgc_fornecedor") + "</b></p>"
+		conteudoHTML += "        <p class='linha'>Instituição: <b>" + hAPI.getCardValue("banco") + "</b></p>"
+		conteudoHTML += "        <p class='titulo'>Dados da transação</p>"
+		conteudoHTML += "        <p class='linha'>Valor: <b>" + valor_titulo.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</b></p>"
+		conteudoHTML += "        <p class='linha'>Data da transferência: <b>" + hAPI.getCardValue("data_pagamento").substring(0, 10) + "</b></p>"
+		conteudoHTML += "        <p class='linha'>Tipo de pagamento: <b>" + hAPI.getCardValue("forma_de_pagamento") + "</b></p>"
+		conteudoHTML += "        <p class='titulo'>Autenticação no comprovante:</p>"
+		conteudoHTML += "        <p class='titulo'>"+ hAPI.getCardValue('codigo_autenticacao') +"</p>"
+		conteudoHTML += "        <p class='titulo'>Transação efetuada em " + hAPI.getCardValue("data_pagamento").substring(0, 10) + " via Sispag</p>"
+		conteudoHTML += "    	 <div>"
+		conteudoHTML += "			<p style='font-size: 11px; margin-top: 50px'>"
+		conteudoHTML += "	 	 		<hr></hr>"
+		conteudoHTML += "				Este documento é de uso exclusivo para fins de controle interno e não possui validade fiscal ou "
+		conteudoHTML += "				contábil. É gerado de forma automática pelo sistema após confirmação de pagamento. Em caso "
+		conteudoHTML += "				de dúvidas quanto à confirmação do pagamento consulte seu setor financeiro ou verifique seu "
+		conteudoHTML += "				extrato bancário."
+		conteudoHTML += "			</p>"
+		conteudoHTML += "    	 </div>"
+		conteudoHTML += "    </div>"
+		conteudoHTML += "</body>"
+		conteudoHTML += "</html>";
 
 		// Nome do arquivo que será salvo no servidor
 		var nomeArquivo = "comprovante_pagamento" + hAPI.getCardValue("id_titulo") + ".pdf";
@@ -101,9 +117,10 @@ function geraPdf() {
 		var PdfWriter = Packages.com.itextpdf.text.pdf.PdfWriter;
 		var StringReader = Packages.java.io.StringReader;
 		var XMLWorkerHelper = Packages.com.itextpdf.tool.xml.XMLWorkerHelper;
+		var PageSize = Packages.com.itextpdf.text.PageSize.A5;
 
 		// Criar documento PDF
-		var document = new Document();
+		var document = new Document(PageSize);
 		var fileOutputStream = new java.io.FileOutputStream(nomeArquivo);
 		var pdfWriter = PdfWriter.getInstance(document, fileOutputStream);
 
@@ -304,10 +321,10 @@ function getG3(IdMov) {
 }
 
 
-function getG5(idLan) {
+function getG5(idLan, numero_solicitacao) {
 	if (parseInt(idLan) > 0) {
 		var datasetDs_G5 = DatasetFactory.getDataset('ds_G5',
-			new Array('idLan', 'numero_solicitacao', 'email_solicitante', 'copia_email_solicitante'),
+			new Array('idLan', 'numero_solicitacao', 'solicitacao_mult_analise'),
 			new Array(
 				DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
 				DatasetFactory.createConstraint('idLan', idLan, idLan, ConstraintType.MUST)
@@ -315,6 +332,17 @@ function getG5(idLan) {
 			new Array('numero_solicitacao;desc')
 		);
 		if (datasetDs_G5 && datasetDs_G5.rowsCount > 0) return datasetDs_G5;
+		else {
+			var datasetDs_G5 = DatasetFactory.getDataset('ds_G5',
+				new Array('idLan', 'numero_solicitacao', 'solicitacao_mult_analise'),
+				new Array(
+					DatasetFactory.createConstraint('sqlLimit', '1', '1', ConstraintType.MUST),
+					DatasetFactory.createConstraint('numero_solicitacao', numero_solicitacao, numero_solicitacao, ConstraintType.MUST)
+				),
+				new Array('numero_solicitacao;desc')
+			);
+			if (datasetDs_G5 && datasetDs_G5.rowsCount > 0) return datasetDs_G5;
+		}
 	}
 	return false;
 }

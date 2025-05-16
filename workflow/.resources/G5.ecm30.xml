@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G5 - Pagamentos Avulsos</processId>
-      <version>74</version>
+      <version>80</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>59631</formId>
@@ -435,8 +435,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2680</positionX>
-      <positionY>1399</positionY>
+      <positionX>2860</positionX>
+      <positionY>1400</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1308,8 +1308,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2520</positionX>
-      <positionY>1399</positionY>
+      <positionX>2700</positionX>
+      <positionY>1400</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1360,8 +1360,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2520</positionX>
-      <positionY>1520</positionY>
+      <positionX>2700</positionX>
+      <positionY>1521</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1412,8 +1412,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2680</positionX>
-      <positionY>1520</positionY>
+      <positionX>2860</positionX>
+      <positionY>1521</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1676,8 +1676,8 @@
         <version>1</version>
         <sequence>135</sequence>
       </processStatePK>
-      <stateName>Recebe - Pagamento Unico</stateName>
-      <stateDescription>Recebe - Pagamento Unico</stateDescription>
+      <stateName>Intermediário - Pagamento Unico</stateName>
+      <stateDescription>Intermediário - Pagamento Unico</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -1911,8 +1911,8 @@
         <version>1</version>
         <sequence>155</sequence>
       </processStatePK>
-      <stateName>Envia - Pagamento Unico</stateName>
-      <stateDescription>Envia - Pagamento Unico</stateDescription>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -2052,8 +2052,8 @@
         <version>1</version>
         <sequence>168</sequence>
       </processStatePK>
-      <stateName>Intermediário</stateName>
-      <stateDescription>Intermediário</stateDescription>
+      <stateName>Intermediário - Pago</stateName>
+      <stateDescription>Intermediário - Pago</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -2544,8 +2544,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2530</positionX>
-      <positionY>1459</positionY>
+      <positionX>2710</positionX>
+      <positionY>1460</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2591,8 +2591,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2690</positionX>
-      <positionY>1459</positionY>
+      <positionX>2870</positionX>
+      <positionY>1460</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2713,8 +2713,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>2850</positionX>
-      <positionY>1417</positionY>
+      <positionX>3030</positionX>
+      <positionY>1418</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2926,7 +2926,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>74</version>
+        <version>80</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2938,7 +2938,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>74</version>
+        <version>80</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2950,7 +2950,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>3</expressionOrder>
-        <version>74</version>
+        <version>80</version>
         <sequence>124</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2962,7 +2962,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>74</version>
+        <version>80</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2974,7 +2974,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>74</version>
+        <version>80</version>
         <sequence>191</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2986,7 +2986,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>1</expressionOrder>
-        <version>74</version>
+        <version>80</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -2998,7 +2998,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <expressionOrder>2</expressionOrder>
-        <version>74</version>
+        <version>80</version>
         <sequence>276</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -4015,23 +4015,6 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>345</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>174</initialStateSequence>
-      <finalStateSequence>344</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
         <linkSequence>346</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -4202,7 +4185,24 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>362</linkSequence>
+        <linkSequence>365</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>174</initialStateSequence>
+      <finalStateSequence>344</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>366</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4218,7 +4218,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>363</linkSequence>
+        <linkSequence>367</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4234,7 +4234,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>364</linkSequence>
+        <linkSequence>368</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4250,7 +4250,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>365</linkSequence>
+        <linkSequence>369</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4266,7 +4266,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>366</linkSequence>
+        <linkSequence>370</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4282,7 +4282,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>367</linkSequence>
+        <linkSequence>371</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4298,7 +4298,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>368</linkSequence>
+        <linkSequence>372</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4314,71 +4314,71 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>369</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>168</initialStateSequence>
-      <finalStateSequence>174</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
-        <linkSequence>370</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>158</initialStateSequence>
-      <finalStateSequence>144</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
-        <linkSequence>371</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>158</initialStateSequence>
-      <finalStateSequence>144</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
-        <linkSequence>372</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>168</initialStateSequence>
-      <finalStateSequence>174</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G5</processId>
-        <version>1</version>
         <linkSequence>373</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>168</initialStateSequence>
+      <finalStateSequence>174</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>374</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>158</initialStateSequence>
+      <finalStateSequence>144</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>375</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>158</initialStateSequence>
+      <finalStateSequence>144</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>376</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>168</initialStateSequence>
+      <finalStateSequence>174</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G5</processId>
+        <version>1</version>
+        <linkSequence>377</linkSequence>
       </processLinkPK>
       <actionLabel>Revisar solicitação</actionLabel>
       <returnPermited>false</returnPermited>
@@ -4394,7 +4394,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>374</linkSequence>
+        <linkSequence>378</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4410,7 +4410,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>375</linkSequence>
+        <linkSequence>379</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -4426,7 +4426,7 @@
         <companyId>1</companyId>
         <processId>G5</processId>
         <version>1</version>
-        <linkSequence>376</linkSequence>
+        <linkSequence>380</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6055,6 +6055,7 @@ function getAttchment(description) {
     var pageService = fluigAPI.getPageService();
     var urlDoServidor = String(pageService.getServerURL());
     var pastaPai = urlDoServidor.indexOf(&apos;gennesisengenharia160516&apos;) &gt;= 0 ? 88200 : 61248;
+    var NumeroDaSolicitacao = hAPI.getCardValue(&quot;numero_solicitacao&quot;);
 
     var cCusto = hAPI.getCardValue(&quot;centro_de_custo&quot;);
     var TabelaRateioCC = hAPI.getChildrenIndexes(&quot;table_rateio_ccusto&quot;);
@@ -6162,7 +6163,7 @@ function getAttchment(description) {
     <SwimLane>
       <color>FFFFFF</color>
       <height>1750</height>
-      <width>2911</width>
+      <width>3131</width>
       <positionX>10</positionX>
       <positionY>10</positionY>
       <stateName>PROCESSO DE LANÇAMENTO DOS PROVISIONAMENTOS NO FINANCEIRO</stateName>
@@ -6178,7 +6179,7 @@ function getAttchment(description) {
     <SwimLane>
       <color>9F9F9F</color>
       <height>437</height>
-      <width>2881</width>
+      <width>3101</width>
       <positionX>40</positionX>
       <positionY>10</positionY>
       <stateName>SOLICITANTE</stateName>
@@ -6194,7 +6195,7 @@ function getAttchment(description) {
     <SwimLane>
       <color>C0C0C0</color>
       <height>437</height>
-      <width>2881</width>
+      <width>3101</width>
       <positionX>40</positionX>
       <positionY>447</positionY>
       <stateName>GEST��O</stateName>
@@ -6210,7 +6211,7 @@ function getAttchment(description) {
     <SwimLane>
       <color>82b0b7</color>
       <height>437</height>
-      <width>2881</width>
+      <width>3101</width>
       <positionX>40</positionX>
       <positionY>884</positionY>
       <stateName>Cancelado - Diretor</stateName>
@@ -6226,7 +6227,7 @@ function getAttchment(description) {
     <SwimLane>
       <color>adc9ac</color>
       <height>439</height>
-      <width>2881</width>
+      <width>3101</width>
       <positionX>40</positionX>
       <positionY>1321</positionY>
       <stateName>FINANCEIRO</stateName>
@@ -6380,7 +6381,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>74</version>
+        <version>80</version>
         <linkSequence>301</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6391,7 +6392,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>74</version>
+        <version>80</version>
         <linkSequence>301</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6402,7 +6403,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>74</version>
+        <version>80</version>
         <linkSequence>315</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6413,7 +6414,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>74</version>
+        <version>80</version>
         <linkSequence>315</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -6424,7 +6425,7 @@ function getAttchment(description) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>74</version>
+        <version>80</version>
         <linkSequence>316</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -6437,7 +6438,7 @@ function getAttchment(description) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G5</processId>
-        <version>74</version>
+        <version>80</version>
         <stateSequence>91</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -6651,6 +6652,7 @@ function getAttchment(description) {
       <sequence>344</sequence>
       <attempts>0</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
       <frequency>1</frequency>
       <frequencyType>0</frequencyType>
     </ProcessStateService>
@@ -6661,7 +6663,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6671,7 +6673,7 @@ function getAttchment(description) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6685,7 +6687,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6695,7 +6697,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6705,7 +6707,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>7</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -6715,7 +6717,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -6725,7 +6727,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -6739,7 +6741,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -6749,7 +6751,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -6759,7 +6761,7 @@ Valor total a ser pago: @[form:Valor]
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G5</processId>
-      <processVersion>74</processVersion>
+      <processVersion>80</processVersion>
       <stateSequence>12</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
