@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>377</version>
+      <version>383</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>64381</formId>
@@ -666,7 +666,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>920</positionX>
-      <positionY>20</positionY>
+      <positionY>27</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -776,7 +776,7 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>560</positionX>
+      <positionX>562</positionX>
       <positionY>230</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -801,7 +801,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>377</version>
+        <version>383</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -813,7 +813,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>377</version>
+        <version>383</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -825,24 +825,24 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>377</version>
+        <version>383</version>
         <sequence>65</sequence>
       </conditionProcessStatePK>
-      <condition>false</condition>
+      <condition>hAPI.getCardValue(&apos;tipo_solicitacao_G5&apos;) == &apos;individual&apos;</condition>
       <destinationSequenceId>17</destinationSequenceId>
-      <conditionType>1</conditionType>
+      <conditionType>0</conditionType>
     </ConditionProcessState>
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>377</version>
+        <version>383</version>
         <sequence>65</sequence>
       </conditionProcessStatePK>
-      <condition>false</condition>
+      <condition>1==1</condition>
       <destinationSequenceId>66</destinationSequenceId>
-      <conditionType>1</conditionType>
+      <conditionType>0</conditionType>
     </ConditionProcessState>
   </list>
   <list>
@@ -2080,40 +2080,10 @@ function atualizaLan() {
 		hAPI.setCardValue(&quot;valor_titulo&quot;, getNodeValue(text, &quot;VALOR&quot;));
 		hAPI.setCardValue(&quot;codigo_autenticacao&quot;, getNodeValue(text, &quot;CODCFO&quot;));
 		hAPI.setCardValue(&quot;valor_original&quot;, getNodeValue(text, &quot;VALORORIGINAL&quot;));
-
-		// Precisa mesmo salvar???
-
-		// text = removeNode(text, &quot;FLAN&quot;);
-		// text = removeNode(text, &quot;FLANRATCCU&quot;);
-		// text = removeNode(text, &quot;FLANCOMPL&quot;);
-		// text = removeNode(text, &quot;_x0024_IMAGES&quot;);
-
-		// var FLAN = &quot;&lt;FLAN&gt;&quot;;
-		// FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
-		// FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
-		// FLAN += &quot;&lt;/FLAN&gt;&quot;;
-		// FLAN += &quot;&lt;FLANCOMPL&gt;&quot;;
-		// FLAN += &quot;	&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot;;
-		// FLAN += &quot;	&lt;IDLAN&gt;&quot; + idLan + &quot;&lt;/IDLAN&gt;&quot;;
-		// FLAN += &quot;	&lt;IDFLUIG&gt;&quot; + getValue(&apos;WKNumProces&apos;) + &quot;&lt;/IDFLUIG&gt;&quot;;
-		// FLAN += &quot;&lt;/FLANCOMPL&gt;&quot;;
-
-		// text = addItem(text, &quot;&lt;/FinLAN&gt;&quot;, FLAN);
-
-		// text = new XML(text);
-		// log.info(&quot;XML atualizado: &quot; + text);
-
-		// // // Está gerando 2 processos G7
-		// var result = new String(authService.saveRecord(&quot;FinLanDataBR&quot;, text, context));
-		// log.info(&quot;Result: &quot; + result);
-		// checkIsPK(result, 2);
-
-		// log.info(&quot;Lançamento atualizado no RM&quot;);
 	} else {
 		throw &quot;Não foi possível obter os dados do movimento: &quot; + idLan + &quot;!&quot;;
 	}
 }
-
 
 function getG3(IdMov) {
 	if (parseInt(IdMov) &gt; 0) {
@@ -2129,7 +2099,6 @@ function getG3(IdMov) {
 	}
 	return false;
 }
-
 
 function getG5(idLan, numero_solicitacao) {
 	if (parseInt(idLan) &gt; 0) {
@@ -2445,7 +2414,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>377</version>
+        <version>383</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2456,7 +2425,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>377</version>
+        <version>383</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2467,7 +2436,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>377</version>
+        <version>383</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2478,7 +2447,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>377</version>
+        <version>383</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2489,7 +2458,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>377</version>
+        <version>383</version>
         <linkSequence>64</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2502,7 +2471,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>377</version>
+        <version>383</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -2570,24 +2539,6 @@ function getNodeValue(text, columnName) {&#xd;
       <value></value>
       <operator>0</operator>
       <valueType>0</valueType>
-    </ConditionProcessAutomaticRules>
-    <ConditionProcessAutomaticRules>
-      <sequence>65</sequence>
-      <expressionOrder>1</expressionOrder>
-      <ruleOrder>1</ruleOrder>
-      <field>tipo_solicitacao_G5</field>
-      <value>individual</value>
-      <operator>1</operator>
-      <valueType>1</valueType>
-    </ConditionProcessAutomaticRules>
-    <ConditionProcessAutomaticRules>
-      <sequence>65</sequence>
-      <expressionOrder>2</expressionOrder>
-      <ruleOrder>1</ruleOrder>
-      <field>tipo_solicitacao_G5</field>
-      <value>individual</value>
-      <operator>2</operator>
-      <valueType>1</valueType>
     </ConditionProcessAutomaticRules>
   </list>
 </list>

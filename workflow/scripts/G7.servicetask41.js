@@ -86,15 +86,28 @@ function geraPdf() {
 		conteudoHTML += "        <p class='linha'>Agência/Conta: <b> " + hAPI.getCardValue("banco_agencia") + " / " + hAPI.getCardValue("banco_conta") + "</b></p>"
 		conteudoHTML += "        <p class='titulo'>Dados do recebedor</p>"
 		conteudoHTML += "        <p class='linha'>Nome do recebedor: <b> " + hAPI.getCardValue("id_fornecedor") + "</b></p>"
-		conteudoHTML += "        <p class='linha'>Chave: <b> " + hAPI.getCardValue("chave_pix") + "</b></p>"
+
+		if (isNotNull(hAPI, "chave_pix")) conteudoHTML += "        <p class='linha'>Chave: <b> " + hAPI.getCardValue("chave_pix") + "</b></p>"
+
 		conteudoHTML += "        <p class='linha'>CPF/CNPJ do recebedor: <b> " + hAPI.getCardValue("cgc_fornecedor") + "</b></p>"
-		conteudoHTML += "        <p class='linha'>Instituição: <b>" + hAPI.getCardValue("banco") + "</b></p>"
+
+		if (isNotNull(hAPI, "recebedor_banco")) conteudoHTML += "        <p class='linha'>Instituição: <b>" + hAPI.getCardValue("recebedor_banco") + "</b></p>"
+		if (isNotNull(hAPI, "recebedor_agencia") && isNotNull(hAPI, "recebedor_conta")) {
+			conteudoHTML += "        <p class='linha'>Agência/conta: <b>"
+			conteudoHTML += hAPI.getCardValue("recebedor_agencia") + "-" + hAPI.getCardValue("recebedor_agencia_dig") + " / "
+			conteudoHTML += hAPI.getCardValue("recebedor_conta") + "-" + hAPI.getCardValue("recebedor_conta") + "</b></p>"
+		}
+
 		conteudoHTML += "        <p class='titulo'>Dados da transação</p>"
 		conteudoHTML += "        <p class='linha'>Valor: <b>" + valor_titulo.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + "</b></p>"
 		conteudoHTML += "        <p class='linha'>Data da transferência: <b>" + hAPI.getCardValue("data_pagamento").substring(0, 10) + "</b></p>"
 		conteudoHTML += "        <p class='linha'>Tipo de pagamento: <b>" + hAPI.getCardValue("forma_de_pagamento") + "</b></p>"
-		conteudoHTML += "        <p class='titulo'>Autenticação no comprovante:</p>"
-		conteudoHTML += "        <p class='titulo'>"+ hAPI.getCardValue('codigo_autenticacao') +"</p>"
+
+		if (isNotNull(hAPI, "codigo_autenticacao")) {
+			conteudoHTML += "        <p class='titulo'>Autenticação no comprovante:</p>"
+			conteudoHTML += "        <p class='titulo'>" + hAPI.getCardValue('codigo_autenticacao') + "</p>"
+		}
+
 		conteudoHTML += "        <p class='titulo'>Transação efetuada em " + hAPI.getCardValue("data_pagamento").substring(0, 10) + " via Sispag</p>"
 		conteudoHTML += "    	 <div>"
 		conteudoHTML += "			<p style='font-size: 11px; margin-top: 50px'>"
@@ -270,40 +283,10 @@ function atualizaLan() {
 		hAPI.setCardValue("valor_titulo", getNodeValue(text, "VALOR"));
 		hAPI.setCardValue("codigo_autenticacao", getNodeValue(text, "CODCFO"));
 		hAPI.setCardValue("valor_original", getNodeValue(text, "VALORORIGINAL"));
-
-		// Precisa mesmo salvar???
-
-		// text = removeNode(text, "FLAN");
-		// text = removeNode(text, "FLANRATCCU");
-		// text = removeNode(text, "FLANCOMPL");
-		// text = removeNode(text, "_x0024_IMAGES");
-
-		// var FLAN = "<FLAN>";
-		// FLAN += "	<CODCOLIGADA>" + codColigada + "</CODCOLIGADA>";
-		// FLAN += "	<IDLAN>" + idLan + "</IDLAN>";
-		// FLAN += "</FLAN>";
-		// FLAN += "<FLANCOMPL>";
-		// FLAN += "	<CODCOLIGADA>" + codColigada + "</CODCOLIGADA>";
-		// FLAN += "	<IDLAN>" + idLan + "</IDLAN>";
-		// FLAN += "	<IDFLUIG>" + getValue('WKNumProces') + "</IDFLUIG>";
-		// FLAN += "</FLANCOMPL>";
-
-		// text = addItem(text, "</FinLAN>", FLAN);
-
-		// text = new XML(text);
-		// log.info("XML atualizado: " + text);
-
-		// // // Está gerando 2 processos G7
-		// var result = new String(authService.saveRecord("FinLanDataBR", text, context));
-		// log.info("Result: " + result);
-		// checkIsPK(result, 2);
-
-		// log.info("Lançamento atualizado no RM");
 	} else {
 		throw "Não foi possível obter os dados do movimento: " + idLan + "!";
 	}
 }
-
 
 function getG3(IdMov) {
 	if (parseInt(IdMov) > 0) {
@@ -319,7 +302,6 @@ function getG3(IdMov) {
 	}
 	return false;
 }
-
 
 function getG5(idLan, numero_solicitacao) {
 	if (parseInt(idLan) > 0) {
@@ -345,4 +327,9 @@ function getG5(idLan, numero_solicitacao) {
 		}
 	}
 	return false;
+}
+
+function isNotNull(hAPI, field) {
+	if (hAPI.getCardValue(field) != "" && hAPI.getCardValue(field) != null && hAPI.getCardValue(field) != undefined) return true;
+	else return false
 }

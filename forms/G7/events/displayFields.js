@@ -43,16 +43,16 @@ function displayFields(form, customHTML) {
       // Atribuições teste
       // form.setValue("processo_origem", "G5");
       // form.setValue("solicitacao_origem", "48460");
-      form.setValue("id_titulo", "106590");
-      form.setValue("id_movimento", "");
-      form.setValue("id_fornecedor", "ACO POTIGUAR");
-      form.setValue("data_vencimento", "08/05/2025 00:00:00");
-      form.setValue("data_pagamento", "10/05/2025 00:00:00");
-      form.setValue("valor_titulo", "1000,00");
-      form.setValue("forma_de_pagamento", "DINHEIRO");
-      form.setValue("codigo_autenticacao", "");
-      form.setValue("cod_coligada", "2");
-      form.setValue("valor_original", "1000,00");
+      // form.setValue("id_titulo", "106596");
+      // form.setValue("id_movimento", "");
+      // form.setValue("id_fornecedor", "ACO POTIGUAR");
+      // form.setValue("data_vencimento", "14/05/2025 00:00:00");
+      // form.setValue("data_pagamento", "14/05/2025 00:00:00");
+      // form.setValue("valor_titulo", "1000,00");
+      // form.setValue("forma_de_pagamento", "DINHEIRO");
+      // form.setValue("codigo_autenticacao", "");
+      // form.setValue("cod_coligada", "2");
+      // form.setValue("valor_original", "1000,00");
     }
 
     if (activity == 15) {
