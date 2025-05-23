@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>383</version>
+      <version>388</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>64381</formId>
@@ -212,7 +212,7 @@
       <stateName>Anexar Comprovante</stateName>
       <stateDescription>Anexar Comprovante</stateDescription>
       <instruction></instruction>
-      <deadlineTime>14400</deadlineTime>
+      <deadlineTime>3600</deadlineTime>
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
@@ -801,7 +801,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>383</version>
+        <version>388</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -813,7 +813,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>383</version>
+        <version>388</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -825,11 +825,11 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>383</version>
+        <version>388</version>
         <sequence>65</sequence>
       </conditionProcessStatePK>
-      <condition>hAPI.getCardValue(&apos;tipo_solicitacao_G5&apos;) == &apos;individual&apos;</condition>
-      <destinationSequenceId>17</destinationSequenceId>
+      <condition>hAPI.getCardValue(&apos;tipo_solicitacao_G5&apos;) == &apos;multipla&apos;</condition>
+      <destinationSequenceId>66</destinationSequenceId>
       <conditionType>0</conditionType>
     </ConditionProcessState>
     <ConditionProcessState>
@@ -837,11 +837,11 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>383</version>
+        <version>388</version>
         <sequence>65</sequence>
       </conditionProcessStatePK>
       <condition>1==1</condition>
-      <destinationSequenceId>66</destinationSequenceId>
+      <destinationSequenceId>17</destinationSequenceId>
       <conditionType>0</conditionType>
     </ConditionProcessState>
   </list>
@@ -1183,6 +1183,23 @@
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G7</processId>
+        <version>1</version>
+        <linkSequence>73</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>29</initialStateSequence>
+      <finalStateSequence>12</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
@@ -1896,15 +1913,28 @@ function geraPdf() {
 		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Agência/Conta: &lt;b&gt; &quot; + hAPI.getCardValue(&quot;banco_agencia&quot;) + &quot; / &quot; + hAPI.getCardValue(&quot;banco_conta&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
 		conteudoHTML += &quot;        &lt;p class=&apos;titulo&apos;&gt;Dados do recebedor&lt;/p&gt;&quot;
 		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Nome do recebedor: &lt;b&gt; &quot; + hAPI.getCardValue(&quot;id_fornecedor&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
-		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Chave: &lt;b&gt; &quot; + hAPI.getCardValue(&quot;chave_pix&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
+
+		if (isNotNull(hAPI, &quot;chave_pix&quot;)) conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Chave: &lt;b&gt; &quot; + hAPI.getCardValue(&quot;chave_pix&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
+
 		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;CPF/CNPJ do recebedor: &lt;b&gt; &quot; + hAPI.getCardValue(&quot;cgc_fornecedor&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
-		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Instituição: &lt;b&gt;&quot; + hAPI.getCardValue(&quot;banco&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
+
+		if (isNotNull(hAPI, &quot;recebedor_banco&quot;)) conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Instituição: &lt;b&gt;&quot; + hAPI.getCardValue(&quot;recebedor_banco&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
+		if (isNotNull(hAPI, &quot;recebedor_agencia&quot;) &amp;&amp; isNotNull(hAPI, &quot;recebedor_conta&quot;)) {
+			conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Agência/conta: &lt;b&gt;&quot;
+			conteudoHTML += hAPI.getCardValue(&quot;recebedor_agencia&quot;) + &quot;-&quot; + hAPI.getCardValue(&quot;recebedor_agencia_dig&quot;) + &quot; / &quot;
+			conteudoHTML += hAPI.getCardValue(&quot;recebedor_conta&quot;) + &quot;-&quot; + hAPI.getCardValue(&quot;recebedor_conta_dig&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
+		}
+
 		conteudoHTML += &quot;        &lt;p class=&apos;titulo&apos;&gt;Dados da transação&lt;/p&gt;&quot;
 		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Valor: &lt;b&gt;&quot; + valor_titulo.toFixed(2).replace(&apos;.&apos;, &apos;,&apos;).replace(/\B(?=(\d{3})+(?!\d))/g, &apos;.&apos;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
 		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Data da transferência: &lt;b&gt;&quot; + hAPI.getCardValue(&quot;data_pagamento&quot;).substring(0, 10) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
 		conteudoHTML += &quot;        &lt;p class=&apos;linha&apos;&gt;Tipo de pagamento: &lt;b&gt;&quot; + hAPI.getCardValue(&quot;forma_de_pagamento&quot;) + &quot;&lt;/b&gt;&lt;/p&gt;&quot;
-		conteudoHTML += &quot;        &lt;p class=&apos;titulo&apos;&gt;Autenticação no comprovante:&lt;/p&gt;&quot;
-		conteudoHTML += &quot;        &lt;p class=&apos;titulo&apos;&gt;&quot;+ hAPI.getCardValue(&apos;codigo_autenticacao&apos;) +&quot;&lt;/p&gt;&quot;
+
+		if (isNotNull(hAPI, &quot;codigo_autenticacao&quot;)) {
+			conteudoHTML += &quot;        &lt;p class=&apos;titulo&apos;&gt;Autenticação no comprovante:&lt;/p&gt;&quot;
+			conteudoHTML += &quot;        &lt;p class=&apos;titulo&apos;&gt;&quot; + hAPI.getCardValue(&apos;codigo_autenticacao&apos;) + &quot;&lt;/p&gt;&quot;
+		}
+
 		conteudoHTML += &quot;        &lt;p class=&apos;titulo&apos;&gt;Transação efetuada em &quot; + hAPI.getCardValue(&quot;data_pagamento&quot;).substring(0, 10) + &quot; via Sispag&lt;/p&gt;&quot;
 		conteudoHTML += &quot;    	 &lt;div&gt;&quot;
 		conteudoHTML += &quot;			&lt;p style=&apos;font-size: 11px; margin-top: 50px&apos;&gt;&quot;
@@ -2124,6 +2154,11 @@ function getG5(idLan, numero_solicitacao) {
 		}
 	}
 	return false;
+}
+
+function isNotNull(hAPI, field) {
+	if (hAPI.getCardValue(field) != &quot;&quot; &amp;&amp; hAPI.getCardValue(field) != null &amp;&amp; hAPI.getCardValue(field) != undefined) return true;
+	else return false
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -2414,7 +2449,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>383</version>
+        <version>388</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2425,7 +2460,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>383</version>
+        <version>388</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2436,7 +2471,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>383</version>
+        <version>388</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2447,7 +2482,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>383</version>
+        <version>388</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2458,7 +2493,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>383</version>
+        <version>388</version>
         <linkSequence>64</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2471,7 +2506,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>383</version>
+        <version>388</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -2511,10 +2546,10 @@ function getNodeValue(text, columnName) {&#xd;
       <processId>G7</processId>
       <version>1</version>
       <sequence>56</sequence>
-      <attempts>2</attempts>
+      <attempts>3</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
       <serviceName></serviceName>
-      <frequency>1</frequency>
+      <frequency>15</frequency>
       <frequencyType>0</frequencyType>
     </ProcessStateService>
   </list>

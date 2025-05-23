@@ -95,7 +95,7 @@ function geraPdf() {
 		if (isNotNull(hAPI, "recebedor_agencia") && isNotNull(hAPI, "recebedor_conta")) {
 			conteudoHTML += "        <p class='linha'>Agência/conta: <b>"
 			conteudoHTML += hAPI.getCardValue("recebedor_agencia") + "-" + hAPI.getCardValue("recebedor_agencia_dig") + " / "
-			conteudoHTML += hAPI.getCardValue("recebedor_conta") + "-" + hAPI.getCardValue("recebedor_conta") + "</b></p>"
+			conteudoHTML += hAPI.getCardValue("recebedor_conta") + "-" + hAPI.getCardValue("recebedor_conta_dig") + "</b></p>"
 		}
 
 		conteudoHTML += "        <p class='titulo'>Dados da transação</p>"
