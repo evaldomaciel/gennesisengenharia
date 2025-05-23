@@ -31,7 +31,7 @@ function displayFields(form, customHTML) {
     var cor_div_pagamento_parcial = form.getFormMode() == "VIEW" ? corDeFundoConsulta : corDeFundoInativa;
     var cor_div_confirma_integracao = form.getFormMode() == "VIEW" ? corDeFundoConsulta : corDeFundoInativa;
 
-    form.setValue("numero_solicitacao", getValue("WKNumProces"));
+    if (getValue("WKNumProces")) form.setValue("numero_solicitacao", getValue("WKNumProces"));
 
     if (activity == 0 || activity == 4) {
       cor_div_formulario_inicial = corDeFundoAtiva;
@@ -206,20 +206,20 @@ function displayFields(form, customHTML) {
       HMG      var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '61292', '61292', ConstraintType.MUST)), null);
       PRD       var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '61244', '61244', ConstraintType.MUST)), null);
        */
-/*      var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '62962', '62962', ConstraintType.MUST)), null);
-      var colunas = datasetDs_G5.getColumnsName();
-      customHTML.append("\n<script> var colunasSize = '" + colunas.length + "'; </script>");
-      customHTML.append("\n<script> var colunas = '" + JSONUtil.toJSON(colunas) + "'; </script>");
-      customHTML.append("\n<script> function preencheTodosOsCampos() { ");
-      for (var index = 0; index < colunas.length; index++) {
-        var campo = colunas[index];
-        var valor = datasetDs_G5.getValue(0, campo);
-        form.setValue(campo, valor);
-        customHTML.append("\n var ds_" + campo + " = '" + valor + "'");
-      }
-      customHTML.append("\n }");
-      form.setValue('idLan', '-1');
-      */
+      /*      var datasetDs_G5 = DatasetFactory.getDataset('ds_G5', null, new Array(DatasetFactory.createConstraint('documentid', '62962', '62962', ConstraintType.MUST)), null);
+            var colunas = datasetDs_G5.getColumnsName();
+            customHTML.append("\n<script> var colunasSize = '" + colunas.length + "'; </script>");
+            customHTML.append("\n<script> var colunas = '" + JSONUtil.toJSON(colunas) + "'; </script>");
+            customHTML.append("\n<script> function preencheTodosOsCampos() { ");
+            for (var index = 0; index < colunas.length; index++) {
+              var campo = colunas[index];
+              var valor = datasetDs_G5.getValue(0, campo);
+              form.setValue(campo, valor);
+              customHTML.append("\n var ds_" + campo + " = '" + valor + "'");
+            }
+            customHTML.append("\n }");
+            form.setValue('idLan', '-1');
+            */
 
     }
     /** FIM DO PREENCHIMENTO AUTOMATICO */

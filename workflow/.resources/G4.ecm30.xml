@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G4 - Anexação de Comprovante</processId>
-      <version>173</version>
+      <version>175</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>11400</formId>
@@ -126,8 +126,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>337</positionX>
-      <positionY>391</positionY>
+      <positionX>340</positionX>
+      <positionY>448</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -177,8 +177,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>337</positionX>
-      <positionY>243</positionY>
+      <positionX>340</positionX>
+      <positionY>327</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -228,8 +228,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>680</positionX>
-      <positionY>236</positionY>
+      <positionX>660</positionX>
+      <positionY>320</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -279,8 +279,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>340</positionX>
-      <positionY>590</positionY>
+      <positionX>343</positionX>
+      <positionY>621</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -330,8 +330,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1130</positionX>
-      <positionY>236</positionY>
+      <positionX>1000</positionX>
+      <positionY>320</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -382,7 +382,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>570</positionX>
-      <positionY>560</positionY>
+      <positionY>580</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -433,7 +433,57 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>570</positionX>
-      <positionY>620</positionY>
+      <positionY>660</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G4</processId>
+        <version>1</version>
+        <sequence>136</sequence>
+      </processStatePK>
+      <stateName>Aprovação Engenharia</stateName>
+      <stateDescription>Aprovação Engenharia</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1000</positionX>
+      <positionY>185</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -530,8 +580,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>230</positionX>
-      <positionY>409</positionY>
+      <positionX>233</positionX>
+      <positionY>466</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -577,8 +627,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>903</positionX>
-      <positionY>200</positionY>
+      <positionX>870</positionX>
+      <positionY>300</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -624,8 +674,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>233</positionX>
-      <positionY>601</positionY>
+      <positionX>236</positionX>
+      <positionY>631</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -671,8 +721,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>742</positionX>
-      <positionY>56</positionY>
+      <positionX>695</positionX>
+      <positionY>55</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -718,8 +768,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>553</positionX>
-      <positionY>253</positionY>
+      <positionX>556</positionX>
+      <positionY>337</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -765,8 +815,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>372</positionX>
-      <positionY>490</positionY>
+      <positionX>375</positionX>
+      <positionY>547</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -812,8 +862,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>903</positionX>
-      <positionY>300</positionY>
+      <positionX>870</positionX>
+      <positionY>370</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -837,8 +887,8 @@
         <version>1</version>
         <sequence>114</sequence>
       </processStatePK>
-      <stateName>Intermediário</stateName>
-      <stateDescription>Intermediário</stateDescription>
+      <stateName>Aprovado</stateName>
+      <stateDescription>Aprovado</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -859,8 +909,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1290</positionX>
-      <positionY>253</positionY>
+      <positionX>1260</positionX>
+      <positionY>337</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -892,8 +942,8 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>360</positionX>
-      <positionY>22</positionY>
+      <positionX>363</positionX>
+      <positionY>21</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -931,8 +981,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>903</positionX>
-      <positionY>600</positionY>
+      <positionX>870</positionX>
+      <positionY>632</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -978,8 +1028,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>903</positionX>
-      <positionY>56</positionY>
+      <positionX>870</positionX>
+      <positionY>55</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1003,7 +1053,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>1</expressionOrder>
-        <version>173</version>
+        <version>175</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==true</condition>
@@ -1015,7 +1065,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>2</expressionOrder>
-        <version>173</version>
+        <version>175</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==false</condition>
@@ -1253,23 +1303,6 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>115</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>112</initialStateSequence>
-      <finalStateSequence>114</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G4</processId>
-        <version>1</version>
         <linkSequence>123</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -1355,22 +1388,6 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>133</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <finalStateSequence>6</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G4</processId>
-        <version>1</version>
         <linkSequence>134</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -1388,7 +1405,41 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>135</linkSequence>
+        <linkSequence>137</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>112</initialStateSequence>
+      <finalStateSequence>136</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G4</processId>
+        <version>1</version>
+        <linkSequence>138</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>136</initialStateSequence>
+      <finalStateSequence>114</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G4</processId>
+        <version>1</version>
+        <linkSequence>139</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1404,7 +1455,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>136</linkSequence>
+        <linkSequence>140</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1420,7 +1471,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>137</linkSequence>
+        <linkSequence>141</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1436,7 +1487,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>138</linkSequence>
+        <linkSequence>142</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1452,7 +1503,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>139</linkSequence>
+        <linkSequence>143</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1468,7 +1519,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>140</linkSequence>
+        <linkSequence>144</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -2356,7 +2407,7 @@ function logTexto(texto) {&#xd;
     </SwimLane>
     <SwimLane>
       <color>82b0b7</color>
-      <height>180</height>
+      <height>144</height>
       <width>1378</width>
       <positionX>30</positionX>
       <positionY>0</positionY>
@@ -2372,11 +2423,11 @@ function logTexto(texto) {&#xd;
     </SwimLane>
     <SwimLane>
       <color>adc9ac</color>
-      <height>181</height>
+      <height>145</height>
       <width>1378</width>
       <positionX>30</positionX>
-      <positionY>540</positionY>
-      <stateName>Compras</stateName>
+      <positionY>576</positionY>
+      <stateName>Estoque</stateName>
       <type>2</type>
       <parentSequence>1</parentSequence>
       <swimLanePK>
@@ -2387,12 +2438,12 @@ function logTexto(texto) {&#xd;
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>d0daae</color>
-      <height>180</height>
+      <color>00FFFF</color>
+      <height>144</height>
       <width>1378</width>
       <positionX>30</positionX>
-      <positionY>180</positionY>
-      <stateName>Financeiro</stateName>
+      <positionY>144</positionY>
+      <stateName>Engenharia</stateName>
       <type>2</type>
       <parentSequence>1</parentSequence>
       <swimLanePK>
@@ -2404,11 +2455,11 @@ function logTexto(texto) {&#xd;
     </SwimLane>
     <SwimLane>
       <color>d6e0d0</color>
-      <height>180</height>
+      <height>144</height>
       <width>1378</width>
       <positionX>30</positionX>
-      <positionY>360</positionY>
-      <stateName>Estoque</stateName>
+      <positionY>432</positionY>
+      <stateName>Financeiro</stateName>
       <type>2</type>
       <parentSequence>1</parentSequence>
       <swimLanePK>
@@ -2416,6 +2467,22 @@ function logTexto(texto) {&#xd;
         <processId>G4</processId>
         <version>1</version>
         <sequence>5</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>c9c3ac</color>
+      <height>144</height>
+      <width>1378</width>
+      <positionX>30</positionX>
+      <positionY>288</positionY>
+      <stateName>Compras</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>G4</processId>
+        <version>1</version>
+        <sequence>6</sequence>
       </swimLanePK>
     </SwimLane>
   </list>
@@ -2563,7 +2630,18 @@ function logTexto(texto) {&#xd;
   </list>
   <list/>
   <list/>
-  <list/>
+  <list>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G4</processId>
+      <processVersion>175</processVersion>
+      <stateSequence>136</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>114</description>
+    </ProcessAppConfiguration>
+  </list>
   <list/>
   <list/>
 </list>
