@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G4 - Anexação de Comprovante</processId>
-      <version>175</version>
+      <version>176</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>11400</formId>
@@ -1053,7 +1053,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>1</expressionOrder>
-        <version>175</version>
+        <version>176</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==true</condition>
@@ -1065,7 +1065,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <expressionOrder>2</expressionOrder>
-        <version>175</version>
+        <version>176</version>
         <sequence>47</sequence>
       </conditionProcessStatePK>
       <condition>tipoPagamento()==false</condition>
@@ -1443,6 +1443,23 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
+      <initialStateSequence>6</initialStateSequence>
+      <finalStateSequence>47</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G4</processId>
+        <version>1</version>
+        <linkSequence>140</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
       <initialStateSequence>19</initialStateSequence>
       <finalStateSequence>21</finalStateSequence>
       <returnLabel></returnLabel>
@@ -1455,7 +1472,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>140</linkSequence>
+        <linkSequence>141</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1471,7 +1488,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>141</linkSequence>
+        <linkSequence>142</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1487,7 +1504,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>142</linkSequence>
+        <linkSequence>143</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1503,7 +1520,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>143</linkSequence>
+        <linkSequence>144</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -1519,7 +1536,7 @@
         <companyId>1</companyId>
         <processId>G4</processId>
         <version>1</version>
-        <linkSequence>144</linkSequence>
+        <linkSequence>145</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -2635,7 +2652,7 @@ function logTexto(texto) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G4</processId>
-      <processVersion>175</processVersion>
+      <processVersion>176</processVersion>
       <stateSequence>136</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>

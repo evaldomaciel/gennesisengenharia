@@ -129,7 +129,8 @@ function servicetask56(attempt, message) {
 				var versionDoc = docDetails.getValue(0, 'NR_VERSAO');
 				var currentState = movSeq.getValue(0, 'stateSequence');
 				// var selectedColleague = processTask.getValue(0, 'processTaskPK.colleagueId');
-				var selectedColleague = String(processTask.getValue(0, 'processTaskPK.colleagueId')).indexOf(":") >= 0 ? "fluig2" : processTask.getValue(0, 'processTaskPK.colleagueId');
+				var userFluigIntOauth = getConstante('fluig_usuario_OAUTH');
+				var selectedColleague = String(processTask.getValue(0, 'processTaskPK.colleagueId')).indexOf(":") >= 0 ? userFluigIntOauth : processTask.getValue(0, 'processTaskPK.colleagueId');
 				var processVersion = processDetail.getValue(0, 'version');
 
 
@@ -357,12 +358,26 @@ function getProcessTask(processInstanceId) {
 			DatasetFactory.createConstraint('processTaskPK.processInstanceId', processInstanceId, processInstanceId, ConstraintType.MUST),
 			DatasetFactory.createConstraint('active', 'true', 'true', ConstraintType.MUST)
 		), null);
-		if (datasetProcessTask.rowsCount > 0) return datasetProcessTask;
-		log.info("Não foi possível obter os dados na função getProcessTask(" + processInstanceId + ")")
+		if (datasetProcessTask.rowsCount > 0) { return datasetProcessTask; }
+		else {
+			log.info("Não foi possível obter os dados na função getProcessTask(" + processInstanceId + ")");
+			throw "Não foi possível dar continuidade à solicitação de origem (" + processInstanceId + "), pois ela não está vinculada a uma atividade ativa. É provável que a solicitação tenha sido finalizada ou cancelada. ";
+		}
 	} catch (error) {
-		throw new Error("Erro na função getProcessTask " + String(error));
+		throw new Error("Erro na função getProcessTask! " + String(error));
 	}
-	return false;
+}
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
+	for (var i = 0; i < oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, "id").trim() == param.trim()) {
+			return oConstantes.getValue(i, "Valor").trim();
+		}
+	}
+	return '0';
 }
 
 /***

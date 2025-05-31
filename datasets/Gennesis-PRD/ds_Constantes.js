@@ -40,10 +40,12 @@ function valores() {
         { 'id': 'Cor_Fundo_Consulta', 'Valor': '#87CEFA', 'descrição': 'Cor de Fundo Divisão Encerrada' },
         { 'id': 'rm_usuario', 'Valor': 'fluig', 'descrição': 'Dados de usuário para integração com RM' },
         { 'id': 'rm_senha', 'Valor': 'QFRvdHZzMTIzNDU2', 'descrição': 'Dados de usuário para integração com RM' },
+        { 'id': 'fluig_usuario_OAUTH', 'Valor': 'fluig2', 'descrição': 'Dados de usuário para integração interna do Fluig' },
         { 'id': 'fluig_usuario', 'Valor': 'fluig', 'descrição': 'Dados de usuário para integração interna do Fluig' },
         { 'id': 'fluig_senha', 'Valor': '1', 'descrição': 'Dados de usuário para integração interna do Fluig' },
         { 'id': 'G7-015-SLA', 'Valor': '008:00', 'descrição': 'SLA previsto para a atividade G7-015-Identificação' },
         { 'id': 'G7-021-SLA', 'Valor': '008:00', 'descrição': 'SLA previsto para a atividade G7-021-Anexar Comprovante' },
         { 'id': 'G7-029-SLA', 'Valor': '008:00', 'descrição': 'SLA previsto para a atividade G7-029-Avaliar Atendimento' },
+        { 'id': 'G7_ID_PASTA_ANEXO', 'Valor': '401342', 'descrição': 'Pasta onde são salvados os anexos do G7' },
     ]
 }

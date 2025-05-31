@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G7 - Manutenção de comprovantes</processId>
-      <version>2</version>
+      <version>389</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>401325</formId>
+    <formId>64381</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -802,7 +802,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>389</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -814,7 +814,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>2</version>
+        <version>389</version>
         <sequence>17</sequence>
       </conditionProcessStatePK>
       <condition>false</condition>
@@ -826,7 +826,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>389</version>
         <sequence>65</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;tipo_solicitacao_G5&apos;) == &apos;multipla&apos;</condition>
@@ -838,7 +838,7 @@
         <companyId>1</companyId>
         <processId>G7</processId>
         <expressionOrder>2</expressionOrder>
-        <version>2</version>
+        <version>389</version>
         <sequence>65</sequence>
       </conditionProcessStatePK>
       <condition>1==1</condition>
@@ -1514,7 +1514,8 @@ function getColleagueName(user) {&#xd;
 				var versionDoc = docDetails.getValue(0, &apos;NR_VERSAO&apos;);
 				var currentState = movSeq.getValue(0, &apos;stateSequence&apos;);
 				// var selectedColleague = processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;);
-				var selectedColleague = String(processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;)).indexOf(&quot;:&quot;) &gt;= 0 ? &quot;fluig2&quot; : processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;);
+				var userFluigIntOauth = getConstante(&apos;fluig_usuario_OAUTH&apos;);
+				var selectedColleague = String(processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;)).indexOf(&quot;:&quot;) &gt;= 0 ? userFluigIntOauth : processTask.getValue(0, &apos;processTaskPK.colleagueId&apos;);
 				var processVersion = processDetail.getValue(0, &apos;version&apos;);
 
 
@@ -1742,12 +1743,26 @@ function getProcessTask(processInstanceId) {
 			DatasetFactory.createConstraint(&apos;processTaskPK.processInstanceId&apos;, processInstanceId, processInstanceId, ConstraintType.MUST),
 			DatasetFactory.createConstraint(&apos;active&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST)
 		), null);
-		if (datasetProcessTask.rowsCount &gt; 0) return datasetProcessTask;
-		log.info(&quot;Não foi possível obter os dados na função getProcessTask(&quot; + processInstanceId + &quot;)&quot;)
+		if (datasetProcessTask.rowsCount &gt; 0) { return datasetProcessTask; }
+		else {
+			log.info(&quot;Não foi possível obter os dados na função getProcessTask(&quot; + processInstanceId + &quot;)&quot;);
+			throw &quot;Não foi possível dar continuidade à solicitação de origem (&quot; + processInstanceId + &quot;), pois ela não está vinculada a uma atividade ativa. É provável que a solicitação tenha sido finalizada ou cancelada. &quot;;
+		}
 	} catch (error) {
-		throw new Error(&quot;Erro na função getProcessTask &quot; + String(error));
+		throw new Error(&quot;Erro na função getProcessTask! &quot; + String(error));
 	}
-	return false;
+}
+
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint(&apos;id&apos;, param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset(&apos;ds_Constantes&apos;, null, null, null);
+	for (var i = 0; i &lt; oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, &quot;id&quot;).trim() == param.trim()) {
+			return oConstantes.getValue(i, &quot;Valor&quot;).trim();
+		}
+	}
+	return &apos;0&apos;;
 }
 
 /***
@@ -1996,7 +2011,7 @@ function geraPdf() {
 		log.info(&quot;PDF criado com sucesso em: &quot; + nomeArquivo);
 
 		// Salvar arquivo no GED
-		var FOLDER_FORM_PDF = 401342; // ID da pasta onde salvará o PDF
+		var FOLDER_FORM_PDF = getConstante(&apos;G7_ID_PASTA_ANEXO&apos;); // ID da pasta onde salvará o PDF
 		var serviceHelper = ServiceManager.getService(&quot;ECMDocumentService&quot;).getBean();
 		var service = serviceHelper
 			.instantiate(&quot;com.totvs.technology.ecm.dm.ws.ECMDocumentServiceService&quot;)
@@ -2450,7 +2465,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>2</version>
+        <version>389</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2461,7 +2476,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>2</version>
+        <version>389</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2472,7 +2487,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>2</version>
+        <version>389</version>
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2483,7 +2498,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>2</version>
+        <version>389</version>
         <linkSequence>40</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2494,7 +2509,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>2</version>
+        <version>389</version>
         <linkSequence>64</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2507,7 +2522,7 @@ function getNodeValue(text, columnName) {&#xd;
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>G7</processId>
-        <version>2</version>
+        <version>389</version>
         <stateSequence>16</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>

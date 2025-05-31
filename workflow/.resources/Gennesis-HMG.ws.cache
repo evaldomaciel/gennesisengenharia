@@ -3382,6 +3382,32 @@
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G9Homologação</string>
+      </void>
+      <void property="documentDescription">
+       <string>G9</string>
+      </void>
+      <void property="documentId">
+       <int>65923</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G8EspelhoProd</string>
+      </void>
+      <void property="documentDescription">
+       <string>G8EspelhoProd</string>
+      </void>
+      <void property="documentId">
+       <int>65924</int>
+      </void>
+     </object>
+    </void>
    </object>
   </void>
  </object>

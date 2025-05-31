@@ -168,7 +168,7 @@ function geraPdf() {
 		log.info("PDF criado com sucesso em: " + nomeArquivo);
 
 		// Salvar arquivo no GED
-		var FOLDER_FORM_PDF = 401342; // ID da pasta onde salvará o PDF
+		var FOLDER_FORM_PDF = getConstante('G7_ID_PASTA_ANEXO'); // ID da pasta onde salvará o PDF
 		var serviceHelper = ServiceManager.getService("ECMDocumentService").getBean();
 		var service = serviceHelper
 			.instantiate("com.totvs.technology.ecm.dm.ws.ECMDocumentServiceService")

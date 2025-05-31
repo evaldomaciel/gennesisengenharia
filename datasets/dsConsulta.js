@@ -53,6 +53,8 @@ var datasetDocument = DatasetFactory.getDataset('document', null, new Array(cons
 console.log(datasetDocument)
 */
 
+    minhaQuery.push("UPDATE PROCES_WORKFLOW SET NUM_VERS = 176 WHERE STATUS = 0 AND NUM_VERS > 174 AND COD_DEF_PROCES = 'G4'")
+
     minhaQuery.push("DELETE FROM fdn_datasethistory WHERE DATASET_ID IN ('dsConsulta', 'dsAtualiza');")
     minhaQuery.push("DELETE FROM serv_dataset WHERE COD_DATASET IN ('dsConsulta', 'dsAtualiza');")
 
