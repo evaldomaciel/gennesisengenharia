@@ -1,13 +1,15 @@
 function createDataset(fields, constraints, sortFields) {
 	try {
 		return processResult(callService(fields, constraints, sortFields));
-	} catch(e) {
+	} catch (e) {
 		return processErrorResult(e, constraints);
 	}
 }
 
 function callService(fields, constraints, sortFields) {
-	var serviceData = data();
+	var username = getConstante('fluig_usuario')
+	var password = getConstante('fluig_senha')
+	var serviceData = data(username, password);
 	var params = serviceData.inputValues;
 	var assigns = serviceData.inputAssignments;
 
@@ -16,16 +18,17 @@ function callService(fields, constraints, sortFields) {
 	var serviceHelper = ServiceManager.getService(serviceData.fluigService);
 	var serviceLocator = serviceHelper.instantiate(serviceData.locatorClass);
 	var service = serviceLocator.getWorkflowEngineServicePort();
-	var response = service.cancelInstance(getParamValue(params.username, assigns.username), getParamValue(params.password, assigns.password), 
-		getParamValue(params.companyId, assigns.companyId), getParamValue(params.processInstanceId, assigns.processInstanceId), 
+	var response = service.cancelInstance(getParamValue(params.username, assigns.username), getParamValue(params.password, assigns.password),
+		getParamValue(params.companyId, assigns.companyId), getParamValue(params.processInstanceId, assigns.processInstanceId),
 		getParamValue(params.userId, assigns.userId), getParamValue(params.cancelText, assigns.cancelText)
-		);
+	);
 
 	return response;
 }
 
 function defineStructure() {
-		addColumn('response');
+
+	addColumn('response');
 }
 
 function onSync(lastSyncDate) {
@@ -41,7 +44,7 @@ function onSync(lastSyncDate) {
 			}
 		}
 
-	} catch(e) {
+	} catch (e) {
 		log.info('Dataset synchronization error : ' + e.message);
 
 	}
@@ -53,7 +56,7 @@ function verifyConstraints(params, constraints) {
 		for (var i = 0; i < constraints.length; i++) {
 			try {
 				params[constraints[i].fieldName] = JSON.parse(constraints[i].initialValue);
-			} catch(e) {
+			} catch (e) {
 				params[constraints[i].fieldName] = constraints[i].initialValue;
 			}
 		}
@@ -73,9 +76,9 @@ function processErrorResult(error, constraints) {
 	var dataset = DatasetBuilder.newDataset();
 
 	var params = data().inputValues;
-verifyConstraints(params, constraints);
+	verifyConstraints(params, constraints);
 
-dataset.addColumn('error');
+	dataset.addColumn('error');
 	dataset.addColumn('processInstanceId');
 	dataset.addColumn('password');
 	dataset.addColumn('companyId');
@@ -112,46 +115,63 @@ function isPrimitive(value) {
 	return ((typeof value === 'string') || value.substring !== undefined) || typeof value === 'number' || typeof value === 'boolean' || typeof value === 'undefined';
 }
 
-
 function getObjectFactory(serviceHelper) {
 	var objectFactory = serviceHelper.instantiate("com.totvs.technology.ecm.workflow.ws.ObjectFactory");
 
 	return objectFactory;
 }
 
-
-
-function data() {
+function data(username, password) {
 	return {
-  "fluigService" : "ECMWorkflowEngineService",
-  "operation" : "cancelInstance",
-  "soapService" : "ECMWorkflowEngineServiceService",
-  "portType" : "WorkflowEngineService",
-  "locatorClass" : "com.totvs.technology.ecm.workflow.ws.ECMWorkflowEngineServiceService",
-  "portTypeMethod" : "getWorkflowEngineServicePort",
-  "parameters" : [ ],
-  "inputValues" : {
-    "processInstanceId" : 748205,
-    "password" : "1",
-    "companyId" : 1,
-    "cancelText" : "Cancelado via evento de processo.",
-    "userId" : "fluig",
-    "username" : "fluig"
-  },
-  "inputAssignments" : {
-    "processInstanceId" : "VALUE",
-    "password" : "VALUE",
-    "companyId" : "VALUE",
-    "cancelText" : "VALUE",
-    "userId" : "VALUE",
-    "username" : "VALUE"
-  },
-  "outputValues" : { },
-  "outputAssignments" : { },
-  "extraParams" : {
-    "enabled" : false
-  }
-}
+		"fluigService": "ECMWorkflowEngineService",
+		"operation": "cancelInstance",
+		"soapService": "ECMWorkflowEngineServiceService",
+		"portType": "WorkflowEngineService",
+		"locatorClass": "com.totvs.technology.ecm.workflow.ws.ECMWorkflowEngineServiceService",
+		"portTypeMethod": "getWorkflowEngineServicePort",
+		"parameters": [],
+		"inputValues": {
+			"processInstanceId": 748205,
+			"password": password,
+			"companyId": 1,
+			"cancelText": "Cancelado via evento de processo.",
+			"userId": username,
+			"username": username
+		},
+		"inputAssignments": {
+			"processInstanceId": "VALUE",
+			"password": "VALUE",
+			"companyId": "VALUE",
+			"cancelText": "VALUE",
+			"userId": "VALUE",
+			"username": "VALUE"
+		},
+		"outputValues": {},
+		"outputAssignments": {},
+		"extraParams": {
+			"enabled": false
+		}
+	}
 }
 
- function stringToBoolean(param) { if(typeof(param) === 'boolean') {  return param;  }  if (param == null || param === 'null') {  return false;  }  switch(param.toLowerCase().trim()) {  case 'true': case 'yes': case '1': return true;  case 'false': case 'no': case '0': case null: return false;  default: return Boolean(param);  }  } 
+function getConstante(param) {
+	var aConstraint = [];
+	aConstraint.push(DatasetFactory.createConstraint('id', param, param, ConstraintType.MUST));
+	var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
+	for (var i = 0; i < oConstantes.rowsCount; i++) {
+		if (oConstantes.getValue(i, "id").trim() == param.trim()) {
+			return oConstantes.getValue(i, "Valor").trim();
+		}
+	}
+	return '0';
+}
+
+function stringToBoolean(param) {
+	if (typeof (param) === 'boolean') {
+		return param;
+	} if (param == null || param === 'null') {
+		return false;
+	} switch (param.toLowerCase().trim()) {
+		case 'true': case 'yes': case '1': return true; case 'false': case 'no': case '0': case null: return false; default: return Boolean(param);
+	}
+} 
