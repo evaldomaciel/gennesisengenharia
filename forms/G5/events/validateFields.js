@@ -12,6 +12,9 @@ function validateForm(form) {
     /*** Cancelamento */
     if (proxima == 287) return;
 
+    if ( getValue("WKUser") == "Dev.Externo") return;
+
+
     /* ETAPA 000 | 004 - INICIO | 034 REVISÃO */
     if (activity == 4 || activity == 0 || activity == 34) {
         if (campoVazio(form, "empresa")) msg += getMsgObg('Empresa');

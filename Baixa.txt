@@ -1,0 +1,84 @@
+Importação do arquivo de retorno de pagamento do Banco Itaú.
+Arquivo: "C:\Users\evald\OneDrive\Área de Trabalho\SB26055P BANRISUL.RET" 
+
+Iniciando Serviço de Retorno Bancário. Início : 30/05/2025 22:16:11 
+
+--------------------------------------------------------------------  LINHAS PROCESSADAS COM SUCESSO  --------------------------------------------------------------------
+
+
+Linha 00006    Nosso Número: 500940904400727   Valor Pago: 450,00                Data de Pagamento: 26/05/2025           Sucesso Lançamento Ref. 1-75575 - Ok
+
+
+
+--------------------------------------------------------------------  LINHAS COM ERRO  --------------------------------------------------------------------
+
+
+Linha 00003    Não encontrou lançamentos com a referência 74962 na coligada 1. Valor Pago : 27.772,44
+Linha 00009    Não encontrou lançamentos com a referência 75577 na coligada 1. Valor Pago : 250,00
+Linha 00012    Não encontrou lançamentos com a referência 75578 na coligada 1. Valor Pago : 250,00
+Linha 00015    Não encontrou lançamentos com a referência 75579 na coligada 1. Valor Pago : 250,00
+Linha 00018    Não encontrou lançamentos com a referência 75580 na coligada 1. Valor Pago : 450,00
+Linha 00021    Não encontrou lançamentos com a referência 75581 na coligada 1. Valor Pago : 400,00
+Linha 00024    Não encontrou lançamentos com a referência 75582 na coligada 1. Valor Pago : 400,00
+Linha 00027    Não encontrou lançamentos com a referência 75583 na coligada 1. Valor Pago : 250,00
+Linha 00030    Não encontrou lançamentos com a referência 75584 na coligada 1. Valor Pago : 200,00
+Linha 00033    Não encontrou lançamentos com a referência 75585 na coligada 1. Valor Pago : 200,00
+Linha 00036    Não encontrou lançamentos com a referência 75586 na coligada 1. Valor Pago : 200,00
+Linha 00039    Não encontrou lançamentos com a referência 75587 na coligada 1. Valor Pago : 200,00
+Linha 00042    Não encontrou lançamentos com a referência 75588 na coligada 1. Valor Pago : 456,52
+Linha 00003    Erro Lançamento Ref. 1-74962 - Lançamento não encontrado - Valor Pago: 27.772,44 
+Linha 00009    Erro Lançamento Ref. 1-75577 - Lançamento não encontrado - Valor Pago: 250,00 
+Linha 00012    Erro Lançamento Ref. 1-75578 - Lançamento não encontrado - Valor Pago: 250,00 
+Linha 00015    Erro Lançamento Ref. 1-75579 - Lançamento não encontrado - Valor Pago: 250,00 
+Linha 00018    Erro Lançamento Ref. 1-75580 - Lançamento não encontrado - Valor Pago: 450,00 
+Linha 00021    Erro Lançamento Ref. 1-75581 - Lançamento não encontrado - Valor Pago: 400,00 
+Linha 00024    Erro Lançamento Ref. 1-75582 - Lançamento não encontrado - Valor Pago: 400,00 
+Linha 00027    Erro Lançamento Ref. 1-75583 - Lançamento não encontrado - Valor Pago: 250,00 
+Linha 00030    Erro Lançamento Ref. 1-75584 - Lançamento não encontrado - Valor Pago: 200,00 
+Linha 00033    Erro Lançamento Ref. 1-75585 - Lançamento não encontrado - Valor Pago: 200,00 
+Linha 00036    Erro Lançamento Ref. 1-75586 - Lançamento não encontrado - Valor Pago: 200,00 
+Linha 00039    Erro Lançamento Ref. 1-75587 - Lançamento não encontrado - Valor Pago: 200,00 
+Linha 00042    Erro Lançamento Ref. 1-75588 - Lançamento não encontrado - Valor Pago: 456,52 
+
+
+
+--------------------------------------------------------------------  TOTAIS DO ARQUIVO PROCESSADO --------------------------------------------------------------------
+
+
+Lançamentos baixados    :      1     Valor total (Baixas)      : 450,00
+Lançamentos NÃO baixados:      13     Valor total (NÃO Baixados): 31.278,96
+Total de Lançamentos    :      14     Valor total               : 31.728,96
+
+Linhas processadas      :      14 
+
+
+
+Tempo de Processamento: 0:00:07:0 (HH:MM:SS:ms)
+
+
+
+
+FLANBAIXA.
+
+FLANBAIXACOMPL
+
+
+@SQL	SELECT CODCOLIGADA, IDLAN, IDBAIXA FROM FLANBAIXACOMPL (NOLOCK) WHERE  CODCOLIGADA = :CODCOLIGADA AND IDLAN = :IDLAN AND IDBAIXA = :IDBAIXA
+
+FLUIGGERADO
+
+
+FLUIGGERADO
+Foi gerada solicitação no Fluig
+
+
+FLUIGBAIXAV
+Baixa registrada no Fluig
+
+
+Tabela dinamica 
+FLUIG001 - Fluig Gerado
+0 - Não 
+1 - Sim 
+
+

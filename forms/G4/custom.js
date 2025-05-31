@@ -476,4 +476,15 @@ window.onload = function ConsultaCentroDeCusto() {
 
 
     return 0;
- }
+}
+ 
+$(document).ready(function () {
+    FLUIGC.calendar('#dataEntrega',{
+        pickDate: true, 
+        pickTime: false, 
+        dateFormat: 'dd/mm/yyyy', 
+        language: 'pt-br',
+        minDate: new Date(), 
+    });
+    
+});

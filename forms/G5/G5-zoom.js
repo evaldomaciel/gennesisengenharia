@@ -410,7 +410,7 @@ function filtraContaCaixaPelaColigadaEFilial() {
 
 function filtraDadosPagamento() {
   if (validaZoom("dados_pagamento_analise")) reloadZoomFilterValues("dados_pagamento_analise", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
-  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()},CODFILIAL,${$("#CODFILIAL").val()}`);
+  if (validaZoom("dados_pagamento")) reloadZoomFilterValues("dados_pagamento", `CODCOLIGADA,${$("#CODCOLIGADA").val()},CODCFO,${$("#hidden_codigo_cli_for").val()}`);
 }
 
 function validaContaCaixa(codContaCaixa) {

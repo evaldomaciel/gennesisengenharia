@@ -173,10 +173,14 @@ function displayFields(form, customHTML) {
 
 
     /** Negações */
-    // if (adminUser == false) {
-    form.setVisibleById("div_dados_ocultos", false);
-    form.setVisibleById("div_atribuicoes", false);
-    // }
+    if (user != "43216213-260f-49b9-a685-de16b79cf564") 
+    {
+    	form.setVisibleById("div_dados_ocultos", false);
+    	form.setVisibleById("div_atribuicoes", false);
+    }else{
+    	form.setVisibleById("div_atribuicoes", true);
+    	
+    }
 
     if (activity != 0 && activity != 4 && activity != 221 && activity != 216 && activity != 295 && activity != 223) {
       customAppend += "\n $('.table-rateio-ccusto-delete').hide(); ";
